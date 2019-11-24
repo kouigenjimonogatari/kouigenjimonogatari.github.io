@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>校異源氏物語テキストDB</title>
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.3/examples/carousel/carousel.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="index.html">校異源氏物語テキストDB</a>
+            <!-- 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            -->
+            <!-- 
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="search.html">一覧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">IIIF & TEI Viewer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TEI/XML</a>
+                    </li>
+                </ul>
+            </div>
+            -->
+        </nav>
+    </header>
+
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1 class="mt-5 display-3">校異源氏物語テキストDB</h1>
+                <p class="my-5 lead">
+                    『校異源氏物語』のテキストデータを公開するデータベースです。
+                </p>
+            </div>
+        </div>
+
+
+
+        <!-- Marketing messaging and featurettes
+                ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing mt-5">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="https://json-ld.org/images/json-ld-logo.png"
+                        class="bd-placeholder-img" height="140" />
+                    <!-- <h2 class="mt-5">一覧</h2> -->
+                    <p class="mt-3">URIが付与されたテキストデータを一覧する。</p>
+                    <p><a class="btn btn-secondary"
+                            href="https://tei-eaj.github.io/aozora_tei/tools/visualization/cetei/?url=https://w3id.org/kouigenjimonogatari/tei/01.xml"
+                            role="button">「きりつぼ」を閲覧する</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="bd-placeholder-img" height="140"
+                        src="https://pbs.twimg.com/profile_images/596366309601845248/2uaPY5NH_400x400.png" />
+                    <!-- <h2 class="mt-5">IIIF & TEI Viewer</h2> -->
+                    <p class="mt-3">IIIF画像（国立国会図書館デジタルコレクション）と合わせて閲覧する。</p>
+                    <p><a class="btn btn-secondary"
+                            href="https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/01.xml&textDirection=vertical#dest_pos"
+                            role="button">「きりつぼ」を閲覧する</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img class="bd-placeholder-img" height="140"
+                        src="https://tei-c.org/Vault/MembersMeetings/2013/wp-content/themes/atahualpa/images/header/TEIlogo.png" />
+                    <!-- <h2 class="mt-5">TEI/XML</h2> -->
+                    <p class="mt-3">TEI/XMLファイルを閲覧する。</p>
+                    <p><a class="btn btn-secondary" href="https://w3id.org/kouigenjimonogatari/tei/01.xml"
+                            role="button">「きりつぼ」を閲覧する</a></p>
+                </div><!-- /.col-lg-4 -->
+
+            </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <!-- <hr class="featurette-divider"> -->
+
+            <div class="row featurette">
+                <div class="col-md-12">
+                    <h2 class="featurette-heading">このサイトについて</h2>
+                    <p class="mt-4 lead">
+                        国立国会図書館デジタルコレクションで公開されている<a
+                            href="http://dl.ndl.go.jp/info:ndljp/pid/3437686">『校異源氏物語』</a>（インターネット公開（保護期間満了））のテキストデータを公開します。テキストデータの作成にあたっては、画像をOCR処理し、人手により確認しています。
+                    </p>
+                    <p class="lead">また各行にURI（Uniform Resource Identifier）を与え、LOD（Linked Open
+                        Data）として公開します。さらに、IIIF画像と関連付けたTEI/XMLファイルも合わせて提供します。
+                    </p>
+                </div>
+            </div>
+
+            <!-- <hr class="featurette-divider"> -->
+
+            <div class="row featurette">
+                <div class="col-md-12">
+                    <h2 class="featurette-heading">作成者</h2>
+                    <p>
+                        <ul>
+                            <li class="lead"><a href="https://researchmap.jp/tam">田村隆</a>　東京大学大学院総合文化研究科准教授</li>
+                            <li class="lead"><a href="https://researchmap.jp/knagasaki">永崎研宣</a>　一般財団法人 人文情報学研究所主席研究員
+                            </li>
+                            <li class="lead"><a href="https://researchmap.jp/i2k">大向一輝</a>　東京大学大学院人文社会系研究科准教授</li>
+                            <li class="lead"><a href="https://researchmap.jp/nakamura.satoru">中村覚</a>　東京大学情報基盤センター助教
+                            </li>
+                            <li class="lead">東京大学総合図書館職員　有志</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
+
+
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p><a target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">「デジタル源氏物語」プロジェクト</a></p>
+        </footer>
+    </main>
+
+    <!-- /.container -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="/docs/4.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

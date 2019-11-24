@@ -1,0 +1,43 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>校異源氏物語</title>
+            <respStmt>
+               <resp when="2019-10-30">Transcription</resp>
+               <name>Misa Nakamura</name>
+            </respStmt>
+            <respStmt>
+               <resp when="2019-10-30">Transcription</resp>
+               <name>Takashi Tamura</name>
+            </respStmt>
+            <respStmt>
+               <resp when="2019-10-30">TEI Encoding</resp>
+               <name>Satoru Nakamura</name>
+            </respStmt>
+            <respStmt>
+               <resp when="2019-10-30">Advisor</resp>
+               <name>Kiyonori Nagasaki</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <distributor>東京大学</distributor>
+            <date when="2019-10-30">2019年10月30日</date>
+            <availability>
+               <p/>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <p/>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <facsimile>
+      <surfaceGrp facs="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"> </surfaceGrp>
+   </facsimile>
+   <text>
+      <body>
+         <p/>
+      </body>
+   </text>
+</TEI>
