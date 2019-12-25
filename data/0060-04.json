@@ -1,0 +1,63 @@
+[
+  {
+    "@id": "https://w3id.org/kouigenjimonogatari/data/0060-04.json",
+    "@type": [
+      "https://jpsearch.go.jp/term/type/文章要素"
+    ],
+    "http://example.org/next": [
+      {
+        "@id": "https://w3id.org/kouigenjimonogatari/data/0060-05.json"
+      }
+    ],
+    "http://example.org/previous": [
+      {
+        "@id": "https://w3id.org/kouigenjimonogatari/data/0060-03.json"
+      }
+    ],
+    "http://example.org/作品名": [
+      {
+        "@value": "源氏物語"
+      }
+    ],
+    "http://example.org/冊数名": [
+      {
+        "@value": 2
+      }
+    ],
+    "http://example.org/巻名": [
+      {
+        "@value": "ははきぎ"
+      }
+    ],
+    "http://example.org/行数": [
+      {
+        "@value": 4
+      }
+    ],
+    "http://example.org/頁数": [
+      {
+        "@value": 60
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"
+      }
+    ],
+    "http://purl.org/dc/terms/relation": [
+      {
+        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=[{%22manifest%22:%22https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json%22,%22canvas%22:%22https://www.dl.ndl.go.jp/api/iiif/3437686/canvas/50%22}]"
+      }
+    ],
+    "http://purl.org/dc/terms/rights": [
+      {
+        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "からさりしにものゝたよりにたちよりて侍れはつねのうちとけゐたるかたには"
+      }
+    ]
+  }
+]

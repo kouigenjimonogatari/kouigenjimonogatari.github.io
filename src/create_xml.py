@@ -48,7 +48,7 @@ root = tree.getroot()
 
 para = root.find(prefix + "body").find(prefix + "p")
 
-files = glob.glob("../docs/data/*.json")
+files = glob.glob("../data/*.json")
 
 surfaceGrp = root.find(prefix+"surfaceGrp")
 
@@ -60,12 +60,22 @@ prev_page = -1
 
 canvas_map = {}
 
+vol = 2
+
 for file in sorted(files):
 
     with open(file, 'r') as f:
         data = json.load(f)
 
         value = data[0]["http://www.w3.org/2000/01/rdf-schema#label"][0]["@value"]
+
+        vol_ = data[0]["http://example.org/冊数名"][0]["@value"]
+
+        if vol != vol_:
+            continue
+
+        title = data[0]["http://example.org/巻名"][0]["@value"]
+        root.find(prefix + "title").text = str(vol).zfill(2) + " "+ title
 
         id = data[0]["@id"]
 
@@ -143,4 +153,4 @@ for canvas_id in canvas_map:
         surface.append(zone)
 
 
-tree.write("../docs/tei/01.xml", encoding="utf-8")
+tree.write("../tei/"+str(vol).zfill(2)+".xml", encoding="utf-8")

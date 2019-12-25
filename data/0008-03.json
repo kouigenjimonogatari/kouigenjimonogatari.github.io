@@ -4,12 +4,12 @@
     "@type": [
       "https://jpsearch.go.jp/term/type/文章要素"
     ],
-    "http://example.org/after": [
+    "http://example.org/next": [
       {
         "@id": "https://w3id.org/kouigenjimonogatari/data/0008-04.json"
       }
     ],
-    "http://example.org/before": [
+    "http://example.org/previous": [
       {
         "@id": "https://w3id.org/kouigenjimonogatari/data/0008-02.json"
       }
@@ -21,7 +21,7 @@
     ],
     "http://example.org/冊数名": [
       {
-        "@value": "1"
+        "@value": 1
       }
     ],
     "http://example.org/巻名": [
@@ -37,6 +37,16 @@
     "http://example.org/頁数": [
       {
         "@value": 8
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"
+      }
+    ],
+    "http://purl.org/dc/terms/relation": [
+      {
+        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=[{%22manifest%22:%22https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json%22,%22canvas%22:%22https://www.dl.ndl.go.jp/api/iiif/3437686/canvas/24%22}]"
       }
     ],
     "http://purl.org/dc/terms/rights": [

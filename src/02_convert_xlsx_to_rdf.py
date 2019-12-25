@@ -59,4 +59,4 @@ for j in range(3, r_count):
                 g.add((subject, p, Literal(value)))
 
 
-    g.serialize(destination="../docs/data/"+id, format='json-ld')
+    g.serialize(destination="../data/"+id, format='json-ld')
