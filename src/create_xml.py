@@ -11,6 +11,7 @@ import csv
 import glob
 
 def get_mdata(manifest):
+    print(manifest)
     res = urllib.request.urlopen(manifest)
     # json_loads() でPythonオブジェクトに変換
     data = json.loads(res.read().decode('utf-8'))
@@ -60,7 +61,7 @@ prev_page = -1
 
 canvas_map = {}
 
-vol = 2
+vol = 11
 
 for file in sorted(files):
 
@@ -68,6 +69,9 @@ for file in sorted(files):
         data = json.load(f)
 
         value = data[0]["http://www.w3.org/2000/01/rdf-schema#label"][0]["@value"]
+
+        if "http://example.org/冊数名" not in data[0]:
+            continue
 
         vol_ = data[0]["http://example.org/冊数名"][0]["@value"]
 

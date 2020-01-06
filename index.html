@@ -90,34 +90,23 @@
                         class="bd-placeholder-img" height="140" />
                     <!-- <h2 class="mt-5">一覧</h2> -->
                     <p class="mt-3">URIが付与されたテキストデータを一覧する。</p>
-                    <p><a class="btn btn-secondary"
-                            href="https://tei-eaj.github.io/aozora_tei/tools/visualization/cetei/?url=https://w3id.org/kouigenjimonogatari/tei/01.xml"
-                            role="button">「きりつぼ」を閲覧する</a></p>
-                            <p><a class="btn btn-secondary"
-                                href="https://tei-eaj.github.io/aozora_tei/tools/visualization/cetei/?url=https://w3id.org/kouigenjimonogatari/tei/02.xml"
-                                role="button">「ははきぎ」を閲覧する</a></p>
+                    <div id="div1"></div>
+                    
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="bd-placeholder-img" height="140"
                         src="https://pbs.twimg.com/profile_images/596366309601845248/2uaPY5NH_400x400.png" />
                     <!-- <h2 class="mt-5">IIIF & TEI Viewer</h2> -->
                     <p class="mt-3">IIIF画像（国立国会図書館デジタルコレクション）と合わせて閲覧する。</p>
-                    <p><a class="btn btn-secondary"
-                            href="https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/01.xml&textDirection=vertical#dest_pos"
-                            role="button">「きりつぼ」を閲覧する</a></p>
-                            <p><a class="btn btn-secondary"
-                                href="https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/02.xml&textDirection=vertical#dest_pos"
-                                role="button">「ははきぎ」を閲覧する</a></p>
+                    <div id="div2"></div>
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="bd-placeholder-img" height="140"
                         src="https://tei-c.org/Vault/MembersMeetings/2013/wp-content/themes/atahualpa/images/header/TEIlogo.png" />
                     <!-- <h2 class="mt-5">TEI/XML</h2> -->
                     <p class="mt-3">TEI/XMLファイルを閲覧する。</p>
-                    <p><a class="btn btn-secondary" href="https://w3id.org/kouigenjimonogatari/tei/01.xml"
-                            role="button">「きりつぼ」を閲覧する</a></p>
-                            <p><a class="btn btn-secondary" href="https://w3id.org/kouigenjimonogatari/tei/02.xml"
-                                role="button">「ははきぎ」を閲覧する</a></p>
+                    <div id="div3"></div>
+                    
                 </div><!-- /.col-lg-4 -->
 
             </div><!-- /.row -->
@@ -191,9 +180,61 @@
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="/docs/4.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
-        crossorigin="anonymous"></script>
+    <script>
+        let arr = [
+            {
+                id: "01",
+                label: "きりつぼ"
+            },
+            {
+                id: "02",
+                label: "ははきぎ"
+            },
+            {
+                id: "03",
+                label: "うつせみ"
+            }
+        ]
+
+        for(let i = 0; i < arr.length; i++){
+            let obj = arr[i]
+
+            let p = $("<p>")
+            $("#div1").append(p)
+
+            id = obj.id
+            label = obj.label
+
+            let a = $("<a>")
+            p.append(a)
+            a.attr("class", "btn btn-secondary")
+            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/cetei/?url=https://w3id.org/kouigenjimonogatari/tei/"+id+".xml")
+            a.append("「"+label+"」を閲覧する")
+
+            //--------
+
+            p = $("<p>")
+            $("#div2").append(p)
+
+            a = $("<a>")
+            p.append(a)
+            a.attr("class", "btn btn-secondary")
+            a.attr("href", "https://w3id.org/kouigenjimonogatari/tei/"+id+".xml")
+            a.append("「"+label+"」を閲覧する")
+
+            //--------
+
+            p = $("<p>")
+            $("#div3").append(p)
+
+            a = $("<a>")
+            p.append(a)
+            a.attr("class", "btn btn-secondary")
+            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/"+id+".xml&textDirection=vertical#dest_pos")
+            a.append("「"+label+"」を閲覧する")
+        }
+
+    </script>
 </body>
 
 </html>

@@ -4,6 +4,11 @@
     "@type": [
       "https://jpsearch.go.jp/term/type/文章要素"
     ],
+    "http://example.org/next": [
+      {
+        "@id": "https://w3id.org/kouigenjimonogatari/data/0085-02.json"
+      }
+    ],
     "http://example.org/previous": [
       {
         "@id": "https://w3id.org/kouigenjimonogatari/data/0078-14.json"

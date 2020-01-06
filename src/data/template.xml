@@ -4,25 +4,25 @@
          <titleStmt>
             <title></title>
             <respStmt>
-               <resp when="2019-10-30">Transcription</resp>
+               <resp when="2020-01-06">Transcription</resp>
                <name>Misa Nakamura</name>
             </respStmt>
             <respStmt>
-               <resp when="2019-10-30">Transcription</resp>
+               <resp when="2020-01-06">Transcription</resp>
                <name>Takashi Tamura</name>
             </respStmt>
             <respStmt>
-               <resp when="2019-10-30">TEI Encoding</resp>
+               <resp when="2020-01-06">TEI Encoding</resp>
                <name>Satoru Nakamura</name>
             </respStmt>
             <respStmt>
-               <resp when="2019-10-30">Advisor</resp>
+               <resp when="2020-01-06">Advisor</resp>
                <name>Kiyonori Nagasaki</name>
             </respStmt>
          </titleStmt>
          <publicationStmt>
             <distributor>デジタル源氏物語</distributor>
-            <date when="2019-10-30">2019年10月30日</date>
+            <date when="2020-01-06">2020年01月06日</date>
             <availability>
                <p>
                   <ref target="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</ref></p>
