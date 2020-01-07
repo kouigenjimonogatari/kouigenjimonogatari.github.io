@@ -9,16 +9,6 @@
         "@value": "源氏物語"
       }
     ],
-    "http://example.org/冊数名": [
-      {
-        "@value": 11
-      }
-    ],
-    "http://example.org/巻名": [
-      {
-        "@value": "花ちるさと"
-      }
-    ],
     "http://example.org/行数": [
       {
         "@value": 22
