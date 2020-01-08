@@ -61,7 +61,7 @@ prev_page = -1
 
 canvas_map = {}
 
-vol = 8
+vol = 4
 
 for file in sorted(files):
 
