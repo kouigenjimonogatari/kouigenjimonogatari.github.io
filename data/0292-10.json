@@ -9,6 +9,16 @@
         "@value": "源氏物語"
       }
     ],
+    "http://example.org/冊数名": [
+      {
+        "@value": 9
+      }
+    ],
+    "http://example.org/巻名": [
+      {
+        "@value": "あふひ"
+      }
+    ],
     "http://example.org/行数": [
       {
         "@value": 10
@@ -36,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "よの人ききも人わらへにならんこととおほすさりとてたちとまるへくおほしなる"
+        "@value": "よの人きゝも人わらへにならんことゝおほすさりとてたちとまるへくおほしな"
       }
     ]
   }
