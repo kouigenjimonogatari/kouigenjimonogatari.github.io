@@ -1,0 +1,53 @@
+[
+  {
+    "@id": "https://w3id.org/kouigenjimonogatari/data/0639-01.json",
+    "@type": [
+      "https://jpsearch.go.jp/term/type/文章要素"
+    ],
+    "http://example.org/作品名": [
+      {
+        "@value": "源氏物語"
+      }
+    ],
+    "http://example.org/冊数名": [
+      {
+        "@value": 20
+      }
+    ],
+    "http://example.org/巻名": [
+      {
+        "@value": "あさかほ"
+      }
+    ],
+    "http://example.org/行数": [
+      {
+        "@value": 1
+      }
+    ],
+    "http://example.org/頁数": [
+      {
+        "@value": 639
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"
+      }
+    ],
+    "http://purl.org/dc/terms/relation": [
+      {
+        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=[{%22manifest%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json%22,%22canvas%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/canvas/129%22}]"
+      }
+    ],
+    "http://purl.org/dc/terms/rights": [
+      {
+        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "斎院は御ふくにておりゐ給にきかしおとゝれいのおほしそめつる事たえぬ御く"
+      }
+    ]
+  }
+]
