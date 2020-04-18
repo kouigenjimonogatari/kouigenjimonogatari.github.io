@@ -55,11 +55,14 @@ for vol in vols:
     files = glob.glob("../data/*.json")
 
     surfaceGrp = root.find(prefix+"surfaceGrp")
+    
 
     with open("../vols/"+str(vol).zfill(2)+".json", 'r') as f:
         rdf_collection = json.load(f)
     
     manifest = rdf_collection[0]["http://purl.org/dc/terms/isPartOf"][0]["@id"]
+
+    surfaceGrp.set("facs", manifest)
 
     canvas_data = get_mdata(manifest)
 
