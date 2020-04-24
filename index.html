@@ -34,10 +34,10 @@
     <link href="https://getbootstrap.com/docs/4.3/examples/carousel/carousel.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="pt-0">
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">校異源氏物語テキストDB</a>
             <!-- 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
@@ -90,7 +90,7 @@
                         class="bd-placeholder-img" height="140" />
                     <!-- <h2 class="mt-5">一覧</h2> -->
                     <p class="mt-3">URIが付与されたテキストデータを一覧する。</p>
-                    <div id="div1"></div>
+                    <!-- <div id="div1"></div> -->
                     
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
@@ -98,18 +98,28 @@
                         src="https://pbs.twimg.com/profile_images/596366309601845248/2uaPY5NH_400x400.png" />
                     <!-- <h2 class="mt-5">IIIF & TEI Viewer</h2> -->
                     <p class="mt-3">IIIF画像（国立国会図書館デジタルコレクション）と合わせて閲覧する。</p>
-                    <div id="div2"></div>
+                    <!-- <div id="div2"></div> -->
                 </div><!-- /.col-lg-4 -->
                 <div class="col-lg-4">
                     <img class="bd-placeholder-img" height="140"
                         src="https://tei-c.org/Vault/MembersMeetings/2013/wp-content/themes/atahualpa/images/header/TEIlogo.png" />
                     <!-- <h2 class="mt-5">TEI/XML</h2> -->
                     <p class="mt-3">TEI/XMLファイルを閲覧する。</p>
-                    <div id="div3"></div>
+                    <!-- <div id="div3"></div> -->
                     
                 </div><!-- /.col-lg-4 -->
 
             </div><!-- /.row -->
+
+            <div class="row featurette">
+                <div class="col-md-12">
+                    <p class="mt-4" id="main">
+                        <table class="table">
+                            <tbody></tbody>
+                        </table>
+                    </p>
+                </div>
+            </div>
 
             <div class="row featurette">
                 <div class="col-md-12">
@@ -274,6 +284,72 @@
         for(let i = 0; i < arr.length; i++){
             let obj = arr[i]
 
+            let id = obj.id
+
+            let main = $("#main")
+
+            let card = $("<div class='card mb-4' id='"+Number(id)+"'>")
+            main.append(card)
+
+            let body = $("<div class='card-body'>")
+            card.append(body)
+
+            let row = $("<div class='row'>")
+            body.append(row)
+
+            let col = $("<div class='col-md-3 my-2'>")
+            row.append(col)
+            col.append(obj.id+": "+obj.label)
+
+            //---------------
+
+            col = $("<div class='col-md-3 my-2'>")
+            row.append(col)
+
+            let a = $("<a>")
+            col.append(a)
+            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/cetei/?url=https://w3id.org/kouigenjimonogatari/tei/"+id+".xml")
+
+            let img = $("<img>")
+            a.append(img)
+            img.attr("src", "https://json-ld.org/images/json-ld-logo.png")
+            img.attr("height", "90px")
+            img.attr("class", "bd-placeholder-img")
+
+            //---------------
+
+            col = $("<div class='col-md-3 my-2'>")
+            row.append(col)
+
+            a = $("<a>")
+            col.append(a)
+            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/"+id+".xml&textDirection=vertical#dest_pos")
+
+            img = $("<img>")
+            a.append(img)
+            img.attr("src", "https://pbs.twimg.com/profile_images/596366309601845248/2uaPY5NH_400x400.png")
+            img.attr("height", "90px")
+            img.attr("class", "bd-placeholder-img")
+
+            //---------------
+
+            col = $("<div class='col-md-3 my-2'>")
+            row.append(col)
+
+            a = $("<a>")
+            col.append(a)
+            a.attr("href", "https://w3id.org/kouigenjimonogatari/tei/"+id+".xml")
+
+            img = $("<img>")
+            a.append(img)
+            img.attr("src", "https://tei-c.org/Vault/MembersMeetings/2013/wp-content/themes/atahualpa/images/header/TEIlogo.png")
+            img.attr("height", "90px")
+            img.attr("class", "bd-placeholder-img")
+
+            //---------------
+
+            /*
+
             let p = $("<p>")
             $("#div1").append(p)
 
@@ -307,6 +383,8 @@
             a.attr("class", "btn btn-secondary")
             a.attr("href", "https://w3id.org/kouigenjimonogatari/tei/"+id+".xml")
             a.append("「"+label+"」を閲覧する")
+
+            */
         }
 
     </script>
