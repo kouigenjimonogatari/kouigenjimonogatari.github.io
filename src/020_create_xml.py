@@ -36,7 +36,7 @@ def get_mdata(manifest):
 
     return map
 
-vols = [12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+vols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 
 for vol in vols:
 
@@ -86,7 +86,7 @@ for vol in vols:
                 continue
 
             title = data[0]["http://example.org/巻名"][0]["@value"]
-            root.find(prefix + "title").text = str(vol).zfill(2) + " "+ title
+            root.find(prefix + "title").text = "校異源氏物語・"+ title
 
             id = data[0]["@id"]
 
