@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 447
+        "@value": 446
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "しかと十三日にあらたなるしるしみせむ舟よそひまうけてかならす雨風やまは"
+        "@value": "しひをきはめ命つきなんとしつるをたすけにかけり給へると哀におほすによく"
       }
     ]
   }

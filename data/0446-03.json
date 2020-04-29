@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 447
+        "@value": 446
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "夢にさまことなる物のつけしらすること侍しかはしむしかたき事とおもふ給へ"
+        "@value": "をほのかなれとさたかにみたてまつりつるのみ面かけにおほえ給て我かくかな"
       }
     ]
   }

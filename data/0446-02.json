@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 447
+        "@value": 446
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "かせにいつのまにかふなてしつらむと心えかたくおもへりいぬるついたちのひ"
+        "@value": "雲哀にたなひけり年比夢の内にもみたてまつらてこひしうおほつかなき御さま"
       }
     ]
   }

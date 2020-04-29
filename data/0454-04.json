@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 455
+        "@value": 454
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "きとる物なりけるさかの御つたへにて女五の宮さる世のなかの上すに物し給け"
+        "@value": "さうの御ことまいりたれはすこしひき給もさま〱いみしうのみ思ひきこえた"
       }
     ]
   }

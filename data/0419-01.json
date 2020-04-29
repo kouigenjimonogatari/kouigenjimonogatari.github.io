@@ -21,12 +21,12 @@
     ],
     "http://example.org/行数": [
       {
-        "@value": 13
+        "@value": 1
       }
     ],
     "http://example.org/頁数": [
       {
-        "@value": 418
+        "@value": 419
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "いせしまやしほひのかたにあさりてもいふかひなきは我(か)身なりけりものを"
+        "@value": "あはれとおほしけるまゝにうちをき〱かき給へるしろきからのかみ四五まい"
       }
     ]
   }

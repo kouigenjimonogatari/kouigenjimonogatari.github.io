@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 468
+        "@value": 467
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -36,7 +36,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=[{%22manifest%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json%22,%22canvas%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/canvas/44%22}]"
+        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=[{%22manifest%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json%22,%22canvas%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/canvas/43%22}]"
       }
     ],
     "http://purl.org/dc/terms/rights": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "をいみしき御つゝしみともをし給しるしにやよろしうおはしましける御めのな"
+        "@value": "かねてをしはかり思ひしよりもよろつにかなしけれとなたらかにもてなしてに"
       }
     ]
   }

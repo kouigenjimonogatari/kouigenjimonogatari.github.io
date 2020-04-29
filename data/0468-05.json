@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 469
+        "@value": 468
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "ことはりなりや思ひのほかにかなしきみちにいてたち給しかとつゐには行めく"
+        "@value": "けなし春宮にこそはゆつりきこえ給はめおほやけの御うしろみをし世をまつり"
       }
     ]
   }

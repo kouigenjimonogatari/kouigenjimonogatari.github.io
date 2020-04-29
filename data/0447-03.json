@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 448
+        "@value": 447
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -36,7 +36,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=[{%22manifest%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json%22,%22canvas%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/canvas/34%22}]"
+        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=[{%22manifest%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json%22,%22canvas%22:%22https://www.dl.ndl.go.jp/api/iiif/3437687/canvas/33%22}]"
       }
     ],
     "http://purl.org/dc/terms/rights": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "とるへき物なりけりしりそきてとかなしとこそ昔さかしき人もいひをきけれけ"
+        "@value": "夢にさまことなる物のつけしらすること侍しかはしむしかたき事とおもふ給へ"
       }
     ]
   }

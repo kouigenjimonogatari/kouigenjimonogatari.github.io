@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 471
+        "@value": 470
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "てをはしたりしきんの御ことゝりにつかはして心ことなるしらへをほのかにか"
+        "@value": "たかきさましてめさましうもありけるかなとみすてかたくゝちをしうおほさる"
       }
     ]
   }

@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 463
+        "@value": 462
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "もふとちみまほしき入江の月影にもまつこひしき人の御事を思ひ出きこえ給に"
+        "@value": "ゝつたへし御ことのねをも風につけてきゝ明くれの御ありさまおほつかなから"
       }
     ]
   }

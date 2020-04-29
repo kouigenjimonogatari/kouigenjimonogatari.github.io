@@ -26,7 +26,7 @@
     ],
     "http://example.org/頁数": [
       {
-        "@value": 447
+        "@value": 446
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
@@ -46,7 +46,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "へといふよしきよ忍やかにつたへ申君おほしまはすにゆめうつゝさま〱しつ"
+        "@value": "少納言さふらひ給はゝたいめして事の心とり申さんといふよしきよおとろきて"
       }
     ]
   }
