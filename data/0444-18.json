@@ -21,12 +21,12 @@
     ],
     "http://example.org/行数": [
       {
-        "@value": 18
+        "@value": 4
       }
     ],
     "http://example.org/頁数": [
       {
-        "@value": 444
+        "@value": 445
       }
     ],
     "http://purl.org/dc/terms/isPartOf": [
