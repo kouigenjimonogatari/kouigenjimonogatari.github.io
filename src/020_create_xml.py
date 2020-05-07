@@ -9,6 +9,7 @@ import os
 import xml.etree.ElementTree as ET
 import csv
 import glob
+import urllib.parse
 
 def get_mdata(manifest):
     print(manifest)
@@ -36,7 +37,21 @@ def get_mdata(manifest):
 
     return map
 
-vols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+vols = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11, 12 ,13, 14, 15, 16, 17, 18, 19, 20,
+    21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+    31, 32, 33, 
+    # 34, 35, 36, 
+    37, 38, 
+    # 39, 
+    40, 41, 42, 43, 
+    # 44, 45, 46, 47, 48, 49, 50,
+    # 51, 52, 53, 
+    54
+    ]
+
+m_map = {}
 
 for vol in vols:
 
@@ -64,7 +79,10 @@ for vol in vols:
 
     surfaceGrp.set("facs", manifest)
 
-    canvas_data = get_mdata(manifest)
+    if manifest not in m_map:
+        m_map[manifest] = get_mdata(manifest)
+
+    canvas_data = m_map[manifest]
 
     prev_page = -1
 
@@ -106,7 +124,10 @@ for vol in vols:
                 pb.set("facs", "#zone_"+str(page).zfill(4))
                 para.append(pb)
 
-                canvas_id = data[0]["http://purl.org/dc/terms/relation"][0]["@id"].split("%22canvas%22:%22")[1].split("%22}]")[0]
+                relation = data[0]["http://purl.org/dc/terms/relation"][0]["@id"]
+                relation = urllib.parse.unquote(relation)
+
+                canvas_id = relation.split("%22canvas%22:%22")[1].split("%22}]")[0]
 
                 obj = canvas_data[canvas_id]
 

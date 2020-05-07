@@ -46,7 +46,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=[{%22manifest%22:%22https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json%22,%22canvas%22:%22https://www.dl.ndl.go.jp/api/iiif/3437686/canvas/30%22}]"
+        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437686/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437686/canvas/30%2522%7D%5D"
       }
     ],
     "http://purl.org/dc/terms/rights": [

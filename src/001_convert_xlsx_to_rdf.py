@@ -7,6 +7,7 @@ import math
 import sys
 import argparse
 import json
+import urllib.parse
 
 path = "data/metadata.xlsx"
 
@@ -31,11 +32,33 @@ for i in range(1, c_count):
         obj["uri"] = uri
         obj["type"] = type
 
+vols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+11, 12 ,13, 14, 15, 16, 17, 18, 19, 20,
+21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+31, 32, 33, 
+# 34, 35, 36, 
+37, 38, 
+# 39, 
+40, 41, 42, 43, 
+# 44, 45, 46, 47, 48, 49, 50,
+# 51, 52, 53, 
+54]
+
 for j in range(3, r_count):
 
     g = Graph()
 
     subject = df.iloc[j,0]
+
+    vol = df.iloc[j, 6]
+
+    if pd.isnull(vol):
+        continue
+    
+    vol = int(vol)
+
+    if vol not in vols:
+        continue
 
     print(subject)
 
@@ -54,6 +77,11 @@ for j in range(3, r_count):
             p = URIRef(obj["uri"])
 
             if obj["type"].upper() == "RESOURCE":
+
+                if "http://purl.org/dc/terms/relation" == obj["uri"]:
+                    tmp = value.split("?params=")
+                    value = tmp[0] + "?params=" + urllib.parse.quote(tmp[1])
+
                 g.add((subject, p, URIRef(value)))
             else:
                 g.add((subject, p, Literal(value)))

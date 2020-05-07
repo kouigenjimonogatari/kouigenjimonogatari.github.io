@@ -1,0 +1,2378 @@
+[
+    {
+        "@id": "https://w3id.org/kouigenjimonogatari/vols/27.json",
+        "http://example.org/data": [
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-01.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 1
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "このころ世の人のことくさに内のおほいとのゝいまひめ君とことにふれつゝい"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-02.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 2
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "ひちらすを源氏のおとゝきこしめしてともあれかくもあれ人みるましくてこも"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-03.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 3
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "りゐたらむ女こをなをさりのかことにてもさはかりにものめかしいてゝかく人"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-04.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 4
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "にみせいひつたへらるゝこそ心えぬことなれいときは〱しうものし給ふあま"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-05.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 5
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "りにふかき心をもたつねすもていてゝ心にもかなはねはかくはしたなきなるへ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-06.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 6
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "しよろつの事もてなしからにこそなたらかなるものなめれといとおしかり給ふ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-07.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 7
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "かゝるにつけてもけによくこそとおやときこえなからもとしころの御心をしり"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-08.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 8
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "きこえすなれたてまつらましにはちかましきことやあらましとたいのひめ君お"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-09.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 9
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "ほししるを右近もいとよくきこえしらせけりにくき御心こそゝひたれとさりと"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-10.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 10
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "て御心のまゝにをしたちてなともてなし給はすいとゝふかき御心のみまさり給"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-11.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 11
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "へはやう〱なつかしうゝちとけきこえ給ふ秋になりぬはつかせすゝしくふき"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-12.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 12
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "いてゝせこか衣もうらさひしき心ちしたまふにしのひかねつゝいとしは〱わ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-13.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 13
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "たり給ておはしましくらし御ことなともならはしきこえ給ふ五六日の夕つく夜"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0855-14.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 14
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 855
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "はとくいりてすこしくもかくるゝけしきおきのをともやう〱あはれなる程に"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-01.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 1
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "なりにけり御ことをまくらにてもろともにそひふし給へりかゝるたくひあらむ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-02.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 2
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "やとうちなけきかちにて夜ふかし給ふも人のとかめたてまつらむ事をおほせは"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-03.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 3
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "わたり給ひなむとて御まへのかゝり火のすこしきえかたなるを御ともなる右近"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-04.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 4
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "のたいふをめしてともしつけさせ給ふいとすゝしけなるやり水のほとりにけし"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-05.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 5
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "きことにひろこりふしたるまゆみの木のしたにうちまつおとろ〱しからぬほ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-06.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 6
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "とにをきてさしゝりそきてともしたれは御前のかたはいとすゝしくおかしきほ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-07.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 7
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "となるひかりに女の御さまみるにかひあり御くしのてあたりなといとひやゝか"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-08.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 8
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "にあてはかなる心ちしてうちとけぬさまにものをつゝましとおほしたるけしき"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-09.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 9
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "いとらうたけなりかへりうくおほしやすらふたえす人さふらひてともしつけよ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-10.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 10
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "なつの月なきほとはにはのひかりなきいとものむつかしくおほつかなしやとの"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-11.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 11
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "たまふ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-12.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 12
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "かゝり火にたちそふこひのけふりこそよにはたえせぬほのをなりけれいつ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-13.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 13
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "まてとかやふすふるならてもくるしきしたもえなりけりときこえ給ふ女君あや"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0856-14.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 14
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 856
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "しのありさまやとおほすに"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-01.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 1
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "行ゑなき空にけちてよかゝり火のたよりにたくふけふりとならはひとのあ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-02.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 2
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "やしとおもひ侍らむことゝわひたまへはくはやとていて給ふにひんかしのたい"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-03.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 3
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "のかたにおもしろきふえのねさうにふきあはせたり中将のれいのあたりはなれ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-04.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 4
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "ぬとちあそふにそあなる頭中将にこそあなれいとわさともふきなるねかなとて"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-05.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 5
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "たちとまり給ふ御せうそこゝなたになむいとかけすゝしきかゝり火にとゝめら"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-06.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 6
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "れてものするとのたまへれはうちつれて三人まいり給へりかせのをと秋になり"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-07.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 7
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "けりときこえつるふえのねにしのはれてなむとて御ことひきいてゝなつかしき"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-08.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 8
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "ほとにひき給ふ源中将はゝむしきてうにいとおもしろくふきたり頭中将心つか"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-09.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 9
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "ひしていたしたてかたうすをそしとあれは弁少将ひやうしうちいてゝしのひや"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-10.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 10
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "かにうたふこゑすゝ虫にまかひたりふたかへりはかりうたはせ給て御ことは中"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-11.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 11
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "将にゆつらせ給つけにかのちゝおとゝの御つまをとにおさ〱おとらすはなや"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-12.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 12
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "かにおもしろしみすのうちにものゝねきゝわく人ものし給らんかしこよひはさ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-13.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 13
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "かつきなと心してをさかりすきたる人はゑひなきのついてにしのはぬこともこ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0857-14.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 14
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 857
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/33%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "そとのたまへはひめ君もけにあはれときゝたまふたえせぬなかの御契をろかな"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0858-01.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 1
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 858
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/34%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "るましきものなれはにやこの君たちを人しれすめにもみゝにもとゝめ給へとか"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0858-02.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 2
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 858
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/34%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "けてさたに思ひよらす此中将は心のかきりつくして思ふすちにそかゝるついて"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0858-03.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 3
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 858
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/34%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "にもえしのひはつましき心ちすれとさまよくもてなしておさ〱こゝろとけて"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/0858-04.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 27
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "かゝり火"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 4
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 858
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/34%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "もかきわたさす"
+                    }
+                ]
+            }
+        ],
+        "http://example.org/作品名": [
+            {
+                "@value": "源氏物語"
+            }
+        ],
+        "http://example.org/巻名": [
+            {
+                "@value": "かゝり火"
+            }
+        ],
+        "http://purl.org/dc/terms/isPartOf": [
+            {
+                "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+            }
+        ],
+        "http://purl.org/dc/terms/relation": [
+            {
+                "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437688/canvas/32%2522%7D%5D"
+            }
+        ],
+        "http://purl.org/dc/terms/rights": [
+            {
+                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+            }
+        ]
+    }
+]
