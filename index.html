@@ -39,7 +39,18 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">校異源氏物語テキストDB</a>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">「デジタル源氏物語」プロジェクト</a>
+                  </li>
+                  
+                </ul>
+              </div>
         </nav>
+
+       
     </header>
 
     <main role="main">
@@ -165,7 +176,9 @@
         <!-- FOOTER -->
         <footer class="container">
             <p class="float-right"><a href="#">Back to top</a></p>
-            <p><a target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">「デジタル源氏物語」プロジェクト</a></p>
+            <p>
+                <small>本データベースはJSPS科研費<a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-19K20626/">19K20626</a>の助成による成果の一部です。</small>
+            </p>
         </footer>
     </main>
 
@@ -216,6 +229,7 @@
             let obj = arr[i]
 
             let id = obj.id
+            let id_ = ("00"+id).slice(-2); // "012"
 
             let main = $("#main")
 
@@ -239,7 +253,7 @@
 
             let a = $("<a>")
             col.append(a)
-            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/cetei/?url=https://w3id.org/kouigenjimonogatari/tei/"+id+".xml")
+            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/cetei/?url=https://w3id.org/kouigenjimonogatari/tei/"+id_+".xml")
 
             let img = $("<img>")
             a.append(img)
@@ -254,7 +268,7 @@
 
             a = $("<a>")
             col.append(a)
-            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/"+id+".xml&textDirection=vertical")
+            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/"+id_+".xml&textDirection=vertical")
 
             img = $("<img>")
             a.append(img)
@@ -269,7 +283,7 @@
 
             a = $("<a>")
             col.append(a)
-            a.attr("href", "https://w3id.org/kouigenjimonogatari/tei/"+id+".xml")
+            a.attr("href", "https://w3id.org/kouigenjimonogatari/tei/"+id_+".xml")
 
             img = $("<img>")
             a.append(img)
