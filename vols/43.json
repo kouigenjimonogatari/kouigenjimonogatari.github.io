@@ -19,7 +19,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -49,7 +49,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "その比按察大納言ときこゆるは故致仕のおとゝの次郎なりうせ給にし右衞門督"
+                        "@value": "その比按察大納言ときこゆるは故致仕のおとゝの次郎なりうせ給にし右衛門督"
                     }
                 ]
             },
@@ -70,7 +70,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -121,7 +121,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -172,7 +172,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -223,7 +223,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -274,7 +274,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -325,7 +325,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -376,7 +376,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -427,7 +427,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -478,7 +478,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -529,7 +529,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -580,7 +580,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -610,7 +610,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "りなまくね〱しきこともいてくる時々あれと北の方いとはれ〱しくいまめ"
+                        "@value": "りなまくね〱しきこともいてくる時〻あれと北の方いとはれ〱しくいまめ"
                     }
                 ]
             },
@@ -631,7 +631,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -661,7 +661,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "きたる人にてつみなくとりなし我(か)御かたさまにくるしかるへきことをもなたら"
+                        "@value": "きたる人にてつみなくとりなし我御かたさまにくるしかるへきことをもなたら"
                     }
                 ]
             },
@@ -682,7 +682,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -733,7 +733,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -784,7 +784,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -835,7 +835,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -886,7 +886,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -937,7 +937,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -988,7 +988,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1039,7 +1039,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1090,7 +1090,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1141,7 +1141,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1192,7 +1192,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1243,7 +1243,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1294,7 +1294,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1345,7 +1345,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1396,7 +1396,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1447,7 +1447,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1498,7 +1498,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1549,7 +1549,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1600,7 +1600,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1651,7 +1651,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1702,7 +1702,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1753,7 +1753,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1804,7 +1804,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1855,7 +1855,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1885,7 +1885,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "てまつり給ついとゝきめき給よし人々きこゆかゝる御ましらひのなれ給はぬほ"
+                        "@value": "てまつり給ついとゝきめき給よし人〻きこゆかゝる御ましらひのなれ給はぬほ"
                     }
                 ]
             },
@@ -1906,7 +1906,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -1957,7 +1957,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2008,7 +2008,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2059,7 +2059,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2110,7 +2110,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2161,7 +2161,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2212,7 +2212,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2263,7 +2263,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2314,7 +2314,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2365,7 +2365,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2416,7 +2416,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2467,7 +2467,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2518,7 +2518,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2569,7 +2569,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2620,7 +2620,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2671,7 +2671,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2722,7 +2722,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2773,7 +2773,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2824,7 +2824,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2875,7 +2875,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2926,7 +2926,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -2977,7 +2977,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3028,7 +3028,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3079,7 +3079,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3130,7 +3130,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3181,7 +3181,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3232,7 +3232,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3283,7 +3283,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3334,7 +3334,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3385,7 +3385,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3415,7 +3415,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "へらさりしをうちとけてもあそはさねと時々うけ給御ひはのねなむ昔おほえ侍"
+                        "@value": "へらさりしをうちとけてもあそはさねと時〻うけ給御ひはのねなむ昔おほえ侍"
                     }
                 ]
             },
@@ -3436,7 +3436,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3466,7 +3466,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "る故六條院の御つたへにて右のおとゝなんこの比よにのこり給へる源中納言兵"
+                        "@value": "る故六条院の御つたへにて右のおとゝなんこの比よにのこり給へる源中納言兵"
                     }
                 ]
             },
@@ -3487,7 +3487,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3517,7 +3517,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "部卿の宮なに事にもむかしの人におとるましういと契ことに物し給人々にてあ"
+                        "@value": "部卿の宮なに事にもむかしの人におとるましういと契ことに物し給人〻にてあ"
                     }
                 ]
             },
@@ -3538,7 +3538,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3589,7 +3589,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3640,7 +3640,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3691,7 +3691,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3742,7 +3742,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3793,7 +3793,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3823,7 +3823,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "もおさ〱なしいとわかき上臈たつかみえたてまつらしと思はしも心にまかせ"
+                        "@value": "もおさ〱なしいとわかき上臘たつかみえたてまつらしと思はしも心にまかせ"
                     }
                 ]
             },
@@ -3844,7 +3844,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3895,7 +3895,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3946,7 +3946,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -3997,7 +3997,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4048,7 +4048,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4099,7 +4099,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4150,7 +4150,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4201,7 +4201,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4252,7 +4252,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4303,7 +4303,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4354,7 +4354,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4405,7 +4405,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4456,7 +4456,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4507,7 +4507,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4558,7 +4558,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4609,7 +4609,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4660,7 +4660,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4711,7 +4711,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4762,7 +4762,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4813,7 +4813,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4864,7 +4864,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4915,7 +4915,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -4966,7 +4966,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5017,7 +5017,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5047,7 +5047,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "こゝろありて風のにほはすそのゝ梅にまつ鶯のとはすやあるへきとくれな"
+                        "@value": "こゝろありて風のにほはすそのゝ梅にまつ鴬のとはすやあるへきとくれな"
                     }
                 ]
             },
@@ -5068,7 +5068,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5119,7 +5119,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5170,7 +5170,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5221,7 +5221,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5272,7 +5272,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5323,7 +5323,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5374,7 +5374,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5404,7 +5404,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "ならて心やすき所にも時々はあそへかしわかき人とものそこはかとなくあつま"
+                        "@value": "ならて心やすき所にも時〻はあそへかしわかき人とものそこはかとなくあつま"
                     }
                 ]
             },
@@ -5425,7 +5425,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5455,7 +5455,7 @@
                 ],
                 "http://www.w3.org/2000/01/rdf-schema#label": [
                     {
-                        "@value": "る所そとの給ふこの君めしはなちてかたらひ給へは人々はちかうもまいらすま"
+                        "@value": "る所そとの給ふこの君めしはなちてかたらひ給へは人〻はちかうもまいらすま"
                     }
                 ]
             },
@@ -5476,7 +5476,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5527,7 +5527,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5578,7 +5578,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5629,7 +5629,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5680,7 +5680,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5731,7 +5731,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5782,7 +5782,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5833,7 +5833,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5884,7 +5884,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5935,7 +5935,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -5986,7 +5986,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6037,7 +6037,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6088,7 +6088,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6139,7 +6139,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6190,7 +6190,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6241,7 +6241,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6292,7 +6292,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6343,7 +6343,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6394,7 +6394,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6445,7 +6445,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6496,7 +6496,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6547,7 +6547,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6598,7 +6598,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6649,7 +6649,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6700,7 +6700,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6751,7 +6751,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6802,7 +6802,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6853,7 +6853,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6904,7 +6904,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -6955,7 +6955,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7006,7 +7006,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7057,7 +7057,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7108,7 +7108,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7159,7 +7159,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7210,7 +7210,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7261,7 +7261,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7312,7 +7312,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7363,7 +7363,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7414,7 +7414,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7465,7 +7465,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7516,7 +7516,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7567,7 +7567,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7618,7 +7618,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7669,7 +7669,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7720,7 +7720,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7771,7 +7771,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7822,7 +7822,7 @@
                 ],
                 "http://example.org/巻名": [
                     {
-                        "@value": "こうはい"
+                        "@value": "43 こうはい"
                     }
                 ],
                 "http://example.org/行数": [
@@ -7855,6 +7855,618 @@
                         "@value": "いまめかしきことおほかれと此方はよろつにつけ物しめやかにひき入給へるを"
                     }
                 ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-01.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 1
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "宮は御ふさひのかたにきゝつたへたまひてふかういかてとおもほしなりにけり"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-02.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 2
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "わかきみをつねにまつはしよせ給つゝしのひやかに御文あれと大納言の君ふか"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-03.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 3
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "く心かけきこえ給てさも思たちての給ことあらはとけしきとり心まうけし給を"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-04.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 4
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "みるにいとをしうひきたかへてかう思よるへうもあらぬ方にしもなけのことの"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-05.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 5
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "葉をつくし給ふかひなけなることゝ北方もおほしの給ふはかなき御返りなとも"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-06.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 6
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "なけれはまけしの御心そひておもほしやむへくもあらすなにかは人の御ありさ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-07.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 7
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "まなとかはさてもみたてまつらまほしうおひさき遠くなとはみえさせ給になと"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-08.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 8
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "北方おもほしよる時〱あれといといたう色めき給てかよひ給ふしのひ所おほ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-09.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 9
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "く八の宮の姫君にも御心さしのあさからていとしけうまうてありき給たのもし"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-10.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 10
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "けなき御心のあた〱しさなともいとゝつゝましけれはまめやかにはおもほし"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-11.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 11
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "たえたるをかたしけなきはかりに忍てはゝ君そたまさかにさかしらかりきこえ"
+                    }
+                ]
+            },
+            {
+                "@id": "https://w3id.org/kouigenjimonogatari/data/1458-12.json",
+                "@type": [
+                    "https://jpsearch.go.jp/term/type/文章要素"
+                ],
+                "http://example.org/作品名": [
+                    {
+                        "@value": "源氏物語"
+                    }
+                ],
+                "http://example.org/冊数名": [
+                    {
+                        "@value": 43
+                    }
+                ],
+                "http://example.org/巻名": [
+                    {
+                        "@value": "43 こうはい"
+                    }
+                ],
+                "http://example.org/行数": [
+                    {
+                        "@value": 12
+                    }
+                ],
+                "http://example.org/頁数": [
+                    {
+                        "@value": 1458
+                    }
+                ],
+                "http://purl.org/dc/terms/isPartOf": [
+                    {
+                        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"
+                    }
+                ],
+                "http://purl.org/dc/terms/relation": [
+                    {
+                        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437689/canvas/123%2522%7D%5D"
+                    }
+                ],
+                "http://purl.org/dc/terms/rights": [
+                    {
+                        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                ],
+                "http://www.w3.org/2000/01/rdf-schema#label": [
+                    {
+                        "@value": "給ふ"
+                    }
+                ]
             }
         ],
         "http://example.org/作品名": [
@@ -7864,7 +8476,7 @@
         ],
         "http://example.org/巻名": [
             {
-                "@value": "こうはい"
+                "@value": "43 こうはい"
             }
         ],
         "http://purl.org/dc/terms/isPartOf": [

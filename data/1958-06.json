@@ -1,0 +1,53 @@
+[
+  {
+    "@id": "https://w3id.org/kouigenjimonogatari/data/1958-06.json",
+    "@type": [
+      "https://jpsearch.go.jp/term/type/文章要素"
+    ],
+    "http://example.org/作品名": [
+      {
+        "@value": "源氏物語"
+      }
+    ],
+    "http://example.org/冊数名": [
+      {
+        "@value": 52
+      }
+    ],
+    "http://example.org/巻名": [
+      {
+        "@value": "52 かけろふ"
+      }
+    ],
+    "http://example.org/行数": [
+      {
+        "@value": 6
+      }
+    ],
+    "http://example.org/頁数": [
+      {
+        "@value": 1958
+      }
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"
+      }
+    ],
+    "http://purl.org/dc/terms/relation": [
+      {
+        "@id": "http://da.dl.itc.u-tokyo.ac.jp/mirador/?params=%5B%7B%2522manifest%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437690/manifest.json%2522%2C%2522canvas%2522%3A%2522https%3A//www.dl.ndl.go.jp/api/iiif/3437690/canvas/148%2522%7D%5D"
+      }
+    ],
+    "http://purl.org/dc/terms/rights": [
+      {
+        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "給て御つかひにはかのおほくらの大夫をそ給へりける心のとかによろつを思つ"
+      }
+    ]
+  }
+]
