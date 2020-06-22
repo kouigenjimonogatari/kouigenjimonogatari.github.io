@@ -79,6 +79,8 @@ for j in range(3, r_count):
 
                 g.add((subject, p, URIRef(value)))
             else:
+                if obj["uri"] == "http://example.org/巻名" and len(value.split(" ")) == 2:
+                    value = value.split(" ")[1]
                 g.add((subject, p, Literal(value)))
 
 
