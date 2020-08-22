@@ -82,7 +82,7 @@ for j in range(3, r_count):
 
     g.add((subject, URIRef("http://purl.org/dc/terms/relation"), Literal("https://w3id.org/kouigenjimonogatari/tei/"+id.replace("json", "xml"))))
 
-    opath = "../api/item-sets/"+id
+    opath = "../api/item_sets/"+id
 
     g.serialize(destination=opath, format='json-ld')
 
@@ -92,4 +92,4 @@ for j in range(3, r_count):
 
     print("vol", vol)
 
-all.serialize(destination="data/item-sets.rdf", format='pretty-xml')
+all.serialize(destination="../files/rdf/item_sets.rdf", format='pretty-xml')

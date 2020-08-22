@@ -65,7 +65,7 @@ for vol in vols:
     surfaceGrp = root.find(prefix+"surfaceGrp")
     
 
-    with open("../api/item-sets/"+str(vol).zfill(2)+".json", 'r') as f:
+    with open("../api/item_sets/"+str(vol).zfill(2)+".json", 'r') as f:
         rdf_collection = json.load(f)
     
     manifest = rdf_collection[0]["http://www.w3.org/2000/01/rdf-schema#seeAlso"][0]["@id"]

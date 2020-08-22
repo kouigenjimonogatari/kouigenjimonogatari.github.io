@@ -112,4 +112,4 @@ for j in range(3, r_count):
 
     g.serialize(destination="../api/items/"+id, format='json-ld')
 
-all.serialize(destination="data/items.rdf", format='pretty-xml')
+all.serialize(destination="../files/rdf/items.rdf", format='pretty-xml')
