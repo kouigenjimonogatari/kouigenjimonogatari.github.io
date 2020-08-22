@@ -5,29 +5,29 @@
             <title></title>
             <author>池田亀鑑</author>
             <respStmt>
-               <resp when="2020-06-19">Transcription</resp>
+               <resp when="2020-08-22">Transcription</resp>
                <name>Misa Nakamura</name>
             </respStmt>
             <respStmt>
-               <resp when="2020-06-19">Transcription</resp>
+               <resp when="2020-08-22">Transcription</resp>
                <name>Michi Kigoshi</name>
             </respStmt>
             <respStmt>
-               <resp when="2020-06-19">Transcription</resp>
+               <resp when="2020-08-22">Transcription</resp>
                <name>Takashi Tamura</name>
             </respStmt>
             <respStmt>
-               <resp when="2020-06-19">TEI Encoding</resp>
+               <resp when="2020-08-22">TEI Encoding</resp>
                <name>Satoru Nakamura</name>
             </respStmt>
             <respStmt>
-               <resp when="2020-06-19">Advisor</resp>
+               <resp when="2020-08-22">Advisor</resp>
                <name>Kiyonori Nagasaki</name>
             </respStmt>
          </titleStmt>
          <publicationStmt>
             <distributor>デジタル源氏物語</distributor>
-            <date when="2020-06-19">2020年06月19日</date>
+            <date when="2020-08-22">2020年08月22日</date>
             <availability>
                <p>
                   <ref target="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</ref></p>
@@ -41,6 +41,9 @@
             </bibl>
          </sourceDesc>
       </fileDesc>
+      <encodingDesc>
+         <p>旧字は<ref target="https://wwwap.hi.u-tokyo.ac.jp/ships/itaiji_list.jsp">史料編纂所データベース異体字同定一覧</ref>を用いて新字に変換した。</p>
+      </encodingDesc>
    </teiHeader>
    <facsimile>
       <surfaceGrp> </surfaceGrp>

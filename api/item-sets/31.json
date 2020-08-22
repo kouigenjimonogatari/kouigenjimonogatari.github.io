@@ -1,0 +1,30 @@
+[
+  {
+    "@id": "https://w3id.org/kouigenjimonogatari/api/item_sets/31.json",
+    "http://purl.org/dc/terms/relation": [
+      {
+        "@value": "https://w3id.org/kouigenjimonogatari/tei/31.xml"
+      }
+    ],
+    "http://purl.org/dc/terms/rights": [
+      {
+        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "まきはしら"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"
+      }
+    ],
+    "https://w3id.org/kouigenjimonogatari/api/property/vol": [
+      {
+        "@value": 31
+      }
+    ]
+  }
+]

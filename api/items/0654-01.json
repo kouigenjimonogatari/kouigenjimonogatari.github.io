@@ -1,0 +1,38 @@
+[
+  {
+    "@id": "https://w3id.org/kouigenjimonogatari/api/items/0654-01.json",
+    "@type": [
+      "https://jpsearch.go.jp/term/type/文章要素"
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://w3id.org/kouigenjimonogatari/api/item_sets/20.json"
+      }
+    ],
+    "http://purl.org/dc/terms/relation": [
+      {
+        "@value": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437687/canvas/137"
+      }
+    ],
+    "http://purl.org/dc/terms/rights": [
+      {
+        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "たうはあらしとを思ひなをしたまへなとひひとひなくさめきこえ給ふ雪のいた"
+      }
+    ],
+    "https://w3id.org/kouigenjimonogatari/api/property/page": [
+      {
+        "@value": 654
+      }
+    ],
+    "https://w3id.org/kouigenjimonogatari/api/property/row": [
+      {
+        "@value": 1
+      }
+    ]
+  }
+]

@@ -39,6 +39,23 @@ vols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 41, 42, 43, 44, 45,  46, 47, 48, 49, 50, 
 51, 52, 53, 54]
 
+import csv
+
+itaiji = {}
+
+all = Graph()
+
+with open('check/data2/itaiji.csv', 'r') as f:
+    reader = csv.reader(f)
+    header = next(reader)
+
+    for row in reader:
+        key = row[1]
+        text = row[2]
+        elements = text.split("　")
+        for e in elements:
+            itaiji[e] = key
+
 for j in range(3, r_count):
 
     g = Graph()
@@ -69,19 +86,25 @@ for j in range(3, r_count):
         if not pd.isnull(value) and value != 0:
 
             obj = map[i]
+
+            if pd.isnull(obj["uri"]):
+                continue
+
             p = URIRef(obj["uri"])
 
             if obj["type"].upper() == "RESOURCE":
-
-                if "http://purl.org/dc/terms/relation" == obj["uri"]:
-                    tmp = value.split("?params=")
-                    value = tmp[0] + "?params=" + urllib.parse.quote(tmp[1])
-
                 g.add((subject, p, URIRef(value)))
+                all.add((subject, p, URIRef(value)))
             else:
-                if obj["uri"] == "http://example.org/巻名" and len(value.split(" ")) == 2:
-                    value = value.split(" ")[1]
+
+                if isinstance(value, str):
+                    for key in itaiji:
+                        value = value.replace(key, itaiji[key])
+
                 g.add((subject, p, Literal(value)))
+                all.add((subject, p, Literal(value)))
 
 
-    g.serialize(destination="../data/"+id, format='json-ld')
+    g.serialize(destination="../api/items/"+id, format='json-ld')
+
+all.serialize(destination="data/items.rdf", format='pretty-xml')

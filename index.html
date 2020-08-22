@@ -75,14 +75,7 @@
 
             <!-- Three columns of text below the carousel -->
             <div class="row">
-                <div class="col-lg-4">
-                    <img src="https://json-ld.org/images/json-ld-logo.png"
-                        class="bd-placeholder-img" height="140" />
-                    <!-- <h2 class="mt-5">一覧</h2> -->
-                    <p class="mt-3">URIが付与されたテキストデータを一覧する。</p>
-                    <!-- <div id="div1"></div> -->
-                    
-                </div><!-- /.col-lg-4 -->
+                
                 <div class="col-lg-4">
                     <img class="bd-placeholder-img" height="140"
                         src="https://pbs.twimg.com/profile_images/596366309601845248/2uaPY5NH_400x400.png" />
@@ -96,6 +89,15 @@
                     <!-- <h2 class="mt-5">TEI/XML</h2> -->
                     <p class="mt-3">TEI/XMLファイルを閲覧する。</p>
                     <!-- <div id="div3"></div> -->
+                    
+                </div><!-- /.col-lg-4 -->
+
+                <div class="col-lg-4">
+                    <img src="https://json-ld.org/images/json-ld-logo.png"
+                        class="bd-placeholder-img" height="140" />
+                    <!-- <h2 class="mt-5">一覧</h2> -->
+                    <p class="mt-3">URIが付与されたテキストデータを一覧する。</p>
+                    <!-- <div id="div1"></div> -->
                     
                 </div><!-- /.col-lg-4 -->
 
@@ -243,6 +245,8 @@
             row.append(col)
             col.append(obj.id+": "+obj.label)
 
+            
+
             //---------------
 
             col = $("<div class='col-md-3 my-2'>")
@@ -250,24 +254,9 @@
 
             let a = $("<a>")
             col.append(a)
-            a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/cetei/?url=https://w3id.org/kouigenjimonogatari/tei/"+id_+".xml")
-
-            let img = $("<img>")
-            a.append(img)
-            img.attr("src", "https://json-ld.org/images/json-ld-logo.png")
-            img.attr("height", "90px")
-            img.attr("class", "bd-placeholder-img")
-
-            //---------------
-
-            col = $("<div class='col-md-3 my-2'>")
-            row.append(col)
-
-            a = $("<a>")
-            col.append(a)
             a.attr("href", "https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/"+id_+".xml&textDirection=vertical")
 
-            img = $("<img>")
+            let img = $("<img>")
             a.append(img)
             img.attr("src", "https://pbs.twimg.com/profile_images/596366309601845248/2uaPY5NH_400x400.png")
             img.attr("height", "90px")
@@ -280,11 +269,26 @@
 
             a = $("<a>")
             col.append(a)
-            a.attr("href", "https://w3id.org/kouigenjimonogatari/tei/"+id_+".xml")
+            a.attr("href", "tei/"+id_+".xml")
 
             img = $("<img>")
             a.append(img)
             img.attr("src", "https://tei-c.org/Vault/MembersMeetings/2013/wp-content/themes/atahualpa/images/header/TEIlogo.png")
+            img.attr("height", "90px")
+            img.attr("class", "bd-placeholder-img")
+
+            //---------------
+
+            col = $("<div class='col-md-3 my-2'>")
+            row.append(col)
+
+            a = $("<a>")
+            col.append(a)
+            a.attr("href", "snorql/?query=SELECT+DISTINCT+*+WHERE+%7B%0D%0A%09%3Fs+rdfs%3Alabel+%3Flabel%3B%0D%0A+++++++ex%3A冊数名+"+id+"%0D%0A%7D%0D%0AORDER+BY+%3Fs")
+
+            img = $("<img>")
+            a.append(img)
+            img.attr("src", "https://json-ld.org/images/json-ld-logo.png")
             img.attr("height", "90px")
             img.attr("class", "bd-placeholder-img")
         }

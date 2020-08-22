@@ -1,0 +1,38 @@
+[
+  {
+    "@id": "https://w3id.org/kouigenjimonogatari/api/items/1209-11.json",
+    "@type": [
+      "https://jpsearch.go.jp/term/type/文章要素"
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://w3id.org/kouigenjimonogatari/api/item_sets/35.json"
+      }
+    ],
+    "http://purl.org/dc/terms/relation": [
+      {
+        "@value": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437688/canvas/209"
+      }
+    ],
+    "http://purl.org/dc/terms/rights": [
+      {
+        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "かのおほしをきてたるやうありけむさたすき人をもおなしくなすらへきこえて"
+      }
+    ],
+    "https://w3id.org/kouigenjimonogatari/api/property/page": [
+      {
+        "@value": 1209
+      }
+    ],
+    "https://w3id.org/kouigenjimonogatari/api/property/row": [
+      {
+        "@value": 11
+      }
+    ]
+  }
+]

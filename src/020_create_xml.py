@@ -60,15 +60,16 @@ for vol in vols:
 
     para = root.find(prefix + "body").find(prefix + "p")
 
-    files = glob.glob("../data/*.json")
+    files = glob.glob("../api/items/*.json")
 
     surfaceGrp = root.find(prefix+"surfaceGrp")
     
 
-    with open("../vols/"+str(vol).zfill(2)+".json", 'r') as f:
+    with open("../api/item-sets/"+str(vol).zfill(2)+".json", 'r') as f:
         rdf_collection = json.load(f)
     
-    manifest = rdf_collection[0]["http://purl.org/dc/terms/isPartOf"][0]["@id"]
+    manifest = rdf_collection[0]["http://www.w3.org/2000/01/rdf-schema#seeAlso"][0]["@id"]
+    title = rdf_collection[0]["http://www.w3.org/2000/01/rdf-schema#label"][0]["@value"]
 
     surfaceGrp.set("facs", manifest)
 
@@ -86,22 +87,24 @@ for vol in vols:
         with open(file, 'r') as f:
             data = json.load(f)
 
+            print(file)
+
             value = data[0]["http://www.w3.org/2000/01/rdf-schema#label"][0]["@value"]
 
-            if "http://example.org/冊数名" not in data[0]:
-                continue
+            # if "http://example.org/冊数名" not in data[0]:
+            #    continue
 
-            vol_ = data[0]["http://example.org/冊数名"][0]["@value"]
+            vol_ = int(data[0]["http://purl.org/dc/terms/isPartOf"][0]["@id"].split("/")[-1].split(".")[0])
 
             if vol != vol_:
                 continue
 
-            title = data[0]["http://example.org/巻名"][0]["@value"]
+            
             root.find(prefix + "title").text = "校異源氏物語・"+ title
 
             id = data[0]["@id"]
 
-            page = data[0]["http://example.org/頁数"][0]["@value"]
+            page = data[0]["https://w3id.org/kouigenjimonogatari/api/property/page"][0]["@value"]
 
             # 新しい頁
             if page != prev_page:
@@ -117,7 +120,7 @@ for vol in vols:
                 pb.set("facs", "#zone_"+str(page).zfill(4))
                 para.append(pb)
 
-                relation = data[0]["http://purl.org/dc/terms/relation"][0]["@id"]
+                relation = data[0]["http://purl.org/dc/terms/relation"][0]["@value"]
                 relation = urllib.parse.unquote(relation)
 
                 canvas_id = relation.split("%22canvas%22:%22")[1].split("%22}]")[0]

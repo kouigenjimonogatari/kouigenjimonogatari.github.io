@@ -1,0 +1,38 @@
+[
+  {
+    "@id": "https://w3id.org/kouigenjimonogatari/api/items/1451-12.json",
+    "@type": [
+      "https://jpsearch.go.jp/term/type/文章要素"
+    ],
+    "http://purl.org/dc/terms/isPartOf": [
+      {
+        "@id": "https://w3id.org/kouigenjimonogatari/api/item_sets/43.json"
+      }
+    ],
+    "http://purl.org/dc/terms/relation": [
+      {
+        "@value": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437689/canvas/119"
+      }
+    ],
+    "http://purl.org/dc/terms/rights": [
+      {
+        "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "る故六条院の御つたへにて右のおとゝなんこの比よにのこり給へる源中納言兵"
+      }
+    ],
+    "https://w3id.org/kouigenjimonogatari/api/property/page": [
+      {
+        "@value": 1451
+      }
+    ],
+    "https://w3id.org/kouigenjimonogatari/api/property/row": [
+      {
+        "@value": 12
+      }
+    ]
+  }
+]
