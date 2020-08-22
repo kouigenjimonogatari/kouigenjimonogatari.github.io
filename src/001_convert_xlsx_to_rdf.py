@@ -101,6 +101,11 @@ for j in range(3, r_count):
                     for key in itaiji:
                         value = value.replace(key, itaiji[key])
 
+                    value = value.replace("(か)", "")
+                    value = value.replace("(む)", "")
+
+                    
+
                 g.add((subject, p, Literal(value)))
                 all.add((subject, p, Literal(value)))
 

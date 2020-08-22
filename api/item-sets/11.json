@@ -1,6 +1,9 @@
 [
   {
     "@id": "https://w3id.org/kouigenjimonogatari/api/item_sets/11.json",
+    "@type": [
+      "https://jpsearch.go.jp/term/type/作品"
+    ],
     "http://purl.org/dc/terms/relation": [
       {
         "@value": "https://w3id.org/kouigenjimonogatari/tei/11.xml"

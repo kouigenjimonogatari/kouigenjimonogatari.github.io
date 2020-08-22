@@ -45,20 +45,17 @@ for j in range(3, r_count):
 
     g = Graph()
 
-    subject = df.iloc[j,15]
+    subject_ = df.iloc[j,15]
 
-    if subject in checks:
+    if subject_ in checks:
         continue
 
-    if pd.isnull(subject):
+    if pd.isnull(subject_):
         continue
 
-    id = subject.split("/")[-1]
+    id = subject_.split("/")[-1]
 
-    subject = URIRef(subject)
-    
-
-    checks.append(subject)
+    subject = URIRef(subject_)
 
     label = df.iloc[j,5]
 
@@ -71,6 +68,7 @@ for j in range(3, r_count):
     label = Literal(label)
 
     g.add((subject, URIRef("http://www.w3.org/2000/01/rdf-schema#label"), label))
+    g.add((subject, URIRef("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), URIRef("https://jpsearch.go.jp/term/type/作品")))
 
     vol = df.iloc[j, 6]
     vol = Literal(vol)
@@ -88,7 +86,7 @@ for j in range(3, r_count):
 
     g.serialize(destination=opath, format='json-ld')
 
-    checks.append(subject)
+    checks.append(subject_)
 
     all.parse(opath, format='json-ld')
 
