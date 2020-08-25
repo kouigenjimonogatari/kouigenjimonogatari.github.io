@@ -80,7 +80,7 @@ for j in range(3, r_count):
 
     g.add((subject, URIRef("http://purl.org/dc/terms/rights"), URIRef("http://creativecommons.org/publicdomain/zero/1.0/")))
 
-    g.add((subject, URIRef("http://purl.org/dc/terms/relation"), Literal("https://w3id.org/kouigenjimonogatari/tei/"+id.replace("json", "xml"))))
+    g.add((subject, URIRef("http://purl.org/dc/terms/relation"), URIRef("https://w3id.org/kouigenjimonogatari/tei/"+id.replace("json", "xml"))))
 
     opath = "../api/item_sets/"+id
 

@@ -284,7 +284,7 @@
 
             a = $("<a>")
             col.append(a)
-            a.attr("href", "snorql/?query=SELECT+DISTINCT+*+WHERE+%7B%0D%0A%09%3Fs+rdfs%3Alabel+%3Flabel%3B%0D%0A+++++++ex%3A冊数名+"+id+"%0D%0A%7D%0D%0AORDER+BY+%3Fs")
+            a.attr("href", "snorql/?query=SELECT+DISTINCT+*+WHERE+%7B%0D%0A%09%3Fs+rdfs%3Alabel+%3Flabel%3B%0D%0A+++++++dct%3AisPartOf+<https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F"+id+".json>%0D%0A%7D%0D%0AORDER+BY+%3Fs")
 
             img = $("<img>")
             a.append(img)

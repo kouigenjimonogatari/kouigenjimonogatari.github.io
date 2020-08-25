@@ -6,7 +6,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@value": "https://w3id.org/kouigenjimonogatari/tei/18.xml"
+        "@id": "https://w3id.org/kouigenjimonogatari/tei/18.xml"
       }
     ],
     "http://purl.org/dc/terms/rights": [
