@@ -164,17 +164,19 @@ Snorqldef.prop_description = {
 
 //list of example queries. each object represents one example: {label: Japanese label for select option, label_en: English label for select option, ns: [prefixes to use in query], query: SPARQL query (escaped)}
 Snorqldef.example = [
+	/*
 	{
 		"label" : "文字列「あかつき」を含む行",
 		"label_en" : "文字列「あかつき」を含む行",
 		"ns" : [ ],
 		"query" : "SELECT DISTINCT * WHERE { \n\t?s rdfs:label ?label .\n\tfilter regex (?label, \"あかつき\")\n} ORDER BY ?s LIMIT 100"
 	},
+	*/
 	{
 		"label": "「きりつぼ」のテキスト",
 		"label_en" : "「きりつぼ」のテキスト",
 		"ns" : [ ],
-		"query" : "SELECT DISTINCT ?s ?label WHERE { \n\t?s rdfs:label ?label;\n\t\tdct:isPartOf ?work .\n\t?work rdfs:label ?title .\n\tfilter regex (?title, \"きりつぼ\")\n} ORDER BY ?s LIMIT 100"
+		"query" : "SELECT DISTINCT ?s ?label WHERE { \n\t?s rdfs:label ?label;\n\t\tdct:isPartOf <https://w3id.org/kouigenjimonogatari/api/item_sets/01.json> .\n} ORDER BY ?s LIMIT 100"
 	},
 	{
 		"label": "先頭行",
@@ -186,6 +188,6 @@ Snorqldef.example = [
 		"label": "巻毎の行数",
 		"label_en" : "巻毎の行数",
 		"ns" : [ ],
-		"query" : "SELECT DISTINCT (count(?s) as ?c) ?title WHERE {\n\t?s dct:isPartOf ?work .\n\t?work rdfs:label ?title .\n} GROUP BY ?title ORDER BY ?c"
+		"query" : "SELECT DISTINCT (count(?s) as ?c) ?title ?work WHERE {\n\t?s dct:isPartOf ?work .\n\t?work rdfs:label ?title .\n} GROUP BY ?title ?work ORDER BY ?c"
 	},
 ];
