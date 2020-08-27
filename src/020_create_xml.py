@@ -87,7 +87,7 @@ for vol in vols:
         with open(file, 'r') as f:
             data = json.load(f)
 
-            print(file)
+            # print(file)
 
             value = data[0]["http://www.w3.org/2000/01/rdf-schema#label"][0]["@value"]
 
@@ -120,11 +120,10 @@ for vol in vols:
                 pb.set("facs", "#zone_"+str(page).zfill(4))
                 para.append(pb)
 
-                relation = data[0]["http://purl.org/dc/terms/relation"][0]["@value"]
+                relation = data[0]["http://purl.org/dc/terms/relation"][0]["@id"]
                 relation = urllib.parse.unquote(relation)
 
-                canvas_id = relation.split("%22canvas%22:%22")[1].split("%22}]")[0]
-
+                canvas_id = relation.split("canvas=")[1]
                 obj = canvas_data[canvas_id]
 
                 if canvas_id not in canvas_map:

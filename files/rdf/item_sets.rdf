@@ -1,387 +1,387 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:ns1="https://jpsearch.go.jp/term/type/"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:ns2="https://w3id.org/kouigenjimonogatari/api/property/"
-  xmlns:ns3="http://purl.org/dc/terms/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:ns1="http://purl.org/dc/terms/"
+  xmlns:ns2="https://jpsearch.go.jp/term/type/"
+  xmlns:ns3="https://w3id.org/kouigenjimonogatari/api/property/"
 >
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/46.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/46.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-    <rdfs:label>しゐかもと</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/25.json">
-    <rdfs:label>ほたる</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/25.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/32.json">
-    <rdfs:label>梅かえ</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</ns2:vol>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/32.xml"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/38.json">
-    <rdfs:label>すゝむし</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/38.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/14.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/14.xml"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</ns2:vol>
-    <rdfs:label>みをつくし</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/22.json">
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>玉かつら</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/22.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/05.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>わかむらさき</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/05.xml"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/47.json">
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/47.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/47.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</ns3:vol>
     <rdfs:label>あけまき</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/47.xml"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/23.json">
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</ns2:vol>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/23.xml"/>
-    <rdfs:label>初音</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/33.json">
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-    <rdfs:label>藤のうらは</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/33.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/17.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/17.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</ns2:vol>
-    <rdfs:label>ゑあはせ</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/15.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/15.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <rdfs:label>よもきふ</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/29.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/29.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-    <rdfs:label>みゆき</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/49.json">
-    <rdfs:label>やとり木</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/49.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/45.json">
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/45.xml"/>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-    <rdfs:label>はし姬</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/26.json">
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/26.xml"/>
-    <rdfs:label>とこなつ</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/52.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/52.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</ns2:vol>
-    <rdfs:label>かけろふ</rdfs:label>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/35.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-    <rdfs:label>わかな下</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/35.xml"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/19.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>うす雲</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/19.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/50.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/50.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>あつまや</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/39.json">
-    <rdfs:label>夕きり</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/39.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/42.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/42.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</ns2:vol>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>にほふ兵部卿</rdfs:label>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/10.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/10.xml"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/02.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</ns3:vol>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</ns2:vol>
-    <rdfs:label>さか木</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/44.json">
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</ns2:vol>
-    <rdfs:label>たけ川</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/44.xml"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/12.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/12.xml"/>
-    <rdfs:label>すま</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/54.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/54.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</ns2:vol>
-    <rdfs:label>夢のうきはし</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/53.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/53.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</ns2:vol>
-    <rdfs:label>てならひ</rdfs:label>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/06.json">
-    <rdfs:label>すゑつむ花</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/06.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/48.json">
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
-    <rdfs:label>さわらひ</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/48.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/51.json">
-    <rdfs:label>うき舟</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/51.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/34.json">
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/34.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>わかな上</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/01.json">
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>きりつぼ</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/01.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/09.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/09.xml"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <rdfs:label>あふひ</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/20.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/20.xml"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>あさかほ</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/43.json">
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-    <rdfs:label>こうはい</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/43.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/27.json">
-    <rdfs:label>かゝり火</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/27.xml"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/08.json">
-    <rdfs:label>花のえん</rdfs:label>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/08.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</ns2:vol>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/02.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/02.xml"/>
     <rdfs:label>ははきぎ</rdfs:label>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/02.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/30.json">
-    <rdfs:label>藤はかま</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/30.xml"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/03.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/03.xml"/>
-    <rdfs:label>うつせみ</rdfs:label>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/41.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/41.xml"/>
-    <rdfs:label>まほろし</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</ns2:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/40.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/37.json">
-    <rdfs:label>よこ笛</rdfs:label>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/37.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/40.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/40.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/40.xml"/>
     <rdfs:label>みのり</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/07.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</ns3:vol>
+    <rdfs:label>もみちの賀</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/07.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/22.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/22.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">22</ns3:vol>
+    <rdfs:label>玉かつら</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/03.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/03.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+    <rdfs:label>うつせみ</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/39.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/39.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</ns3:vol>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/28.json">
-    <rdfs:label>野わき</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/28.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</ns2:vol>
+    <rdfs:label>夕きり</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/20.json">
+    <rdfs:label>あさかほ</rdfs:label>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/20.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/28.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/13.json">
+    <rdfs:label>野わき</rdfs:label>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">28</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/28.xml"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/23.json">
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">23</ns3:vol>
+    <rdfs:label>初音</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/23.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/37.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/37.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</ns3:vol>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>よこ笛</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/43.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/43.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</ns3:vol>
+    <rdfs:label>こうはい</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/52.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</ns3:vol>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/52.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
+    <rdfs:label>かけろふ</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/09.json">
+    <rdfs:label>あふひ</rdfs:label>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/09.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/33.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/33.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">33</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>藤のうらは</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/51.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>うき舟</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/51.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/05.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</ns3:vol>
+    <rdfs:label>わかむらさき</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/05.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/24.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/24.xml"/>
+    <rdfs:label>こてふ</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/42.json">
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</ns3:vol>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/42.xml"/>
+    <rdfs:label>にほふ兵部卿</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/44.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/44.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+    <rdfs:label>たけ川</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/21.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/21.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</ns3:vol>
+    <rdfs:label>をとめ</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/01.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns3:vol>
+    <rdfs:label>きりつぼ</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/01.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/13.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/13.xml"/>
     <rdfs:label>あかし</rdfs:label>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/13.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</ns2:vol>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/11.json">
-    <rdfs:label>花ちるさと</rdfs:label>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/11.xml"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/36.json">
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/36.xml"/>
-    <rdfs:label>かしは木</rdfs:label>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/38.json">
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/18.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/18.xml"/>
-    <rdfs:label>松かせ</rdfs:label>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/31.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/31.xml"/>
-    <rdfs:label>まきはしら</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</ns2:vol>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</ns3:vol>
+    <rdfs:label>すゝむし</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/38.xml"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/35.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/35.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</ns3:vol>
+    <rdfs:label>わかな下</rdfs:label>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/04.json">
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/04.xml"/>
-    <rdfs:label>夕かほ</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/41.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/41.xml"/>
+    <rdfs:label>まほろし</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</ns3:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/29.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>みゆき</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/29.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/11.json">
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/21.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</ns2:vol>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/21.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/11.xml"/>
+    <rdfs:label>花ちるさと</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/14.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/14.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</ns3:vol>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-    <rdfs:label>をとめ</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/07.json">
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/07.xml"/>
-    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
-    <rdfs:label>もみちの賀</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</ns2:vol>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/16.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/16.xml"/>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</ns2:vol>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>みをつくし</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/12.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/12.xml"/>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>すま</rdfs:label>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</ns3:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/17.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/17.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>ゑあはせ</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</ns3:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/53.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
+    <rdfs:label>てならひ</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/53.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/30.json">
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</ns3:vol>
+    <rdfs:label>藤はかま</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/30.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/16.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/16.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
     <rdfs:label>せきや</rdfs:label>
-  </ns1:作品>
-  <ns1:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/24.json">
-    <ns3:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/24.xml"/>
-    <ns3:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
-    <rdfs:label>こてふ</rdfs:label>
-    <ns2:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">24</ns2:vol>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</ns3:vol>
     <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
-  </ns1:作品>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/19.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</ns3:vol>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>うす雲</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/19.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/18.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/18.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+    <rdfs:label>松かせ</rdfs:label>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</ns3:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/45.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/45.xml"/>
+    <rdfs:label>はし姬</rdfs:label>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/27.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/27.xml"/>
+    <rdfs:label>かゝり火</rdfs:label>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">27</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/26.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">26</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+    <rdfs:label>とこなつ</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/26.xml"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/15.json">
+    <rdfs:label>よもきふ</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437687/manifest.json"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/15.xml"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/46.json">
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+    <rdfs:label>しゐかもと</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/46.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</ns3:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/49.json">
+    <rdfs:label>やとり木</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/49.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</ns3:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/08.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/08.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>花のえん</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</ns3:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/10.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/10.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</ns3:vol>
+    <rdfs:label>さか木</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/31.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">31</ns3:vol>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>まきはしら</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/31.xml"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/48.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/48.xml"/>
+    <rdfs:label>さわらひ</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/34.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</ns3:vol>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/34.xml"/>
+    <rdfs:label>わかな上</rdfs:label>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/32.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">32</ns3:vol>
+    <rdfs:label>梅かえ</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/32.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/06.json">
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/06.xml"/>
+    <rdfs:label>すゑつむ花</rdfs:label>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/36.json">
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</ns3:vol>
+    <rdfs:label>かしは木</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/36.xml"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/50.json">
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/50.xml"/>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <rdfs:label>あつまや</rdfs:label>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</ns3:vol>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/25.json">
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437688/manifest.json"/>
+    <rdfs:label>ほたる</rdfs:label>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/25.xml"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">25</ns3:vol>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/54.json">
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</ns3:vol>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/54.xml"/>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json"/>
+    <rdfs:label>夢のうきはし</rdfs:label>
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+  </ns2:作品>
+  <ns2:作品 rdf:about="https://w3id.org/kouigenjimonogatari/api/item_sets/04.json">
+    <ns1:rights rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/"/>
+    <ns3:vol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</ns3:vol>
+    <rdfs:seeAlso rdf:resource="https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"/>
+    <ns1:relation rdf:resource="https://w3id.org/kouigenjimonogatari/tei/04.xml"/>
+    <rdfs:label>夕かほ</rdfs:label>
+  </ns2:作品>
 </rdf:RDF>
