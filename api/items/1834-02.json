@@ -11,7 +11,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437690/canvas/85"
+        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437690/canvas/86"
       }
     ],
     "http://purl.org/dc/terms/rights": [
@@ -21,7 +21,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "ものからなつかしうなよゝかにかたはなるまてなよ〱とたはみたるさまのし"
+        "@value": "しからぬさまにいひ思らむさうしみもいかゝおほすへきかゝるすちの物にくみ"
       }
     ],
     "https://w3id.org/kouigenjimonogatari/api/property/page": [

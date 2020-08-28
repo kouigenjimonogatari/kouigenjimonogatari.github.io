@@ -11,7 +11,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437690/canvas/73"
+        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437690/canvas/74"
       }
     ],
     "http://purl.org/dc/terms/rights": [
@@ -21,7 +21,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "にあふれんもしらすかほにてきかんこそ心くるしかるへけれことなる事なくて"
+        "@value": "しつらひさはけは家はひろけれと源少納言ひむかしのたいにはすむをのこゝな"
       }
     ],
     "https://w3id.org/kouigenjimonogatari/api/property/page": [

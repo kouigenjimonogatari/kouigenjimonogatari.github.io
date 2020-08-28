@@ -1,6 +1,6 @@
 [
   {
-    "@id": "https://w3id.org/kouigenjimonogatari/api/items/1853-13.json",
+    "@id": "https://w3id.org/kouigenjimonogatari/api/items/1795-07.json",
     "@type": [
       "https://jpsearch.go.jp/term/type/文章要素"
     ],
@@ -11,7 +11,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437690/canvas/95"
+        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437690/canvas/66"
       }
     ],
     "http://purl.org/dc/terms/rights": [
@@ -21,17 +21,17 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "とゝはなくてのたまふ侍従なむつたへけるとそ"
+        "@value": "思てこの御方にとりつきてさるへきおり〱はおかしきさまに返事なとせさせ"
       }
     ],
     "https://w3id.org/kouigenjimonogatari/api/property/page": [
       {
-        "@value": 1853
+        "@value": 1795
       }
     ],
     "https://w3id.org/kouigenjimonogatari/api/property/row": [
       {
-        "@value": 13
+        "@value": 7
       }
     ]
   }

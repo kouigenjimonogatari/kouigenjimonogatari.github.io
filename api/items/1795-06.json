@@ -1,6 +1,6 @@
 [
   {
-    "@id": "https://w3id.org/kouigenjimonogatari/api/items/1853-08.json",
+    "@id": "https://w3id.org/kouigenjimonogatari/api/items/1795-06.json",
     "@type": [
       "https://jpsearch.go.jp/term/type/文章要素"
     ],
@@ -11,7 +11,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437690/canvas/95"
+        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437690/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437690/canvas/66"
       }
     ],
     "http://purl.org/dc/terms/rights": [
@@ -21,17 +21,17 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@value": "せてしきたるかみにふつゝかにかきたるものくまなき月にふとみゆれはめとゝ"
+        "@value": "りまさりてこと〱しききはの人はたかゝるあたりをさいへとたつねよらしと"
       }
     ],
     "https://w3id.org/kouigenjimonogatari/api/property/page": [
       {
-        "@value": 1853
+        "@value": 1795
       }
     ],
     "https://w3id.org/kouigenjimonogatari/api/property/row": [
       {
-        "@value": 8
+        "@value": 6
       }
     ]
   }
