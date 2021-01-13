@@ -11,7 +11,7 @@ import urllib.parse
 
 path = "data/metadata.xlsx"
 
-df = pd.read_excel(path, sheet_name=0, header=None, index_col=None)
+df = pd.read_excel(path, sheet_name=0, header=None, index_col=None, engine='openpyxl')
 
 r_count = len(df.index)
 c_count = len(df.columns)
