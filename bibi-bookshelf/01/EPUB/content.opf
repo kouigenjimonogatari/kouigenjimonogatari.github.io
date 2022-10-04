@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="id" version="3.0" prefix="rendition: http://www.idpf.org/vocab/rendition/#">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <meta property="dcterms:modified">2022-09-30T22:51:23Z</meta>
+    <meta name="generator" content="Ebook-lib 0.17.1"/>
+    <dc:identifier id="id">01</dc:identifier>
+    <dc:title>校異源氏物語・きりつぼ</dc:title>
+    <dc:language>ja</dc:language>
+    <dc:creator id="creator">池田亀鑑</dc:creator>
+  </metadata>
+  <manifest>
+    <item href="style.css" id="_style.css" media-type="text/css"/>
+    <item href="5.xhtml" id="page_5" media-type="application/xhtml+xml"/>
+    <item href="6.xhtml" id="page_6" media-type="application/xhtml+xml"/>
+    <item href="7.xhtml" id="page_7" media-type="application/xhtml+xml"/>
+    <item href="8.xhtml" id="page_8" media-type="application/xhtml+xml"/>
+    <item href="9.xhtml" id="page_9" media-type="application/xhtml+xml"/>
+    <item href="10.xhtml" id="page_10" media-type="application/xhtml+xml"/>
+    <item href="11.xhtml" id="page_11" media-type="application/xhtml+xml"/>
+    <item href="12.xhtml" id="page_12" media-type="application/xhtml+xml"/>
+    <item href="13.xhtml" id="page_13" media-type="application/xhtml+xml"/>
+    <item href="14.xhtml" id="page_14" media-type="application/xhtml+xml"/>
+    <item href="15.xhtml" id="page_15" media-type="application/xhtml+xml"/>
+    <item href="16.xhtml" id="page_16" media-type="application/xhtml+xml"/>
+    <item href="17.xhtml" id="page_17" media-type="application/xhtml+xml"/>
+    <item href="18.xhtml" id="page_18" media-type="application/xhtml+xml"/>
+    <item href="19.xhtml" id="page_19" media-type="application/xhtml+xml"/>
+    <item href="20.xhtml" id="page_20" media-type="application/xhtml+xml"/>
+    <item href="21.xhtml" id="page_21" media-type="application/xhtml+xml"/>
+    <item href="22.xhtml" id="page_22" media-type="application/xhtml+xml"/>
+    <item href="23.xhtml" id="page_23" media-type="application/xhtml+xml"/>
+    <item href="24.xhtml" id="page_24" media-type="application/xhtml+xml"/>
+    <item href="25.xhtml" id="page_25" media-type="application/xhtml+xml"/>
+    <item href="26.xhtml" id="page_26" media-type="application/xhtml+xml"/>
+    <item href="27.xhtml" id="page_27" media-type="application/xhtml+xml"/>
+    <item href="28.xhtml" id="page_28" media-type="application/xhtml+xml"/>
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml"/>
+  </manifest>
+  <spine toc="ncx" page-progression-direction="rtl">
+    <itemref idref="page_5"/>
+    <itemref idref="page_6"/>
+    <itemref idref="page_7"/>
+    <itemref idref="page_8"/>
+    <itemref idref="page_9"/>
+    <itemref idref="page_10"/>
+    <itemref idref="page_11"/>
+    <itemref idref="page_12"/>
+    <itemref idref="page_13"/>
+    <itemref idref="page_14"/>
+    <itemref idref="page_15"/>
+    <itemref idref="page_16"/>
+    <itemref idref="page_17"/>
+    <itemref idref="page_18"/>
+    <itemref idref="page_19"/>
+    <itemref idref="page_20"/>
+    <itemref idref="page_21"/>
+    <itemref idref="page_22"/>
+    <itemref idref="page_23"/>
+    <itemref idref="page_24"/>
+    <itemref idref="page_25"/>
+    <itemref idref="page_26"/>
+    <itemref idref="page_27"/>
+    <itemref idref="page_28"/>
+  </spine>
+</package>
