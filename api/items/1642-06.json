@@ -11,7 +11,7 @@
     ],
     "http://purl.org/dc/terms/relation": [
       {
-        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://www.dl.ndl.go.jp/api/iiif/3437689/manifest.json&canvas=https://www.dl.ndl.go.jp/api/iiif/3437689/canvas/215"
+        "@id": "http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/?manifest=https://dl.ndl.go.jp/api/iiif/3437689/manifest.json&canvas=https://dl.ndl.go.jp/api/iiif/3437689/canvas/215"
       }
     ],
     "http://purl.org/dc/terms/rights": [

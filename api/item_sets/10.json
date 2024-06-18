@@ -21,7 +21,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
-        "@id": "https://www.dl.ndl.go.jp/api/iiif/3437686/manifest.json"
+        "@id": "https://dl.ndl.go.jp/api/iiif/3437686/manifest.json"
       }
     ],
     "https://w3id.org/kouigenjimonogatari/api/property/vol": [
