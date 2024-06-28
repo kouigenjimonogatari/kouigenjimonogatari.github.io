@@ -1,0 +1,719 @@
+<?xml version="1.0" ?>
+<?xml-model href="https://kouigenjimonogatari.github.io/lw/tei_genji.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-stylesheet type="text/css" href="https://kouigenjimonogatari.github.io/lw/tei_genji.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>校異源氏物語・松かせ</title>
+				<author>池田亀鑑</author>
+				<respStmt>
+					<resp when="2020-08-22">Transcription</resp>
+					<name>Misa Nakamura</name>
+				</respStmt>
+				<respStmt>
+					<resp when="2020-08-22">Transcription</resp>
+					<name>Michi Kigoshi</name>
+				</respStmt>
+				<respStmt>
+					<resp when="2020-08-22">Transcription</resp>
+					<name>Takashi Tamura</name>
+				</respStmt>
+				<respStmt xml:id="snakamura">
+					<resp when="2020-08-22">TEI Encoding</resp>
+					<name>Satoru Nakamura</name>
+				</respStmt>
+				<respStmt>
+					<resp when="2020-08-22">Advisor</resp>
+					<name>Kiyonori Nagasaki</name>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<distributor>デジタル源氏物語</distributor>
+				<date when="2020-08-22">2020年08月22日</date>
+				<availability>
+					<p>
+						<ref target="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</ref>
+					</p>
+				</availability>
+			</publicationStmt>
+			<sourceDesc>
+				<bibl>
+					<author>池田亀鑑</author>
+					<title>校異源氏物語</title>
+					<publisher>中央公論社</publisher>
+				</bibl>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<p>
+				旧字は				<ref target="https://wwwap.hi.u-tokyo.ac.jp/ships/itaiji_list.jsp">史料編纂所データベース異体字同定一覧</ref>
+				を用いて新字に変換した。
+			</p>
+		</encodingDesc>
+		<revisionDesc status="published">
+			<change when="2024-06-28" who="#snakamura">pb要素のfacs属性を修正しました。facsimile要素を修正しました。</change>
+		</revisionDesc>
+	</teiHeader>
+	<facsimile sameAs="https://dl.ndl.go.jp/api/iiif/3437687/manifest.json">
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/99" ulx="0" uly="0" xml:id="f001">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000099" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000099/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0579"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/100" ulx="0" uly="0" xml:id="f002">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000100" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000100/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0580"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0581"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/101" ulx="0" uly="0" xml:id="f003">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000101" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000101/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0582"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0583"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/102" ulx="0" uly="0" xml:id="f004">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000102" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000102/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0584"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0585"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/103" ulx="0" uly="0" xml:id="f005">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000103" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000103/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0586"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0587"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/104" ulx="0" uly="0" xml:id="f006">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000104" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000104/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0588"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0589"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/105" ulx="0" uly="0" xml:id="f007">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000105" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000105/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0590"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0591"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/106" ulx="0" uly="0" xml:id="f008">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000106" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000106/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0592"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0593"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/107" ulx="0" uly="0" xml:id="f009">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000107" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000107/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0594"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0595"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/108" ulx="0" uly="0" xml:id="f010">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000108" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000108/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0596"/>
+			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0597"/>
+		</surface>
+		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/canvas/109" ulx="0" uly="0" xml:id="f011">
+			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437687/R0000109" url="https://dl.ndl.go.jp/api/iiif/3437687/R0000109/full/full/0/default.jpg" width="6890px"/>
+			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0598"/>
+		</surface>
+	</facsimile>
+	<text>
+		<body>
+			<p>
+				<lb/>
+				<pb corresp="#zone_0579" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000099/0,0,3445,4706/full/0/default.jpg" n="579"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-01.json">ひむかしの院つくりたてゝ花ちる里ときこえしうつろはし給ふにしのたゐわた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-02.json">殿なとかけてまところけいしなとあるへきさまにしをかせ給ふひむかしのたい</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-03.json">はあかしの御かたとおほしをきてたりきたのたいはことにひろくつくらせ給て</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-04.json">かりにてもあはれとおほしてゆくすゑかけて契たのめ給し人ゝつとひすむへき</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-05.json">さまにへたて〱しつらはせ給へるしもなつかしうみところありてこまかなる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-06.json">しむてんはふたけたまはす時〱わたり給ふ御すみ所にしてさるかたなる御し</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-07.json">つらひともしをかせ給へりあかしには御せうそこたえすいまは猶のほり給ぬへ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-08.json">きことをはのたまへと女は猶わか身のほとを思ひしるにこよなくやむことなき</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-09.json">きはの人〱たに中〱さてかけはなれぬ御ありさまのつれなきをみつゝもの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-10.json">おもひまさりぬへくきくをましてなにはかりのおほえなりとてかさしいてまし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-11.json">らはむこのわか君の御おもてふせにかすならぬ身のほとこそあらはれめたまさ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-12.json">かにはひわたり給ふついてをまつ事にて人わらへにはしたなきこといかにあら</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-13.json">むと思ひみたれてもまたさりとてかゝる所におひいてかすまへられ給はさらむ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0579-14.json">もいとあはれなれはひたすらにもえうらみそむかすおやたちもけにことはりと</seg>
+				<lb/>
+				<pb corresp="#zone_0580" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000100/3445,0,3445,4706/full/0/default.jpg" n="580"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-01.json">思ひなけくに中〱心もつきはてぬむかしはゝきみの御をほちなかつかさの宮</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-02.json">ときこえけるからうし給けるところおほゐかはのわたりにありけるをその御の</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-03.json">ちはか〱しうあひつく人もなくてとしころあれまとふを思いてゝかのときよ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-04.json">りつたはりてやともりのやうにてある人をよひとりてかたらふ世中をいまはと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-05.json">思はてゝかゝるすまひにしつみそめしかともすゑのよに思かけぬこといてきて</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-06.json">なんさらにみやこのすみかもとむるをにはかにまはゆき人中いとはしたなくゐ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-07.json">中ひにける心ちもしつかなるましきをふるきところたつねてとなむ思よるさる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-08.json">へきものはあけはたさむすりなとしてかたのこと人すみぬへくはつくろひなさ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-09.json">れなむやといふあつかりこのとしころらうする人もものし給はすあやしきやう</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-10.json">になりてはへれはしもやにそつくろひてやとりはへるをこの春のころより内の</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-11.json">大殿のつくらせ給ふ御たうちかくてかのわたりなむいとけさはかしうなりにて</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-12.json">はへるいかめしき御たうともたてゝおほくの人なむつくりいとなみはへるめる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-13.json">しつかなる御ほいならはそれやたかひはへらむなにかそれもかのとのゝ御かけ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0580-14.json">にかたかけてと思ふことありてをのつからをい〱にうちのことゝもはしてむ</seg>
+				<lb/>
+				<pb corresp="#zone_0581" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000100/0,0,3445,4706/full/0/default.jpg" n="581"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-01.json">まついそきておほかたの事ともをものせよといふ身つからゝうするところには</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-02.json">へらねとまたしりつたへたまふ人もなけれはかこかなるならひにてとしころか</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-03.json">くろへ侍りつるなりみさうの田畠なといふことのいたつらにあれはへりしかは</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-04.json">故民部大輔の君に申給はりてさるへきものなとたてまつりてなんらうしつくり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-05.json">侍なとそのあたりのたくはへの事ともをあやふけに思ひてひけかちにつなしに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-06.json">くきかほをはななとうちあかめつゝはちふきいへはさらにそのたなとやうの事</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-07.json">はこゝにしるましたゝ年ころのやうに思ひてものせよ券なとはこゝになむあれ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-08.json">とすへて世中をすてたる身にてとしころともかくもたつねしらぬをその事もい</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-09.json">まくはしくしたゝめむなといふにも大とのゝけはひをかくれはわつらはしくて</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-10.json">そのゝちものなとおほくうけとりてなんいそきつくりけるかやうに思ひよるら</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-11.json">んともしり給はてのほらむことをものうかるも心えすおほしわか君のさてつく</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-12.json">〱とものしたまふを後のよに人のいひつたへんいまひときは人わろきゝすに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-13.json">やとおもほすにつくりいてゝそしか〱のところをなむおもひいてたるときこ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0581-14.json">えさせける人にましらはむ事をくるしけにのみものするはかく思ふなりけりと</seg>
+				<lb/>
+				<pb corresp="#zone_0582" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000101/3445,0,3445,4706/full/0/default.jpg" n="582"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-01.json">心え給ふくちをしからぬ心のよういかなとおほしなりぬこれみつのあそむれい</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-02.json">のしのふるみちはいつとなくいろひつかうまつる人なれはつかはしてさるへき</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-03.json">さまにこゝかしこのようゐなとせさせ給ひけりあたりおかしうてうみつらにか</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-04.json">よひたるところのさまになむはへりけるときこゆれはさやうのすまゐによしな</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-05.json">からすはありぬへしとおほすつくらせ給ふ御たうは大かく寺のみなみにあたり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-06.json">てたきとのゝ心はへなとおとらすおもしろき寺也これはかはつらにえもいはぬ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-07.json">まつかけになにのいたはりもなくたてたるしんてむのことそきたるさまもをの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-08.json">つから山さとのあはれをみせたりうちのしつらひなとまておほしよるしたしき</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-09.json">人〱いみしうしのひてくたしつかはすのかれかたくていまはと思ふにとしへ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-10.json">つるうらをはなれなむことあはれに入道の心ほそくてひとりとまらんことを思</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-11.json">ひみたれてよろすにかなしすへてなとかく心つくしになりはしめけむ身にかと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-12.json">露のかゝらぬたくひうらやましくおほゆおやたちもかゝる御むかへにてのほる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-13.json">さいわいはとしころねてもさめてもねかひわたりし心さしのかなふといとうれ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0582-14.json">しけれとあひみてすくさむいふせさのたへかたうかなしけれはよるひる思ほれ</seg>
+				<lb/>
+				<pb corresp="#zone_0583" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000101/0,0,3445,4706/full/0/default.jpg" n="583"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-01.json">ておなしことをのみさらはわか君をはみたてまつらては侍へきかといふよりほ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-02.json">かの事なしはゝ君もいみしうあはれなりとしころたにおなしいほりにもすます</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-03.json">かけはなれつれはましてたれによりてかはかけとゝまらむたゝあたにうちみる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-04.json">人のあさはかなるかたらひたにみなれそなれてわかるゝほとはたゝならさめる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-05.json">をましてもてひかめたるかしらつき心おきてこそたのもしけなけれとまたさる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-06.json">かたにこれこそはよをかきるへきすみかなれとありはてぬいのちをかきりに思</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-07.json">て契すくしきつるをにはかにゆきはなれなむも心ほそしわかき人〱のいふせ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-08.json">う思ひしつみつるはうれしきものからみすてかたきはまのさまをまたはえしも</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-09.json">かへらしかしとよするなみにそへてそてぬれかちなり秋のころほひなれはもの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-10.json">のあはれとりかさねたる心ちしてそのひとあるあか月に秋風すゝしくてむしの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-11.json">ねもとりあへぬにうみのかたをみいたしてゐたるに入道れいのこやよりふかう</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-12.json">おきてはなすゝりうちしてをこなひいましたりいみしう事いみすれとたれも</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-13.json">〱いとしのひかたしわか君はいとも〱うつくしけによるひかりけむたまの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0583-14.json">心ちして袖よりほかにはなちきこえさりつるをみなれてまつはし給へる心さま</seg>
+				<lb/>
+				<pb corresp="#zone_0584" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000102/3445,0,3445,4706/full/0/default.jpg" n="584"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-01.json">なとゆゝしきまてかく人にたかへる身をいま〱しく思なからかたときみたて</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-02.json">まつらてはいかてかすくさむとすらむとつゝみあへす</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-03.json">ゆくさきをはるかにいのるわかれちにたえぬはおいの涙なりけりいともゆ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-04.json">ゝしやとてをしのこひかくすあま君</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-05.json">もろともにみやこはいてきこのたひやひとり野中のみちにまとはんとてな</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-06.json">きたまふさまいとことはりなりこゝら契かはしてつもりぬるとし月のほとを思</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-07.json">へはかうゝきたることをたのみてすてしよにかへるも思へはゝかなしや御かた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-08.json">いきてまたあひみむことをいつとてかゝきりもしらぬよをはたのまむをく</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-09.json">りにたにとせちにの給へとかた〱につけてえさるましきよしをいひつゝさす</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-10.json">かにみちのほともいとうしろめたなきけしきなり世中をすてはしめしにかゝる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-11.json">人のくににおもひくたりはへりしことゝもたゝ君の御ためと思ふやうにあけく</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-12.json">れの御かしつきも心にかなふやうもやと思ひたまへたちしかと身のつたなかり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-13.json">けるきはの思しらるゝことおほかりしかはさらにみやこにかへりてふるすらう</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0584-14.json">のしつめるたくひにてまつしきいへのよもきむくらもとのありさまあらたむる</seg>
+				<lb/>
+				<pb corresp="#zone_0585" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000102/0,0,3445,4706/full/0/default.jpg" n="585"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-01.json">こともなきものからおほやけわたくしにおこかましきなをひろめておやの御な</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-02.json">きかけをはつかしめむ事のいみしさになむやかてよをすてつるかとてなりけり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-03.json">と人にもしられにしをそのかたにつけてはよう思ひはなちてけりとおもひ侍る</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-04.json">に君のやう〱おとなひ給ひものおもほししるへきにそへてはなとかうくちを</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-05.json">しきせかいにてにしきをかくしきこゆらんと心のやみはれまなくなけきわたり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-06.json">はへりしまゝに仏神をたのみきこえてさりともかうつたなき身にひかれて山か</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-07.json">つのいほりにはましりたまはしと思ふ心ひとつをたのみ侍しにおもひよりかた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-08.json">くてうれしき事ともをみたてまつりそめてもなかなか身のほとをとさまかうさ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-09.json">まにかなしうなけきはへりつれとわか君のかういておはしましたる御すくせの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-10.json">たのもしさにかゝるなきさに月日をすくし給はむもいとかたしけなう契ことに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-11.json">おほせ給へはみたてまつらさらむ心まとひはしつめかたけれとこの身はなかく</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-12.json">よをすてし心はへり君たちはよをてらし給ふへきひかりしるけれはしはしかゝ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-13.json">る山かつの心をみたり給ふはかりの御契こそはありけめ天にむまるゝ人のあや</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0585-14.json">しきみつのみちにかへるらむ一時に思なすらへてけふなかくわかれたてまつり</seg>
+				<lb/>
+				<pb corresp="#zone_0586" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000103/3445,0,3445,4706/full/0/default.jpg" n="586"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-01.json">ぬいのちつきぬときこしめすとも後のことおほしいとなむなさらぬわかれに御</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-02.json">心うこかし給ふなといひはなつものからけふりともならむゆふへまてわか君の</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-03.json">御ことをなむ六時のつとめにも猶心きたなくうちませはへりぬへきとてこれに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-04.json">そうちひそみぬる御車はあまたつつけむもところせくかたへつゝわけむもわつ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-05.json">らはしとて御ともの人〱もあなかちにかくろへしのふれはふねにてしのひや</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-06.json">かにとさためたりたつのときにふなてし給ふむかしの人もあはれといひけるう</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-07.json">らのあさきりへたゝりゆくまゝにいとものかなしくて入道は心すみはつましく</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-08.json">あくかれなかめゐたりこゝらとしをへていまさらにかへるもなをおもひつきせ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-09.json">すあま君はなき給</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-10.json">かのきしに心よりにしあま舟のそむきしかたにこきかへる哉御かた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-11.json">いくかへりゆきかふ秋をすくしつゝうき木にのりてわれかへるらんおもふ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-12.json">かたの風にてかきりけるひたかへすいり給ぬ人にみとかめられしの心もあれは</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-13.json">みちの程もかろらかにしなしたりいへのさまもおもしろうてとしころへつるう</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0586-14.json">みつらにおほえたれはところかへたる心ちもせすむかしのこと思ひいてられて</seg>
+				<lb/>
+				<pb corresp="#zone_0587" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000103/0,0,3445,4706/full/0/default.jpg" n="587"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-01.json">あはれなることおほかりつくりそへたるらうなとゆへあるさまにみつのなかれ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-02.json">もおかしうしなしたりまたこまやかなるにはあらねともすみつかはさてもあり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-03.json">ぬへししたしきけいしにおほせ給て御まうけのことせさせ給けりわたり給はむ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-04.json">ことはとかうおほしたはかるほとにひころへぬなか〱もの思ひつゝけられて</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-05.json">すてしいへゐも恋しうつれ〱なれはかの御かたみのきむをかきならすおりの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-06.json">いみしうしのひかたけれは人はなれたるかたにうちとけてすこしひくに松風は</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-07.json">したなくひゝきあひたりあま君ものかなしけにてよりふし給へるにおきあかり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-08.json">て</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-09.json">身をかへてひとりかへれる山さとにきゝしににたる松風そふく御かた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-10.json">ふるさとにみしよのともをこひわひてさえつることをたれかわくらんかや</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-11.json">うにものはかなくてあかしくらすにおとゝ中〱しつ心なくおほさるれは人め</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-12.json">をもえはゝかりあへ給はてわたり給を女君はかくなむとたしかにしらせたてま</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-13.json">つり給はさりけるをれゐのきゝもやあはせ給ふとてせうそこきこえ給ふかつら</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0587-14.json">にみるへきことはへるをいさや心にもあらてほとへにけりとふらはむといひし</seg>
+				<lb/>
+				<pb corresp="#zone_0588" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000104/3445,0,3445,4706/full/0/default.jpg" n="588"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-01.json">人さへかのわたりちかくきゐてまつなれは心くるしくてなむさかのゝみたうに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-02.json">もかさりなき仏の御とふらひすへけれは二三日は侍なんときこえ給かつらの院</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-03.json">といふところにはかにつくらせ給ふときくはそこにすへ給へるにやとおほすに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-04.json">心つきなけれはおのゝえさへあらため給はむほとやまちとをにと心ゆかぬ御け</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-05.json">しきなりれいのくらへくるしき御心いにしへのありさまなこりなしと世人もい</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-06.json">ふなるものをなにやかやと御心とり給程にひたけぬしのひやかにこせむうとき</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-07.json">はませて御心つかひしてわたり給ひぬたそかれときにおはしつきたりかりの御</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-08.json">そにやつれ給へりしたに世にしらぬ心ちせしをましてさる御心してひきつくろ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-09.json">ひ給へる御なをしすかたよになくなまめかしうまはゆき心ちすれは思ひむせへ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-10.json">る心のやみもはるゝやうなりめつらしうあはれにてわか君をみたまふもいかゝ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-11.json">あさくおほされんいまゝてへたてけるとし月たにあさましくゝやしきまておも</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-12.json">ほす大とのはらの君をうつくしけなりとよ人もてさはくは猶ときよによれは人</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-13.json">のみなすなりけりかくこそはすくれたる人の山くちはしるかりけれとうちゑみ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0588-14.json">たるかほのなに心なきかあいきやうつきにほひたるをいみしうらうたしとおほ</seg>
+				<lb/>
+				<pb corresp="#zone_0589" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000104/0,0,3445,4706/full/0/default.jpg" n="589"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-01.json">すめのとのくたりし程はをとろへたりしかたちねひまさりてつきころの御もの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-02.json">かたりなとなれきこゆるをあはれにさるしほやのかたはらにすくしつらむこと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-03.json">をおほしのたまふこゝにもいとさとはなれてわたらむこともかたきを猶かのほ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-04.json">いあるところにうつろひ給へとのたまへといとうゐ〱しきほとすくしてとき</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-05.json">こゆるもことはりなりよひと夜よろつに契かたらひあかし給ふつくろふへきと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-06.json">ころ〱のあつかりいまくはへたるけいしなとにおほせらるかつらの院にわた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-07.json">り給ふへしとありけれはちかきみさうの人〱まいりあつまりたりけるもみな</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-08.json">たつねまいりたりせむさいとものおれふしたるなとつくろはせ給ふこゝかしこ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-09.json">のたていしともゝみなまろひうせたるをなさけありてしなさはおかしかりぬへ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-10.json">きところかなかゝるところをわさとつくろふもあいなきわさなりさてもすくし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-11.json">はてねはたつときものうく心とまるくるしかりきなときしかたのことものたま</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-12.json">ひいてゝなきみわらひみうちとけのたまへるいとめてたしあま君のそきてみた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-13.json">てまつるにおいもわすれもの思ひもはるゝ心ちしてうちゑみぬひんかしのわた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0589-14.json">とのゝしたよりいつるみつの心はへつくろはせ給とていとなまめかしきうちき</seg>
+				<lb/>
+				<pb corresp="#zone_0590" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000105/3445,0,3445,4706/full/0/default.jpg" n="590"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-01.json">すかたうちとけ給へるをいとめてたうゝれしとみたてまつるにあかのくなとの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-02.json">あるをみたまふにおほしいてゝあま君はこなたにかいとしとけなきすかたなり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-03.json">けりやとて御なをしめしいてゝたてまつるき丁のもとにより給てつみかろくお</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-04.json">ほしたてたまへる人のゆへは御おこなひのほとあはれにこそおもひなしきこゆ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-05.json">れいといたく思すまし給へりし御すみかをすてゝうきよにかへり給へる心さし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-06.json">あさからすまたかしこにはいかにとまりて思をこせ給ふらむとさま〱になむ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-07.json">といとなつかしうの給すてはへりし世をいまさらにたちかへり思ひたまへみた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-08.json">るゝををしはからせ給ひけれはいのちなかさのしるしも思ひ給へしられぬると</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-09.json">うちなきてあらいそかけに心くるしうおもひきこえさせはへりしふたはのまつ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-10.json">もいまはたのもしき御をひさきといはゐきこえさするをあさきねさしゆへやい</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-11.json">かゝとかた〱心つくされはへるなときこゆるけはひよしなからねはむかしも</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-12.json">のかたりにみこのすみ給けるありさまなとかたらせ給ふにつくろはれたるみつ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-13.json">のをとなひかことかましうきこゆ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0590-14.json">すみなれし人はかへりてたとれともしみつはやとのあるしかほなるわさと</seg>
+				<lb/>
+				<pb corresp="#zone_0591" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000105/0,0,3445,4706/full/0/default.jpg" n="591"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-01.json">はなくていひけつさまみやひかによしときゝ給ふ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-02.json">いさらゐはゝやくのこともわすれしをもとのあるしやおもかはりせるあは</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-03.json">れとうちなかめてたち給ふすかたにほひ世にしらすとのみおもひきこゆみてら</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-04.json">にわたり給ふて月ことの十四五日つこもりの日おこなはるへきふけむかうあみ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-05.json">たさかの念仏の三昧をはさるものにて又〱くはへをこなはせ給ふへき事なと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-06.json">さためをかせ給ふたうのかさり仏の御具なとめくらしおほせらる月のあかきに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-07.json">かへり給ふありしよのことおほしいてらるゝおりすくさすかのきむの御ことさ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-08.json">しいてたりそこはかとなくものあはれなるにえしのひ給はてかきならし給ふま</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-09.json">たしらへもかはらすひきかへしそのおりいまの心ちし給ふ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-10.json">ちきりしにかはらぬことのしらへにてたえぬ心のほとはしりきや女</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-11.json">かはらしと契しことをたのみにてまつのひゝきにねをそへしかなときこえ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-12.json">かはしたるもにけなからぬこそは身にあまりたるありさまなめれこよなうねひ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-13.json">まさりにけるかたちけはひえおもほしすつましうわか君はたつきもせすまほら</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0591-14.json">れ給ふいかにせましかくろへたるさまにておいゝてむか心くるしうくちをしき</seg>
+				<lb/>
+				<pb corresp="#zone_0592" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000106/3445,0,3445,4706/full/0/default.jpg" n="592"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-01.json">を二条の院にわたして心のゆくかきりもてなさは後のおほえもつみまぬかれな</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-02.json">むかしとおもほせとまた思はむ事いとをしくてえうちいて給はてなみたくみて</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-03.json">みたまふおさなき心ちにすこしはちらひたりしかやうやうゝちとけてものいひ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-04.json">わらひなとしてむつれたまふをみるまゝににほひまさりてうつくしいたきてお</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-05.json">はするさまみるかひありてすくせこよなしとみえたりまたの日は京へかへらせ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-06.json">給ふへけれはすこしおほとのこもりすくしてやかてこれよりいて給ふへきをか</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-07.json">つらの院に人〱おほくまいりつとひてこゝにも殿上人あまたまいりたり御さ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-08.json">うすくなとしたまいていとはしたなきわさかなかくみあらはさるへきくまにも</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-09.json">あらぬをとてさはかしきにひかれていて給ふ心くるしけれはさりけなくまきら</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-10.json">はしてたちとまり給へるとくちにめのとわか君いたきてさしいてたりあはれな</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-11.json">る御けしきにかきなてたまひてみてはいとくるしかりぬへきこそいとうちつけ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-12.json">なれいかゝすへきいとさとゝをしやとのたまへはゝるかに思たまへたえたりつ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-13.json">るとしころよりもいまからの御もてなしのおほつかなう侍らむは心つくしにな</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0592-14.json">ときこゆわか君てをさしいてゝたち給へるをしたひ給へはついゐたまひてあや</seg>
+				<lb/>
+				<pb corresp="#zone_0593" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000106/0,0,3445,4706/full/0/default.jpg" n="593"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-01.json">しうものおもひたえぬ身にこそありけれしはしにてもくるしやいつらなともろ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-02.json">ともにいてゝはおしみたまはぬさらはこそ人心ちもせめとのたまへはうちわら</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-03.json">ひて女君にかくなむときこゆ中〱もの思ひみたれてふしたれはとみにしもう</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-04.json">こかれすあまり上すめかしとおほしたり人〱もかたはらいたかれはしふ〱</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-05.json">にゐさりいてゝき丁にはたかくれたるかたはらめいみしうなまめいてよしあり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-06.json">たをやきたるけはひみこたちといはむにもたりぬへしかたひらひきやりてこま</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-07.json">やかにかたらひ給ふとてとはかりかへりみ給へるにさこそしつめつれみをくり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-08.json">きこゆいはむかたなきさかりの御かたちなりいたうそひやき給へりしかすこし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-09.json">なりあふほとになり給ひにける御すかたなとかくてこそもの〱しかりけれと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-10.json">御さしぬきのすそまてなまめかしうあいきやうのこほれいつるそあなかちなる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-11.json">みなしなるへきかのとけたりしくら人もかへりなりにけりゆけひのせうにてこ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-12.json">としかうふりえてけりむかしにあらため心ちよけにて御はかしとりによりきた</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-13.json">り人かけをみつけてきしかたのものわすれしはへらねとかしこけれはえこそう</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0593-14.json">ら風おほえ侍つるあか月のねさめにもおとろかしきこえさすへきよすかたにな</seg>
+				<lb/>
+				<pb corresp="#zone_0594" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000107/3445,0,3445,4706/full/0/default.jpg" n="594"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-01.json">くてとけしきはむをやへたつ山はさらにしまかくれにもおとらさりけるをまつ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-02.json">もむかしのとたとられつるにわすれぬ人もゝのし給ひけるにたのもしなといふ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-03.json">こよなしやわれも思ひなきにしもあらさりしをなとあさましうおほゆれといま</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-04.json">ことさらにとうちけさやきてまいりぬいとよそほしくさしあゆみ給ふほとかし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-05.json">かましうをひはらひて御車のしりに頭中将兵衛督のせたまふいとかる〱しき</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-06.json">かくれかみあらはされぬるこそねたうといたうからかり給よへの月にくちをし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-07.json">う御ともにをくれ侍にけるとおもひ給へられしかはけさきりをわけてまいり侍</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-08.json">つる山のにしきはまたしう侍りけりのへの色こそさかりにはへりけれなにかし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-09.json">のあそむのこたかにかゝつらひてたちをくれ侍ぬるいかゝなりぬらむなといふ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-10.json">けふは猶かつらとのにとてそなたさまにおはしましぬにはかなる御あるしとさ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-11.json">はきてうかひともめしたるにあまのさへつりおほしいてらるのにとまりぬるき</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-12.json">むたちことりしるしはかりひきつけさせたるおきのえたなとつとにしてまいれ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-13.json">りおほみきあまたゝひすむなかれてかはのわたりあやうけなれはゑひにまきれ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0594-14.json">ておはしましくらしつをの〱絶句なとつくりわたして月はなやかにさしいつ</seg>
+				<lb/>
+				<pb corresp="#zone_0595" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000107/0,0,3445,4706/full/0/default.jpg" n="595"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-01.json">るほとにおほみあそひはしまりていといまめかしひきものひはわこむはかりふ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-02.json">えとも上すのかきりしておりにあひたるてうしふきたつるほとかは風吹あはせ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-03.json">ておもしろきに月たかくさしあかりよろつの事すめるよのやゝふくるほとに殿</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-04.json">上人四五人はかりつれてまいれりうへにさふらひけるを御あそひありけるつい</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-05.json">てにけふは六日の御ものいみあくひにてかならすまいり給へきをいかなれはと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-06.json">おほせられけれはこゝにかうとまらせ給にけるよしきこしめして御せうそこあ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-07.json">るなりけり御つかひはくら人の弁なりけり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-08.json">月のすむかはのをちなる里なれはかつらのかけはのとけかるらむうらやま</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-09.json">しうとありかしこまりきこえさせ給ふうへの御あそひよりもなをところからの</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-10.json">すこさそへたるものゝねをめてゝまたゑひくはゝりぬこゝにはまうけのものも</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-11.json">さふらはさりけれはおほゐにわさとならぬまうけのものやといひつかはしたり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-12.json">とりあへたるにしたかひてまいらせたりきぬひつふたかけにてあるを御つかひ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-13.json">の弁はとくかへりまいれは女のさうすくかつけたまふ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0595-14.json">ひさかたのひかりにちかき名のみしてあさゆふきりもはれぬ山里行幸まち</seg>
+				<lb/>
+				<pb corresp="#zone_0596" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000108/3445,0,3445,4706/full/0/default.jpg" n="596"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-01.json">きこえ給ふ心はへなるへし中におひたるとうちすんし給ふついてにかのあわち</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-02.json">しまをおほしいてゝみつねかところからかとおほめきけむことなとの給ひいて</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-03.json">たるにものあはれなるゑいなきともあるへし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-04.json">めくりきてゝにとるはかりさやけきやあはちのしまのあはとみし月頭中将</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-05.json">うき雲にしはしまかひし月かけのすみはつるよそのとけかるへき左大弁す</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-06.json">こしおとなひてこ院の御ときにもむつましうつかうまつりなれし人なりけり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-07.json">雲のうへのすみかをすてゝよはの月いつれのたにゝかけかくしけむ心〱</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-08.json">にあまたあめれとうるさくてなむけちかうゝちしつまりたる御物かたりすこし</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-09.json">うちみたれてちとせもみきかまほしき御ありさまなれはをのゝえもくちぬへけ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-10.json">れとけふさへはとていそきかへり給ふものともしなしなにかつけてきりのたえ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-11.json">まにたちましりたるもせむさいのはなにみえまかひたるいろあひなとことにめ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-12.json">てたし近衛つかさのなたかきとねりものゝふしともなとさふらふにさう〱し</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-13.json">けれはそのこまなとみたれあそひてぬきかけ給ふ色色秋のにしきを風のふきお</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0596-14.json">ほふかとみゆのゝしりてかへらせたまふひゝきおほゐにはものへたてゝきゝて</seg>
+				<lb/>
+				<pb corresp="#zone_0597" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000108/0,0,3445,4706/full/0/default.jpg" n="597"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-01.json">なこりさひしうなかめ給ふ御せうそこをたにせてとおとゝも御心にかゝれりと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-02.json">のにおはしてとはかりうちやすみ給ふ山さとの御物かたりなときこえ給ふいと</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-03.json">まきこえしほとすきつれはいとくるしうこそこのすきものとものたつねきてい</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-04.json">といたうしひとゝめしにひかされてけさはいとなやましとておほとのこもれり</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-05.json">れいの心とけすみえ給へとみしらぬやうにてなすらひならぬ程をおほしくらふ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-06.json">るもわるきわさなめりわれはわれと思なし給へとをしへきこえ給ふくれかゝる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-07.json">ほとに内へまいり給ふにひきそはめていそきかき給ふはかしこへなめりそはめ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-08.json">こまやかにみゆうちさゝめきてつかはすをこたちなとにくみきこゆそのよはう</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-09.json">ちにもさふらひ給ふへけれとゝけさりつる御けしきとりに夜ふけぬれとまかて</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-10.json">給ひぬありつる御かへりもてまいれりえひきかくし給はて御らんすことににく</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-11.json">かるへきふしもみえねはこれやりかくし給へむつかしやかゝるものゝちらむも</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-12.json">いまはつきなきほとになりにけりとて御けうそくによりゐ給ひて御心のうちに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-13.json">はいとあはれに恋しうおほしやらるれはひをうちなかめてことにものものたま</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0597-14.json">はすふみはひろこりなからあれと女君みたまはぬやうなるをせめてみかくし給</seg>
+				<lb/>
+				<pb corresp="#zone_0598" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000109/3445,0,3445,4706/full/0/default.jpg" n="598"/>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-01.json">ふ御ましりこそわつらはしけれとてうちゑみ給へる御あいきやうところせきま</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-02.json">てこほれぬへしさしより給ひてまことはらうたけなるものをみしかはちきりあ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-03.json">さくもみえぬをさりとてものめかさむほともはゝかりおほかるに思ひなむわつ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-04.json">らひぬるおなし心におもひめくらして御心に思さため給へいかゝすへきこゝに</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-05.json">てはくゝみたまひてんやひるのこかよはひにもなりにけるをつみなきさまなる</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-06.json">も思ひすてかたうこそいはけなけなるしもつかたもまきらはさむなとおもふを</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-07.json">めさましとおほさすはひきゆひたまへかしときこえ給ふおもはすにのみとりな</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-08.json">し給ふ御心のへたてをせめてみしらすうらなくやはとてこそいはけなからん御</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-09.json">心にはいとようかなひぬへくなんいかにうつくしきほとにとてすこしうちゑみ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-10.json">給ひぬちこをわりなうらうたきものにしたまふ御心なれはえていたきかしつか</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-11.json">はやとおほすいかにせましむかへやせましとおほしみたるわたり給こといとか</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-12.json">たしさかのゝみたうの念仏なとまちいてゝ月にふたたひはかりの御ちきりなめ</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-13.json">りとしのわたりにはたちまさりぬへかめるをゝよひなきことゝおもへとも猶い</seg>
+				<lb/>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0598-14.json">かゝものおもはしからぬ</seg>
+			</p>
+		</body>
+	</text>
+</TEI>
