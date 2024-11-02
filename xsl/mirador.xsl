@@ -86,7 +86,16 @@
                                     id: 'known-window-id',
                                     loadedManifest: manifestUrl,
                                     canvasIndex: 0
-                                }]
+                                }],
+                                window: {
+                                    allowClose: false,
+                                    allowMaximize: false,
+                                    allowFullscreen: false,
+                                    hideWindowTitle: true,
+                                },
+                                workspaceControlPanel: {
+                                    enabled: false,
+                                },
                             });
 
                             // ページ遷移に使用する関数
