@@ -6,7 +6,9 @@
     <xsl:template match="/tei:TEI">
         <html>
             <head>
-                <title>TEI Text with Mirador</title>
+                <title>
+                    <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
+                </title>
                 <!-- Tailwind CSS CDNのリンク -->
                 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet"/>
                 <script type="text/javascript" src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
@@ -56,13 +58,15 @@
             <body class="bg-gray-50 text-gray-900">
                 <!-- ヘッダー -->
                 <header class="bg-blue-600 text-white p-4">
-                    <h1 class="text-2xl font-bold">TEI Text with Mirador</h1>
+                    <h1 class="text-2xl font-bold">
+                        <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
+                    </h1>
                 </header>
 
                 <!-- メインコンテンツ -->
                 <main>
                     <!-- 左側: TEIテキスト表示用 -->
-                    <div class="w-1/2 p-4 border-r border-gray-300 vertical-text">
+                    <div class="w-1/2 p-4 border-r border-gray-300 vertical-text horizontal-scroll">
                         <xsl:apply-templates select="tei:text/tei:body" />
                     </div>
 
@@ -119,13 +123,18 @@
                                 // Now we can dispatch it.
                                 miradorInstance.store.dispatch(action);
                             }
+                            
+                            document.querySelector('.horizontal-scroll').addEventListener('wheel', function(e) {
+                                e.preventDefault();
+                                this.scrollLeft += e.deltaY; // 縦スクロールを横スクロールに変換
+                            });
                         </script>
                     </div>
                 </main>
 
                 <!-- フッター -->
                 <footer class="bg-gray-800 text-white p-4 text-center">
-                    <p>&#169; 2024 Satoru Nakamura. All Rights Reserved.</p>
+                    <p>Powered by TEI, Mirador, and XSLT</p>
                 </footer>
             </body>
         </html>
