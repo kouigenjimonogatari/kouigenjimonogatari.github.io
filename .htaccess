@@ -1,0 +1,21 @@
+# Language redirection based on Accept-Language header
+# Note: .htaccess doesn't work on GitHub Pages, but included for future migration
+
+# Enable mod_rewrite
+RewriteEngine On
+
+# Redirect based on browser language preference
+RewriteCond %{HTTP:Accept-Language} ^en [NC]
+RewriteRule ^$ /index-en.html [L,R=302]
+
+# Japanese as default
+RewriteRule ^$ /index.html [L]
+
+# Content language headers
+<Files "index.html">
+    Header set Content-Language "ja"
+</Files>
+
+<Files "index-en.html">
+    Header set Content-Language "en"
+</Files>

@@ -6,6 +6,7 @@
     <title>Snorql: A SPARQL Explorer</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="snorql_ldb.css" />
+    <link rel="stylesheet" href="modern-style.css" />
     <script src="sparql.js"></script>
     <script src="namespaces.js"></script>
     <script src="snorql_def.js"></script>
@@ -51,15 +52,17 @@
           />
         </div>
       </form>
-      <div>
+      <div class="query-controls">
         <textarea name="query" id="querytext"></textarea>
-        Results:
-        <select id="selectoutput">
-          <option selected="selected" value="browse">Browse</option>
-          <option value="json">as JSON</option>
-          <option value="xml">as XML</option>
-        </select>
-        <input type="button" value="Go!" onclick="snorql.submitQuery()" />
+        <div class="controls-row">
+          <label for="selectoutput">Results:</label>
+          <select id="selectoutput">
+            <option selected="selected" value="browse">Browse</option>
+            <option value="json">as JSON</option>
+            <option value="xml">as XML</option>
+          </select>
+          <input type="button" value="Execute Query" onclick="snorql.submitQuery()" />
+        </div>
       </div>
     </div>
     <!-- added: EasySPARQL API -->
