@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A database publishing text data from the 'Koui Genji Monogatari' (Collated Genji Monogatari). Provides TEI/XML files and IIIF images in LOD (Linked Open Data) format.">
+    <meta name="keywords" content="Genji Monogatari,Tale of Genji,classical literature,text database,LOD,TEI,XML,IIIF,digital humanities,Japanese literature">
+    <meta name="author" content="東京大学">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Koui Genji Monogatari Text Database">
+    <meta property="og:description" content="A database publishing text data from the 'Koui Genji Monogatari' (Collated Genji Monogatari). Provides TEI/XML files and IIIF images in LOD (Linked Open Data) format.">
+    <meta property="og:url" content="https://kouigenjimonogatari.github.io/index-en.html">
+    <meta property="og:site_name" content="Koui Genji Monogatari Text Database">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://kouigenjimonogatari.github.io/ogp-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Koui Genji Monogatari Text Database - A database publishing text data from the 'Koui Genji Monogatari' (Collated Genji Monogatari)">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@digital_genji">
+    <meta name="twitter:creator" content="@digital_genji">
+    <meta name="twitter:title" content="Koui Genji Monogatari Text Database">
+    <meta name="twitter:description" content="A database publishing text data from the 'Koui Genji Monogatari' (Collated Genji Monogatari). Provides TEI/XML files and IIIF images in LOD (Linked Open Data) format.">
+    <meta name="twitter:image" content="https://kouigenjimonogatari.github.io/ogp-image.png">
+    <meta name="twitter:image:alt" content="Koui Genji Monogatari Text Database - A database publishing text data from the 'Koui Genji Monogatari' (Collated Genji Monogatari)">
+
+    <link rel="canonical" href="https://kouigenjimonogatari.github.io/index-en.html">
+    
+    <!-- Hreflang tags for multilingual SEO -->
+    <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/">
+    <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/index-en.html">
+    <link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Koui Genji Monogatari Text Database</title>
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e8f4f8;
+            --accent-color: #3498db;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-light: #e9ecef;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .jp-text {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .modern-navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .modern-navbar .navbar-brand {
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 600;
+            color: var(--primary-color) !important;
+            font-size: 1.5rem;
+        }
+
+        .modern-navbar .nav-link {
+            color: var(--text-dark) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .modern-navbar .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .hero-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="25" r="0.5" fill="white" opacity="0.05"/><circle cx="50" cy="50" r="1.5" fill="white" opacity="0.08"/><circle cx="25" cy="75" r="0.8" fill="white" opacity="0.06"/><circle cx="75" cy="75" r="1.2" fill="white" opacity="0.07"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: none;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+        }
+
+        .feature-icon img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            border: none;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .content-card-body {
+            padding: 2rem;
+        }
+
+        .volume-title {
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .action-btn {
+            min-width: 110px;
+            padding: 0.7rem 0.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn-primary-custom {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary-custom {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-accent-custom {
+            background: var(--gradient-secondary);
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .news-section {
+            background: var(--secondary-color);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .news-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .footer-modern {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            opacity: 0.9;
+        }
+
+        .back-to-top {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .action-btn {
+                min-width: auto;
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading states */
+        .loading-skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+
+<body class="pt-0">
+
+    <header>
+        <nav class="navbar navbar-expand-lg modern-navbar fixed-top">
+            <div class="container">
+                <a class="navbar-brand jp-text" href="index-en.html">Koui Genji Monogatari Text Database</a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">
+                                <i class="fas fa-external-link-alt me-1"></i><span>Digital Genji Monogatari Project</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe me-1"></i><span>Language</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="index.html">
+                                    <span>日本語</span>
+                                </a></li>
+                                <li><a class="dropdown-item" href="index-en.html" class="active">
+                                    <span>English</span>
+                                </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1 class="hero-title jp-text fade-in">Koui Genji Monogatari Text Database</h1>
+                    <p class="hero-subtitle jp-text fade-in mx-auto">
+                        A database publishing text data from the 'Koui Genji Monogatari' (Collated Genji Monogatari)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Features Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-card text-center fade-in">
+                            <div class="feature-icon mx-auto">
+                                <img src="https://pbs.twimg.com/profile_images/596366309601845248/2uaPY5NH_400x400.png" alt="IIIF Viewer" />
+                            </div>
+                            <h3 class="jp-text mb-3">IIIF & TEI Viewer</h3>
+                            <p class="text-muted">View texts alongside IIIF images from the National Diet Library Digital Collection. Display high-resolution classical manuscript images and text data simultaneously.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-card text-center fade-in">
+                            <div class="feature-icon mx-auto">
+                                <img src="https://tei-c.org/Vault/MembersMeetings/2013/wp-content/themes/atahualpa/images/header/TEIlogo.png" alt="TEI/XML" />
+                            </div>
+                            <h3 class="jp-text mb-3">TEI/XML</h3>
+                            <p class="text-muted">Browse TEI/XML files. Provides structured data with text encoding that follows international standards.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="feature-card text-center fade-in">
+                            <div class="feature-icon mx-auto">
+                                <img src="https://json-ld.org/images/json-ld-logo.png" alt="Linked Data" />
+                            </div>
+                            <h3 class="jp-text mb-3">Linked Open Data</h3>
+                            <p class="text-muted">Browse text data with assigned URIs. Provides data in a format that follows Semantic Web standards and can be linked with other datasets.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <a href="https://dts-viewer.vercel.app/ja/?base=https://dts-typescript.vercel.app/api/v2/dts&url=https://dts-typescript.vercel.app/api/v2/dts/collection" 
+                           target="_blank" class="text-decoration-none">
+                            <div class="feature-card text-center fade-in">
+                                <div class="feature-icon mx-auto">
+                                    <i class="fas fa-book-open text-white fa-2x"></i>
+                                </div>
+                                <h3 class="jp-text mb-3">DTS Viewer</h3>
+                                <p class="text-muted">Browse text data through the DTS (Distributed Text Services) API. Enables structural navigation of texts through standardized APIs.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title jp-text">Text Collection</h2>
+                <div id="main" class="row">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="news-section">
+                    <h2 class="section-title jp-text">News</h2>
+                    <div class="news-item">
+                        <div class="news-date">2024-06-23</div>
+                        <p class="jp-text mb-0">The website design has been modernized and DTS (Distributed Text Services) support has been added. Responsive design and accessibility have also been improved.</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-06-19</div>
+                        <p class="jp-text mb-0">Added volumes: "39 Yugiri", "46 Shiigamoto", "47 Agemaki", "48 Sawarabi", "49 Yadorigi", "50 Azumaya", "51 Ukifune", "52 Kagero", "53 Tenarai".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-05-27</div>
+                        <p class="jp-text mb-0">Added volumes: "34 Wakana I", "35 Wakana II", "36 Kashiwagi", "44 Takekawa", "45 Hashihime".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-05-07</div>
+                        <p class="jp-text mb-0">Added volumes: "22 Tamakazura", "23 Hatsune", "24 Kocho", "25 Hotaru", "26 Tokonatsu", "27 Kagaribi", "28 Nowaki", "29 Miyuki", "30 Fujibakama", "31 Makibashira", "32 Umegae", "33 Fujiuraba", "37 Yokobue", "38 Suzumushi", "40 Minori", "41 Maboroshi", "42 Niou Miya", "43 Kobai", "54 Yume no Ukihashi".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-04-18</div>
+                        <p class="jp-text mb-0">Added volumes: "12 Suma", "13 Akashi", "14 Miotsukushi", "15 Yomogiu", "16 Sekiya", "17 E-awase", "18 Matsukaze", "19 Usugumo", "20 Asagao", "21 Otome".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-01-19</div>
+                        <p class="jp-text mb-0">Added volumes: "9 Aoi", "10 Sakaki".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-01-06</div>
+                        <p class="jp-text mb-0">Added volumes: "3 Utsusemi", "4 Yugao", "5 Wakamurasaki", "6 Suetsumuhana", "7 Momiji no Ga", "8 Hana no En", "11 Hanachirusato".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2019-12-25</div>
+                        <p class="jp-text mb-0">Added volume: "2 Hahakigi".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2019-11-29</div>
+                        <p class="jp-text mb-0">Website launched.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About Section -->
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="section-title jp-text">About This Site</h2>
+                        <div class="content-card">
+                            <div class="content-card-body">
+                                <p class="jp-text mb-4">
+                                    Text data was created and published based on the<a
+                                        href="http://dl.ndl.go.jp/info:ndljp/pid/3437686" class="text-decoration-none">'Koui Genji Monogatari' (Collated Genji Monogatari)</a>(Internet publication, copyright expired) available in the National Diet Library Digital Collection.
+                                </p>
+                                <p class="jp-text mb-4">
+                                    Each line is assigned a URI (Uniform Resource Identifier) and published as LOD (Linked Open Data). TEI/XML files linked with IIIF images are also provided.
+                                </p>
+                                <p class="jp-text mb-0">
+                                    If you find any errors in the data, please contact the University of Tokyo Academic Asset Archiving Promotion Office (General Affairs Division, University Library) at 
+                                    <strong>digital-archive [at] lib.u-tokyo.ac.jp</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="section-title jp-text">Contributors</h2>
+                        <div class="content-card">
+                            <div class="content-card-body">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-3">
+                                        <strong><a href="https://researchmap.jp/tam" class="text-decoration-none jp-text">Takashi Tamura</a></strong><br>
+                                        <small class="text-muted jp-text">Associate Professor, Graduate School of Arts and Sciences, University of Tokyo</small>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong><a href="https://researchmap.jp/knagasaki" class="text-decoration-none jp-text">Kiyonori Nagasaki</a></strong><br>
+                                        <small class="text-muted jp-text">Principal Researcher, Institute for Research in Digital Humanities</small>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong><a href="https://researchmap.jp/i2k" class="text-decoration-none jp-text">Ikki Omukai</a></strong><br>
+                                        <small class="text-muted jp-text">Associate Professor, Graduate School of Humanities and Sociology, University of Tokyo</small>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong><a href="https://researchmap.jp/nakamura.satoru" class="text-decoration-none jp-text">Satoru Nakamura</a></strong><br>
+                                        <small class="text-muted jp-text">Assistant Professor, Information Technology Center, University of Tokyo</small>
+                                    </li>
+                                    <li class="mb-0">
+                                        <strong class="jp-text">Volunteer staff from the University of Tokyo General Library</strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer-modern">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <p class="footer-content jp-text mb-2">
+                            This database is partially funded by JSPS KAKENHI Grant Number<a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-19K20626/" class="text-white">19K20626</a>.
+                        </p>
+                        <p class="footer-content jp-text mb-0">
+                            © 2019-2024 Koui Genji Monogatari Text Database. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Back to top">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        let vols = [
+            1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+            11, 12 ,13, 14, 15, 16, 17, 18, 19, 20,
+            21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+            31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+            41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+            51, 52, 53, 54
+        ]
+
+        let arr = []
+
+        $.get({
+            url: 'https://genji.dl.itc.u-tokyo.ac.jp/data/info.json',
+            dataType: 'json', //必須。json形式で返すように設定
+        }).done(function(data){
+           let selections = data.selections
+           for(let i = 0; i < selections.length; i++){
+               let members = selections[i].members
+               for(let j = 0; j < members.length; j++){
+                let member = members[j]
+                let vol = member.metadata[0].value
+                if(vols.includes(vol)){
+                    arr.push({
+                        id : vol,
+                        label : member.label
+                    })
+                }
+               }
+           }
+
+           // Sort array by id
+           arr.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+
+           for(let i = 0; i < arr.length; i++){
+            let obj = arr[i]
+            let id = obj.id
+            let id_ = ("00"+id).slice(-2);
+
+            let main = $("#main")
+
+            // Create modern card structure
+            let colWrapper = $(`<div class='col-lg-6 col-xl-4 mb-4'>`);
+            main.append(colWrapper);
+
+            let card = $(`<div class='content-card fade-in' id='${Number(id)}' style='animation-delay: ${i * 0.1}s'>`);
+            colWrapper.append(card);
+
+            let cardBody = $("<div class='content-card-body'>");
+            card.append(cardBody);
+
+            // Title
+            let title = $(`<h5 class='volume-title jp-text'>${obj.id}: ${obj.label}</h5>`);
+            cardBody.append(title);
+
+            // Action buttons container
+            let actionButtons = $("<div class='action-buttons'>");
+            cardBody.append(actionButtons);
+
+            // IIIF Viewer button
+            let iiifBtn = $(`<a class='action-btn btn-primary-custom' 
+                href='https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/${id_}.xml&textDirection=vertical'
+                target='_blank'>
+                <i class='fas fa-images'></i>
+                <span>IIIF Viewer</span>
+            </a>`);
+            actionButtons.append(iiifBtn);
+
+            // TEI/XML button
+            let teiBtn = $(`<a class='action-btn btn-secondary-custom' 
+                href='tei/${id_}.xml'
+                target='_blank'>
+                <i class='fas fa-code'></i>
+                <span>TEI/XML</span>
+            </a>`);
+            actionButtons.append(teiBtn);
+
+            // LOD button
+            let lodBtn = $(`<a class='action-btn btn-accent-custom' 
+                href='snorql/?query=SELECT+DISTINCT+*+WHERE+%7B%0D%0A%09%3Fs+rdfs%3Alabel+%3Flabel%3B%0D%0A+++++++dct%3AisPartOf+<https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F${id_}.json>%0D%0A%7D%0D%0AORDER+BY+%3Fs'
+                target='_blank'>
+                <i class='fas fa-link'></i>
+                <span>LOD</span>
+            </a>`);
+            actionButtons.append(lodBtn);
+
+            // DTS button
+            let dtsBtn = $(`<a class='action-btn btn-secondary-custom' 
+                href='https://dts-viewer.vercel.app/ja/?base=https://dts-typescript.vercel.app/api/v2/dts&url=https%3A%2F%2Fdts-typescript.vercel.app%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.${id}'
+                target='_blank'>
+                <i class='fas fa-book-open'></i>
+                <span>DTS</span>
+            </a>`);
+            actionButtons.append(dtsBtn);
+        }
+
+        // Add loading state and animation triggers
+        setTimeout(() => {
+            document.querySelectorAll('.fade-in').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+                el.classList.add('fade-in');
+            });
+            
+            // Content loaded successfully
+        }, 100);
+
+        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+            console.error('Failed to load data:', errorThrown);
+            
+            // Show error message to user
+            let main = $("#main");
+            main.html(`
+                <div class="col-12">
+                    <div class="content-card text-center">
+                        <div class="content-card-body">
+                            <i class="fas fa-exclamation-triangle text-warning fa-3x mb-3"></i>
+                            <h5 class="jp-text">Failed to load data</h5>
+                            <p class="text-muted">Please check your network connection and reload the page.</p>
+                            <button class="btn btn-primary" onclick="location.reload()">
+                                <i class="fas fa-redo me-2"></i><span>Reload</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            
+            // Error message displayed
+        });
+
+        // Add smooth scrolling behavior for navbar links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.modern-navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                }
+            });
+
+            // Add padding-top to body to account for fixed navbar
+            document.body.style.paddingTop = '80px';
+            
+        });
+    </script>
+</body>
+
+</html>
