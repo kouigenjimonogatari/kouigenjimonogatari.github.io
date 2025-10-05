@@ -414,27 +414,17 @@
         <section class="py-5">
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="feature-card text-center fade-in">
-                            <div class="feature-icon mx-auto">
-                                <img src="https://pbs.twimg.com/profile_images/596366309601845248/2uaPY5NH_400x400.png" alt="IIIF Viewer" />
-                            </div>
-                            <h3 class="jp-text mb-3">IIIF & TEI Viewer</h3>
-                            <p class="text-muted">View texts alongside IIIF images from the National Diet Library Digital Collection. Display high-resolution classical manuscript images and text data simultaneously.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="feature-card text-center fade-in">
                             <div class="feature-icon mx-auto">
                                 <img src="https://tei-c.org/Vault/MembersMeetings/2013/wp-content/themes/atahualpa/images/header/TEIlogo.png" alt="TEI/XML" />
                             </div>
                             <h3 class="jp-text mb-3">TEI/XML</h3>
-                            <p class="text-muted">Browse TEI/XML files. Provides structured data with text encoding that follows international standards.</p>
+                            <p class="text-muted">View TEI/XML files alongside IIIF images from the National Diet Library Digital Collection. Display high-resolution classical manuscript images and text data simultaneously.</p>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="feature-card text-center fade-in">
                             <div class="feature-icon mx-auto">
                                 <img src="https://json-ld.org/images/json-ld-logo.png" alt="Linked Data" />
@@ -449,7 +439,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="feature-card text-center fade-in">
                             <div class="feature-icon mx-auto">
                                 <i class="fas fa-book-open text-white fa-2x"></i>
@@ -457,7 +447,7 @@
                             <h3 class="jp-text mb-3">DTS Viewer</h3>
                             <p class="text-muted">Browse text data through the DTS (Distributed Text Services) API. Enables structural navigation of texts through standardized APIs.</p>
                             <div class="mt-3">
-                                <a href="https://dts-viewer.vercel.app/ja/?base=https://dts-typescript.vercel.app/api/v2/dts&url=https://dts-typescript.vercel.app/api/v2/dts/collection" 
+                                <a href="https://dts-viewer.vercel.app/ja/?base=https://dts-typescript.vercel.app/api/v2/dts&url=https://dts-typescript.vercel.app/api/v2/dts/collection"
                                    target="_blank" class="btn btn-success btn-sm">
                                     <i class="fas fa-book-open me-2"></i>DTS Viewer
                                 </a>
@@ -673,18 +663,9 @@
             let actionButtons = $("<div class='action-buttons'>");
             cardBody.append(actionButtons);
 
-            // IIIF Viewer button
-            let iiifBtn = $(`<a class='action-btn btn-primary-custom' 
-                href='https://tei-eaj.github.io/aozora_tei/tools/visualization/facs/?url=https://w3id.org/kouigenjimonogatari/tei/${id_}.xml&textDirection=vertical'
-                target='_blank'>
-                <i class='fas fa-images'></i>
-                <span>IIIF Viewer</span>
-            </a>`);
-            actionButtons.append(iiifBtn);
-
-            // TEI/XML button
-            let teiBtn = $(`<a class='action-btn btn-secondary-custom' 
-                href='tei/${id_}.xml'
+            // TEI/XML Viewer button (統合されたボタン)
+            let teiBtn = $(`<a class='action-btn btn-primary-custom'
+                href='xml/xsl/${id_}.xml'
                 target='_blank'>
                 <i class='fas fa-code'></i>
                 <span>TEI/XML</span>

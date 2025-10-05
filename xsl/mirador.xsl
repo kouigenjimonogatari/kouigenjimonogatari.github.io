@@ -29,7 +29,7 @@
 
                     /* メインコンテンツがヘッダーとフッターの高さを引いた分の高さを占有 */
                     main {
-                        height: calc(100% - 120px); /* 120px = header 60px + footer 60px */
+                        height: calc(100%);
                         display: flex;
                     }
 
@@ -45,7 +45,6 @@
                     #viewer {
                         width: 100%;
                         position: relative;
-                        height: 100%;
                     }
 
                     /* Pageリンクの英語テキストを横向きに設定 */
@@ -57,35 +56,122 @@
             </head>
             <body class="bg-gray-50 text-gray-900">
                 <!-- ヘッダー -->
-                <header class="bg-blue-600 text-white p-4">
+                <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
                     <h1 class="text-2xl font-bold">
                         <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
                     </h1>
+                    <button id="downloadXmlBtn" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-50 font-semibold">
+                        TEI/XML ダウンロード
+                    </button>
                 </header>
 
                 <!-- メインコンテンツ -->
                 <main>
                     <!-- 左側: TEIテキスト表示用 -->
-                    <div class="w-1/2 p-4 border-r border-gray-300 vertical-text horizontal-scroll">
-                        <xsl:apply-templates select="tei:text/tei:body" />
+                    <div class="w-1/2 border-r border-gray-300 flex flex-col">
+                        <!-- TEI Header表示（固定、スクロールなし） -->
+                        <div class="p-4 bg-gray-100 border-b border-gray-300">
+                            <div class="text-sm text-gray-700 space-y-2">
+                                <div>
+                                    <p><strong>著者:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author"/></p>
+                                    <p><strong>出版社:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/></p>
+                                </div>
+                                <div>
+                                    <p><strong>配布:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:distributor"/></p>
+                                    <p><strong>公開日:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:date"/></p>
+                                </div>
+                                <div>
+                                    <p><strong>責任者:</strong></p>
+                                    <ul class="ml-4 list-disc">
+                                        <xsl:for-each select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt">
+                                            <li><xsl:value-of select="tei:resp"/> - <xsl:value-of select="tei:name"/></li>
+                                        </xsl:for-each>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p><strong>ライセンス:</strong>
+                                        <a href="{tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p/tei:ref/@target}"
+                                           class="text-blue-600 hover:underline" target="_blank">
+                                            <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p/tei:ref"/>
+                                        </a>
+                                    </p>
+                                </div>
+                                <xsl:if test="tei:teiHeader/tei:encodingDesc/tei:p">
+                                    <div>
+                                        <p><strong>エンコーディング:</strong></p>
+                                        <p class="ml-4 text-xs">
+                                            <xsl:value-of select="tei:teiHeader/tei:encodingDesc/tei:p"/>
+                                        </p>
+                                    </div>
+                                </xsl:if>
+                                <xsl:if test="tei:teiHeader/tei:revisionDesc">
+                                    <div>
+                                        <p><strong>改訂履歴:</strong></p>
+                                        <ul class="ml-4 list-disc text-xs">
+                                            <xsl:for-each select="tei:teiHeader/tei:revisionDesc/tei:change">
+                                                <li>
+                                                    <xsl:value-of select="@when"/> - <xsl:value-of select="."/>
+                                                </li>
+                                            </xsl:for-each>
+                                        </ul>
+                                    </div>
+                                </xsl:if>
+                            </div>
+                        </div>
+                        <!-- TEI本文（横スクロール対象） -->
+                        <div class="flex-1 p-4 vertical-text horizontal-scroll overflow-y-auto">
+                            <xsl:apply-templates select="tei:text/tei:body" />
+                        </div>
                     </div>
 
                     <!-- 右側: Miradorビューワー -->
-                    <div class="w-1/2">
-                        <div id="viewer" class="border border-gray-300"></div>
+                    <div class="w-1/2 flex">
+                        <div id="viewer" class="border border-gray-300 flex-1"></div>
 
                         <script>
-                            
+
                             // マニフェストURLをXSLTから受け取る
                             const manifestUrl = "<xsl:value-of select="//tei:facsimile/@sameAs"></xsl:value-of>";
 
+                            // pbタグのページ番号とcanvasIdのマッピング
+                            const pageToCanvasMap = {
+                                <xsl:for-each select="//tei:pb">
+                                    <xsl:variable name="zoneId" select="substring-after(@corresp, '#')" />
+                                    <xsl:variable name="canvasUrl" select="//tei:zone[@xml:id=$zoneId]/ancestor::tei:surface/@sameAs" />
+                                    "<xsl:value-of select="@n"/>": "<xsl:value-of select="$canvasUrl"/>"<xsl:if test="position() != last()">,</xsl:if>
+                                </xsl:for-each>
+                            };
+
+                            // canvasIdからページ番号への逆マッピング
+                            const canvasToPageMap = {};
+                            for (const [page, canvas] of Object.entries(pageToCanvasMap)) {
+                                canvasToPageMap[canvas] = page;
+                            }
+
+                            // URLパラメータから初期canvasを取得
+                            const urlParams = new URLSearchParams(window.location.search);
+                            let initialCanvasId = urlParams.get('canvas');
+                            const pageNumber = urlParams.get('n');
+
+                            // ページ番号が指定されている場合は、それをcanvasIdに変換
+                            if (pageNumber &amp;&amp; pageToCanvasMap[pageNumber]) {
+                                initialCanvasId = pageToCanvasMap[pageNumber];
+                            }
+
+                            // canvasもnも指定されていない場合は、最初のpbに対応するcanvasを使用
+                            if (!initialCanvasId) {
+                                const firstPageNumber = Object.keys(pageToCanvasMap)[0];
+                                if (firstPageNumber) {
+                                    initialCanvasId = pageToCanvasMap[firstPageNumber];
+                                }
+                            }
+
                             // Miradorの初期設定
-                            const miradorInstance = Mirador.viewer({
+                            const miradorConfig = {
                                 id: "viewer",
                                 windows: [{
                                     id: 'known-window-id',
                                     loadedManifest: manifestUrl,
-                                    canvasIndex: 0
                                 }],
                                 window: {
                                     allowClose: false,
@@ -96,7 +182,16 @@
                                 workspaceControlPanel: {
                                     enabled: false,
                                 },
-                            });
+                            };
+
+                            // 初期canvasが指定されている場合は設定
+                            if (initialCanvasId) {
+                                miradorConfig.windows[0].canvasId = initialCanvasId;
+                            } else {
+                                miradorConfig.windows[0].canvasIndex = 0;
+                            }
+
+                            const miradorInstance = Mirador.viewer(miradorConfig);
 
                             // ページ遷移に使用する関数
                             let previousCanvasId = null;
@@ -121,21 +216,87 @@
 
                                     scrollToPbTag(currentWindow.canvasId);
 
+                                    // URLパラメータを更新
+                                    updateURLParameter('canvas', currentWindow.canvasId);
+
                                     // 前回のcanvasIdを更新
                                     previousCanvasId = currentWindow.canvasId;
                                 }
                             });
 
+                            // URLパラメータを更新する関数
+                            function updateURLParameter(key, value) {
+                                const url = new URL(window.location);
+
+                                // nパラメータは初回のみ使用するため削除
+                                url.searchParams.delete('n');
+
+                                // canvasパラメータを設定
+                                url.searchParams.set(key, value);
+
+                                window.history.replaceState({}, '', url);
+                            }
+
                             // ページ遷移関数
-                            function goToPage(canvasUri) {
-                                var action = Mirador.actions.setCanvas('known-window-id', canvasUri);
-                                // Now we can dispatch it.
-                                miradorInstance.store.dispatch(action);
+                            function goToPage(canvasId) {
+                                try {
+                                    console.log('Target Canvas ID:', canvasId);
+
+                                    // setCanvasアクションを正しい形式で作成（visibleCanvasesを含める）
+                                    const action = {
+                                        type: 'mirador/SET_CANVAS',
+                                        windowId: 'known-window-id',
+                                        canvasId: canvasId,
+                                        visibleCanvases: [canvasId]  // これが必須
+                                    };
+
+                                    console.log('Dispatching action:', action);
+                                    miradorInstance.store.dispatch(action);
+                                } catch (error) {
+                                    console.error('Error navigating to canvas:', error, error.stack);
+                                }
                             }
                             
-                            document.querySelector('.horizontal-scroll').addEventListener('wheel', function(e) {
-                                e.preventDefault();
-                                this.scrollLeft += e.deltaY; // 縦スクロールを横スクロールに変換
+                            // 横スクロール領域のみにイベントリスナーを追加
+                            const scrollArea = document.querySelector('.horizontal-scroll');
+                            if (scrollArea) {
+                                scrollArea.addEventListener('wheel', function(e) {
+                                    e.preventDefault();
+                                    this.scrollLeft += e.deltaY; // 縦スクロールを横スクロールに変換
+                                });
+                            }
+
+                            // TEI/XMLダウンロード機能
+                            document.getElementById('downloadXmlBtn').addEventListener('click', function() {
+                                // 現在のXMLファイルのURLを取得
+                                const xmlUrl = window.location.href.split('?')[0];
+
+                                // XMLファイルを取得してダウンロード
+                                fetch(xmlUrl)
+                                    .then(response => response.text())
+                                    .then(xmlContent => {
+                                        // XSL処理命令を除去
+                                        const cleanedXml = xmlContent.replace(/&lt;\?xml-stylesheet[^?]*\?&gt;\s*/g, '');
+
+                                        // Blobを作成
+                                        const blob = new Blob([cleanedXml], { type: 'application/xml' });
+                                        const url = URL.createObjectURL(blob);
+
+                                        // ダウンロード用のリンクを作成
+                                        const a = document.createElement('a');
+                                        a.href = url;
+                                        a.download = xmlUrl.split('/').pop() || 'document.xml';
+                                        document.body.appendChild(a);
+                                        a.click();
+
+                                        // クリーンアップ
+                                        document.body.removeChild(a);
+                                        URL.revokeObjectURL(url);
+                                    })
+                                    .catch(error => {
+                                        console.error('ダウンロードエラー:', error);
+                                        alert('XMLファイルのダウンロードに失敗しました。');
+                                    });
                             });
                         </script>
                     </div>
