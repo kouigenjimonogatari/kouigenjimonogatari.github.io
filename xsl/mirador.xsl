@@ -106,7 +106,7 @@
                             メタデータ
                         </button>
                         <button id="downloadXmlBtn" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-50 font-semibold">
-                            TEI/XML ダウンロード
+                            TEI/XML
                         </button>
                     </div>
                 </header>
@@ -409,12 +409,12 @@
                                 }
                             });
 
-                            // TEI/XMLダウンロード機能
+                            // TEI/XML表示機能
                             document.getElementById('downloadXmlBtn').addEventListener('click', function() {
-                                // 現在のXMLファイルのURLを取得
+                                // 現在のXMLファイルのURLを取得（パラメータなし）
                                 const xmlUrl = window.location.href.split('?')[0];
 
-                                // XMLファイルを取得してダウンロード
+                                // XMLファイルをフェッチしてXSL処理命令を除去したものを表示
                                 fetch(xmlUrl)
                                     .then(response => response.text())
                                     .then(xmlContent => {
@@ -425,20 +425,12 @@
                                         const blob = new Blob([cleanedXml], { type: 'application/xml' });
                                         const url = URL.createObjectURL(blob);
 
-                                        // ダウンロード用のリンクを作成
-                                        const a = document.createElement('a');
-                                        a.href = url;
-                                        a.download = xmlUrl.split('/').pop() || 'document.xml';
-                                        document.body.appendChild(a);
-                                        a.click();
-
-                                        // クリーンアップ
-                                        document.body.removeChild(a);
-                                        URL.revokeObjectURL(url);
+                                        // 同じタブで開く
+                                        window.location.href = url;
                                     })
                                     .catch(error => {
-                                        console.error('ダウンロードエラー:', error);
-                                        alert('XMLファイルのダウンロードに失敗しました。');
+                                        console.error('XMLファイル取得エラー:', error);
+                                        alert('XMLファイルの取得に失敗しました。');
                                     });
                             });
                         </script>
