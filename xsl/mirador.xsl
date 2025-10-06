@@ -52,14 +52,27 @@
                         text-orientation: sideways;
                         display: inline;
                     }
+
+                    /* ハイライト表示用のスタイル */
+                    .highlight {
+                        background-color: yellow;
+                        font-weight: bold;
+                    }
                 </style>
             </head>
             <body class="bg-gray-50 text-gray-900">
                 <!-- ヘッダー -->
                 <header class="bg-blue-600 text-white p-4 flex justify-between items-center">
-                    <h1 class="text-2xl font-bold">
-                        <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
-                    </h1>
+                    <div class="flex items-center gap-4">
+                        <a href="../../index.html" class="text-white hover:text-blue-200 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                        </a>
+                        <h1 class="text-2xl font-bold">
+                            <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
+                        </h1>
+                    </div>
                     <button id="downloadXmlBtn" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-50 font-semibold">
                         TEI/XML ダウンロード
                     </button>
@@ -69,53 +82,61 @@
                 <main>
                     <!-- 左側: TEIテキスト表示用 -->
                     <div class="w-1/2 border-r border-gray-300 flex flex-col">
-                        <!-- TEI Header表示（固定、スクロールなし） -->
-                        <div class="p-4 bg-gray-100 border-b border-gray-300">
-                            <div class="text-sm text-gray-700 space-y-2">
-                                <div>
-                                    <p><strong>著者:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author"/></p>
-                                    <p><strong>出版社:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/></p>
-                                </div>
-                                <div>
-                                    <p><strong>配布:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:distributor"/></p>
-                                    <p><strong>公開日:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:date"/></p>
-                                </div>
-                                <div>
-                                    <p><strong>責任者:</strong></p>
-                                    <ul class="ml-4 list-disc">
-                                        <xsl:for-each select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt">
-                                            <li><xsl:value-of select="tei:resp"/> - <xsl:value-of select="tei:name"/></li>
-                                        </xsl:for-each>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <p><strong>ライセンス:</strong>
-                                        <a href="{tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p/tei:ref/@target}"
-                                           class="text-blue-600 hover:underline" target="_blank">
-                                            <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p/tei:ref"/>
-                                        </a>
-                                    </p>
-                                </div>
-                                <xsl:if test="tei:teiHeader/tei:encodingDesc/tei:p">
+                        <!-- TEI Header表示（折りたたみ可能） -->
+                        <div class="bg-gray-100 border-b border-gray-300">
+                            <button id="toggleHeaderBtn" class="w-full p-4 text-left flex justify-between items-center hover:bg-gray-200 transition-colors">
+                                <span class="font-semibold text-gray-800">メタデータ</span>
+                                <svg id="headerArrow" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div id="headerContent" class="px-4 pb-4 pt-2">
+                                <div class="text-sm text-gray-700 space-y-2">
                                     <div>
-                                        <p><strong>エンコーディング:</strong></p>
-                                        <p class="ml-4 text-xs">
-                                            <xsl:value-of select="tei:teiHeader/tei:encodingDesc/tei:p"/>
-                                        </p>
+                                        <p><strong>著者:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author"/></p>
+                                        <p><strong>出版社:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/></p>
                                     </div>
-                                </xsl:if>
-                                <xsl:if test="tei:teiHeader/tei:revisionDesc">
                                     <div>
-                                        <p><strong>改訂履歴:</strong></p>
-                                        <ul class="ml-4 list-disc text-xs">
-                                            <xsl:for-each select="tei:teiHeader/tei:revisionDesc/tei:change">
-                                                <li>
-                                                    <xsl:value-of select="@when"/> - <xsl:value-of select="."/>
-                                                </li>
+                                        <p><strong>配布:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:distributor"/></p>
+                                        <p><strong>公開日:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:date"/></p>
+                                    </div>
+                                    <div>
+                                        <p><strong>責任者:</strong></p>
+                                        <ul class="ml-4 list-disc">
+                                            <xsl:for-each select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt">
+                                                <li><xsl:value-of select="tei:resp"/> - <xsl:value-of select="tei:name"/></li>
                                             </xsl:for-each>
                                         </ul>
                                     </div>
-                                </xsl:if>
+                                    <div>
+                                        <p><strong>ライセンス:</strong>
+                                            <a href="{tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p/tei:ref/@target}"
+                                               class="text-blue-600 hover:underline" target="_blank">
+                                                <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p/tei:ref"/>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <xsl:if test="tei:teiHeader/tei:encodingDesc/tei:p">
+                                        <div>
+                                            <p><strong>エンコーディング:</strong></p>
+                                            <p class="ml-4 text-xs">
+                                                <xsl:value-of select="tei:teiHeader/tei:encodingDesc/tei:p"/>
+                                            </p>
+                                        </div>
+                                    </xsl:if>
+                                    <xsl:if test="tei:teiHeader/tei:revisionDesc">
+                                        <div>
+                                            <p><strong>改訂履歴:</strong></p>
+                                            <ul class="ml-4 list-disc text-xs">
+                                                <xsl:for-each select="tei:teiHeader/tei:revisionDesc/tei:change">
+                                                    <li>
+                                                        <xsl:value-of select="@when"/> - <xsl:value-of select="."/>
+                                                    </li>
+                                                </xsl:for-each>
+                                            </ul>
+                                        </div>
+                                    </xsl:if>
+                                </div>
                             </div>
                         </div>
                         <!-- TEI本文（横スクロール対象） -->
@@ -129,7 +150,6 @@
                         <div id="viewer" class="border border-gray-300 flex-1"></div>
 
                         <script>
-
                             // マニフェストURLをXSLTから受け取る
                             const manifestUrl = "<xsl:value-of select="//tei:facsimile/@sameAs"></xsl:value-of>";
 
@@ -166,12 +186,16 @@
                                 }
                             }
 
+                            // URLパラメータから表示方向を取得
+                            const viewingDirection = urlParams.get('viewingDirection') || 'right-to-left';
+
                             // Miradorの初期設定
                             const miradorConfig = {
                                 id: "viewer",
                                 windows: [{
                                     id: 'known-window-id',
                                     loadedManifest: manifestUrl,
+                                    viewingDirection: viewingDirection,
                                 }],
                                 window: {
                                     allowClose: false,
@@ -266,6 +290,49 @@
                                 });
                             }
 
+                            // corresp パラメータによるハイライト機能
+                            const correspParam = urlParams.get('corresp');
+                            if (correspParam) {
+                                // ページ読み込み後にハイライトを適用
+                                setTimeout(() => {
+                                    const targetElement = document.querySelector(`span[data-corresp="${correspParam}"]`);
+                                    if (targetElement) {
+                                        // テキストをハイライト
+                                        targetElement.classList.add('highlight');
+                                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                                        // 対応するcanvasに移動
+                                        const canvas = targetElement.getAttribute('data-canvas');
+                                        if (canvas) {
+                                            const action = {
+                                                type: 'mirador/SET_CANVAS',
+                                                windowId: 'known-window-id',
+                                                canvasId: canvas,
+                                                visibleCanvases: [canvas]
+                                            };
+                                            miradorInstance.store.dispatch(action);
+                                        }
+                                    }
+                                }, 1000);
+                            }
+
+                            // TEI Header折りたたみ機能
+                            const toggleHeaderBtn = document.getElementById('toggleHeaderBtn');
+                            const headerContent = document.getElementById('headerContent');
+                            const headerArrow = document.getElementById('headerArrow');
+                            let isHeaderOpen = true;
+
+                            toggleHeaderBtn.addEventListener('click', function() {
+                                isHeaderOpen = !isHeaderOpen;
+                                if (isHeaderOpen) {
+                                    headerContent.style.display = 'block';
+                                    headerArrow.style.transform = 'rotate(0deg)';
+                                } else {
+                                    headerContent.style.display = 'none';
+                                    headerArrow.style.transform = 'rotate(-90deg)';
+                                }
+                            });
+
                             // TEI/XMLダウンロード機能
                             document.getElementById('downloadXmlBtn').addEventListener('click', function() {
                                 // 現在のXMLファイルのURLを取得
@@ -339,9 +406,31 @@
         </span>
     </xsl:template>
 
-    <!-- `seg`タグの処理 (corresp属性を非表示) -->
+    <!-- `seg`タグの処理 (corresp属性とzone情報をdata属性として保持) -->
     <xsl:template match="tei:seg">
         <span>
+            <xsl:if test="@corresp">
+                <xsl:attribute name="data-corresp">
+                    <xsl:value-of select="@corresp"/>
+                </xsl:attribute>
+                <!-- 直前のpb要素を取得 -->
+                <xsl:variable name="precedingPb" select="preceding::tei:pb[1]"/>
+                <xsl:if test="$precedingPb">
+                    <xsl:variable name="zoneId" select="substring-after($precedingPb/@corresp, '#')"/>
+                    <xsl:variable name="zone" select="//tei:zone[@xml:id=$zoneId]"/>
+                    <xsl:if test="$zone">
+                        <xsl:attribute name="data-zone-id">
+                            <xsl:value-of select="$zoneId"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="data-canvas">
+                            <xsl:value-of select="$zone/ancestor::tei:surface/@sameAs"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="data-coords">
+                            <xsl:value-of select="concat($zone/@ulx, ',', $zone/@uly, ',', $zone/@lrx, ',', $zone/@lry)"/>
+                        </xsl:attribute>
+                    </xsl:if>
+                </xsl:if>
+            </xsl:if>
             <xsl:apply-templates select="node()" />
         </span>
     </xsl:template>
