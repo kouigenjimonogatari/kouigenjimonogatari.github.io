@@ -55,13 +55,12 @@ def build_tei(ch, src_path, dst_path):
     # Tab → 2 spaces
     content = content.replace('\t', '  ')
 
-    # Add processing instructions at the beginning
+    # Add processing instructions at the beginning (CSS only; XSL is applied at build time)
     pis = (
         '<?xml version="1.0" ?>\n'
         f'<?xml-model href="{SITE_URL}/lw/tei_genji.rng" '
         'type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>\n'
         f'<?xml-stylesheet type="text/css" href="{SITE_URL}/lw/tei_genji.css"?>\n'
-        '<?xml-stylesheet type="text/xsl" href="../xsl/mirador.xsl"?>\n'
     )
     content = pis + content
 
@@ -71,6 +70,26 @@ def build_tei(ch, src_path, dst_path):
 
 
 
+
+
+def build_html():
+    """4-1b: Transform TEI XML to HTML using mirador.xsl via xslt3 (Saxon-JS)."""
+    xsl_path = os.path.join(DOCS_DIR, 'xsl', 'mirador.xsl')
+    html_dir = os.path.join(DOCS_DIR, 'html')
+    os.makedirs(html_dir, exist_ok=True)
+    for ch in CHAPTERS:
+        src = os.path.join(DOCS_DIR, 'tei', f'{ch}.xml')
+        dst = os.path.join(html_dir, f'{ch}.html')
+        if not os.path.exists(src):
+            continue
+        result = subprocess.run(
+            ['npx', 'xslt3', f'-xsl:{xsl_path}', f'-s:{src}', f'-o:{dst}'],
+            capture_output=True, text=True, cwd=BASE_DIR
+        )
+        if result.returncode != 0:
+            print(f'  {ch}.html FAILED: {result.stderr}', file=sys.stderr)
+        else:
+            print(f'  {ch}.html')
 
 
 def build_waka_json():
@@ -353,7 +372,7 @@ def replace_site_url():
 
 
 def main():
-    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['tei', 'waka', 'api', 'pdf', 'epub']
+    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['tei', 'xsl', 'waka', 'api', 'pdf', 'epub']
 
     print(f'=== SITE_URL: {SITE_URL} ===')
 
@@ -371,6 +390,10 @@ def main():
                 print(f'  {ch}.xml')
 
 
+
+    if 'xsl' in tasks:
+        print('=== Building docs/html/ (XSLT) ===')
+        build_html()
 
     if 'waka' in tasks:
         print('=== Building docs/data/waka.json ===')
