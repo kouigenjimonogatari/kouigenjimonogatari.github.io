@@ -295,6 +295,18 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Visualization pages -->
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/viz.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/stats.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- SPARQL endpoint -->
   <url>
     <loc>https://kouigenjimonogatari.github.io/snorql/</loc>

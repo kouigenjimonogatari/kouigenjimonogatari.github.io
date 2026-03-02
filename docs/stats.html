@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="校異源氏物語の巻ごとのページ数・行数・文字数・和歌数をチャートで可視化。">
+    <meta name="keywords" content="源氏物語,校異源氏物語,テキスト統計,可視化,デジタル人文学">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="テキスト統計 - 校異源氏物語テキストDB">
+    <meta property="og:description" content="校異源氏物語の巻ごとのページ数・行数・文字数・和歌数をチャートで可視化。">
+    <meta property="og:url" content="https://kouigenjimonogatari.github.io/stats.html">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/common.css">
+
+    <title>テキスト統計 - 校異源氏物語テキストDB</title>
+
+    <style>
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .summary-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .summary-card {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+
+        .summary-card:hover {
+            box-shadow: var(--shadow-soft);
+        }
+
+        .summary-card .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-card .value {
+            font-family: var(--font-ui);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .summary-card .label {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.25rem;
+        }
+
+        .chart-section {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-section h3 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-height: 350px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg site-navbar fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">校異源氏物語テキストDB</a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fas fa-bars" style="color:#fff"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="viz.html">
+                                <i class="fas fa-chart-pie me-1"></i>可視化
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">
+                                <i class="fas fa-external-link-alt me-1"></i>デジタル源氏物語
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe me-1"></i>言語
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="index.html">日本語</a></li>
+                                <li><a class="dropdown-item" href="index-en.html">English</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section" style="padding: 4rem 0 3rem">
+        <div class="container">
+            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">テキスト統計</h1>
+            <p class="hero-subtitle">巻ごとのページ数・行数・文字数・和歌数</p>
+        </div>
+    </section>
+
+    <main class="py-5">
+        <div class="container">
+            <div id="loadingIndicator" class="loading">
+                <i class="fas fa-spinner fa-spin me-2"></i>読み込み中...
+            </div>
+
+            <div id="statsContent" style="display:none">
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="icon" style="color:#4e79a7"><i class="fas fa-file-alt"></i></div>
+                        <div class="value" id="totalPages">-</div>
+                        <div class="label">総ページ数</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="icon" style="color:#e15759"><i class="fas fa-align-left"></i></div>
+                        <div class="value" id="totalLines">-</div>
+                        <div class="label">総行数</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="icon" style="color:#59a14f"><i class="fas fa-font"></i></div>
+                        <div class="value" id="totalChars">-</div>
+                        <div class="label">総文字数</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="icon" style="color:#f28e2b"><i class="fas fa-feather-alt"></i></div>
+                        <div class="value" id="totalWaka">-</div>
+                        <div class="label">総和歌数</div>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3><i class="fas fa-file-alt me-2" style="color:#4e79a7"></i>ページ数</h3>
+                    <div class="chart-container">
+                        <canvas id="pagesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3><i class="fas fa-align-left me-2" style="color:#e15759"></i>行数</h3>
+                    <div class="chart-container">
+                        <canvas id="linesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3><i class="fas fa-font me-2" style="color:#59a14f"></i>文字数</h3>
+                    <div class="chart-container">
+                        <canvas id="charsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-section">
+                    <h3><i class="fas fa-feather-alt me-2" style="color:#f28e2b"></i>和歌数</h3>
+                    <div class="chart-container">
+                        <canvas id="wakaChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">Powered by TEI, Mirador, and XSLT</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+        const COLORS = {
+            pages: '#4e79a7',
+            lines: '#e15759',
+            chars: '#59a14f',
+            waka:  '#f28e2b'
+        };
+
+        async function loadStats() {
+            try {
+                const response = await fetch('data/chapters.json');
+                const chapters = await response.json();
+                renderStats(chapters);
+            } catch (error) {
+                document.getElementById('loadingIndicator').innerHTML =
+                    '<p class="text-center text-danger">データの読み込みに失敗しました。</p>';
+            }
+        }
+
+        function renderStats(chapters) {
+            document.getElementById('loadingIndicator').style.display = 'none';
+            document.getElementById('statsContent').style.display = 'block';
+
+            const labels = chapters.map(c => `${c.chapter} ${c.chapter_name}`);
+            const chapterIds = chapters.map(c => c.chapter);
+
+            const totals = chapters.reduce((acc, c) => ({
+                pages: acc.pages + c.pages,
+                lines: acc.lines + c.lines,
+                chars: acc.chars + c.chars,
+                waka:  acc.waka  + c.waka
+            }), { pages: 0, lines: 0, chars: 0, waka: 0 });
+
+            document.getElementById('totalPages').textContent = totals.pages.toLocaleString();
+            document.getElementById('totalLines').textContent = totals.lines.toLocaleString();
+            document.getElementById('totalChars').textContent = totals.chars.toLocaleString();
+            document.getElementById('totalWaka').textContent  = totals.waka.toLocaleString();
+
+            createChart('pagesChart', labels, chapters.map(c => c.pages), COLORS.pages, 'ページ数', chapterIds);
+            createChart('linesChart', labels, chapters.map(c => c.lines), COLORS.lines, '行数', chapterIds);
+            createChart('charsChart', labels, chapters.map(c => c.chars), COLORS.chars, '文字数', chapterIds);
+            createChart('wakaChart',  labels, chapters.map(c => c.waka),  COLORS.waka,  '和歌数', chapterIds);
+        }
+
+        function createChart(canvasId, labels, data, color, label, chapterIds) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: label,
+                        data: data,
+                        backgroundColor: color + 'cc',
+                        borderColor: color,
+                        borderWidth: 1,
+                        borderRadius: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(item) {
+                                    return `${label}: ${item.raw.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                font: { size: 9 },
+                                maxRotation: 90,
+                                minRotation: 45
+                            },
+                            grid: { display: false }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: { font: { size: 10 } },
+                            title: {
+                                display: true,
+                                text: label,
+                                font: { size: 11 }
+                            }
+                        }
+                    },
+                    onClick: function(event, elements) {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            window.location.href = `html/${chapterIds[index]}.html`;
+                        }
+                    }
+                }
+            });
+        }
+
+        loadStats();
+    </script>
+</body>
+
+</html>

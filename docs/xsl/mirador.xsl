@@ -529,7 +529,8 @@
                             });
 
                             document.getElementById('downloadXmlBtn').addEventListener('click', function() {
-                                const xmlUrl = window.location.href.split('?')[0];
+                                const htmlUrl = window.location.href.split('?')[0];
+                                const xmlUrl = htmlUrl.replace(/\/html\/(\d+)\.html$/, '/tei/$1.xml');
                                 fetch(xmlUrl)
                                     .then(response => response.text())
                                     .then(xmlContent => {

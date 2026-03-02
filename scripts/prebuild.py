@@ -133,6 +133,52 @@ def build_waka_json():
     return len(all_waka)
 
 
+def build_chapters_json():
+    """Extract per-chapter statistics (pages, lines, chars, waka) and generate chapters.json."""
+    chapters = []
+
+    for ch in CHAPTERS:
+        src_path = os.path.join(XML_LW_DIR, f'{ch}.xml')
+        if not os.path.exists(src_path):
+            continue
+
+        with open(src_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+
+        # Count <pb> elements (pages)
+        pages = len(re.findall(r'<pb\s', content))
+
+        # Count <seg> elements (lines) and sum their text characters
+        seg_texts = re.findall(r'<seg[^>]*>(.*?)</seg>', content)
+        lines = len(seg_texts)
+        chars = 0
+        for seg_text in seg_texts:
+            # Strip XML tags to get plain text, then count characters
+            plain = re.sub(r'<[^>]+>', '', seg_text)
+            # Remove leading whitespace (e.g. ideographic spaces used for indentation)
+            plain = plain.strip()
+            chars += len(plain)
+
+        # Count <lg type="waka"> elements
+        waka = len(re.findall(r'<lg\s+type="waka"', content))
+
+        chapters.append({
+            'chapter': ch,
+            'chapter_name': CHAPTER_NAMES.get(ch, ch),
+            'pages': pages,
+            'lines': lines,
+            'chars': chars,
+            'waka': waka,
+        })
+
+    dst_path = os.path.join(DOCS_DIR, 'data', 'chapters.json')
+    os.makedirs(os.path.dirname(dst_path), exist_ok=True)
+    with open(dst_path, 'w', encoding='utf-8') as f:
+        json.dump(chapters, f, ensure_ascii=False, indent=2)
+
+    return len(chapters)
+
+
 def build_pdf(ch):
     """4-4: Generate PDF via xslt3 + lualatex."""
     xsl_src = os.path.join(DOCS_DIR, 'tei', f'{ch}.xml')
@@ -356,6 +402,8 @@ def replace_site_url():
         os.path.join(DOCS_DIR, 'index.html'),
         os.path.join(DOCS_DIR, 'index-en.html'),
         os.path.join(DOCS_DIR, 'waka.html'),
+        os.path.join(DOCS_DIR, 'viz.html'),
+        os.path.join(DOCS_DIR, 'stats.html'),
         os.path.join(DOCS_DIR, 'sitemap.xml'),
         os.path.join(DOCS_DIR, 'snorql', 'snorql_def.js'),
     ]
@@ -372,7 +420,7 @@ def replace_site_url():
 
 
 def main():
-    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['tei', 'xsl', 'waka', 'api', 'pdf', 'epub']
+    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['tei', 'xsl', 'waka', 'stats', 'api', 'pdf', 'epub']
 
     print(f'=== SITE_URL: {SITE_URL} ===')
 
@@ -399,6 +447,11 @@ def main():
         print('=== Building docs/data/waka.json ===')
         count = build_waka_json()
         print(f'  {count} waka extracted')
+
+    if 'stats' in tasks:
+        print('=== Building docs/data/chapters.json ===')
+        count = build_chapters_json()
+        print(f'  {count} chapters extracted')
 
     if 'api' in tasks:
         print('=== Building docs/api/ ===')
