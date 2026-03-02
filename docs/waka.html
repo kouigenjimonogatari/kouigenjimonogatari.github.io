@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="校異源氏物語に収録されている全795首の和歌一覧。テキスト検索・巻別フィルターで和歌を探せます。">
+    <meta name="keywords" content="源氏物語,和歌,校異源氏物語,テキストデータベース,古典文学">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="和歌一覧 - 校異源氏物語テキストDB">
+    <meta property="og:description" content="校異源氏物語に収録されている全795首の和歌一覧。">
+    <meta property="og:url" content="https://kouigenjimonogatari.github.io/waka.html">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/common.css">
+
+    <title>和歌一覧 - 校異源氏物語テキストDB</title>
+
+    <style>
+        /* Waka-specific styles */
+        .filter-bar {
+            background: #fff;
+            border-bottom: 1px solid var(--color-border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 56px;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .filter-bar .form-control,
+        .filter-bar .form-select {
+            border-color: var(--color-border);
+            font-size: 0.9rem;
+            font-family: var(--font-ui);
+        }
+
+        .filter-bar .form-control:focus,
+        .filter-bar .form-select:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.15);
+        }
+
+        .result-count {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .waka-list {
+            padding: 2rem 0;
+        }
+
+        .waka-card {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .waka-card:hover {
+            box-shadow: var(--shadow-soft);
+            border-color: var(--color-accent);
+        }
+
+        .waka-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .waka-seq {
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            min-width: 3rem;
+            text-align: center;
+            font-family: var(--font-ui);
+        }
+
+        .waka-chapter {
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        .waka-text {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--color-text);
+        }
+
+        .waka-text .verse-line {
+            display: inline;
+        }
+
+        .waka-text .verse-sep {
+            color: #ccc;
+            margin: 0 0.15em;
+        }
+
+        .waka-link {
+            margin-top: 0.5rem;
+        }
+
+        .waka-link a {
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        .waka-link a:hover {
+            text-decoration: underline;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+
+        /* Chart section */
+        .chart-section {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-section h3 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg site-navbar fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">校異源氏物語テキストDB</a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fas fa-bars" style="color:#fff"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="waka.html">
+                                <i class="fas fa-feather-alt me-1"></i>和歌一覧
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">
+                                <i class="fas fa-external-link-alt me-1"></i>デジタル源氏物語
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe me-1"></i>言語
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="index.html">日本語</a></li>
+                                <li><a class="dropdown-item" href="index-en.html">English</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section" style="padding: 4rem 0 3rem">
+        <div class="container">
+            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">和歌一覧</h1>
+            <p class="hero-subtitle">校異源氏物語に収録されている全和歌</p>
+        </div>
+    </section>
+
+    <div class="filter-bar">
+        <div class="container">
+            <div class="row g-2 align-items-center">
+                <div class="col-md-6">
+                    <input type="text" id="searchInput" class="form-control" placeholder="和歌テキストで検索...">
+                </div>
+                <div class="col-md-3">
+                    <select id="chapterFilter" class="form-select">
+                        <option value="">全巻</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-end">
+                    <span id="resultCount" class="result-count"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="waka-list">
+        <div class="container">
+            <div class="chart-section" id="chartSection" style="display:none">
+                <h3>巻別和歌数</h3>
+                <div class="chart-container">
+                    <canvas id="wakaChart"></canvas>
+                </div>
+            </div>
+            <div id="wakaContainer">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin me-2"></i>読み込み中...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">Powered by TEI, Mirador, and XSLT</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script>
+        let allWaka = [];
+
+        let wakaChart = null;
+
+        async function loadWaka() {
+            try {
+                const response = await fetch('data/waka.json');
+                allWaka = await response.json();
+                populateChapterFilter();
+                renderChart(allWaka);
+                renderWaka(allWaka);
+            } catch (error) {
+                document.getElementById('wakaContainer').innerHTML =
+                    '<p class="text-center text-danger">データの読み込みに失敗しました。</p>';
+            }
+        }
+
+        function renderChart(waka) {
+            // Count waka per chapter
+            const chapterCounts = new Map();
+            waka.forEach(w => {
+                const key = `${w.chapter} ${w.chapter_name}`;
+                chapterCounts.set(key, (chapterCounts.get(key) || 0) + 1);
+            });
+
+            const labels = Array.from(chapterCounts.keys());
+            const data = Array.from(chapterCounts.values());
+
+            document.getElementById('chartSection').style.display = 'block';
+
+            const ctx = document.getElementById('wakaChart').getContext('2d');
+
+            if (wakaChart) {
+                wakaChart.destroy();
+            }
+
+            // Use CSS variable colors
+            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim();
+            const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent').trim();
+
+            wakaChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '和歌数',
+                        data: data,
+                        backgroundColor: primaryColor + 'cc',
+                        borderColor: primaryColor,
+                        borderWidth: 1,
+                        borderRadius: 2,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(items) {
+                                    return items[0].label;
+                                },
+                                label: function(item) {
+                                    return `${item.raw} 首`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                font: { size: 9 },
+                                maxRotation: 90,
+                                minRotation: 45
+                            },
+                            grid: { display: false }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 5,
+                                font: { size: 10 }
+                            },
+                            title: {
+                                display: true,
+                                text: '和歌数',
+                                font: { size: 11 }
+                            }
+                        }
+                    },
+                    onClick: function(event, elements) {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const label = labels[index];
+                            const chapterNum = label.split(' ')[0];
+                            document.getElementById('chapterFilter').value = chapterNum;
+                            filterWaka();
+                        }
+                    }
+                }
+            });
+        }
+
+        function populateChapterFilter() {
+            const select = document.getElementById('chapterFilter');
+            const chapters = new Map();
+            allWaka.forEach(w => {
+                if (!chapters.has(w.chapter)) {
+                    chapters.set(w.chapter, w.chapter_name);
+                }
+            });
+            chapters.forEach((name, ch) => {
+                const opt = document.createElement('option');
+                opt.value = ch;
+                opt.textContent = `${ch} ${name}`;
+                select.appendChild(opt);
+            });
+        }
+
+        function renderWaka(waka) {
+            const container = document.getElementById('wakaContainer');
+            document.getElementById('resultCount').textContent = `${waka.length} 首`;
+
+            if (waka.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted py-5">該当する和歌がありません。</p>';
+                return;
+            }
+
+            container.innerHTML = waka.map(w => {
+                const verseHtml = w.lines.map(l =>
+                    `<span class="verse-line">${escapeHtml(l)}</span>`
+                ).join('<span class="verse-sep">/</span>');
+
+                const chNum = w.chapter;
+                const viewUrl = `tei/${chNum}.xml?corresp=${encodeURIComponent(w.corresp)}`;
+
+                return `
+                    <div class="waka-card">
+                        <div class="waka-meta">
+                            <span class="waka-seq">${w.seq}</span>
+                            <span class="waka-chapter">${chNum} ${w.chapter_name}</span>
+                        </div>
+                        <div class="waka-text">${verseHtml}</div>
+                        <div class="waka-link">
+                            <a href="${viewUrl}"><i class="fas fa-book-open me-1"></i>本文を表示</a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function filterWaka() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const chapter = document.getElementById('chapterFilter').value;
+
+            const filtered = allWaka.filter(w => {
+                const textMatch = !query || w.lines.join('').toLowerCase().includes(query);
+                const chapterMatch = !chapter || w.chapter === chapter;
+                return textMatch && chapterMatch;
+            });
+
+            renderWaka(filtered);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterWaka);
+        document.getElementById('chapterFilter').addEventListener('change', filterWaka);
+
+        loadWaka();
+    </script>
+</body>
+
+</html>

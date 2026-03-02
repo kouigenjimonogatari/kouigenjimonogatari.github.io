@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "prebuild": "python3 scripts/prebuild.py"
+  },
   "dependencies": {
     "xslt3": "^2.7.0"
   }

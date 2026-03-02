@@ -7,3 +7,14 @@
 *.aux
 
 node_modules
+
+# 派生ファイル（prebuildで生成）
+docs/tei/
+docs/data/waka.json
+docs/output/
+docs/bibi-bookshelf/
+docs/api/
+docs/files/rdf/
+
+# 一時ファイル
+tmp/
