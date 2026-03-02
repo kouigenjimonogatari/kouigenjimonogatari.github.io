@@ -99,8 +99,8 @@
         <section class="hero-section">
             <div class="container">
                 <div class="hero-content text-center">
-                    <h1 class="hero-title fade-in">Koui Genji Monogatari Text Database</h1>
-                    <p class="hero-subtitle fade-in mx-auto">
+                    <h1 class="hero-title">Koui Genji Monogatari Text Database</h1>
+                    <p class="hero-subtitle mx-auto">
                         A database publishing text data from the 'Koui Genji Monogatari' (Collated Genji Monogatari)
                     </p>
                 </div>
@@ -112,7 +112,7 @@
             <div class="container">
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6">
-                        <div class="feature-card text-center fade-in">
+                        <div class="feature-card text-center">
                             <div class="feature-icon mx-auto">
                                 <img src="https://tei-c.org/Vault/MembersMeetings/2013/wp-content/themes/atahualpa/images/header/TEIlogo.png" alt="TEI/XML" />
                             </div>
@@ -122,7 +122,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6">
-                        <div class="feature-card text-center fade-in">
+                        <div class="feature-card text-center">
                             <div class="feature-icon mx-auto">
                                 <img src="https://json-ld.org/images/json-ld-logo.png" alt="Linked Data" />
                             </div>
@@ -137,7 +137,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6">
-                        <div class="feature-card text-center fade-in">
+                        <div class="feature-card text-center">
                             <div class="feature-icon mx-auto">
                                 <i class="fas fa-book-open text-white fa-2x"></i>
                             </div>
@@ -335,7 +335,7 @@
             let colWrapper = $(`<div class='col-lg-6 col-xl-4 mb-4'>`);
             main.append(colWrapper);
 
-            let card = $(`<div class='content-card fade-in' id='${Number(id)}' style='animation-delay: ${i * 0.05}s'>`);
+            let card = $(`<div class='content-card' id='${Number(id)}'>`);
             colWrapper.append(card);
 
             let cardBody = $("<div class='content-card-body'>");
