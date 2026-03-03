@@ -347,8 +347,16 @@
             let actionButtons = $("<div class='action-buttons'>");
             cardBody.append(actionButtons);
 
-            let teiBtn = $(`<a class='action-btn btn-primary-custom'
+            let htmlBtn = $(`<a class='action-btn btn-primary-custom'
                 href='html/${id_}.html'>
+                <i class='fas fa-file-alt'></i>
+                HTML
+            </a>`);
+            actionButtons.append(htmlBtn);
+
+            let teiBtn = $(`<a class='action-btn btn-primary-custom'
+                href='tei/${id_}.xml'
+                target='_blank'>
                 <i class='fas fa-code'></i>
                 TEI/XML
             </a>`);
@@ -369,6 +377,30 @@
                 DTS
             </a>`);
             actionButtons.append(dtsBtn);
+
+            let pdfBtn = $(`<a class='action-btn btn-secondary-custom'
+                href='pdf/${id_}.pdf'
+                target='_blank'>
+                <i class='fas fa-file-pdf'></i>
+                PDF
+            </a>`);
+            actionButtons.append(pdfBtn);
+
+            let epubBtn = $(`<a class='action-btn btn-secondary-custom'
+                href='bibi/index.html?book=${id_}'
+                target='_blank'>
+                <i class='fas fa-book'></i>
+                EPUB
+            </a>`);
+            actionButtons.append(epubBtn);
+
+            let epubDlBtn = $(`<a class='action-btn btn-secondary-custom'
+                href='epub/${id_}.epub'
+                download>
+                <i class='fas fa-download'></i>
+                EPUB DL
+            </a>`);
+            actionButtons.append(epubDlBtn);
         }
 
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){

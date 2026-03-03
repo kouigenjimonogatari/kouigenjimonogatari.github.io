@@ -162,7 +162,7 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-height: 300px;
+            min-height: 250px;
         }
     </style>
 </head>
@@ -233,11 +233,17 @@
     <main class="waka-list">
         <div class="container">
             <div class="chart-section" id="chartSection" style="display:none">
-                <h3>巻別和歌数</h3>
+                <h3>巻別和歌数・文字数</h3>
                 <div class="chart-container">
                     <canvas id="wakaChart"></canvas>
                 </div>
             </div>
+            <details class="chart-section" id="scatterSection" style="display:none">
+                <summary><h3 style="display:inline">文字数と和歌数の関係</h3></summary>
+                <div class="chart-container" style="margin-top:1rem">
+                    <canvas id="scatterChart"></canvas>
+                </div>
+            </details>
             <div id="wakaContainer">
                 <div class="loading">
                     <i class="fas fa-spinner fa-spin me-2"></i>読み込み中...
@@ -257,15 +263,22 @@
 
     <script>
         let allWaka = [];
+        let chapterData = [];
 
         let wakaChart = null;
+        let scatterChart = null;
 
         async function loadWaka() {
             try {
-                const response = await fetch('data/waka.json');
-                allWaka = await response.json();
+                const [wakaRes, chapRes] = await Promise.all([
+                    fetch('data/waka.json'),
+                    fetch('data/chapters.json')
+                ]);
+                allWaka = await wakaRes.json();
+                chapterData = await chapRes.json();
                 populateChapterFilter();
                 renderChart(allWaka);
+                initScatterSection();
                 renderWaka(allWaka);
             } catch (error) {
                 document.getElementById('wakaContainer').innerHTML =
@@ -281,8 +294,15 @@
                 chapterCounts.set(key, (chapterCounts.get(key) || 0) + 1);
             });
 
+            // Build chars data aligned to chapterCounts order
+            const chapterChars = new Map();
+            chapterData.forEach(c => {
+                chapterChars.set(`${c.chapter} ${c.chapter_name}`, c.chars);
+            });
+
             const labels = Array.from(chapterCounts.keys());
-            const data = Array.from(chapterCounts.values());
+            const wakaData = Array.from(chapterCounts.values());
+            const charsData = labels.map(l => chapterChars.get(l) || 0);
 
             document.getElementById('chartSection').style.display = 'block';
 
@@ -294,27 +314,47 @@
 
             // Use CSS variable colors
             const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim();
-            const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent').trim();
+            const charsColor = '#59a14f';
 
             wakaChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: labels,
-                    datasets: [{
-                        label: '和歌数',
-                        data: data,
-                        backgroundColor: primaryColor + 'cc',
-                        borderColor: primaryColor,
-                        borderWidth: 1,
-                        borderRadius: 2,
-                    }]
+                    datasets: [
+                        {
+                            label: '歌数',
+                            data: wakaData,
+                            backgroundColor: primaryColor + 'cc',
+                            borderColor: primaryColor,
+                            borderWidth: 1,
+                            borderRadius: 2,
+                            yAxisID: 'y',
+                            order: 2,
+                        },
+                        {
+                            label: '文字数',
+                            data: charsData,
+                            type: 'line',
+                            borderColor: charsColor,
+                            backgroundColor: charsColor + '33',
+                            borderWidth: 2,
+                            pointRadius: 2,
+                            pointHoverRadius: 4,
+                            tension: 0.3,
+                            fill: false,
+                            yAxisID: 'y1',
+                            order: 1,
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            display: false
+                            display: true,
+                            position: 'top',
+                            labels: { font: { size: 11 } }
                         },
                         tooltip: {
                             callbacks: {
@@ -322,7 +362,10 @@
                                     return items[0].label;
                                 },
                                 label: function(item) {
-                                    return `${item.raw} 首`;
+                                    if (item.dataset.label === '歌数') {
+                                        return `歌数: ${item.raw} 首`;
+                                    }
+                                    return `文字数: ${item.raw.toLocaleString()} 字`;
                                 }
                             }
                         }
@@ -337,6 +380,7 @@
                             grid: { display: false }
                         },
                         y: {
+                            position: 'left',
                             beginAtZero: true,
                             ticks: {
                                 stepSize: 5,
@@ -347,6 +391,23 @@
                                 text: '和歌数',
                                 font: { size: 11 }
                             }
+                        },
+                        y1: {
+                            position: 'right',
+                            beginAtZero: true,
+                            ticks: {
+                                font: { size: 10 },
+                                callback: function(value) {
+                                    return value >= 1000 ? (value / 1000) + 'k' : value;
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: '文字数',
+                                font: { size: 11 },
+                                color: '#59a14f'
+                            },
+                            grid: { drawOnChartArea: false }
                         }
                     },
                     onClick: function(event, elements) {
@@ -356,6 +417,97 @@
                             const chapterNum = label.split(' ')[0];
                             document.getElementById('chapterFilter').value = chapterNum;
                             filterWaka();
+                        }
+                    }
+                }
+            });
+        }
+
+        function initScatterSection() {
+            if (!chapterData.length) return;
+            const section = document.getElementById('scatterSection');
+            section.style.display = 'block';
+            section.addEventListener('toggle', function() {
+                if (section.open && !scatterChart) {
+                    renderScatterChart();
+                }
+            });
+        }
+
+        function renderScatterChart() {
+            if (!chapterData.length) return;
+
+            const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent').trim();
+
+            const scatterData = chapterData.map(c => ({
+                x: c.chars,
+                y: c.waka,
+                label: `${c.chapter} ${c.chapter_name}`
+            }));
+
+            const ctx = document.getElementById('scatterChart').getContext('2d');
+
+            if (scatterChart) {
+                scatterChart.destroy();
+            }
+
+            scatterChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: '巻',
+                        data: scatterData,
+                        backgroundColor: accentColor + 'cc',
+                        borderColor: accentColor,
+                        borderWidth: 1,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: function(items) {
+                                    return items[0].raw.label;
+                                },
+                                label: function(item) {
+                                    return [
+                                        `文字数: ${item.raw.x.toLocaleString()} 字`,
+                                        `和歌数: ${item.raw.y} 首`
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: '文字数',
+                                font: { size: 11 }
+                            },
+                            ticks: {
+                                font: { size: 10 },
+                                callback: function(value) {
+                                    return value >= 1000 ? (value / 1000) + 'k' : value;
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '和歌数',
+                                font: { size: 11 }
+                            },
+                            ticks: {
+                                stepSize: 5,
+                                font: { size: 10 }
+                            }
                         }
                     }
                 }

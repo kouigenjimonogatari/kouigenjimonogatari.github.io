@@ -37,16 +37,21 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
         with:
-          node-version: '20'
+          distribution: 'temurin'
+          java-version: '21'
 
-      - name: Install Node dependencies
-        run: npm install
+      - name: Download Saxon-HE
+        run: |
+          curl -sL -o /tmp/saxon-he.jar \
+            https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/12.5/Saxon-HE-12.5.jar
 
-      - name: Run prebuild (tei, xsl, waka)
-        run: python3 scripts/prebuild.py tei xsl waka
+      - name: Run prebuild (tei, xsl, waka, stats)
+        env:
+          SAXON_JAR: /tmp/saxon-he.jar
+        run: python3 scripts/prebuild.py tei xsl waka stats epub
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -25,6 +25,16 @@ SITE_URL = os.environ.get('SITE_URL', DEFAULT_SITE_URL).rstrip('/')
 
 CHAPTERS = [f'{i:02d}' for i in range(1, 55)]
 
+
+def xslt_cmd(xsl, src, dst):
+    """Return command list for XSLT transformation, preferring Saxon-HE over npx xslt3."""
+    saxon_jar = os.environ.get('SAXON_JAR')
+    if saxon_jar:
+        return ['java', '-jar', saxon_jar, f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
+    if shutil.which('saxon'):
+        return ['saxon', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
+    return ['npx', 'xslt3', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
+
 # Chapter names (巻名)
 CHAPTER_NAMES = {
     '01': 'きりつぼ', '02': '帚木', '03': '空蝉', '04': '夕顔', '05': '若紫',
@@ -55,12 +65,11 @@ def build_tei(ch, src_path, dst_path):
     # Tab → 2 spaces
     content = content.replace('\t', '  ')
 
-    # Add processing instructions at the beginning (CSS only; XSL is applied at build time)
+    # Add processing instructions at the beginning
     pis = (
         '<?xml version="1.0" ?>\n'
         f'<?xml-model href="{SITE_URL}/lw/tei_genji.rng" '
         'type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>\n'
-        f'<?xml-stylesheet type="text/css" href="{SITE_URL}/lw/tei_genji.css"?>\n'
     )
     content = pis + content
 
@@ -83,7 +92,7 @@ def build_html():
         if not os.path.exists(src):
             continue
         result = subprocess.run(
-            ['npx', 'xslt3', f'-xsl:{xsl_path}', f'-s:{src}', f'-o:{dst}'],
+            xslt_cmd(xsl_path, src, dst),
             capture_output=True, text=True, cwd=BASE_DIR
         )
         if result.returncode != 0:
@@ -179,43 +188,134 @@ def build_chapters_json():
     return len(chapters)
 
 
+def detect_jfont():
+    """Auto-detect an available Japanese serif font via fc-list."""
+    preferred = [
+        'Noto Serif CJK JP',
+        'Hiragino Mincho ProN',
+        'YuMincho',
+        'BIZ UDMincho',
+        'IPAexMincho',
+    ]
+    try:
+        result = subprocess.run(
+            ['fc-list', ':lang=ja', 'family'],
+            capture_output=True, text=True
+        )
+        if result.returncode != 0:
+            return None
+        available = set()
+        for line in result.stdout.splitlines():
+            for name in line.split(','):
+                available.add(name.strip())
+        for font in preferred:
+            if font in available:
+                return font
+    except FileNotFoundError:
+        pass
+    return None
+
+
+def _detect_fallback_font():
+    """Detect a fallback font that covers U+3031 (くの字点)."""
+    try:
+        result = subprocess.run(
+            ['fc-list', ':charset=3031', 'family'],
+            capture_output=True, text=True
+        )
+        if result.returncode == 0:
+            for line in result.stdout.splitlines():
+                for name in line.split(','):
+                    name = name.strip()
+                    if name and not name.startswith('.'):
+                        return name
+    except FileNotFoundError:
+        pass
+    return None
+
+
+def _patch_tex(tex_path, jfont):
+    """Patch generated .tex: replace font, add fallback for rare chars."""
+    with open(tex_path, 'r', encoding='utf-8') as f:
+        tex = f.read()
+
+    # Replace main font
+    if jfont != 'Noto Serif CJK JP':
+        tex = tex.replace('Noto Serif CJK JP', jfont)
+
+    # Add fallback font for rare characters (e.g. U+3031 くの字点)
+    if '〱' in tex:
+        fallback = _detect_fallback_font()
+        if fallback:
+            # Replace in body first, then insert preamble with literal char
+            body_marker = '\\begin{document}'
+            preamble, body = tex.split(body_marker, 1)
+            body = body.replace('〱', '\\kuno{}')
+            fallback_defs = (
+                f'\\newjfontfamily\\fallbackjfont{{{fallback}}}\n'
+                '\\newcommand{\\kuno}{{\\fallbackjfont 〱}}\n'
+            )
+            tex = preamble + fallback_defs + body_marker + body
+
+    with open(tex_path, 'w', encoding='utf-8') as f:
+        f.write(tex)
+
+
+BUILD_DIR = os.path.join(BASE_DIR, 'build')
+
+
 def build_pdf(ch):
-    """4-4: Generate PDF via xslt3 + lualatex."""
+    """4-4: Generate PDF via XSLT + lualatex. Intermediate files go to build/."""
     xsl_src = os.path.join(DOCS_DIR, 'tei', f'{ch}.xml')
     tex_xsl = os.path.join(DOCS_DIR, 'xsl', 'tex.xsl')
-    out_dir = os.path.join(DOCS_DIR, 'output', ch)
-    tex_path = os.path.join(out_dir, 'main.tex')
+    work_dir = os.path.join(BUILD_DIR, 'pdf', ch)
+    tex_path = os.path.join(work_dir, 'main.tex')
 
-    os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(work_dir, exist_ok=True)
 
-    # xslt3 XML → TeX
+    # XSLT XML → TeX
     result = subprocess.run(
-        ['npx', 'xslt3', f'-xsl:{tex_xsl}', f'-s:{xsl_src}', f'-o:{tex_path}'],
+        xslt_cmd(tex_xsl, xsl_src, tex_path),
         capture_output=True, text=True, cwd=BASE_DIR
     )
     if result.returncode != 0:
         print(f'    xslt3 error: {result.stderr}', file=sys.stderr)
         return False
 
+    # Auto-detect Japanese font and patch .tex
+    jfont = detect_jfont()
+    if jfont is None:
+        print('    WARNING: no Japanese serif font found; skipping PDF', file=sys.stderr)
+        return False
+    _patch_tex(tex_path, jfont)
+
     # lualatex TeX → PDF
     result = subprocess.run(
-        ['lualatex', f'-output-directory={out_dir}', tex_path],
+        ['lualatex', f'-output-directory={work_dir}', tex_path],
         capture_output=True, text=True, cwd=BASE_DIR
     )
     if result.returncode != 0:
         print(f'    lualatex error: {result.stderr[:200]}', file=sys.stderr)
         return False
 
+    # Copy final PDF to docs/pdf/
+    pdf_src = os.path.join(work_dir, 'main.pdf')
+    pdf_dir = os.path.join(DOCS_DIR, 'pdf')
+    os.makedirs(pdf_dir, exist_ok=True)
+    shutil.copy2(pdf_src, os.path.join(pdf_dir, f'{ch}.pdf'))
+
     return True
 
 
 def build_epub(ch):
-    """4-5: Generate EPUB 3.0 for Bibi reader."""
-    src_path = os.path.join(XML_LW_DIR, f'{ch}.xml')
-    out_dir = os.path.join(DOCS_DIR, 'bibi-bookshelf', ch)
+    """4-5: Generate EPUB 3.0 as .epub file for Bibi reader."""
+    import zipfile
 
+    src_path = os.path.join(XML_LW_DIR, f'{ch}.xml')
     if not os.path.exists(src_path):
         return False
+
+    work_dir = os.path.join(BUILD_DIR, 'epub', ch)
 
     with open(src_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -236,21 +336,20 @@ def build_epub(ch):
 
         seg_m = re.search(r'<seg[^>]*>(.*?)</seg>', line)
         if seg_m and current_page:
-            # Strip XML tags from text
             text = re.sub(r'<[^>]+>', '', seg_m.group(1))
             pages[current_page].append(text)
 
     if not pages:
         return False
 
-    # Create directory structure
-    epub_dir = os.path.join(out_dir, 'EPUB')
-    meta_dir = os.path.join(out_dir, 'META-INF')
+    # Create intermediate directory structure
+    epub_dir = os.path.join(work_dir, 'EPUB')
+    meta_dir = os.path.join(work_dir, 'META-INF')
     os.makedirs(epub_dir, exist_ok=True)
     os.makedirs(meta_dir, exist_ok=True)
 
     # mimetype
-    with open(os.path.join(out_dir, 'mimetype'), 'w') as f:
+    with open(os.path.join(work_dir, 'mimetype'), 'w') as f:
         f.write('application/epub+zip')
 
     # META-INF/container.xml
@@ -352,6 +451,26 @@ def build_epub(ch):
     )
     with open(os.path.join(epub_dir, 'toc.ncx'), 'w', encoding='utf-8') as f:
         f.write(ncx)
+
+    # Copy expanded folder to docs/epub/{ch}/ (for Bibi folder-mode)
+    epub_out_dir = os.path.join(DOCS_DIR, 'epub')
+    folder_dst = os.path.join(epub_out_dir, ch)
+    if os.path.exists(folder_dst):
+        shutil.rmtree(folder_dst)
+    shutil.copytree(work_dir, folder_dst)
+
+    # Also package as .epub file (for download)
+    epub_path = os.path.join(epub_out_dir, f'{ch}.epub')
+    with zipfile.ZipFile(epub_path, 'w') as zf:
+        zf.write(os.path.join(work_dir, 'mimetype'), 'mimetype',
+                 compress_type=zipfile.ZIP_STORED)
+        for dirpath, _dirs, files in os.walk(work_dir):
+            for fname in files:
+                if fname == 'mimetype':
+                    continue
+                full = os.path.join(dirpath, fname)
+                arcname = os.path.relpath(full, work_dir)
+                zf.write(full, arcname, compress_type=zipfile.ZIP_DEFLATED)
 
     return True
 
@@ -458,14 +577,14 @@ def main():
         build_api()
 
     if 'pdf' in tasks:
-        print('=== Building docs/output/ (PDF) ===')
+        print('=== Building docs/pdf/ ===')
         for ch in CHAPTERS:
             ok = build_pdf(ch)
             status = 'ok' if ok else 'FAILED'
             print(f'  {ch}: {status}')
 
     if 'epub' in tasks:
-        print('=== Building docs/bibi-bookshelf/ (EPUB) ===')
+        print('=== Building docs/epub/ ===')
         for ch in CHAPTERS:
             ok = build_epub(ch)
             status = 'ok' if ok else 'FAILED'

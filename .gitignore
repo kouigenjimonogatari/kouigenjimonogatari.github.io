@@ -14,9 +14,10 @@ docs/html/
 docs/data/waka.json
 docs/data/chapters.json
 docs/output/
-docs/bibi-bookshelf/
+docs/epub/
 docs/api/
 docs/files/rdf/
 
 # 一時ファイル
+build/
 tmp/
