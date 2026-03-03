@@ -11,8 +11,7 @@ node_modules
 # 派生ファイル（prebuildで生成）
 docs/tei/
 docs/html/
-docs/data/waka.json
-docs/data/chapters.json
+docs/data/
 docs/output/
 docs/epub/
 docs/api/
