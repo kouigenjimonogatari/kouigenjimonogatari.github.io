@@ -208,7 +208,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0999-13.json">給ふ</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0999-14.json">　　<lg type="waka" rhyme="tanka"><l n="1">中〱に折や</l><l n="2">まとはむふちの</l><l n="3">はなたそか</l><l n="4">れときのたと〱</l><l n="5">しくはときこえ</l></lg></seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0999-14.json">　　<lg type="waka" rhyme="tanka"><l n="1">中〱に</l><l n="2">折やまとはむ</l><l n="3">ふちのはな</l><l n="4">たそかれときの</l><l n="5">たと〱しくは</l></lg>ときこえ</seg>
 				<lb/>
 				<pb corresp="#zone_1000" facs="https://dl.ndl.go.jp/api/iiif/3437688/R0000105/3445,0,3445,4706/full/0/default.jpg" n="1000"/>
 				<lb/>

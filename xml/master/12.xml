@@ -1049,7 +1049,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0424-04.json">の右近のそう</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0424-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">とこよいて</l><l n="2">ゝたひのそらな</l><l n="3">るかりかね</l><l n="4">もつらにをくれ</l><l n="5">ぬほとそなくさ</l></lg>むと</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0424-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">とこよいてゝ</l><l n="2">たひのそらなる</l><l n="3">かりかねも</l><l n="4">つらにをくれぬ</l><l n="5">ほとそなくさむ</l></lg>と</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0424-06.json">もまとはしてはいかに侍らましといふおやのひたちになりてくたりしにもさそ</seg>
 				<lb/>
@@ -1067,7 +1067,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0424-13.json">きこゆれとなをいり給はす</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0424-14.json">　　<lg type="waka" rhyme="tanka"><l n="1">みるほとそ</l><l n="2">しはしなくさむ</l><l n="3">めくりあは</l><l n="4">ん月のみやこ</l><l n="5">はゝるかなれと</l></lg>もその</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0424-14.json">　　<lg type="waka" rhyme="tanka"><l n="1">みるほとそ</l><l n="2">しはしなくさむ</l><l n="3">めくりあはん</l><l n="4">月のみやこは</l><l n="5">ゝるかなれとも</l></lg>その</seg>
 				<lb/>
 				<pb corresp="#zone_0425" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000022/0,0,3445,4706/full/0/default.jpg" n="425"/>
 				<lb/>
@@ -1377,7 +1377,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0435-03.json">ふふねにこと〱しき人形のせてなかすをみ給ふによそへられて</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0435-04.json">　　<lg type="waka" rhyme="tanka"><l n="1">しらさりし</l><l n="2">おほうみのはら</l><l n="3">になかれき</l><l n="4">てひとかたにや</l><l n="5">はものはかなし</l></lg>きと</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0435-04.json">　　<lg type="waka" rhyme="tanka"><l n="1">しらさりし</l><l n="2">おほうみのはらに</l><l n="3">なかれきて</l><l n="4">ひとかたにやは</l><l n="5">ものはかなしき</l></lg>と</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0435-05.json">てゐ給へる御さまさるはれにいてゝいふよしなくみえ給ふうみのおもてうら</seg>
 				<lb/>
