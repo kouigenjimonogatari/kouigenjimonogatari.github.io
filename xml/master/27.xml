@@ -136,7 +136,7 @@
 				<lb/>
 				<pb corresp="#zone_0857" facs="https://dl.ndl.go.jp/api/iiif/3437688/R0000033/0,0,3445,4706/full/0/default.jpg" n="857"/>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0857-01.json">　　<lg type="waka" rhyme="tanka"><l n="1">行ゑなき空</l><l n="2">にけちてよかゝ</l><l n="3">り火のたよ</l><l n="4">りにたくふけふ</l><l n="5">りとならはひと</l></lg>のあ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0857-01.json">　　<lg type="waka" rhyme="tanka"><l n="1">行ゑなき</l><l n="2">空にけちてよ</l><l n="3">かゝり火の</l><l n="4">たよりにたくふ</l><l n="5">けふりとならは</l></lg>ひとのあ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0857-02.json">やしとおもひ侍らむことゝわひたまへはくはやとていて給ふにひんかしのたい</seg>
 				<lb/>

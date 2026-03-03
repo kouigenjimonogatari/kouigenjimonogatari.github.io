@@ -168,15 +168,15 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0782-11.json">す</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0782-12.json">　　<lg type="waka" rhyme="tanka"><l n="1">かせふけは</l><l n="2">なみの花さへ色</l><l n="3">みえてこや</l><l n="4">なにたてるやま</l><l n="5">ふきのさき</l></lg></seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0782-12.json">　　<lg type="waka" rhyme="tanka"><l n="1">かせふけは</l><l n="2">なみの花さへ</l><l n="3">色みえて</l><l n="4">こやなにたてる</l><l n="5">やまふきのさき</l></lg></seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0782-13.json">　　<lg type="waka" rhyme="tanka"><l n="1">はるのいけ</l><l n="2">やゐてのかはせ</l><l n="3">にかよふら</l><l n="4">んきしの山ふき</l><l n="5">そこもにほへり</l></lg></seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0782-13.json">　　<lg type="waka" rhyme="tanka"><l n="1">はるのいけや</l><l n="2">ゐてのかはせに</l><l n="3">かよふらん</l><l n="4">きしの山ふき</l><l n="5">そこもにほへり</l></lg></seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0782-14.json">　　<lg type="waka" rhyme="tanka"><l n="1">かめのうへ</l><l n="2">の山もたつねし</l><l n="3">ふねのうち</l><l n="4">においせぬなを</l><l n="5">はこゝにのこさ</l></lg>む</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0782-14.json">　　<lg type="waka" rhyme="tanka"><l n="1">かめのうへの</l><l n="2">山もたつねし</l><l n="3">ふねのうちに</l><l n="4">おいせぬなをは</l><l n="5">こゝにのこさむ</l></lg></seg>
 				<lb/>
 				<pb corresp="#zone_0783" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000201/0,0,3445,4706/full/0/default.jpg" n="783"/>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0783-01.json">　　<lg type="waka" rhyme="tanka"><l n="1">春の日のう</l><l n="2">らゝにさしてゆ</l><l n="3">くふねはさ</l><l n="4">ほのしつくも花</l><l n="5">そちりけるなと</l></lg>やう</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0783-01.json">　　<lg type="waka" rhyme="tanka"><l n="1">春の日の</l><l n="2">うらゝにさして</l><l n="3">ゆくふねは</l><l n="4">さほのしつくも</l><l n="5">花そちりける</l></lg>なとやう</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0783-02.json">のはかなことゝもを心〱にいひかはしつゝゆくかたもかへらむさともわすれ</seg>
 				<lb/>
@@ -244,7 +244,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0785-04.json">おとゝの君におなしかさしをまいり給いといたうほをゑみ給ひて</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0785-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">ふちにみを</l><l n="2">なけつへしやと</l><l n="3">この春は花</l><l n="4">のあたりをたち</l><l n="5">さらてみよとせ</l></lg>ちに</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0785-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">ふちにみを</l><l n="2">なけつへしやと</l><l n="3">この春は</l><l n="4">花のあたりを</l><l n="5">たちさらてみよ</l></lg>とせちに</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0785-06.json">とゝめたまへはえたちあかれ給はてけさの御あそひましていとおもしろしけふ</seg>
 				<lb/>
@@ -278,7 +278,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0786-06.json">つきてあかにくはへさせ給御せうそこ殿の中将の君してきこえ給へり</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0786-07.json">　　<lg type="waka" rhyme="tanka"><l n="1">はなそのゝ</l><l n="2">こてふをさへや</l><l n="3">したくさに</l><l n="4">秋まつむしはう</l><l n="5">とくみるらむ宮</l></lg>かの</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0786-07.json">　　<lg type="waka" rhyme="tanka"><l n="1">はなそのゝ</l><l n="2">こてふをさへや</l><l n="3">したくさに</l><l n="4">秋まつむしは</l><l n="5">うとくみるらむ</l></lg>宮かの</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0786-08.json">紅葉の御かへりなりけりとほおゑみて御らむすきのふの女はうたちもけに春の</seg>
 				<lb/>
@@ -380,7 +380,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0789-12.json">すほゝれたるにかとてひきあけたまへりていとおかしうて</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0789-13.json">　　<lg type="waka" rhyme="tanka"><l n="1">おもふとも</l><l n="2">君はしらしなわ</l><l n="3">きかへりい</l><l n="4">はもるみつにい</l><l n="5">ろしみえねはか</l></lg>きさ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0789-13.json">　　<lg type="waka" rhyme="tanka"><l n="1">おもふとも</l><l n="2">君はしらしな</l><l n="3">わきかへり</l><l n="4">いはもるみつに</l><l n="5">いろしみえねは</l></lg>かきさ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0789-14.json">まゐまめかしうそほれたりこれはいかなるそとゝひきこえ給へとはか〱しう</seg>
 				<lb/>
@@ -502,7 +502,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0793-13.json">かしきにたちとまり給うて</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0793-14.json">　　<lg type="waka" rhyme="tanka"><l n="1">ませのうち</l><l n="2">にねふかくうへ</l><l n="3">し竹のこの</l><l n="4">をのかよゝにや</l><l n="5">おひわかるへき</l></lg>おも</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0793-14.json">　　<lg type="waka" rhyme="tanka"><l n="1">ませのうちに</l><l n="2">ねふかくうへし</l><l n="3">竹のこの</l><l n="4">をのかよゝにや</l><l n="5">おひわかるへき</l></lg>おも</seg>
 				<lb/>
 				<pb corresp="#zone_0794" facs="https://dl.ndl.go.jp/api/iiif/3437687/R0000207/3445,0,3445,4706/full/0/default.jpg" n="794"/>
 				<lb/>

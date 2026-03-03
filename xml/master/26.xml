@@ -339,13 +339,13 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0836-06.json">ゆるとてすこしのたまひいてたるにもいとあはれなり</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0836-07.json">　　<lg type="waka" rhyme="tanka"><l n="1">なてしこの</l><l n="2">とこなつかしき</l><l n="3">色をみはも</l><l n="4">とのかきねを人</l><l n="5">やたつねむこの</l></lg>事の</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0836-07.json">　　<lg type="waka" rhyme="tanka"><l n="1">なてしこの</l><l n="2">とこなつかしき</l><l n="3">色をみは</l><l n="4">もとのかきねを</l><l n="5">人やたつねむ</l></lg>この事の</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0836-08.json">わつらはしさにこそまゆこもりも心くるしう思ひきこゆれとの給ふ君うちなき</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0836-09.json">て</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0836-10.json">　　<lg type="waka" rhyme="tanka"><l n="1">山かつのか</l><l n="2">きほにおひしな</l><l n="3">てしこのも</l><l n="4">とのねさしをた</l><l n="5">れかたつねんは</l></lg>かな</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0836-10.json">　　<lg type="waka" rhyme="tanka"><l n="1">山かつの</l><l n="2">かきほにおひし</l><l n="3">なてしこの</l><l n="4">もとのねさしを</l><l n="5">たれかたつねん</l></lg>はかな</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0836-11.json">けにきこえない給へるさまけにいとなつかしくわかやかなりこさらましかはと</seg>
 				<lb/>
@@ -723,7 +723,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0849-03.json">しるしなきおほつかなさはうらめしく</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0849-04.json">　　<lg type="waka" rhyme="tanka"><l n="1">ひたちなる</l><l n="2">するかのうみの</l><l n="3">すまの浦に</l><l n="4">なみたちいてよ</l><l n="5">はこさきの松と</l></lg>かき</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0849-04.json">　　<lg type="waka" rhyme="tanka"><l n="1">ひたちなる</l><l n="2">するかのうみの</l><l n="3">すまの浦に</l><l n="4">なみたちいてよ</l><l n="5">はこさきの松</l></lg>とかき</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0849-05.json">てよみきこゆれはあなうたてまことに身つからのにもこそいひなせとかたはら</seg>
 				<lb/>

@@ -215,7 +215,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1228-12.json">かきさして</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1228-13.json">　　<lg type="waka" rhyme="tanka"><l n="1">いまはとて</l><l n="2">もえむけふりも</l><l n="3">むすほゝれ</l><l n="4">たえぬおもひの</l><l n="5">猶やのこらむあ</l></lg>はれ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1228-13.json">　　<lg type="waka" rhyme="tanka"><l n="1">いまはとて</l><l n="2">もえむけふりも</l><l n="3">むすほゝれ</l><l n="4">たえぬおもひの</l><l n="5">猶やのこらむ</l></lg>あはれ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1228-14.json">とたにのたまはせよ心のとめて人やりならぬやみにまとはむみちのひかりにも</seg>
 				<lb/>
@@ -319,7 +319,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1232-04.json">かりのこらむとあるは</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1232-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">たちそひて</l><l n="2">きえやしなまし</l><l n="3">うきことを</l><l n="4">思みたるゝけふ</l><l n="5">りくらへにをく</l></lg>るへ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1232-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">たちそひて</l><l n="2">きえやしなまし</l><l n="3">うきことを</l><l n="4">思みたるゝけ</l><l n="5">ふりくらへにをく</l></lg>るへ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1232-06.json">うやはとはかりあるをあはれにかたしけなしと思ふいてやこのけふりはかりこ</seg>
 				<lb/>
@@ -945,7 +945,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1253-02.json">ほうちあかめておはす</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1253-03.json">　　<lg type="waka" rhyme="tanka"><l n="1">たかよにか</l><l n="2">たねはまきしと</l><l n="3">人とはゝい</l><l n="4">かゝいはねのま</l><l n="5">つはこたへむあ</l></lg>はれ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1253-03.json">　　<lg type="waka" rhyme="tanka"><l n="1">たかよにか</l><l n="2">たねはまきしと</l><l n="3">人とはゝ</l><l n="4">いかゝいはねの</l><l n="5">まつはこたへむ</l></lg>あはれ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1253-04.json">なりなとしのひてきこえ給に御いらへもなうてひれふしたまへりことはりとお</seg>
 				<lb/>
@@ -1129,7 +1129,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1259-04.json">とならすゝしなしてたち給にいとゝう</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1259-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">この春はや</l><l n="2">なきのめにそた</l><l n="3">まはぬくさ</l><l n="4">きちる花のゆく</l><l n="5">ゑしらねはとき</l></lg>こえ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1259-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">この春は</l><l n="2">やなきのめにそ</l><l n="3">たまはぬく</l><l n="4">さきちる花の</l><l n="5">ゆくゑしらねは</l></lg>ときこえ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1259-06.json">給いとふかきよしにはあらねといまめかしうかとありとはいはれ給しかういな</seg>
 				<lb/>
@@ -1183,13 +1183,13 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-01.json">すみてはなのちりたるこすゑともをもけふそめとゝめ給この御たゝむかみに</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-02.json">　　<lg type="waka" rhyme="tanka"><l n="1">このしたの</l><l n="2">しつくにぬれて</l><l n="3">さかさまに</l><l n="4">かすみのころも</l><l n="5">きたる春かな大</l></lg>将の</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-02.json">　　<lg type="waka" rhyme="tanka"><l n="1">このしたの</l><l n="2">しつくにぬれて</l><l n="3">さかさまに</l><l n="4">かすみのころも</l><l n="5">きたる春かな</l></lg>大将の</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-03.json">君</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-04.json">　　<lg type="waka" rhyme="tanka"><l n="1">なき人も思</l><l n="2">はさりけむうち</l><l n="3">すてゝゆふ</l><l n="4">へのかすみきみ</l><l n="5">きたれとは弁君</l></lg></seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-04.json">　　<lg type="waka" rhyme="tanka"><l n="1">なき人も</l><l n="2">思はさりけむ</l><l n="3">うちすてゝ</l><l n="4">ゆふへのかすみ</l><l n="5">きみきたれとは</l></lg>弁君</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">うらめしや</l><l n="2">かすみのころも</l><l n="3">たれきよと</l><l n="4">はるよりさきに</l><l n="5">花のちりけむ御</l></lg>わさ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">うらめしや</l><l n="2">かすみのころも</l><l n="3">たれきよと</l><l n="4">はるよりさきに</l><l n="5">花のちりけむ</l></lg>御わさ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1261-06.json">なとよのつねならすいかめしうなむありける大将とのゝきたのかたをはさる物</seg>
 				<lb/>
@@ -1227,7 +1227,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1262-08.json">ゑあへるたのもしさよなとの給てしのひやかにさしよりて</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1262-09.json">　　<lg type="waka" rhyme="tanka"><l n="1">ことならは</l><l n="2">ならしのえたに</l><l n="3">ならさなむ</l><l n="4">はもりの神のゆ</l><l n="5">るしありきとみ</l></lg>すの</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1262-09.json">　　<lg type="waka" rhyme="tanka"><l n="1">ことならは</l><l n="2">ならしのえたに</l><l n="3">ならさなむ</l><l n="4">はもりの神の</l><l n="5">ゆるしありきと</l></lg>みすの</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1262-10.json">とのへたてあるほとこそうらめしけれとてなけしによりゐたまへりなよひすか</seg>
 				<lb/>
@@ -1235,7 +1235,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1262-12.json">こゆる少将の君といふ人して</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1262-13.json">　　<lg type="waka" rhyme="tanka"><l n="1">かしは木に</l><l n="2">はもりの神はま</l><l n="3">さすとも人</l><l n="4">ならすへきやと</l><l n="5">のこすゑかうち</l></lg>つけ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1262-13.json">　　<lg type="waka" rhyme="tanka"><l n="1">かしは木に</l><l n="2">はもりの神は</l><l n="3">まさすとも</l><l n="4">人ならすへき</l><l n="5">やとのこすゑか</l></lg>うちつけ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1262-14.json">なる御ことのはになむあさう思給へなりぬるときこゆれはけにとおほすにすこ</seg>
 				<lb/>

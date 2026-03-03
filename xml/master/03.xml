@@ -368,7 +368,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0094-03.json">らてたゝうかみにてならひのやうにかきすさひたまふ</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0094-04.json">　　<lg type="waka" rhyme="tanka"><l n="1">うつせみの</l><l n="2">みをかへてける</l><l n="3">木のもとに</l><l n="4">なを人からのな</l><l n="5">つかしきかなと</l></lg>かき</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0094-04.json">　　<lg type="waka" rhyme="tanka"><l n="1">うつせみの</l><l n="2">みをかへてける</l><l n="3">木のもとに</l><l n="4">なを人からの</l><l n="5">なつかしきかな</l></lg>とかき</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0094-05.json">たまへるをふところにひき入てもたりかの人もいかにおもふらんといとをしけ</seg>
 				<lb/>
@@ -400,7 +400,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0095-04.json">に</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0095-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">うつせみの</l><l n="2">はにをく露の木</l><l n="3">かくれてし</l><l n="4">のひ〱にぬるゝ</l><l n="5">そてかな</l></lg></seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0095-05.json">　　<lg type="waka" rhyme="tanka"><l n="1">うつせみの</l><l n="2">はにをく露の</l><l n="3">木かくれて</l><l n="4">しのひ〱に</l><l n="5">ぬるゝそてかな</l></lg></seg>
 			</p>
 		</body>
 	</text>
