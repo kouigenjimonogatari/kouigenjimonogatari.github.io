@@ -7,3 +7,16 @@
 *.aux
 
 node_modules
+
+# 派生ファイル（prebuildで生成）
+docs/tei/
+docs/html/
+docs/data/
+docs/output/
+docs/epub/
+docs/api/
+docs/files/rdf/
+
+# 一時ファイル
+build/
+tmp/

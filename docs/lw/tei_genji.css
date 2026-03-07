@@ -1,0 +1,159 @@
+TEI {
+  margin: 10px;
+}
+
+body {
+  margin-top: 5px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  overflow-x: auto;
+  width: 100%;
+}
+
+body > persName {
+  color: red;
+}
+
+body > placeName {
+  color: green;
+}
+
+body > date {
+  color: blue;
+}
+
+lb:after {
+  content: "\a";
+  white-space: pre;
+}
+
+p {
+  display: block;
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+body > p {
+  display: block;
+  border: 1px solid #ccc; /* 灰色の薄い境界線 */
+  padding: 10px;
+}
+
+pb {
+  display: block;
+  margin-top: 1.5em;
+  margin-right: 1.5em;
+  color: #ccc;
+}
+
+pb:before {
+  content: "#" attr(n);
+}
+
+/* header-related material */
+teiHeader {
+  display: block;
+  color: gray;
+  background-color: rgb(251, 242, 234);
+  padding: 0.5em;
+}
+teiHeader author:before {
+  font-variant: small-caps;
+  content: "author: ";
+}
+teiHeader editor:before {
+  font-variant: small-caps;
+  content: "editor: ";
+}
+teiHeader title {
+  color: gray;
+}
+titleStmt > author {
+  display: block;
+  margin-left: 1em;
+}
+authority {
+  display: block;
+  margin-bottom: 0.5em;
+}
+availability {
+  display: block;
+  margin-bottom: 0.5em;
+}
+sourceDesc p {
+  margin: 0;
+}
+revisionDesc {
+  display: block;
+  margin-bottom: 1em;
+}
+catDesc {
+  display: block;
+  margin-bottom: 0.5em;
+}
+encodingDesc {
+  display: block;
+  margin-bottom: 1em;
+}
+profileDesc {
+  display: block;
+  margin-bottom: 1em;
+}
+projectDesc {
+  display: block;
+  margin-bottom: 1em;
+}
+change > date,
+publicationStmt > date {
+  display: block;
+  font-weight: bold;
+}
+respStmt {
+  display: block;
+  margin-left: 1em;
+}
+respStmt > name:before {
+  content: attr(role) ": ";
+  font-variant: small-caps;
+}
+bibl respStmt {
+  display: inline;
+}
+publicationStmt p {
+  display: block;
+  margin-bottom: 0;
+}
+publisher {
+  display: inline;
+}
+publicationStmt > publisher {
+  display: block;
+  margin-bottom: 0.5em;
+}
+change {
+  display: block;
+  margin-bottom: 1em;
+  margin-left: 2em;
+}
+ref {
+  display: inline;
+  color: blue;
+  background-color: inherit;
+}
+ref:before {
+  color: gray;
+  background-color: inherit;
+  text-decoration: underline;
+}
+distributor {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+/* 和歌 (verse) */
+lg {
+  display: inline;
+}
+l {
+  display: inline;
+}

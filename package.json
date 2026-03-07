@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "prebuild": "python3 scripts/prebuild.py tei xsl waka stats epub",
+    "prebuild:all": "python3 scripts/prebuild.py",
+    "prebuild:data": "python3 scripts/prebuild.py waka stats"
+  },
   "dependencies": {
     "xslt3": "^2.7.0"
   }

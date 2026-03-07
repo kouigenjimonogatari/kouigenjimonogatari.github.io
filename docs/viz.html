@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="校異源氏物語テキストDBの可視化ツール。和歌一覧やテキスト統計を閲覧できます。">
+    <meta name="keywords" content="源氏物語,校異源氏物語,可視化,和歌,テキスト統計,デジタル人文学">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="可視化 - 校異源氏物語テキストDB">
+    <meta property="og:description" content="校異源氏物語テキストDBの可視化ツール。和歌一覧やテキスト統計を閲覧できます。">
+    <meta property="og:url" content="https://kouigenjimonogatari.github.io/viz.html">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;500;600&amp;display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="css/common.css">
+
+    <title>可視化 - 校異源氏物語テキストDB</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg site-navbar fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">校異源氏物語テキストDB</a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="fas fa-bars" style="color:#fff"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="viz.html">
+                                <i class="fas fa-chart-pie me-1"></i>可視化
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">
+                                <i class="fas fa-external-link-alt me-1"></i>デジタル源氏物語
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-globe me-1"></i>言語
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="index.html">日本語</a></li>
+                                <li><a class="dropdown-item" href="index-en.html">English</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section" style="padding: 4rem 0 3rem">
+        <div class="container">
+            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">可視化</h1>
+            <p class="hero-subtitle">校異源氏物語テキストDBの可視化ツール</p>
+        </div>
+    </section>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-5 col-md-6">
+                    <a href="waka.html" class="text-decoration-none">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-feather-alt text-white fa-2x"></i>
+                            </div>
+                            <h3 class="jp-text mb-3" style="font-size:1.2rem">和歌一覧</h3>
+                            <p class="text-muted" style="font-size:0.9rem">校異源氏物語に収録されている全和歌を検索・閲覧。巻別フィルターや和歌数の棒グラフも表示します。</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-5 col-md-6">
+                    <a href="stats.html" class="text-decoration-none">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="fas fa-chart-bar text-white fa-2x"></i>
+                            </div>
+                            <h3 class="jp-text mb-3" style="font-size:1.2rem">テキスト統計</h3>
+                            <p class="text-muted" style="font-size:0.9rem">巻ごとのページ数・行数・文字数・和歌数を棒グラフで可視化。テキストの分量を俯瞰できます。</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">Powered by TEI, Mirador, and XSLT</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
+</html>
