@@ -180,7 +180,7 @@
                     /* Highlight */
                     .highlight {
                         background-color: #fff3cd;
-                        border-bottom: 2px solid var(--color-accent);
+                        border-block-end: 2px solid var(--color-accent);
                         font-weight: bold;
                     }
 
@@ -475,36 +475,46 @@
                                 });
                             }
 
+                            function scrollToAndHighlight(targetElement) {
+                                targetElement.classList.add('highlight');
+                                const scrollContainer = document.querySelector('.horizontal-scroll');
+                                if (scrollContainer) {
+                                    setTimeout(() => {
+                                        const targetRect = targetElement.getBoundingClientRect();
+                                        const containerRect = scrollContainer.getBoundingClientRect();
+                                        const currentScroll = scrollContainer.scrollLeft;
+                                        const targetRelativeLeft = targetRect.left - containerRect.left;
+                                        const scrollPosition = currentScroll + targetRelativeLeft - (scrollContainer.clientWidth / 2) + (targetRect.width / 2);
+                                        scrollContainer.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+                                    }, 300);
+                                }
+                                // Navigate Mirador to the matching canvas
+                                const seg = targetElement.closest('span[data-canvas]');
+                                if (seg) {
+                                    const canvas = seg.getAttribute('data-canvas');
+                                    if (canvas) {
+                                        miradorInstance.store.dispatch({
+                                            type: 'mirador/SET_CANVAS',
+                                            windowId: 'known-window-id',
+                                            canvasId: canvas,
+                                            visibleCanvases: [canvas]
+                                        });
+                                    }
+                                }
+                            }
+
+                            const wakaParam = urlParams.get('waka');
                             const correspParam = urlParams.get('corresp');
-                            if (correspParam) {
+                            const highlightTarget = wakaParam ? `#${wakaParam}` : correspParam ? `span[data-corresp="${correspParam}"]` : null;
+
+                            if (highlightTarget) {
                                 let attempts = 0;
                                 const maxAttempts = 20;
 
                                 const tryHighlight = () => {
-                                    const targetElement = document.querySelector(`span[data-corresp="${correspParam}"]`);
+                                    const targetElement = document.querySelector(highlightTarget);
                                     if (targetElement) {
-                                        targetElement.classList.add('highlight');
-                                        const scrollContainer = document.querySelector('.horizontal-scroll');
-                                        if (scrollContainer) {
-                                            setTimeout(() => {
-                                                const targetRect = targetElement.getBoundingClientRect();
-                                                const containerRect = scrollContainer.getBoundingClientRect();
-                                                const currentScroll = scrollContainer.scrollLeft;
-                                                const targetRelativeLeft = targetRect.left - containerRect.left;
-                                                const scrollPosition = currentScroll + targetRelativeLeft - (scrollContainer.clientWidth / 2) + (targetRect.width / 2);
-                                                scrollContainer.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-                                            }, 300);
-                                        }
-                                        const canvas = targetElement.getAttribute('data-canvas');
-                                        if (canvas) {
-                                            const action = {
-                                                type: 'mirador/SET_CANVAS',
-                                                windowId: 'known-window-id',
-                                                canvasId: canvas,
-                                                visibleCanvases: [canvas]
-                                            };
-                                            miradorInstance.store.dispatch(action);
-                                        }
+                                        scrollToAndHighlight(targetElement);
                                         return true;
                                     }
                                     return false;
@@ -612,6 +622,9 @@
     <!-- lg (verse group) -->
     <xsl:template match="tei:lg">
         <span class="tei-lg">
+            <xsl:if test="@xml:id">
+                <xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates select="node()" />
         </span>
     </xsl:template>

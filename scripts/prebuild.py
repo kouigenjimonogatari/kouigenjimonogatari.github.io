@@ -117,11 +117,12 @@ def build_waka_json():
 
         # Use regex to extract waka from seg elements (faster than XML parsing
         # and avoids issues with namespace/PI handling)
-        pattern = r'<seg\s+corresp="([^"]+)">[^<]*<lg\s+type="waka"[^>]*>(.*?)</lg>'
+        pattern = r'<seg\s+corresp="([^"]+)">[^<]*<lg\s+xml:id="([^"]+)"\s+type="waka"[^>]*>(.*?)</lg>'
         for m in re.finditer(pattern, content):
             global_seq += 1
             corresp = m.group(1)
-            lg_content = m.group(2)
+            waka_id = m.group(2)
+            lg_content = m.group(3)
 
             # Extract l elements
             l_parts = re.findall(r'<l[^>]*>(.*?)</l>', lg_content)
@@ -132,6 +133,7 @@ def build_waka_json():
                 'chapter_name': CHAPTER_NAMES.get(ch, ch),
                 'lines': l_parts,
                 'corresp': corresp,
+                'waka_id': waka_id,
             })
 
     dst_path = os.path.join(DOCS_DIR, 'data', 'waka.json')
