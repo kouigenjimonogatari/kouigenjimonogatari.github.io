@@ -125,7 +125,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0548-09.json">はれなり</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0548-10.json">　　<lg type="waka" rhyme="tanka"><l n="1">ゆくとくと</l><l n="2">せきとめかたき</l><l n="3">涙をや</l><l n="4">たえぬし水と</l><l n="5">人はみるらむ</l></lg>えしり給はし</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0548-10.json">　　<lg xml:id="waka-271" type="waka" rhyme="tanka"><l n="1">ゆくとくと</l><l n="2">せきとめかたき</l><l n="3">涙をや</l><l n="4">たえぬし水と</l><l n="5">人はみるらむ</l></lg>えしり給はし</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0548-11.json">かしと思ふにいとかひなしいし山よりいて給ふ御むかへに右衛門のすけまいり</seg>
 				<lb/>
@@ -151,7 +151,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0549-07.json">ゐたりつるはちきりしられしをさはおほしゝりけむや</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0549-08.json">　　<lg type="waka" rhyme="tanka"><l n="1">わくらはに</l><l n="2">ゆきあふ道を</l><l n="3">たのみしも</l><l n="4">猶かひなしや</l><l n="5">しほならぬうみ</l></lg>せきもり</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0549-08.json">　　<lg xml:id="waka-272" type="waka" rhyme="tanka"><l n="1">わくらはに</l><l n="2">ゆきあふ道を</l><l n="3">たのみしも</l><l n="4">猶かひなしや</l><l n="5">しほならぬうみ</l></lg>せきもり</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0549-09.json">のさもうらやましくめさましかりしかなとありとしころのとたえもうひ〱し</seg>
 				<lb/>
@@ -171,7 +171,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0550-02.json">しきにやえしのはれさりけむ</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0550-03.json">　　<lg type="waka" rhyme="tanka"><l n="1">あふさかの</l><l n="2">関やいかなる</l><l n="3">せきなれは</l><l n="4">しけきなけきの</l><l n="5">中をわくらん</l></lg>夢のやう</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0550-03.json">　　<lg xml:id="waka-273" type="waka" rhyme="tanka"><l n="1">あふさかの</l><l n="2">関やいかなる</l><l n="3">せきなれは</l><l n="4">しけきなけきの</l><l n="5">中をわくらん</l></lg>夢のやう</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0550-04.json">になむときこえたりあはれもつらさもわすれぬふしとおほしをかれたる人なれ</seg>
 				<lb/>

@@ -516,7 +516,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/2068-10.json">きになんましてひとめはいかにとかきもやり給はす</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/2068-11.json">　　<lg type="waka" rhyme="tanka"><l n="1">のりのしと</l><l n="2">たつぬるみちを</l><l n="3">しるへにて</l><l n="4">おもはぬやまに</l><l n="5">ふみまとふかな</l></lg>この</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/2068-11.json">　　<lg xml:id="waka-795" type="waka" rhyme="tanka"><l n="1">のりのしと</l><l n="2">たつぬるみちを</l><l n="3">しるへにて</l><l n="4">おもはぬやまに</l><l n="5">ふみまとふかな</l></lg>この</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/2068-12.json">人はみやわすれたまひぬらむこゝにはゆくゑなき御かたみにみる物にてなんな</seg>
 				<lb/>

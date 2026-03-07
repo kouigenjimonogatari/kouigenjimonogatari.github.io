@@ -237,7 +237,7 @@
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1433-10.json">ひけんさとりをもえてしかなとそひとりこたれ給ひける</seg>
 				<lb/>
-				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1433-11.json">　　<lg type="waka" rhyme="tanka"><l n="1">おほつかな</l><l n="2">誰にとはまし</l><l n="3">いかにして</l><l n="4">はしめもはても</l><l n="5">しらぬ我身そ</l></lg>いらふへ</seg>
+				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1433-11.json">　　<lg xml:id="waka-590" type="waka" rhyme="tanka"><l n="1">おほつかな</l><l n="2">誰にとはまし</l><l n="3">いかにして</l><l n="4">はしめもはても</l><l n="5">しらぬ我身そ</l></lg>いらふへ</seg>
 				<lb/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/1433-12.json">き人もなしことにふれてわか身につゝかある心ちするもたゝならす物なけかし</seg>
 				<lb/>

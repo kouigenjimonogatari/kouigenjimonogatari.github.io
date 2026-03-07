@@ -547,7 +547,9 @@
                 ).join('<span class="verse-sep">/</span>');
 
                 const chNum = w.chapter;
-                const viewUrl = `html/${chNum}.html?corresp=${encodeURIComponent(w.corresp)}`;
+                const viewUrl = w.waka_id
+                    ? `html/${chNum}.html?waka=${w.waka_id}`
+                    : `html/${chNum}.html?corresp=${encodeURIComponent(w.corresp)}`;
 
                 return `
                     <div class="waka-card">
