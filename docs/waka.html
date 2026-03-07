@@ -234,12 +234,14 @@
         <div class="container">
             <div class="chart-section" id="chartSection" style="display:none">
                 <h3>巻別和歌数・文字数</h3>
+                <p style="font-size:0.85rem;color:#666;margin-bottom:1rem">各巻に含まれる和歌の数（棒グラフ・左軸）と、本文の文字数（折れ線・右軸）を示しています。巻をクリックすると、その巻の和歌を絞り込めます。</p>
                 <div class="chart-container">
                     <canvas id="wakaChart"></canvas>
                 </div>
             </div>
             <details class="chart-section" id="scatterSection" style="display:none">
                 <summary><h3 style="display:inline">文字数と和歌数の関係</h3></summary>
+                <p style="font-size:0.85rem;color:#666;margin:0.75rem 0 1rem">各巻を1つのドットで表し、横軸に本文の文字数、縦軸に和歌の数を配置した散布図です。長い巻（文字数が多い巻）に必ずしも多くの和歌が含まれるわけではないことがわかります。ドットにカーソルを合わせると巻名が表示されます。</p>
                 <div class="chart-container" style="margin-top:1rem">
                     <canvas id="scatterChart"></canvas>
                 </div>
@@ -487,7 +489,7 @@
                         x: {
                             title: {
                                 display: true,
-                                text: '文字数',
+                                text: '本文の文字数（字）',
                                 font: { size: 11 }
                             },
                             ticks: {
@@ -501,7 +503,7 @@
                             beginAtZero: true,
                             title: {
                                 display: true,
-                                text: '和歌数',
+                                text: '和歌数（首）',
                                 font: { size: 11 }
                             },
                             ticks: {
