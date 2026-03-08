@@ -43,14 +43,16 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Download Saxon-HE
+      - name: Download Saxon-HE and xmlresolver
         run: |
           curl -sL -o /tmp/saxon-he.jar \
             https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/12.5/Saxon-HE-12.5.jar
+          curl -sL -o /tmp/xmlresolver.jar \
+            https://repo1.maven.org/maven2/org/xmlresolver/xmlresolver/6.0.4/xmlresolver-6.0.4.jar
 
       - name: Run prebuild (tei, xsl, waka, stats)
         env:
-          SAXON_JAR: /tmp/saxon-he.jar
+          SAXON_JAR: /tmp/saxon-he.jar:/tmp/xmlresolver.jar
         run: python3 scripts/prebuild.py tei xsl waka stats epub
 
       - name: Upload Pages artifact
