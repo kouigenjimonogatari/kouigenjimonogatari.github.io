@@ -177,6 +177,91 @@
                         display: inline;
                     }
 
+                    /* Waka highlight toggle */
+                    .waka-hl .tei-lg {
+                        background-color: rgba(139, 69, 19, 0.08);
+                        border-block-end: 1px solid rgba(139, 69, 19, 0.3);
+                    }
+
+                    /* RDF link */
+                    .rdf-link {
+                        display: none;
+                        font-size: 0.65rem;
+                        text-orientation: sideways;
+                        color: var(--color-accent);
+                        opacity: 0.5;
+                        text-decoration: none;
+                        margin-inline-start: 0.2em;
+                    }
+                    .rdf-link:hover {
+                        opacity: 1;
+                    }
+                    .show-rdf .rdf-link {
+                        display: inline;
+                    }
+
+                    /* Page link visibility */
+                    .hide-pagebreak .page-link {
+                        display: none;
+                    }
+
+                    /* Settings modal items */
+                    .setting-item {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 0.6rem 0;
+                        border-bottom: 1px solid #f0f0f0;
+                    }
+                    .setting-item:last-child {
+                        border-bottom: none;
+                    }
+                    .setting-label {
+                        font-size: 0.9rem;
+                        color: #333;
+                    }
+                    .setting-desc {
+                        font-size: 0.75rem;
+                        color: #999;
+                        margin-top: 0.15rem;
+                    }
+                    .toggle-switch {
+                        position: relative;
+                        width: 44px;
+                        height: 24px;
+                        flex-shrink: 0;
+                    }
+                    .toggle-switch input {
+                        opacity: 0;
+                        width: 0;
+                        height: 0;
+                    }
+                    .toggle-slider {
+                        position: absolute;
+                        cursor: pointer;
+                        inset: 0;
+                        background-color: #ccc;
+                        border-radius: 24px;
+                        transition: 0.3s;
+                    }
+                    .toggle-slider::before {
+                        content: "";
+                        position: absolute;
+                        height: 18px;
+                        width: 18px;
+                        left: 3px;
+                        bottom: 3px;
+                        background-color: #fff;
+                        border-radius: 50%;
+                        transition: 0.3s;
+                    }
+                    .toggle-switch input:checked + .toggle-slider {
+                        background-color: var(--color-accent);
+                    }
+                    .toggle-switch input:checked + .toggle-slider::before {
+                        transform: translateX(20px);
+                    }
+
                     /* Highlight */
                     .highlight {
                         background-color: #fff3cd;
@@ -299,6 +384,7 @@
                         </h1>
                     </div>
                     <div class="header-actions">
+                        <button id="showSettingsBtn" class="btn">表示設定</button>
                         <button id="showMetadataBtn" class="btn">メタデータ</button>
                         <button id="downloadXmlBtn" class="btn">TEI/XML</button>
                     </div>
@@ -351,6 +437,48 @@
                                     </ul>
                                 </div>
                             </xsl:if>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Modal -->
+                <div id="settingsModal" class="modal-overlay">
+                    <div class="modal-box" style="max-width:420px">
+                        <div class="modal-header">
+                            <h2>表示設定</h2>
+                            <button id="closeSettingsBtn" class="modal-close">&#xd7;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="setting-item">
+                                <div>
+                                    <div class="setting-label">和歌ハイライト</div>
+                                    <div class="setting-desc">和歌（短歌）を背景色で強調表示します</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggleWaka" />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div>
+                                    <div class="setting-label">ページ区切り</div>
+                                    <div class="setting-desc">原本のページ番号リンクを表示します</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="togglePagebreak" checked="checked" />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <div>
+                                    <div class="setting-label">RDFリンク</div>
+                                    <div class="setting-desc">各行のLinked Data URIへのリンクを表示します</div>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="toggleRdf" />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -528,6 +656,71 @@
                                 }, 200);
                             }
 
+                            // --- Settings modal ---
+                            const textScroll = document.querySelector('.text-scroll');
+
+                            document.getElementById('showSettingsBtn').addEventListener('click', function() {
+                                document.getElementById('settingsModal').classList.add('active');
+                            });
+                            document.getElementById('closeSettingsBtn').addEventListener('click', function() {
+                                document.getElementById('settingsModal').classList.remove('active');
+                            });
+                            document.getElementById('settingsModal').addEventListener('click', function(e) {
+                                if (e.target === this) this.classList.remove('active');
+                            });
+
+                            // Toggle: waka highlight
+                            document.getElementById('toggleWaka').addEventListener('change', function() {
+                                textScroll.classList.toggle('waka-hl', this.checked);
+                                const tocPanel = document.getElementById('wakaToc');
+                                if (tocPanel) tocPanel.style.display = this.checked ? 'block' : 'none';
+                            });
+
+                            // Toggle: page breaks
+                            document.getElementById('togglePagebreak').addEventListener('change', function() {
+                                textScroll.classList.toggle('hide-pagebreak', !this.checked);
+                            });
+
+                            // Toggle: RDF links
+                            document.getElementById('toggleRdf').addEventListener('change', function() {
+                                textScroll.classList.toggle('show-rdf', this.checked);
+                            });
+
+                            // Build waka TOC panel
+                            const wakaList = document.querySelectorAll('.tei-lg[id]');
+                            if (wakaList.length > 0) {
+                                const tocPanel = document.createElement('div');
+                                tocPanel.id = 'wakaToc';
+                                tocPanel.style.cssText = 'display:none; position:fixed; top:50px; right:16px; z-index:500; background:#fff; border:1px solid #ccc; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.15); max-height:70vh; overflow-y:auto; width:260px; font-size:0.85rem;';
+                                let tocHtml = '<div style="padding:0.75rem 1rem; border-bottom:1px solid #eee; font-weight:600; display:flex; justify-content:space-between; align-items:center;">'
+                                    + '<span>和歌一覧（' + wakaList.length + '首）</span>'
+                                    + '<button id="closeWakaToc" style="border:none; background:none; cursor:pointer; font-size:1.2rem; color:#999;">\u00d7</button>'
+                                    + '</div><div style="padding:0.5rem 0;">';
+                                wakaList.forEach(lg => {
+                                    const text = lg.textContent.trim();
+                                    const preview = text.length > 20 ? text.substring(0, 20) + '\u2026' : text;
+                                    tocHtml += '<a href="#" data-waka-id="' + lg.id + '" style="display:block; padding:0.35rem 1rem; color:#333; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">' + preview + '</a>';
+                                });
+                                tocHtml += '</div>';
+                                tocPanel.innerHTML = tocHtml;
+                                document.body.appendChild(tocPanel);
+
+                                tocPanel.addEventListener('click', function(e) {
+                                    const link = e.target.closest('a[data-waka-id]');
+                                    if (link) {
+                                        e.preventDefault();
+                                        document.querySelectorAll('.tei-lg.highlight').forEach(el => el.classList.remove('highlight'));
+                                        const target = document.getElementById(link.dataset.wakaId);
+                                        if (target) scrollToAndHighlight(target);
+                                    }
+                                });
+                                document.getElementById('closeWakaToc').addEventListener('click', function() {
+                                    tocPanel.style.display = 'none';
+                                    document.getElementById('toggleWaka').checked = false;
+                                    textScroll.classList.remove('waka-hl');
+                                });
+                            }
+
                             document.getElementById('showMetadataBtn').addEventListener('click', function() {
                                 document.getElementById('metadataModal').classList.add('active');
                             });
@@ -616,6 +809,9 @@
                 </xsl:if>
             </xsl:if>
             <xsl:apply-templates select="node()" />
+            <xsl:if test="@corresp">
+                <a class="rdf-link" href="{@corresp}" target="_blank" title="{@corresp}">&#x1f517;</a>
+            </xsl:if>
         </span>
     </xsl:template>
 
