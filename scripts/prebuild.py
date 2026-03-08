@@ -30,7 +30,8 @@ def xslt_cmd(xsl, src, dst):
     """Return command list for XSLT transformation, preferring Saxon-HE over npx xslt3."""
     saxon_jar = os.environ.get('SAXON_JAR')
     if saxon_jar:
-        return ['java', '-jar', saxon_jar, f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
+        return ['java', '-cp', saxon_jar, 'net.sf.saxon.Transform',
+                f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
     if shutil.which('saxon'):
         return ['saxon', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
     return ['npx', 'xslt3', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
