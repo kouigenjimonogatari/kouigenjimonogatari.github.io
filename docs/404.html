@@ -16,6 +16,14 @@
                 return;
             }
 
+            // /xml/lw/NN.xml → /tei/NN.xml (preserve query params)
+            m = path.match(/^\/xml\/lw\/(\d+)\.xml$/);
+            if (m) {
+                var newUrl = '/tei/' + m[1] + '.xml' + search;
+                window.location.replace(newUrl);
+                return;
+            }
+
             // If no redirect matched, show 404
             document.getElementById('content').style.display = 'block';
         })();
