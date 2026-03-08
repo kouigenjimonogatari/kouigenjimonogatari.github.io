@@ -172,7 +172,7 @@ def build_chapters_json():
             chars += len(plain)
 
         # Count <lg type="waka"> elements
-        waka = len(re.findall(r'<lg\s+type="waka"', content))
+        waka = len(re.findall(r'<lg\s[^>]*type="waka"', content))
 
         chapters.append({
             'chapter': ch,
