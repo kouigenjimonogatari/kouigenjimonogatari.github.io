@@ -1,21 +1,22 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="description" content="校異源氏物語の巻ごとのページ数・行数・文字数・和歌数をチャートで可視化。">
-    <meta name="keywords" content="源氏物語,校異源氏物語,テキスト統計,可視化,デジタル人文学">
+    <meta name="description" content="Visualize page counts, line counts, character counts, and waka counts per volume of the Kōi Genji Monogatari.">
+    <meta name="keywords" content="Genji Monogatari,Kōi Genji Monogatari,text statistics,visualization,digital humanities">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="テキスト統計 - 校異源氏物語テキストDB">
-    <meta property="og:description" content="校異源氏物語の巻ごとのページ数・行数・文字数・和歌数をチャートで可視化。">
-    <meta property="og:url" content="https://kouigenjimonogatari.github.io/stats.html">
-    <meta property="og:site_name" content="校異源氏物語テキストDB">
-    <meta property="og:locale" content="ja_JP">
+    <meta property="og:title" content="Text Statistics - Kōi Genji Monogatari Text DB">
+    <meta property="og:description" content="Visualize page counts, line counts, character counts, and waka counts per volume of the Kōi Genji Monogatari.">
+    <meta property="og:url" content="https://kouigenjimonogatari.github.io/stats-en.html">
+    <meta property="og:site_name" content="Kōi Genji Monogatari Text DB">
+    <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://kouigenjimonogatari.github.io/ogp-image.png">
-    <link rel="canonical" href="https://kouigenjimonogatari.github.io/stats.html">
+
+    <link rel="canonical" href="https://kouigenjimonogatari.github.io/stats-en.html">
     <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/stats.html">
     <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/stats-en.html">
     <link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/stats.html">
@@ -38,7 +39,7 @@
     <!-- Common CSS -->
     <link rel="stylesheet" href="css/common.css">
 
-    <title>テキスト統計 - 校異源氏物語テキストDB</title>
+    <title>Text Statistics - Kōi Genji Monogatari Text DB</title>
 
     <style>
         .summary-cards {
@@ -120,7 +121,7 @@
     <header>
         <nav class="navbar navbar-expand-lg site-navbar fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index.html">校異源氏物語テキストDB</a>
+                <a class="navbar-brand" href="index-en.html">Kōi Genji Monogatari Text DB</a>
 
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <i class="fas fa-bars" style="color:#fff"></i>
@@ -129,21 +130,21 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="viz.html">
-                                <i class="fas fa-chart-pie me-1"></i>可視化
+                            <a class="nav-link" href="viz-en.html">
+                                <i class="fas fa-chart-pie me-1"></i>Visualizations
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">
-                                <i class="fas fa-external-link-alt me-1"></i>デジタル源氏物語
+                                <i class="fas fa-external-link-alt me-1"></i>Digital Genji
                             </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-globe me-1"></i>言語
+                                <i class="fas fa-globe me-1"></i>Language
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item" href="stats.html">日本語</a></li>
+                                <li><a class="dropdown-item" href="stats.html" lang="ja">日本語</a></li>
                                 <li><a class="dropdown-item" href="stats-en.html">English</a></li>
                             </ul>
                         </li>
@@ -155,15 +156,15 @@
 
     <section class="hero-section" style="padding: 4rem 0 3rem">
         <div class="container">
-            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">テキスト統計</h1>
-            <p class="hero-subtitle">巻ごとのページ数・行数・文字数・和歌数</p>
+            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">Text Statistics</h1>
+            <p class="hero-subtitle">Page, line, character, and waka counts by volume</p>
         </div>
     </section>
 
     <main class="py-5">
         <div class="container">
             <div id="loadingIndicator" class="loading">
-                <i class="fas fa-spinner fa-spin me-2"></i>読み込み中...
+                <i class="fas fa-spinner fa-spin me-2"></i>Loading...
             </div>
 
             <div id="statsContent" style="display:none">
@@ -171,48 +172,48 @@
                     <div class="summary-card">
                         <div class="icon" style="color:#4e79a7"><i class="fas fa-file-alt"></i></div>
                         <div class="value" id="totalPages">-</div>
-                        <div class="label">総ページ数</div>
+                        <div class="label">Total Pages</div>
                     </div>
                     <div class="summary-card">
                         <div class="icon" style="color:#e15759"><i class="fas fa-align-left"></i></div>
                         <div class="value" id="totalLines">-</div>
-                        <div class="label">総行数</div>
+                        <div class="label">Total Lines</div>
                     </div>
                     <div class="summary-card">
                         <div class="icon" style="color:#59a14f"><i class="fas fa-font"></i></div>
                         <div class="value" id="totalChars">-</div>
-                        <div class="label">総文字数</div>
+                        <div class="label">Total Characters</div>
                     </div>
                     <div class="summary-card">
                         <div class="icon" style="color:#f28e2b"><i class="fas fa-feather-alt"></i></div>
                         <div class="value" id="totalWaka">-</div>
-                        <div class="label">総和歌数</div>
+                        <div class="label">Total Waka</div>
                     </div>
                 </div>
 
                 <div class="chart-section">
-                    <h3><i class="fas fa-file-alt me-2" style="color:#4e79a7"></i>ページ数</h3>
+                    <h3><i class="fas fa-file-alt me-2" style="color:#4e79a7"></i>Pages</h3>
                     <div class="chart-container">
                         <canvas id="pagesChart"></canvas>
                     </div>
                 </div>
 
                 <div class="chart-section">
-                    <h3><i class="fas fa-align-left me-2" style="color:#e15759"></i>行数</h3>
+                    <h3><i class="fas fa-align-left me-2" style="color:#e15759"></i>Lines</h3>
                     <div class="chart-container">
                         <canvas id="linesChart"></canvas>
                     </div>
                 </div>
 
                 <div class="chart-section">
-                    <h3><i class="fas fa-font me-2" style="color:#59a14f"></i>文字数</h3>
+                    <h3><i class="fas fa-font me-2" style="color:#59a14f"></i>Characters</h3>
                     <div class="chart-container">
                         <canvas id="charsChart"></canvas>
                     </div>
                 </div>
 
                 <div class="chart-section">
-                    <h3><i class="fas fa-feather-alt me-2" style="color:#f28e2b"></i>和歌数</h3>
+                    <h3><i class="fas fa-feather-alt me-2" style="color:#f28e2b"></i>Waka Poems</h3>
                     <div class="chart-container">
                         <canvas id="wakaChart"></canvas>
                     </div>
@@ -245,7 +246,7 @@
                 renderStats(chapters);
             } catch (error) {
                 document.getElementById('loadingIndicator').innerHTML =
-                    '<p class="text-center text-danger">データの読み込みに失敗しました。</p>';
+                    '<p class="text-center text-danger">Failed to load data.</p>';
             }
         }
 
@@ -268,10 +269,10 @@
             document.getElementById('totalChars').textContent = totals.chars.toLocaleString();
             document.getElementById('totalWaka').textContent  = totals.waka.toLocaleString();
 
-            createChart('pagesChart', labels, chapters.map(c => c.pages), COLORS.pages, 'ページ数', chapterIds);
-            createChart('linesChart', labels, chapters.map(c => c.lines), COLORS.lines, '行数', chapterIds);
-            createChart('charsChart', labels, chapters.map(c => c.chars), COLORS.chars, '文字数', chapterIds);
-            createChart('wakaChart',  labels, chapters.map(c => c.waka),  COLORS.waka,  '和歌数', chapterIds);
+            createChart('pagesChart', labels, chapters.map(c => c.pages), COLORS.pages, 'Pages', chapterIds);
+            createChart('linesChart', labels, chapters.map(c => c.lines), COLORS.lines, 'Lines', chapterIds);
+            createChart('charsChart', labels, chapters.map(c => c.chars), COLORS.chars, 'Characters', chapterIds);
+            createChart('wakaChart',  labels, chapters.map(c => c.waka),  COLORS.waka,  'Waka Poems', chapterIds);
         }
 
         function createChart(canvasId, labels, data, color, label, chapterIds) {

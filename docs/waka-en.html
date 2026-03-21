@@ -1,21 +1,22 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="description" content="校異源氏物語に収録されている全795首の和歌一覧。テキスト検索・巻別フィルターで和歌を探せます。">
-    <meta name="keywords" content="源氏物語,和歌,校異源氏物語,テキストデータベース,古典文学">
+    <meta name="description" content="Complete list of all 795 waka poems in the Kōi Genji Monogatari. Search by text and filter by volume.">
+    <meta name="keywords" content="Genji Monogatari,waka,Kōi Genji Monogatari,text database,classical literature">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="和歌一覧 - 校異源氏物語テキストDB">
-    <meta property="og:description" content="校異源氏物語に収録されている全795首の和歌一覧。">
-    <meta property="og:url" content="https://kouigenjimonogatari.github.io/waka.html">
-    <meta property="og:site_name" content="校異源氏物語テキストDB">
-    <meta property="og:locale" content="ja_JP">
+    <meta property="og:title" content="Waka Poems - Kōi Genji Monogatari Text DB">
+    <meta property="og:description" content="Complete list of all 795 waka poems in the Kōi Genji Monogatari.">
+    <meta property="og:url" content="https://kouigenjimonogatari.github.io/waka-en.html">
+    <meta property="og:site_name" content="Kōi Genji Monogatari Text DB">
+    <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://kouigenjimonogatari.github.io/ogp-image.png">
-    <link rel="canonical" href="https://kouigenjimonogatari.github.io/waka.html">
+
+    <link rel="canonical" href="https://kouigenjimonogatari.github.io/waka-en.html">
     <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/waka.html">
     <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/waka-en.html">
     <link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/waka.html">
@@ -38,7 +39,7 @@
     <!-- Common CSS -->
     <link rel="stylesheet" href="css/common.css">
 
-    <title>和歌一覧 - 校異源氏物語テキストDB</title>
+    <title>Waka Poems - Kōi Genji Monogatari Text DB</title>
 
     <style>
         /* Waka-specific styles */
@@ -179,7 +180,7 @@
     <header>
         <nav class="navbar navbar-expand-lg site-navbar fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index.html">校異源氏物語テキストDB</a>
+                <a class="navbar-brand" href="index-en.html">Kōi Genji Monogatari Text DB</a>
 
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <i class="fas fa-bars" style="color:#fff"></i>
@@ -188,21 +189,21 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="viz.html">
-                                <i class="fas fa-chart-pie me-1"></i>可視化
+                            <a class="nav-link" href="viz-en.html">
+                                <i class="fas fa-chart-pie me-1"></i>Visualizations
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">
-                                <i class="fas fa-external-link-alt me-1"></i>デジタル源氏物語
+                                <i class="fas fa-external-link-alt me-1"></i>Digital Genji
                             </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-globe me-1"></i>言語
+                                <i class="fas fa-globe me-1"></i>Language
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                <li><a class="dropdown-item" href="waka.html">日本語</a></li>
+                                <li><a class="dropdown-item" href="waka.html" lang="ja">日本語</a></li>
                                 <li><a class="dropdown-item" href="waka-en.html">English</a></li>
                             </ul>
                         </li>
@@ -214,8 +215,8 @@
 
     <section class="hero-section" style="padding: 4rem 0 3rem">
         <div class="container">
-            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">和歌一覧</h1>
-            <p class="hero-subtitle">校異源氏物語に収録されている全和歌</p>
+            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">Waka Poems</h1>
+            <p class="hero-subtitle">All waka poems in the Kōi Genji Monogatari</p>
         </div>
     </section>
 
@@ -223,11 +224,11 @@
         <div class="container">
             <div class="row g-2 align-items-center">
                 <div class="col-md-6">
-                    <input type="text" id="searchInput" class="form-control" placeholder="和歌テキストで検索...">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search waka text...">
                 </div>
                 <div class="col-md-3">
                     <select id="chapterFilter" class="form-select">
-                        <option value="">全巻</option>
+                        <option value="">All Volumes</option>
                     </select>
                 </div>
                 <div class="col-md-3 text-end">
@@ -240,22 +241,22 @@
     <main class="waka-list">
         <div class="container">
             <div class="chart-section" id="chartSection" style="display:none">
-                <h3>巻別和歌数・文字数</h3>
-                <p style="font-size:0.85rem;color:#666;margin-bottom:1rem">各巻に含まれる和歌の数（棒グラフ・左軸）と、本文の文字数（折れ線・右軸）を示しています。巻をクリックすると、その巻の和歌を絞り込めます。</p>
+                <h3>Waka and Character Count by Volume</h3>
+                <p style="font-size:0.85rem;color:#666;margin-bottom:1rem">The bar graph (left axis) shows the number of waka poems in each volume, while the line graph (right axis) shows the character count of the main text. Click a volume to filter its waka poems.</p>
                 <div class="chart-container">
                     <canvas id="wakaChart"></canvas>
                 </div>
             </div>
             <details class="chart-section" id="scatterSection" style="display:none">
-                <summary><h3 style="display:inline">文字数と和歌数の関係</h3></summary>
-                <p style="font-size:0.85rem;color:#666;margin:0.75rem 0 1rem">各巻を1つのドットで表し、横軸に本文の文字数、縦軸に和歌の数を配置した散布図です。長い巻（文字数が多い巻）に必ずしも多くの和歌が含まれるわけではないことがわかります。ドットにカーソルを合わせると巻名が表示されます。</p>
+                <summary><h3 style="display:inline">Relationship between Character Count and Waka Count</h3></summary>
+                <p style="font-size:0.85rem;color:#666;margin:0.75rem 0 1rem">Each dot represents a volume, with the horizontal axis showing the character count of the main text and the vertical axis showing the number of waka poems. This reveals that longer volumes (those with more characters) do not necessarily contain more waka poems. Hover over a dot to see the volume name.</p>
                 <div class="chart-container" style="margin-top:1rem">
                     <canvas id="scatterChart"></canvas>
                 </div>
             </details>
             <div id="wakaContainer">
                 <div class="loading">
-                    <i class="fas fa-spinner fa-spin me-2"></i>読み込み中...
+                    <i class="fas fa-spinner fa-spin me-2"></i>Loading...
                 </div>
             </div>
         </div>
@@ -291,7 +292,7 @@
                 renderWaka(allWaka);
             } catch (error) {
                 document.getElementById('wakaContainer').innerHTML =
-                    '<p class="text-center text-danger">データの読み込みに失敗しました。</p>';
+                    '<p class="text-center text-danger">Failed to load data.</p>';
             }
         }
 
@@ -331,7 +332,7 @@
                     labels: labels,
                     datasets: [
                         {
-                            label: '歌数',
+                            label: 'Poems',
                             data: wakaData,
                             backgroundColor: primaryColor + 'cc',
                             borderColor: primaryColor,
@@ -341,7 +342,7 @@
                             order: 2,
                         },
                         {
-                            label: '文字数',
+                            label: 'Characters',
                             data: charsData,
                             type: 'line',
                             borderColor: charsColor,
@@ -371,10 +372,10 @@
                                     return items[0].label;
                                 },
                                 label: function(item) {
-                                    if (item.dataset.label === '歌数') {
-                                        return `歌数: ${item.raw} 首`;
+                                    if (item.dataset.label === 'Poems') {
+                                        return `Poems: ${item.raw}`;
                                     }
-                                    return `文字数: ${item.raw.toLocaleString()} 字`;
+                                    return `Characters: ${item.raw.toLocaleString()}`;
                                 }
                             }
                         }
@@ -397,7 +398,7 @@
                             },
                             title: {
                                 display: true,
-                                text: '和歌数',
+                                text: 'Waka Count',
                                 font: { size: 11 }
                             }
                         },
@@ -412,7 +413,7 @@
                             },
                             title: {
                                 display: true,
-                                text: '文字数',
+                                text: 'Characters',
                                 font: { size: 11 },
                                 color: '#59a14f'
                             },
@@ -464,7 +465,7 @@
                 type: 'scatter',
                 data: {
                     datasets: [{
-                        label: '巻',
+                        label: 'Volume',
                         data: scatterData,
                         backgroundColor: accentColor + 'cc',
                         borderColor: accentColor,
@@ -485,8 +486,8 @@
                                 },
                                 label: function(item) {
                                     return [
-                                        `文字数: ${item.raw.x.toLocaleString()} 字`,
-                                        `和歌数: ${item.raw.y} 首`
+                                        `Characters: ${item.raw.x.toLocaleString()}`,
+                                        `Waka: ${item.raw.y} poems`
                                     ];
                                 }
                             }
@@ -496,7 +497,7 @@
                         x: {
                             title: {
                                 display: true,
-                                text: '本文の文字数（字）',
+                                text: 'Character Count',
                                 font: { size: 11 }
                             },
                             ticks: {
@@ -510,7 +511,7 @@
                             beginAtZero: true,
                             title: {
                                 display: true,
-                                text: '和歌数（首）',
+                                text: 'Waka Count',
                                 font: { size: 11 }
                             },
                             ticks: {
@@ -541,10 +542,10 @@
 
         function renderWaka(waka) {
             const container = document.getElementById('wakaContainer');
-            document.getElementById('resultCount').textContent = `${waka.length} 首`;
+            document.getElementById('resultCount').textContent = `${waka.length} poems`;
 
             if (waka.length === 0) {
-                container.innerHTML = '<p class="text-center text-muted py-5">該当する和歌がありません。</p>';
+                container.innerHTML = '<p class="text-center text-muted py-5">No matching waka poems found.</p>';
                 return;
             }
 
@@ -555,8 +556,8 @@
 
                 const chNum = w.chapter;
                 const viewUrl = w.waka_id
-                    ? `html/${chNum}.html?waka=${w.waka_id}`
-                    : `html/${chNum}.html?corresp=${encodeURIComponent(w.corresp)}`;
+                    ? `html/${chNum}.html?waka=${w.waka_id}&lang=en`
+                    : `html/${chNum}.html?corresp=${encodeURIComponent(w.corresp)}&lang=en`;
 
                 return `
                     <div class="waka-card">
@@ -564,9 +565,9 @@
                             <span class="waka-seq">${w.seq}</span>
                             <span class="waka-chapter">${chNum} ${w.chapter_name}</span>
                         </div>
-                        <div class="waka-text">${verseHtml}</div>
+                        <div class="waka-text" lang="ja">${verseHtml}</div>
                         <div class="waka-link">
-                            <a href="${viewUrl}"><i class="fas fa-book-open me-1"></i>本文を表示</a>
+                            <a href="${viewUrl}"><i class="fas fa-book-open me-1"></i>View text</a>
                         </div>
                     </div>
                 `;

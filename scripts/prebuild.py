@@ -524,8 +524,11 @@ def replace_site_url():
         os.path.join(DOCS_DIR, 'index.html'),
         os.path.join(DOCS_DIR, 'index-en.html'),
         os.path.join(DOCS_DIR, 'waka.html'),
+        os.path.join(DOCS_DIR, 'waka-en.html'),
         os.path.join(DOCS_DIR, 'viz.html'),
+        os.path.join(DOCS_DIR, 'viz-en.html'),
         os.path.join(DOCS_DIR, 'stats.html'),
+        os.path.join(DOCS_DIR, 'stats-en.html'),
         os.path.join(DOCS_DIR, 'sitemap.xml'),
         os.path.join(DOCS_DIR, 'snorql', 'snorql_def.js'),
     ]
