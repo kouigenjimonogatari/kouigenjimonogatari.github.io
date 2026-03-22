@@ -391,11 +391,11 @@
                 </header>
 
                 <!-- Metadata Modal -->
-                <div id="metadataModal" class="modal-overlay">
+                <div id="metadataModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="metadataModalTitle">
                     <div class="modal-box">
                         <div class="modal-header">
-                            <h2>メタデータ</h2>
-                            <button id="closeModalBtn" class="modal-close">&#xd7;</button>
+                            <h2 id="metadataModalTitle">メタデータ</h2>
+                            <button id="closeModalBtn" class="modal-close" aria-label="Close">&#xd7;</button>
                         </div>
                         <div class="modal-body">
                             <div class="modal-section">
@@ -442,11 +442,11 @@
                 </div>
 
                 <!-- Settings Modal -->
-                <div id="settingsModal" class="modal-overlay">
+                <div id="settingsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
                     <div class="modal-box" style="max-width:420px">
                         <div class="modal-header">
-                            <h2>表示設定</h2>
-                            <button id="closeSettingsBtn" class="modal-close">&#xd7;</button>
+                            <h2 id="settingsModalTitle">表示設定</h2>
+                            <button id="closeSettingsBtn" class="modal-close" aria-label="Close">&#xd7;</button>
                         </div>
                         <div class="modal-body">
                             <div class="setting-item">
@@ -742,10 +742,62 @@
                                         window.location.href = URL.createObjectURL(blob);
                                     })
                                     .catch(error => {
-                                        console.error('XMLファイル取得エラー:', error);
-                                        alert('XMLファイルの取得に失敗しました。');
+                                        var isEn = (new URLSearchParams(window.location.search)).get('lang') === 'en' || localStorage.getItem('language') === 'en';
+                                        console.error(isEn ? 'XML file fetch error:' : 'XMLファイル取得エラー:', error);
+                                        alert(isEn ? 'Failed to fetch the XML file.' : 'XMLファイルの取得に失敗しました。');
                                     });
                             });
+
+                            // --- i18n: English UI support ---
+                            (function() {
+                                const params = new URLSearchParams(window.location.search);
+                                const lang = params.get('lang') || localStorage.getItem('language') || '';
+                                if (lang !== 'en') return;
+
+                                document.documentElement.lang = 'en';
+
+                                // Header buttons
+                                document.getElementById('showSettingsBtn').textContent = 'Settings';
+                                document.getElementById('showMetadataBtn').textContent = 'Metadata';
+
+                                // Settings modal
+                                const settingsHeader = document.querySelector('#settingsModal .modal-header h2');
+                                if (settingsHeader) settingsHeader.textContent = 'Display Settings';
+
+                                const settingLabels = document.querySelectorAll('#settingsModal .setting-label');
+                                const settingDescs = document.querySelectorAll('#settingsModal .setting-desc');
+                                const i18nSettings = [
+                                    { label: 'Waka Highlight', desc: 'Highlight waka (tanka) poems with a background color' },
+                                    { label: 'Page Breaks', desc: 'Show page number links from the original text' },
+                                    { label: 'RDF Links', desc: 'Show Linked Data URI links for each line' }
+                                ];
+                                settingLabels.forEach(function(el, i) {
+                                    if (i18nSettings[i]) {
+                                        el.textContent = i18nSettings[i].label;
+                                        if (settingDescs[i]) settingDescs[i].textContent = i18nSettings[i].desc;
+                                    }
+                                });
+
+                                // Metadata modal
+                                const metaHeader = document.querySelector('#metadataModal .modal-header h2');
+                                if (metaHeader) metaHeader.textContent = 'Metadata';
+
+                                const metaLabels = { '著者:': 'Author:', '出版社:': 'Publisher:', '配布:': 'Distributor:', '公開日:': 'Publication Date:', '責任者:': 'Contributors:', 'ライセンス:': 'License:', 'エンコーディング:': 'Encoding:', '改訂履歴:': 'Revision History:' };
+                                document.querySelectorAll('#metadataModal strong').forEach(function(el) {
+                                    var t = el.textContent.trim();
+                                    if (metaLabels[t]) el.textContent = metaLabels[t];
+                                });
+
+                                // Waka TOC panel
+                                var tocTitle = document.querySelector('#wakaToc span');
+                                if (tocTitle &amp;&amp; tocTitle.textContent.includes('和歌一覧')) {
+                                    tocTitle.textContent = tocTitle.textContent.replace('和歌一覧', 'Waka List').replace('首', 'poems');
+                                }
+
+                                // Home link
+                                var homeLink = document.querySelector('.home-link');
+                                if (homeLink) homeLink.href = '../../index-en.html';
+                            })();
                         </script>
                     </div>
                 </main>

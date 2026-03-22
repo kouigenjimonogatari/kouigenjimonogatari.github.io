@@ -11,21 +11,27 @@
             // /xml/xsl/NN.xml → /html/NN.html (preserve query params)
             var m = path.match(/^\/xml\/xsl\/(\d+)\.xml$/);
             if (m) {
-                var newUrl = '/html/' + m[1] + '.html' + search;
-                window.location.replace(newUrl);
+                window.location.replace('/html/' + m[1] + '.html' + search);
                 return;
             }
 
             // /xml/lw/NN.xml → /tei/NN.xml (preserve query params)
             m = path.match(/^\/xml\/lw\/(\d+)\.xml$/);
             if (m) {
-                var newUrl = '/tei/' + m[1] + '.xml' + search;
-                window.location.replace(newUrl);
+                window.location.replace('/tei/' + m[1] + '.xml' + search);
                 return;
             }
 
-            // If no redirect matched, show 404
-            document.getElementById('content').style.display = 'block';
+            // If no redirect matched, show 404 after DOM is ready
+            document.addEventListener('DOMContentLoaded', function() {
+                var lang = localStorage.getItem('language') || (navigator.language || '').substring(0, 2);
+                document.getElementById('content').style.display = 'block';
+                if (lang === 'en') {
+                    document.documentElement.lang = 'en';
+                    document.getElementById('content-ja').style.display = 'none';
+                    document.getElementById('content-en').style.display = 'block';
+                }
+            });
         })();
     </script>
     <style>
@@ -36,9 +42,16 @@
 </head>
 <body>
     <div id="content" style="display:none">
-        <h1>404 - ページが見つかりません</h1>
-        <p>お探しのページは存在しないか、移動した可能性があります。</p>
-        <p><a href="/">トップページへ戻る</a></p>
+        <div id="content-ja">
+            <h1>404 - ページが見つかりません</h1>
+            <p>お探しのページは存在しないか、移動した可能性があります。</p>
+            <p><a href="/">トップページへ戻る</a></p>
+        </div>
+        <div id="content-en" style="display:none">
+            <h1>404 - Page Not Found</h1>
+            <p>The requested page does not exist. It may have been relocated or removed.</p>
+            <p><a href="/index-en.html">Return to Home</a></p>
+        </div>
     </div>
 </body>
 </html>
