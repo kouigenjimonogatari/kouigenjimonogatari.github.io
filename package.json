@@ -6,5 +6,8 @@
   },
   "dependencies": {
     "xslt3": "^2.7.0"
+  },
+  "overrides": {
+    "axios": ">=1.15.2"
   }
 }
