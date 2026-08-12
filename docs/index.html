@@ -79,7 +79,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://genji.dl.itc.u-tokyo.ac.jp/">
+                            <a class="nav-link" target="_blank" href="https://genji.lib.u-tokyo.ac.jp/">
                                 <i class="fas fa-external-link-alt me-1"></i>デジタル源氏物語
                             </a>
                         </li>
@@ -354,7 +354,7 @@
         let arr = []
 
         $.get({
-            url: 'https://genji.dl.itc.u-tokyo.ac.jp/data/info.json',
+            url: 'https://genji.lib.u-tokyo.ac.jp/data/info.json',
             dataType: 'json',
         }).done(function(data){
            let selections = data.selections
@@ -463,8 +463,9 @@
                             <i class="fas fa-exclamation-triangle text-warning fa-3x mb-3"></i>
                             <h5 class="jp-text">データの読み込みに失敗しました</h5>
                             <p class="text-muted">ネットワーク接続を確認して、ページを再読み込みしてください。</p>
-                            <button class="btn btn-primary" onclick="location.reload()">
-                                <i class="fas fa-redo me-2"></i>再読み込み
+                            <button class="action-btn btn-primary-custom" style="display:inline-flex"
+                                onclick="location.reload()">
+                                <i class="fas fa-redo"></i> 再読み込み
                             </button>
                         </div>
                     </div>
