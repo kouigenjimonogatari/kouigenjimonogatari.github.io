@@ -84,7 +84,7 @@ def build_tei(ch, src_path, dst_path):
 
 def build_html():
     """4-1b: Transform TEI XML to HTML using mirador.xsl via xslt3 (Saxon-JS)."""
-    xsl_path = os.path.join(DOCS_DIR, 'xsl', 'mirador.xsl')
+    xsl_path = os.path.join(BASE_DIR, 'xsl', 'mirador.xsl')
     html_dir = os.path.join(DOCS_DIR, 'html')
     os.makedirs(html_dir, exist_ok=True)
     for ch in CHAPTERS:
@@ -270,7 +270,7 @@ BUILD_DIR = os.path.join(BASE_DIR, 'build')
 def build_pdf(ch):
     """4-4: Generate PDF via XSLT + lualatex. Intermediate files go to build/."""
     xsl_src = os.path.join(DOCS_DIR, 'tei', f'{ch}.xml')
-    tex_xsl = os.path.join(DOCS_DIR, 'xsl', 'tex.xsl')
+    tex_xsl = os.path.join(BASE_DIR, 'xsl', 'tex.xsl')
     work_dir = os.path.join(BUILD_DIR, 'pdf', ch)
     tex_path = os.path.join(work_dir, 'main.tex')
 
