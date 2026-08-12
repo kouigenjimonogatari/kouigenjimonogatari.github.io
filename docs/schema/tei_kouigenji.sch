@@ -79,13 +79,13 @@
    <pattern id="schematron-constraint-pb-corresp-resolves-13">
       <rule context="tei:pb[ @corresp ]">
          <assert test="every $p in tokenize( normalize-space( @corresp ), '\s+' )                         satisfies ( starts-with( $p, '#' )                                     and //tei:zone[ @xml:id eq substring( $p, 2 ) ] )"
-                 role="error">丁付け <value-of select="@n"/> の @corresp "<value-of select="@corresp"/>" に、文書中の zone を指していない参照があります / @corresp "<value-of select="@corresp"/>" on page <value-of select="@n"/> contains a reference that does not resolve to a zone in this document</assert>
+                 role="error">ページ <value-of select="@n"/> の @corresp "<value-of select="@corresp"/>" に、文書中の zone を指していない参照があります / @corresp "<value-of select="@corresp"/>" on page <value-of select="@n"/> contains a reference that does not resolve to a zone in this document</assert>
       </rule>
    </pattern>
    <pattern id="schematron-constraint-pb-monotonic-14">
       <rule context="tei:pb[ @n castable as xs:integer ]                                  [ preceding::tei:pb[ @n ][1]/@n castable as xs:integer ]">
          <let name="prev" value="preceding::tei:pb[ @n ][1]/@n"/>
-         <report test="xs:integer( @n ) le xs:integer( $prev )" role="error">丁付けが逆行しています (前は <value-of select="$prev"/>、いまは <value-of select="@n"/>) / Page numbers go backwards (previous <value-of select="$prev"/>, current <value-of select="@n"/>)</report>
+         <report test="xs:integer( @n ) le xs:integer( $prev )" role="error">ページ番号が逆行しています (前は <value-of select="$prev"/>、いまは <value-of select="@n"/>) / Page numbers go backwards (previous <value-of select="$prev"/>, current <value-of select="@n"/>)</report>
       </rule>
    </pattern>
    <pattern id="schematron-constraint-waka-line-numbering-15">

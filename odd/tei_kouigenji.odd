@@ -12,8 +12,8 @@
           <resp xml:lang="ja">TEI カスタマイズの設計と保守</resp>
           <resp xml:lang="en">Design and maintenance of this customization</resp>
           <name xml:lang="ja">中村 覚（東京大学史料編纂所 准教授）</name>
-          <name xml:lang="en">Satoru Nakamura (Associate Professor, Institute for Japanese
-            Historical Records, University of Tokyo)</name>
+          <name xml:lang="en">Satoru Nakamura (Associate Professor, Historiographical Institute,
+            The University of Tokyo)</name>
           <note><ref target="https://researchmap.jp/nakamura.satoru">researchmap</ref></note>
         </respStmt>
       </titleStmt>
@@ -83,14 +83,14 @@
             <att>corresp</att> で API 上の該当箇所 (<code>w3id.org/kouigenjimonogatari</code>) を指す。</item>
           <item>和歌は <gi>lg</gi> (<att>type</att> は <code>waka</code>) とし、
             5句をそれぞれ <gi>l</gi> として <att>n</att> に句番号を与える。</item>
-          <item>底本の丁付けは <gi>pb</gi> で示し、<att>corresp</att> で
+          <item>底本のページ番号は <gi>pb</gi> で示し、<att>corresp</att> で
             <gi>facsimile</gi> 内の <gi>zone</gi> を、<att>facs</att> で IIIF 画像を指す。</item>
-          <item>原本画像は国立国会図書館デジタルコレクションの IIIF を
+          <item>底本の画像は国立国会図書館デジタルコレクションの IIIF を
             <gi>facsimile</gi> / <gi>surface</gi> / <gi>zone</gi> で参照する。</item>
         </list>
       </p>
 
-      <p>スキーマだけでは表せない規則 (和歌は5句である、<att>corresp</att> の参照先が実在する、など) は
+      <p>スキーマだけでは表せない規則 (和歌は5句である、文書内の参照が解決する、など) は
         <gi>constraintSpec</gi> として ODD に直接書いてある。この ODD が唯一の正本であり、
         <code>docs/schema/tei_kouigenji.rng</code> と <code>docs/schema/tei_kouigenji.sch</code> は
         <code>scripts/build-schema.zsh</code> で生成する。</p>
@@ -133,7 +133,7 @@
           その場で検出される。
           一方「和歌は5句」は Schematron に残してある。content model として
           「l を5つ」と書くと lg の中に <pb/> や <lb/> を置けなくなり、
-          丁の変わり目が和歌の途中に来る場合に対応できなくなるため。
+          ページの変わり目が和歌の途中に来る場合に対応できなくなるため。
         -->
         <elementSpec ident="lg" module="core" mode="change">
           <constraintSpec ident="waka-line-count" scheme="schematron">
@@ -183,9 +183,9 @@
             </attDef>
           </attList>
           <exemplum xml:lang="ja">
-            <p>第1帖「きりつぼ」の第一首（<ident>waka-001</ident>）。桐壺更衣の辞世の歌。
+            <p>第1帖「きりつぼ」の第一首（実データでは <ident>waka-001</ident>。用例では xml:id の重複を避けて <ident>waka-000</ident> としている）。桐壺更衣の辞世の歌。
               和歌は本文中の <gi>seg</gi> の内側に置き、直前の全角空白2文字で字下げを表す。</p>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0009-03.json">　　<lg xml:id="waka-001" type="waka" rhyme="tanka"><l n="1">かきりとて</l><l n="2">わかるゝ道の</l><l n="3">かなしきに</l><l n="4">いかまほしきは</l><l n="5">いのちなりけり</l></lg>いとか</seg></egXML>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0009-03.json">　　<lg xml:id="waka-000b" type="waka" rhyme="tanka"><l n="1">かきりとて</l><l n="2">わかるゝ道の</l><l n="3">かなしきに</l><l n="4">いかまほしきは</l><l n="5">いのちなりけり</l></lg>いとか</seg></egXML>
           </exemplum>
         </elementSpec>
 
@@ -214,12 +214,12 @@
           <exemplum xml:lang="ja">
             <p>句は5つ、<att>n</att> は 1 から 5 まで、和歌の中での位置と一致させる。
               位置と <att>n</att> のずれは Schematron が検出する。</p>
-            <egXML xmlns="http://www.tei-c.org/ns/Examples"><lg xml:id="waka-001" type="waka" rhyme="tanka"><l n="1">かきりとて</l><l n="2">わかるゝ道の</l><l n="3">かなしきに</l><l n="4">いかまほしきは</l><l n="5">いのちなりけり</l></lg></egXML>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><lg xml:id="waka-000" type="waka" rhyme="tanka"><l n="1">かきりとて</l><l n="2">わかるゝ道の</l><l n="3">かなしきに</l><l n="4">いかまほしきは</l><l n="5">いのちなりけり</l></lg></egXML>
           </exemplum>
         </elementSpec>
 
         <!-- ============================================================
-             丁付けと原本画像
+             ページと底本画像
              ============================================================ -->
         <elementSpec ident="pb" module="core" mode="change">
           <constraintSpec ident="pb-corresp-resolves" scheme="schematron">
@@ -236,7 +236,7 @@
                         satisfies ( starts-with( $p, '#' )
                                     and //tei:zone[ @xml:id eq substring( $p, 2 ) ] )"
                   role="error"
-                  >丁付け <sch:value-of select="@n"/> の @corresp "<sch:value-of select="@corresp"
+                  >ページ <sch:value-of select="@n"/> の @corresp "<sch:value-of select="@corresp"
                   />" に、文書中の zone を指していない参照があります
                   / @corresp "<sch:value-of select="@corresp"/>" on page <sch:value-of select="@n"
                   /> contains a reference that does not resolve to a zone in this document</sch:assert>
@@ -245,7 +245,7 @@
           </constraintSpec>
 
           <constraintSpec ident="pb-monotonic" scheme="schematron">
-            <desc xml:lang="ja">丁付けは帖の中で単調に増加する。</desc>
+            <desc xml:lang="ja">ページ番号は帖の中で単調に増加する。</desc>
             <desc xml:lang="en">Page numbers increase monotonically within a chapter.</desc>
             <constraint>
               <!--
@@ -255,14 +255,14 @@
                    $prev が空になり、比較が偽になって黙って通過してしまう。
                 2. xs:integer() は変換できない値で例外を投げ、その時点で
                    文書全体の検証が中断する（他の制約も検査されなくなる）。
-                   丁付けに「7ウ」のような値を使う可能性を残すため、
+                   ページ番号に数字以外の値を使う可能性を残すため、
                    castable な場合だけ比較する。
               -->
               <sch:rule context="tei:pb[ @n castable as xs:integer ]
                                  [ preceding::tei:pb[ @n ][1]/@n castable as xs:integer ]">
                 <sch:let name="prev" value="preceding::tei:pb[ @n ][1]/@n"/>
                 <sch:report test="xs:integer( @n ) le xs:integer( $prev )" role="error"
-                  >丁付けが逆行しています (前は <sch:value-of select="$prev"/>、いまは <sch:value-of
+                  >ページ番号が逆行しています (前は <sch:value-of select="$prev"/>、いまは <sch:value-of
                     select="@n"/>)
                   / Page numbers go backwards (previous <sch:value-of select="$prev"/>, current
                   <sch:value-of select="@n"/>)</sch:report>
@@ -281,8 +281,8 @@
               <desc xml:lang="en">Required: points at the corresponding zone.</desc>
             </attDef>
             <attDef ident="n" mode="change" usage="req">
-              <desc xml:lang="ja">底本の丁付け。必須とする。</desc>
-              <desc xml:lang="en">Required: the leaf number in the source edition.</desc>
+              <desc xml:lang="ja">底本のページ番号。必須とする。</desc>
+              <desc xml:lang="en">Required: the page number in the source edition.</desc>
             </attDef>
             <attDef ident="facs" mode="change" usage="req">
               <desc xml:lang="ja">該当箇所の IIIF 画像を指す。必須とする。</desc>
@@ -290,7 +290,7 @@
             </attDef>
           </attList>
           <exemplum xml:lang="ja">
-            <p>第1帖「きりつぼ」の5丁目。<att>n</att> が底本の丁付け、<att>corresp</att> が
+            <p>第1帖「きりつぼ」の5ページ目。<att>n</att> が底本のページ番号、<att>corresp</att> が
               同じ文書内の <gi>zone</gi>、<att>facs</att> が国立国会図書館デジタルコレクションの
               IIIF 画像（切り出し領域つき）を指す。<att>facs</att> の座標は、参照先 <gi>zone</gi> の
               <att>ulx</att>/<att>uly</att>/幅/高さと一致する。</p>
@@ -298,7 +298,9 @@
           </exemplum>
           <exemplum xml:lang="ja">
             <p>対応する <gi>zone</gi> は <gi>facsimile</gi> の中にある。1つの見開き
-              （<gi>surface</gi>）に右半・左半の2つの <gi>zone</gi> が入り、丁付けはその一方を指す。</p>
+              （<gi>surface</gi>）には通常、右半・左半にあたる2つの <gi>zone</gi> が入り、
+              <gi>pb</gi> はその一方を指す。ただし各帖の最初と最後の見開きは片側だけを収めるため、
+              <gi>zone</gi> が1つのこともある（全949面のうち86面）。下の <ident>f001</ident> がその例。</p>
             <egXML xmlns="http://www.tei-c.org/ns/Examples"><surface xml:id="f001" ulx="0" uly="0" lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/canvas/22">
   <graphic width="6890px" height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/R0000022" url="https://dl.ndl.go.jp/api/iiif/3437686/R0000022/full/full/0/default.jpg"/>
   <zone xml:id="zone_0005" ulx="0" uly="0" lrx="3445" lry="4706"/>
@@ -330,8 +332,8 @@
           </attList>
           <exemplum xml:lang="ja">
             <p>本文の冒頭。底本の1行が1つの <gi>seg</gi> にあたり、<att>corresp</att> の URI は
-              <code>items/&lt;丁付け4桁&gt;-&lt;行2桁&gt;.json</code> の形をとる。
-              下の例は5丁目の1行目。行の区切りは <gi>lb</gi> で示す。</p>
+              <code>items/&lt;ページ番号4桁&gt;-&lt;行2桁&gt;.json</code> の形をとる。
+              下の例は5ページ目の1行目。<gi>lb</gi> は各行の開始を示す。</p>
             <egXML xmlns="http://www.tei-c.org/ns/Examples"><lb/><seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0005-01.json">いつれの御時にか女御更衣あまたさふらひ給けるなかにいとやむことなきゝは</seg></egXML>
           </exemplum>
         </elementSpec>
@@ -368,14 +370,14 @@
     <titleStmt>
       <title>校異源氏物語・きりつぼ</title>
       <author>池田亀鑑</author>
-      <respStmt xml:id="snakamura">
+      <respStmt xml:id="encoder">
         <resp when="2020-08-22">TEI Encoding</resp>
         <name>Satoru Nakamura</name>
       </respStmt>
     </titleStmt>
   </fileDesc>
   <revisionDesc status="published">
-    <change when="2024-06-28" who="#snakamura">pb要素のfacs属性を修正しました。facsimile要素を修正しました。</change>
+    <change when="2024-06-28" who="#encoder">pb要素のfacs属性を修正しました。facsimile要素を修正しました。</change>
   </revisionDesc>
 </teiHeader></egXML>
           </exemplum>

@@ -2536,7 +2536,7 @@ Elements]</a:documentation>
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       context="tei:pb[ @corresp ]">
                <sch:assert test="every $p in tokenize( normalize-space( @corresp ), '\s+' )                         satisfies ( starts-with( $p, '#' )                                     and //tei:zone[ @xml:id eq substring( $p, 2 ) ] )"
-                           role="error">丁付け <sch:value-of select="@n"/> の @corresp "<sch:value-of select="@corresp"/>" に、文書中の zone を指していない参照があります
+                           role="error">ページ <sch:value-of select="@n"/> の @corresp "<sch:value-of select="@corresp"/>" に、文書中の zone を指していない参照があります
                   / @corresp "<sch:value-of select="@corresp"/>" on page <sch:value-of select="@n"/> contains a reference that does not resolve to a zone in this document</sch:assert>
             </sch:rule>
          </pattern>
@@ -2547,7 +2547,7 @@ Elements]</a:documentation>
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       context="tei:pb[ @n castable as xs:integer ]                                  [ preceding::tei:pb[ @n ][1]/@n castable as xs:integer ]">
                <sch:let name="prev" value="preceding::tei:pb[ @n ][1]/@n"/>
-               <sch:report test="xs:integer( @n ) le xs:integer( $prev )" role="error">丁付けが逆行しています (前は <sch:value-of select="$prev"/>、いまは <sch:value-of select="@n"/>)
+               <sch:report test="xs:integer( @n ) le xs:integer( $prev )" role="error">ページ番号が逆行しています (前は <sch:value-of select="$prev"/>、いまは <sch:value-of select="@n"/>)
                   / Page numbers go backwards (previous <sch:value-of select="$prev"/>, current
                   <sch:value-of select="@n"/>)</sch:report>
             </sch:rule>
@@ -2577,7 +2577,7 @@ Elements]</a:documentation>
          <ref name="tei_att.spanning.attributes"/>
          <ref name="tei_att.typed.attributes"/>
          <attribute name="n">
-            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(数値) 底本の丁付け。必須とする。</a:documentation>
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(数値) 底本のページ番号。必須とする。</a:documentation>
             <data type="string"/>
          </attribute>
          <attribute name="facs">

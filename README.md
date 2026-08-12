@@ -66,9 +66,10 @@ RELAX NG（PureODD で宣言）:
 | 規則 | 対象 |
 |---|---|
 | 和歌に `xml:id` が必須 | `lg` 795首 |
-| 和歌の `@rhyme` が `tanka`（閉じた値リスト） | `lg` 795首 |
+| 和歌の `@type` が `waka`、`@rhyme` が `tanka`（いずれも必須・閉じた値リスト） | `lg` 795首 |
 | 句に `@n` が必須 | `l` 3975句 |
-| `seg/@corresp` が API の URI 形式（正規表現） | `seg` 25065件 |
+| `seg/@corresp` が必須で API の URI 形式（正規表現） | `seg` 25065件 |
+| `pb/@n`・`@corresp`・`@facs` が必須 | `pb` 1812件 |
 | `xml:id` が重複しない（`xsd:ID` の性質） | 全体 |
 
 Schematron（RELAX NG では原理的に書けないもの）:
@@ -77,12 +78,12 @@ Schematron（RELAX NG では原理的に書けないもの）:
 |---|---|
 | 句の `@n` が位置と一致する | `l` 3975句 |
 | `pb/@corresp` が `zone` に解決する | `pb` 1812件 |
-| `pb/@n` が帖の中で単調増加する | `pb` 1812件 |
-| `change/@who` が文書中の `xml:id` に解決する | `change` 54件 |
+| `pb/@n`（ページ番号）が帖の中で単調増加する | `pb` 1812件 |
+| `change/@who` が teiHeader の `respStmt` に解決する | `change` 54件 |
 | 和歌は5句である | `lg[@type='waka']` 795首 |
 
 最後の「5句」だけは RELAX NG でも書けますが、content model を `l` 5個に固定すると
-`lg` の中に `<pb/>` や `<lb/>` を置けなくなり、丁の変わり目が和歌の途中に来る場合に
+`lg` の中に `<pb/>` や `<lb/>` を置けなくなり、ページの変わり目が和歌の途中に来る場合に
 対応できなくなるため、あえて Schematron に置いています。
 
 なお TEI P5 自身が持つ制約（19パターン）も ODD 経由で一緒に取り込まれます。
@@ -99,5 +100,8 @@ Schematron（RELAX NG では原理的に書けないもの）:
 
 ## ライセンス
 
-* TEI データ: CC0 1.0（各ファイルの `<availability>` を参照）
-* リポジトリ: `LICENSE` を参照
+* TEI データ（`xml/master/*.xml`）: **CC0 1.0**（各ファイルの `<availability>` を参照）
+* リポジトリ全体: **CC BY 4.0**（`LICENSE`）
+* `odd/tei_kouigenji.odd`: TEI 配布物の最小カスタマイズ（tei_minimal）を出発点としているため、
+  **CC BY-SA 3.0 / BSD-2 のデュアルライセンス**を引き継ぎます（ファイル内の `<availability>` を参照）。
+  リポジトリ全体の CC BY 4.0 とは条件が異なるため、再利用の際はご注意ください。
