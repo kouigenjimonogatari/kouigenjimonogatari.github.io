@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.tei-c.org/ns/1.0"><!--
-Schema generated from ODD source 2026-08-12T01:20:20Z. . 
+Schema generated from ODD source. . 
 TEI Edition: P5 Version 4.12.0. Last updated on 28th July 2026, revision 113e933e2 
 TEI Edition Location: https://www.tei-c.org/Vault/P5/4.12.0/ 
   
@@ -2534,11 +2534,10 @@ Elements]</a:documentation>
                   id="tei_kouigenji-pb-pb-corresp-resolves-constraint-rule-13">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:pb[ starts-with( @corresp, '#' ) ]">
-               <sch:let name="id" value="substring-after( @corresp, '#' )"/>
-               <sch:assert test="//tei:zone[ @xml:id eq $id ]" role="error">丁付け <sch:value-of select="@n"/> の @corresp が指す "<sch:value-of select="$id"/>" にあたる zone が文書中にありません
-                  / No zone with xml:id "<sch:value-of select="$id"/>" for page <sch:value-of select="@n"/>
-               </sch:assert>
+                      context="tei:pb[ @corresp ]">
+               <sch:assert test="every $p in tokenize( normalize-space( @corresp ), '\s+' )                         satisfies ( starts-with( $p, '#' )                                     and //tei:zone[ @xml:id eq substring( $p, 2 ) ] )"
+                           role="error">丁付け <sch:value-of select="@n"/> の @corresp "<sch:value-of select="@corresp"/>" に、文書中の zone を指していない参照があります
+                  / @corresp "<sch:value-of select="@corresp"/>" on page <sch:value-of select="@n"/> contains a reference that does not resolve to a zone in this document</sch:assert>
             </sch:rule>
          </pattern>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
@@ -2546,19 +2545,61 @@ Elements]</a:documentation>
                   id="tei_kouigenji-pb-pb-monotonic-constraint-rule-14">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                      context="tei:pb[ @n ][ preceding::tei:pb/@n ]">
-               <sch:let name="prev" value="preceding::tei:pb[1]/@n"/>
+                      context="tei:pb[ @n castable as xs:integer ]                                  [ preceding::tei:pb[ @n ][1]/@n castable as xs:integer ]">
+               <sch:let name="prev" value="preceding::tei:pb[ @n ][1]/@n"/>
                <sch:report test="xs:integer( @n ) le xs:integer( $prev )" role="error">丁付けが逆行しています (前は <sch:value-of select="$prev"/>、いまは <sch:value-of select="@n"/>)
                   / Page numbers go backwards (previous <sch:value-of select="$prev"/>, current
                   <sch:value-of select="@n"/>)</sch:report>
             </sch:rule>
          </pattern>
-         <ref name="tei_att.global.attributes"/>
+         <ref name="tei_att.global.attribute.xmlid"/>
+         <ref name="tei_att.global.attribute.xmllang"/>
+         <ref name="tei_att.global.attribute.xmlbase"/>
+         <ref name="tei_att.global.attribute.xmlspace"/>
+         <ref name="tei_att.global.analytic.attribute.ana"/>
+         <ref name="tei_att.global.change.attribute.change"/>
+         <ref name="tei_att.global.linking.attribute.synch"/>
+         <ref name="tei_att.global.linking.attribute.sameAs"/>
+         <ref name="tei_att.global.linking.attribute.copyOf"/>
+         <ref name="tei_att.global.linking.attribute.next"/>
+         <ref name="tei_att.global.linking.attribute.prev"/>
+         <ref name="tei_att.global.linking.attribute.exclude"/>
+         <ref name="tei_att.global.linking.attribute.select"/>
+         <ref name="tei_att.global.rendition.attribute.rend"/>
+         <ref name="tei_att.global.rendition.attribute.style"/>
+         <ref name="tei_att.global.rendition.attribute.rendition"/>
+         <ref name="tei_att.global.responsibility.attribute.cert"/>
+         <ref name="tei_att.global.responsibility.attribute.resp"/>
+         <ref name="tei_att.global.source.attribute.source"/>
          <ref name="tei_att.breaking.attributes"/>
          <ref name="tei_att.cmc.attributes"/>
          <ref name="tei_att.edition.attributes"/>
          <ref name="tei_att.spanning.attributes"/>
          <ref name="tei_att.typed.attributes"/>
+         <attribute name="n">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(数値) 底本の丁付け。必須とする。</a:documentation>
+            <data type="string"/>
+         </attribute>
+         <attribute name="facs">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(ファクシミリ) 該当箇所の IIIF 画像を指す。必須とする。</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
+         <attribute name="corresp">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(対応) 対応する zone を指す。必須とする。</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">\S+</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
          <empty/>
       </element>
    </define>
@@ -2852,20 +2893,25 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <ref name="tei_att.fragmentable.attribute.part"/>
          <ref name="tei_att.metrical.attribute.met"/>
          <ref name="tei_att.metrical.attribute.real"/>
-         <ref name="tei_att.typed.attributes"/>
+         <ref name="tei_att.typed.attribute.subtype"/>
          <attribute name="xml:id">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(識別子) 和歌は API から参照されるため必須とする。</a:documentation>
             <data type="ID"/>
          </attribute>
-         <optional>
-            <attribute name="rhyme">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(韻構造) 本データベースの和歌はすべて短歌である。</a:documentation>
-               <choice>
-                  <value>tanka</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">短歌（5句31音）</a:documentation>
-               </choice>
-            </attribute>
-         </optional>
+         <attribute name="rhyme">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(韻構造) 本データベースの和歌はすべて短歌である。</a:documentation>
+            <choice>
+               <value>tanka</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">短歌（5句31音）</a:documentation>
+            </choice>
+         </attribute>
+         <attribute name="type">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">本データベースの lg は和歌のみ。</a:documentation>
+            <choice>
+               <value>waka</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">和歌</a:documentation>
+            </choice>
+         </attribute>
          <empty/>
       </element>
    </define>
@@ -3026,11 +3072,12 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xi="http://www.w3.org/2001/XInclude"
-                      context="tei:change[ starts-with( @who, '#' ) ]">
-               <sch:let name="id" value="substring-after( @who, '#' )"/>
-               <sch:assert test="//*[ @xml:id eq $id ]" role="error">改訂記録の @who が指す "<sch:value-of select="$id"/>" が文書中に見つかりません
-                  / change/@who points to "<sch:value-of select="$id"/>", which is not in this
-                  document</sch:assert>
+                      context="tei:change[ @who ]">
+               <sch:assert test="every $p in tokenize( normalize-space( @who ), '\s+' )                         satisfies ( starts-with( $p, '#' )                                     and //tei:teiHeader//tei:respStmt[ @xml:id eq substring( $p, 2 ) ] )"
+                           role="error">改訂記録の @who "<sch:value-of select="@who"/>" に、teiHeader の respStmt を
+                  指していない参照があります
+                  / change/@who "<sch:value-of select="@who"/>" contains a reference that does not
+                  resolve to a respStmt in the teiHeader</sch:assert>
             </sch:rule>
          </pattern>
          <ref name="tei_att.global.attributes"/>
@@ -3417,14 +3464,16 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
          <ref name="tei_att.segLike.attributes"/>
          <ref name="tei_att.typed.attributes"/>
          <ref name="tei_att.written.attributes"/>
-         <optional>
-            <attribute name="corresp">
-               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(対応) 本データベースの API 上の該当箇所を指す。</a:documentation>
-               <data type="string">
-                  <param name="pattern">https://w3id\.org/kouigenjimonogatari/api/items/\d{4}-\d{2}\.json</param>
-               </data>
-            </attribute>
-         </optional>
+         <attribute name="corresp">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(対応) 本データベースの API 上の該当箇所を指す。必須とする。</a:documentation>
+            <list>
+               <oneOrMore>
+                  <data type="anyURI">
+                     <param name="pattern">https://w3id\.org/kouigenjimonogatari/api/items/\d{4}-\d{2}\.json</param>
+                  </data>
+               </oneOrMore>
+            </list>
+         </attribute>
          <empty/>
       </element>
    </define>

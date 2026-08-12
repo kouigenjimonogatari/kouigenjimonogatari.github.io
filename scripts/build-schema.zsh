@@ -57,6 +57,11 @@ saxon -s:$SCH -xsl:$SCHXSLT2_DIR/transpile.xsl -o:$BUILD_DIR/tei_kouigenji.sch.x
 print "5/5 カスタマイズの解説を生成 (odd2html.xsl)"
 saxon -s:$BUILD_DIR/tei_kouigenji.compiled.odd -xsl:$ODDS_XSL_DIR/odd2html.xsl -o:$DOC
 
+# TEI Stylesheets は生成時刻を各出力に埋め込む。そのままだと同じ ODD から作っても
+# 毎回ファイルが変わり、CI の「生成物が ODD と一致するか」の検査が常に落ちる。
+print "    生成時刻を正規化 (ビルドを決定的にする)"
+python3 $REPO_ROOT/scripts/normalize_generated.py $RNG $SCH $DOC
+
 print
 print "生成しました:"
 print "  docs/schema/tei_kouigenji.rng    $(grep -c '<element name=' $RNG) 要素"

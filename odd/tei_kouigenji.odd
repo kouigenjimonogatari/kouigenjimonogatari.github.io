@@ -5,7 +5,17 @@
     <fileDesc>
       <titleStmt>
         <title>校異源氏物語 TEI カスタマイズ (tei_kouigenji)</title>
-        <author>Satoru Nakamura</author>
+        <!-- ODD を検証する tei_odds.rng は制限されたカスタマイズで、
+             persName / orgName / affiliation を含まない。使えるのは name。 -->
+        <author>中村 覚 (Satoru Nakamura)</author>
+        <respStmt xml:id="snakamura">
+          <resp xml:lang="ja">TEI カスタマイズの設計と保守</resp>
+          <resp xml:lang="en">Design and maintenance of this customization</resp>
+          <name xml:lang="ja">中村 覚（東京大学史料編纂所 准教授）</name>
+          <name xml:lang="en">Satoru Nakamura (Associate Professor, Institute for Japanese
+            Historical Records, University of Tokyo)</name>
+          <note><ref target="https://researchmap.jp/nakamura.satoru">researchmap</ref></note>
+        </respStmt>
       </titleStmt>
       <publicationStmt>
         <distributor>デジタル源氏物語</distributor>
@@ -147,7 +157,21 @@
               <desc xml:lang="ja">和歌は API から参照されるため必須とする。</desc>
               <desc xml:lang="en">Required: the API refers to each waka by this identifier.</desc>
             </attDef>
-            <attDef ident="rhyme" mode="change">
+            <!-- @type は必須かつ waka に限定する。上の Schematron 2本は
+                 context="tei:lg[@type eq 'waka']" なので、@type を書き忘れたり
+                 綴りを間違えたりすると、どちらも無言で検査対象から外れてしまう。
+                 文法で @type を縛ることが、Schematron が働く前提になっている。 -->
+            <attDef ident="type" mode="change" usage="req">
+              <desc xml:lang="ja">本データベースの lg は和歌のみ。</desc>
+              <desc xml:lang="en">The only kind of lg in this database is a waka.</desc>
+              <valList type="closed">
+                <valItem ident="waka">
+                  <desc xml:lang="ja">和歌</desc>
+                  <desc xml:lang="en">waka</desc>
+                </valItem>
+              </valList>
+            </attDef>
+            <attDef ident="rhyme" mode="change" usage="req">
               <desc xml:lang="ja">本データベースの和歌はすべて短歌である。</desc>
               <desc xml:lang="en">All waka in this database are tanka.</desc>
               <valList type="closed">
@@ -192,13 +216,20 @@
             <desc xml:lang="ja">pb/@corresp は facsimile 内の zone を指していなければならない。</desc>
             <desc xml:lang="en">pb/@corresp must point to a zone inside the facsimile.</desc>
             <constraint>
-              <sch:rule context="tei:pb[ starts-with( @corresp, '#' ) ]">
-                <sch:let name="id" value="substring-after( @corresp, '#' )"/>
-                <sch:assert test="//tei:zone[ @xml:id eq $id ]" role="error"
-                  >丁付け <sch:value-of select="@n"/> の @corresp が指す "<sch:value-of select="$id"
-                  />" にあたる zone が文書中にありません
-                  / No zone with xml:id "<sch:value-of select="$id"/>" for page <sch:value-of
-                    select="@n"/></sch:assert>
+              <!-- @corresp は空白区切りで複数の参照を書ける（att.global.linking の
+                   データ型は teidata.pointer のリスト）。substring-after で切ると
+                   複数値のときに壊れるので、トークンに分けて全件を検査する。
+                   "#" で始まらない値も、ここで不合格になる。 -->
+              <sch:rule context="tei:pb[ @corresp ]">
+                <sch:assert
+                  test="every $p in tokenize( normalize-space( @corresp ), '\s+' )
+                        satisfies ( starts-with( $p, '#' )
+                                    and //tei:zone[ @xml:id eq substring( $p, 2 ) ] )"
+                  role="error"
+                  >丁付け <sch:value-of select="@n"/> の @corresp "<sch:value-of select="@corresp"
+                  />" に、文書中の zone を指していない参照があります
+                  / @corresp "<sch:value-of select="@corresp"/>" on page <sch:value-of select="@n"
+                  /> contains a reference that does not resolve to a zone in this document</sch:assert>
               </sch:rule>
             </constraint>
           </constraintSpec>
@@ -207,8 +238,19 @@
             <desc xml:lang="ja">丁付けは帖の中で単調に増加する。</desc>
             <desc xml:lang="en">Page numbers increase monotonically within a chapter.</desc>
             <constraint>
-              <sch:rule context="tei:pb[ @n ][ preceding::tei:pb/@n ]">
-                <sch:let name="prev" value="preceding::tei:pb[1]/@n"/>
+              <!--
+                context で気をつける点が2つある。
+                1. 直前の pb は「preceding::tei:pb[1]」ではなく
+                   「preceding::tei:pb[@n][1]」で取る。@n を持たない pb が間に入ると
+                   $prev が空になり、比較が偽になって黙って通過してしまう。
+                2. xs:integer() は変換できない値で例外を投げ、その時点で
+                   文書全体の検証が中断する（他の制約も検査されなくなる）。
+                   丁付けに「7ウ」のような値を使う可能性を残すため、
+                   castable な場合だけ比較する。
+              -->
+              <sch:rule context="tei:pb[ @n castable as xs:integer ]
+                                 [ preceding::tei:pb[ @n ][1]/@n castable as xs:integer ]">
+                <sch:let name="prev" value="preceding::tei:pb[ @n ][1]/@n"/>
                 <sch:report test="xs:integer( @n ) le xs:integer( $prev )" role="error"
                   >丁付けが逆行しています (前は <sch:value-of select="$prev"/>、いまは <sch:value-of
                     select="@n"/>)
@@ -217,6 +259,26 @@
               </sch:rule>
             </constraint>
           </constraintSpec>
+          <!--
+            上の2つの Schematron は、いずれも属性の存在を context の条件にしている
+            （@corresp が無い pb、@n が無い pb は検査対象にならない）。
+            属性そのものを文法で必須にしておかないと、書き忘れた瞬間に
+            制約が黙って外れる。
+          -->
+          <attList>
+            <attDef ident="corresp" mode="change" usage="req">
+              <desc xml:lang="ja">対応する zone を指す。必須とする。</desc>
+              <desc xml:lang="en">Required: points at the corresponding zone.</desc>
+            </attDef>
+            <attDef ident="n" mode="change" usage="req">
+              <desc xml:lang="ja">底本の丁付け。必須とする。</desc>
+              <desc xml:lang="en">Required: the leaf number in the source edition.</desc>
+            </attDef>
+            <attDef ident="facs" mode="change" usage="req">
+              <desc xml:lang="ja">該当箇所の IIIF 画像を指す。必須とする。</desc>
+              <desc xml:lang="en">Required: points at the IIIF image for this page.</desc>
+            </attDef>
+          </attList>
         </elementSpec>
 
         <!-- ============================================================
@@ -225,11 +287,18 @@
         <!-- URI の書式は datatype の制限で表せるので、Schematron ではなく文法で縛る -->
         <elementSpec ident="seg" module="linking" mode="change">
           <attList>
-            <attDef ident="corresp" mode="change">
-              <desc xml:lang="ja">本データベースの API 上の該当箇所を指す。</desc>
-              <desc xml:lang="en">Points at the corresponding item in this database's API.</desc>
-              <datatype>
-                <dataRef name="string"
+            <attDef ident="corresp" mode="change" usage="req">
+              <desc xml:lang="ja">本データベースの API 上の該当箇所を指す。必須とする。</desc>
+              <desc xml:lang="en">Required: points at the corresponding item in this database's API.</desc>
+              <!--
+                maxOccurs="unbounded" を書かないと既定の 1 が効き、TEI 本来の
+                「teidata.pointer のリスト」が単一値に縮む（空白区切りで複数書けなくなる）。
+                また dataRef を key="teidata.pointer" にすると @restriction が
+                黙って捨てられ、URI の書式制限が丸ごと消える。@restriction は
+                @name と組み合わせたときだけ効く。
+              -->
+              <datatype maxOccurs="unbounded">
+                <dataRef name="anyURI"
                          restriction="https://w3id\.org/kouigenjimonogatari/api/items/\d{4}-\d{2}\.json"/>
               </datatype>
             </attDef>
@@ -244,12 +313,19 @@
             <desc xml:lang="ja">change/@who は teiHeader 中の respStmt を指す。</desc>
             <desc xml:lang="en">change/@who must point to a respStmt in the teiHeader.</desc>
             <constraint>
-              <sch:rule context="tei:change[ starts-with( @who, '#' ) ]">
-                <sch:let name="id" value="substring-after( @who, '#' )"/>
-                <sch:assert test="//*[ @xml:id eq $id ]" role="error"
-                  >改訂記録の @who が指す "<sch:value-of select="$id"/>" が文書中に見つかりません
-                  / change/@who points to "<sch:value-of select="$id"/>", which is not in this
-                  document</sch:assert>
+              <!-- @who も空白区切りで複数書ける。また「文書中のどこかに同じ xml:id がある」
+                   だけでは弱く、和歌の xml:id を指していても通ってしまうので、
+                   teiHeader 中の respStmt に限定する。 -->
+              <sch:rule context="tei:change[ @who ]">
+                <sch:assert
+                  test="every $p in tokenize( normalize-space( @who ), '\s+' )
+                        satisfies ( starts-with( $p, '#' )
+                                    and //tei:teiHeader//tei:respStmt[ @xml:id eq substring( $p, 2 ) ] )"
+                  role="error"
+                  >改訂記録の @who "<sch:value-of select="@who"/>" に、teiHeader の respStmt を
+                  指していない参照があります
+                  / change/@who "<sch:value-of select="@who"/>" contains a reference that does not
+                  resolve to a respStmt in the teiHeader</sch:assert>
               </sch:rule>
             </constraint>
           </constraintSpec>
