@@ -3074,8 +3074,7 @@ Sample values include: 1] main; 2] sub (subordinate); 3] alt (alternate); 4] sho
                       xmlns:xi="http://www.w3.org/2001/XInclude"
                       context="tei:change[ @who ]">
                <sch:assert test="every $p in tokenize( normalize-space( @who ), '\s+' )                         satisfies ( starts-with( $p, '#' )                                     and //tei:teiHeader//tei:respStmt[ @xml:id eq substring( $p, 2 ) ] )"
-                           role="error">改訂記録の @who "<sch:value-of select="@who"/>" に、teiHeader の respStmt を
-                  指していない参照があります
+                           role="error">改訂記録の @who "<sch:value-of select="@who"/>" に、teiHeader の respStmt を指していない参照があります
                   / change/@who "<sch:value-of select="@who"/>" contains a reference that does not
                   resolve to a respStmt in the teiHeader</sch:assert>
             </sch:rule>

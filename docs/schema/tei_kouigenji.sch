@@ -118,7 +118,7 @@
    <pattern id="schematron-constraint-change-who-resolves-20">
       <rule context="tei:change[ @who ]">
          <assert test="every $p in tokenize( normalize-space( @who ), '\s+' )                         satisfies ( starts-with( $p, '#' )                                     and //tei:teiHeader//tei:respStmt[ @xml:id eq substring( $p, 2 ) ] )"
-                 role="error">改訂記録の @who "<value-of select="@who"/>" に、teiHeader の respStmt を 指していない参照があります / change/@who "<value-of select="@who"/>" contains a reference that does not resolve to a respStmt in the teiHeader</assert>
+                 role="error">改訂記録の @who "<value-of select="@who"/>" に、teiHeader の respStmt を指していない参照があります / change/@who "<value-of select="@who"/>" contains a reference that does not resolve to a respStmt in the teiHeader</assert>
       </rule>
    </pattern>
    <pattern id="schematron-constraint-abstractModel-structure-div-in-l-21">

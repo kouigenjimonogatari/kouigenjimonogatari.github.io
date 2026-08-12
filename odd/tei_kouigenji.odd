@@ -357,8 +357,7 @@
                         satisfies ( starts-with( $p, '#' )
                                     and //tei:teiHeader//tei:respStmt[ @xml:id eq substring( $p, 2 ) ] )"
                   role="error"
-                  >改訂記録の @who "<sch:value-of select="@who"/>" に、teiHeader の respStmt を
-                  指していない参照があります
+                  >改訂記録の @who "<sch:value-of select="@who"/>" に、teiHeader の respStmt を指していない参照があります
                   / change/@who "<sch:value-of select="@who"/>" contains a reference that does not
                   resolve to a respStmt in the teiHeader</sch:assert>
               </sch:rule>
