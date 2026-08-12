@@ -182,6 +182,11 @@
               </valList>
             </attDef>
           </attList>
+          <exemplum xml:lang="ja">
+            <p>第1帖「きりつぼ」の第一首（<ident>waka-001</ident>）。桐壺更衣の辞世の歌。
+              和歌は本文中の <gi>seg</gi> の内側に置き、直前の全角空白2文字で字下げを表す。</p>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0009-03.json">　　<lg xml:id="waka-001" type="waka" rhyme="tanka"><l n="1">かきりとて</l><l n="2">わかるゝ道の</l><l n="3">かなしきに</l><l n="4">いかまほしきは</l><l n="5">いのちなりけり</l></lg>いとか</seg></egXML>
+          </exemplum>
         </elementSpec>
 
         <elementSpec ident="l" module="core" mode="change">
@@ -206,6 +211,11 @@
               <desc xml:lang="en">Required: the position of this line within the waka.</desc>
             </attDef>
           </attList>
+          <exemplum xml:lang="ja">
+            <p>句は5つ、<att>n</att> は 1 から 5 まで、和歌の中での位置と一致させる。
+              位置と <att>n</att> のずれは Schematron が検出する。</p>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><lg xml:id="waka-001" type="waka" rhyme="tanka"><l n="1">かきりとて</l><l n="2">わかるゝ道の</l><l n="3">かなしきに</l><l n="4">いかまほしきは</l><l n="5">いのちなりけり</l></lg></egXML>
+          </exemplum>
         </elementSpec>
 
         <!-- ============================================================
@@ -279,6 +289,21 @@
               <desc xml:lang="en">Required: points at the IIIF image for this page.</desc>
             </attDef>
           </attList>
+          <exemplum xml:lang="ja">
+            <p>第1帖「きりつぼ」の5丁目。<att>n</att> が底本の丁付け、<att>corresp</att> が
+              同じ文書内の <gi>zone</gi>、<att>facs</att> が国立国会図書館デジタルコレクションの
+              IIIF 画像（切り出し領域つき）を指す。<att>facs</att> の座標は、参照先 <gi>zone</gi> の
+              <att>ulx</att>/<att>uly</att>/幅/高さと一致する。</p>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><pb n="5" corresp="#zone_0005" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000022/0,0,3445,4706/full/0/default.jpg"/></egXML>
+          </exemplum>
+          <exemplum xml:lang="ja">
+            <p>対応する <gi>zone</gi> は <gi>facsimile</gi> の中にある。1つの見開き
+              （<gi>surface</gi>）に右半・左半の2つの <gi>zone</gi> が入り、丁付けはその一方を指す。</p>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><surface xml:id="f001" ulx="0" uly="0" lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/canvas/22">
+  <graphic width="6890px" height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/R0000022" url="https://dl.ndl.go.jp/api/iiif/3437686/R0000022/full/full/0/default.jpg"/>
+  <zone xml:id="zone_0005" ulx="0" uly="0" lrx="3445" lry="4706"/>
+</surface></egXML>
+          </exemplum>
         </elementSpec>
 
         <!-- ============================================================
@@ -303,6 +328,12 @@
               </datatype>
             </attDef>
           </attList>
+          <exemplum xml:lang="ja">
+            <p>本文の冒頭。底本の1行が1つの <gi>seg</gi> にあたり、<att>corresp</att> の URI は
+              <code>items/&lt;丁付け4桁&gt;-&lt;行2桁&gt;.json</code> の形をとる。
+              下の例は5丁目の1行目。行の区切りは <gi>lb</gi> で示す。</p>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><lb/><seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0005-01.json">いつれの御時にか女御更衣あまたさふらひ給けるなかにいとやむことなきゝは</seg></egXML>
+          </exemplum>
         </elementSpec>
 
         <!-- ============================================================
@@ -329,6 +360,25 @@
               </sch:rule>
             </constraint>
           </constraintSpec>
+          <exemplum xml:lang="ja">
+            <p><att>who</att> は同じ <gi>teiHeader</gi> にある <gi>respStmt</gi> の
+              <att>xml:id</att> を指す。指し先が無い場合は Schematron が検出する。</p>
+            <egXML xmlns="http://www.tei-c.org/ns/Examples"><teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title>校異源氏物語・きりつぼ</title>
+      <author>池田亀鑑</author>
+      <respStmt xml:id="snakamura">
+        <resp when="2020-08-22">TEI Encoding</resp>
+        <name>Satoru Nakamura</name>
+      </respStmt>
+    </titleStmt>
+  </fileDesc>
+  <revisionDesc status="published">
+    <change when="2024-06-28" who="#snakamura">pb要素のfacs属性を修正しました。facsimile要素を修正しました。</change>
+  </revisionDesc>
+</teiHeader></egXML>
+          </exemplum>
         </elementSpec>
 
       </schemaSpec>
