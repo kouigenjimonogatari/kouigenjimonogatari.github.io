@@ -131,9 +131,11 @@
           文法で書けるものは文法に置く。@xml:id の必須化と @rhyme の値の限定は
           RELAX NG で表せるので、ここで宣言する。追加のツールなしに、どのエディタでも
           その場で検出される。
-          一方「和歌は5句」は Schematron に残してある。content model として
-          「l を5つ」と書くと lg の中に <pb/> や <lb/> を置けなくなり、
-          ページの変わり目が和歌の途中に来る場合に対応できなくなるため。
+          一方「和歌は5句」は Schematron に残してある。content model でも書ける
+          （句の間に model.global を挟めば lg の中に <pb/> や <lb/> も置ける）が、
+          文法は「5個ちょうど」以上のことを言えず、違反したときのメッセージも
+          「lg incomplete」止まりで、どの和歌が何句なのかを教えてくれない。
+          count(tei:l) eq 5 なら「waka-001 は 4 句」と名指しできる。
         -->
         <elementSpec ident="lg" module="core" mode="change">
           <constraintSpec ident="waka-line-count" scheme="schematron">

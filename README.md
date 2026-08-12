@@ -82,9 +82,11 @@ Schematron（RELAX NG では原理的に書けないもの）:
 | `change/@who` が teiHeader の `respStmt` に解決する | `change` 54件 |
 | 和歌は5句である | `lg[@type='waka']` 795首 |
 
-最後の「5句」だけは RELAX NG でも書けますが、content model を `l` 5個に固定すると
-`lg` の中に `<pb/>` や `<lb/>` を置けなくなり、ページの変わり目が和歌の途中に来る場合に
-対応できなくなるため、あえて Schematron に置いています。
+最後の「5句」だけは RELAX NG でも書けます（句の間に `model.global` を挟めば
+`lg` の中に `<pb/>` や `<lb/>` も置けます）。それでも Schematron に置いているのは、
+文法だと違反時のメッセージが `element "lg" incomplete` 止まりで、
+**どの和歌が何句なのかを言ってくれない**からです。
+Schematron なら「waka-001 は 4 句」と名指しできます。
 
 なお TEI P5 自身が持つ制約（19パターン）も ODD 経由で一緒に取り込まれます。
 
