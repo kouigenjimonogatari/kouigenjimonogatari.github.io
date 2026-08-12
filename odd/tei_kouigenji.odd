@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+     xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>校異源氏物語 TEI カスタマイズ (tei_kouigenji)</title>
+        <author>Satoru Nakamura</author>
+      </titleStmt>
+      <publicationStmt>
+        <distributor>デジタル源氏物語</distributor>
+        <availability status="free">
+          <p>本 ODD は TEI 配布物の最小カスタマイズひな型 (tei_minimal) を出発点としており、
+            以下の TEI のデュアルライセンスを引き継ぐ。ライセンス本文は原文のまま保持する
+            (BSD-2 は著作権表示の保持を条件とするため)。</p>
+          <licence target="http://creativecommons.org/licenses/by-sa/3.0/"> Distributed under a Creative Commons
+            Attribution-ShareAlike 3.0 Unported License </licence>
+          <licence target="http://www.opensource.org/licenses/BSD-2-Clause">
+            <p>Copyright 2013 TEI Consortium.</p>
+            <p>All rights reserved.</p>
+            <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that
+              the following conditions are met:</p>
+            <list>
+              <item>Redistributions of source code must retain the above copyright notice, this list of conditions and the
+                following disclaimer.</item>
+              <item>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
+                the following disclaimer in the documentation and/or other materials provided with the
+                distribution.</item>
+            </list>
+            <p>This software is provided by the copyright holders and contributors "as is" and any express or implied
+              warranties, including, but not limited to, the implied warranties of merchantability and fitness for a
+              particular purpose are disclaimed. In no event shall the copyright holder or contributors be liable for any
+              direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to,
+              procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however
+              caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence
+              or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such
+              damage.</p>
+          </licence>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <p>TEI 配布物の最小カスタマイズ (tei_minimal / tei_bare) を出発点に、
+          校異源氏物語テキストデータベース用として新規に構成した。</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <appInfo>
+        <application ident="RomaJS" version="1.1.0" when="2024-06-28T00:00:16.741Z">
+          <desc>初期の要素選択は <ref target="https://github.com/TEIC/romajs">RomaJS</ref> で編集した。</desc>
+        </application>
+      </appInfo>
+    </encodingDesc>
+    <revisionDesc status="published">
+      <change when="2026-08-11" who="#snakamura">記述を日本語化。<gi>lg</gi> と <gi>l</gi> の
+        <att>include</att> 指定を verse から core へ修正し (両要素は core モジュール所属のため、
+        verse 側に書いても取り込まれずスキーマから欠落していた)、<att>rhyme</att> のために
+        verse モジュールを参照。あわせて Schematron 制約を <gi>constraintSpec</gi> として追加。</change>
+      <change when="2024-06-28" who="#snakamura">pb 要素の facs 属性、facsimile 要素の対応。</change>
+    </revisionDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <head>校異源氏物語 TEI カスタマイズ</head>
+
+      <p>池田亀鑑『校異源氏物語』(中央公論社) を底本とする
+        <ref target="https://kouigenjimonogatari.github.io/">校異源氏物語テキストデータベース</ref>
+        のためのカスタマイズである。全54帖の TEI ファイル (<code>xml/master/*.xml</code>) は、
+        この ODD から生成した RELAX NG と Schematron の両方で検証される。</p>
+
+      <p>採用した符号化の方針は次のとおり。
+        <list rend="numbered">
+          <item>本文は <gi>seg</gi> の連なりとして表し、各 <gi>seg</gi> は
+            <att>corresp</att> で API 上の該当箇所 (<code>w3id.org/kouigenjimonogatari</code>) を指す。</item>
+          <item>和歌は <gi>lg</gi> (<att>type</att> は <code>waka</code>) とし、
+            5句をそれぞれ <gi>l</gi> として <att>n</att> に句番号を与える。</item>
+          <item>底本の丁付けは <gi>pb</gi> で示し、<att>corresp</att> で
+            <gi>facsimile</gi> 内の <gi>zone</gi> を、<att>facs</att> で IIIF 画像を指す。</item>
+          <item>原本画像は国立国会図書館デジタルコレクションの IIIF を
+            <gi>facsimile</gi> / <gi>surface</gi> / <gi>zone</gi> で参照する。</item>
+        </list>
+      </p>
+
+      <p>スキーマだけでは表せない規則 (和歌は5句である、<att>corresp</att> の参照先が実在する、など) は
+        <gi>constraintSpec</gi> として ODD に直接書いてある。この ODD が唯一の正本であり、
+        <code>docs/schema/tei_kouigenji.rng</code> と <code>docs/schema/tei_kouigenji.sch</code> は
+        <code>scripts/build-schema.zsh</code> で生成する。</p>
+
+      <schemaSpec ident="tei_kouigenji" start="TEI" prefix="tei_" targetLang="ja" docLang="ja">
+
+        <!-- Schematron 制約の既定。queryBinding を書かないと eq / cast as などが使えない -->
+        <constraintDecl scheme="schematron" queryBinding="xslt2">
+          <sch:ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
+        </constraintDecl>
+
+        <!-- ヘッダ -->
+        <moduleRef key="header" include="teiHeader fileDesc titleStmt publicationStmt sourceDesc revisionDesc change encodingDesc distributor availability"/>
+
+        <!-- core。lg / l は verse ではなく core モジュールに属する。
+             verse 側の include に書いても黙って無視され、和歌がスキーマから丸ごと欠落する。 -->
+        <moduleRef key="core" include="p title lb date respStmt bibl author ref pb resp name graphic publisher lg l"/>
+
+        <!-- 文書構造 -->
+        <moduleRef key="textstructure" include="TEI text body div"/>
+
+        <!-- 多くのクラスを実体化するため、tei モジュールは全体を参照する -->
+        <moduleRef key="tei"/>
+
+        <moduleRef key="linking" include="seg standOff"/>
+        <moduleRef key="transcr" include="facsimile surface zone"/>
+        <moduleRef key="namesdates" include="persName placeName"/>
+        <moduleRef key="analysis" include="s"/>
+
+        <!-- verse からは要素を1つも採らない。lg/@rhyme が属する
+             att.metrical を取り込むためだけに参照する。 -->
+        <moduleRef key="verse" except="caesura metDecl metSym rhyme"/>
+
+        <!-- ============================================================
+             和歌
+             ============================================================ -->
+        <!--
+          文法で書けるものは文法に置く。@xml:id の必須化と @rhyme の値の限定は
+          RELAX NG で表せるので、ここで宣言する。追加のツールなしに、どのエディタでも
+          その場で検出される。
+          一方「和歌は5句」は Schematron に残してある。content model として
+          「l を5つ」と書くと lg の中に <pb/> や <lb/> を置けなくなり、
+          丁の変わり目が和歌の途中に来る場合に対応できなくなるため。
+        -->
+        <elementSpec ident="lg" module="core" mode="change">
+          <constraintSpec ident="waka-line-count" scheme="schematron">
+            <desc xml:lang="ja">和歌は5句からなる。</desc>
+            <desc xml:lang="en">A waka consists of exactly five lines.</desc>
+            <constraint>
+              <sch:rule context="tei:lg[ @type eq 'waka' ]">
+                <sch:let name="lines" value="count( tei:l )"/>
+                <sch:assert test="$lines eq 5" role="error"
+                  >和歌は5句です (<sch:value-of select="@xml:id"/> は <sch:value-of select="$lines"/> 句)
+                  / A waka must have 5 lines (<sch:value-of select="@xml:id"/> has <sch:value-of
+                    select="$lines"/>)</sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          <attList>
+            <!-- att.global は ident="xml:id"（@ns なし）で宣言されている。
+                 ident="id" + ns="…/XML/1998/namespace" と書くと既存の属性に
+                 一致せず、黙って無視される。 -->
+            <attDef ident="xml:id" mode="change" usage="req">
+              <desc xml:lang="ja">和歌は API から参照されるため必須とする。</desc>
+              <desc xml:lang="en">Required: the API refers to each waka by this identifier.</desc>
+            </attDef>
+            <attDef ident="rhyme" mode="change">
+              <desc xml:lang="ja">本データベースの和歌はすべて短歌である。</desc>
+              <desc xml:lang="en">All waka in this database are tanka.</desc>
+              <valList type="closed">
+                <valItem ident="tanka">
+                  <desc xml:lang="ja">短歌（5句31音）</desc>
+                  <desc xml:lang="en">tanka (five lines)</desc>
+                </valItem>
+              </valList>
+            </attDef>
+          </attList>
+        </elementSpec>
+
+        <elementSpec ident="l" module="core" mode="change">
+
+          <constraintSpec ident="waka-line-numbering" scheme="schematron">
+            <desc xml:lang="ja">句の @n は、その句が和歌の何句目かと一致する。</desc>
+            <desc xml:lang="en">The @n of a line must match its position within the waka.</desc>
+            <constraint>
+              <sch:rule context="tei:lg[ @type eq 'waka' ]/tei:l">
+                <sch:let name="pos" value="count( preceding-sibling::tei:l ) + 1"/>
+                <sch:assert test="@n eq string( $pos )" role="error"
+                  >この句の @n は <sch:value-of select="$pos"/> であるはずです (いまは "<sch:value-of
+                    select="@n"/>")
+                  / This line's @n should be <sch:value-of select="$pos"/> (found "<sch:value-of
+                    select="@n"/>")</sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+          <attList>
+            <attDef ident="n" mode="change" usage="req">
+              <desc xml:lang="ja">和歌の何句目かを示す。必須とする。</desc>
+              <desc xml:lang="en">Required: the position of this line within the waka.</desc>
+            </attDef>
+          </attList>
+        </elementSpec>
+
+        <!-- ============================================================
+             丁付けと原本画像
+             ============================================================ -->
+        <elementSpec ident="pb" module="core" mode="change">
+          <constraintSpec ident="pb-corresp-resolves" scheme="schematron">
+            <desc xml:lang="ja">pb/@corresp は facsimile 内の zone を指していなければならない。</desc>
+            <desc xml:lang="en">pb/@corresp must point to a zone inside the facsimile.</desc>
+            <constraint>
+              <sch:rule context="tei:pb[ starts-with( @corresp, '#' ) ]">
+                <sch:let name="id" value="substring-after( @corresp, '#' )"/>
+                <sch:assert test="//tei:zone[ @xml:id eq $id ]" role="error"
+                  >丁付け <sch:value-of select="@n"/> の @corresp が指す "<sch:value-of select="$id"
+                  />" にあたる zone が文書中にありません
+                  / No zone with xml:id "<sch:value-of select="$id"/>" for page <sch:value-of
+                    select="@n"/></sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+
+          <constraintSpec ident="pb-monotonic" scheme="schematron">
+            <desc xml:lang="ja">丁付けは帖の中で単調に増加する。</desc>
+            <desc xml:lang="en">Page numbers increase monotonically within a chapter.</desc>
+            <constraint>
+              <sch:rule context="tei:pb[ @n ][ preceding::tei:pb/@n ]">
+                <sch:let name="prev" value="preceding::tei:pb[1]/@n"/>
+                <sch:report test="xs:integer( @n ) le xs:integer( $prev )" role="error"
+                  >丁付けが逆行しています (前は <sch:value-of select="$prev"/>、いまは <sch:value-of
+                    select="@n"/>)
+                  / Page numbers go backwards (previous <sch:value-of select="$prev"/>, current
+                  <sch:value-of select="@n"/>)</sch:report>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+        </elementSpec>
+
+        <!-- ============================================================
+             本文断片
+             ============================================================ -->
+        <!-- URI の書式は datatype の制限で表せるので、Schematron ではなく文法で縛る -->
+        <elementSpec ident="seg" module="linking" mode="change">
+          <attList>
+            <attDef ident="corresp" mode="change">
+              <desc xml:lang="ja">本データベースの API 上の該当箇所を指す。</desc>
+              <desc xml:lang="en">Points at the corresponding item in this database's API.</desc>
+              <datatype>
+                <dataRef name="string"
+                         restriction="https://w3id\.org/kouigenjimonogatari/api/items/\d{4}-\d{2}\.json"/>
+              </datatype>
+            </attDef>
+          </attList>
+        </elementSpec>
+
+        <!-- ============================================================
+             改訂記録
+             ============================================================ -->
+        <elementSpec ident="change" module="header" mode="change">
+          <constraintSpec ident="change-who-resolves" scheme="schematron">
+            <desc xml:lang="ja">change/@who は teiHeader 中の respStmt を指す。</desc>
+            <desc xml:lang="en">change/@who must point to a respStmt in the teiHeader.</desc>
+            <constraint>
+              <sch:rule context="tei:change[ starts-with( @who, '#' ) ]">
+                <sch:let name="id" value="substring-after( @who, '#' )"/>
+                <sch:assert test="//*[ @xml:id eq $id ]" role="error"
+                  >改訂記録の @who が指す "<sch:value-of select="$id"/>" が文書中に見つかりません
+                  / change/@who points to "<sch:value-of select="$id"/>", which is not in this
+                  document</sch:assert>
+              </sch:rule>
+            </constraint>
+          </constraintSpec>
+        </elementSpec>
+
+      </schemaSpec>
+    </body>
+  </text>
+</TEI>

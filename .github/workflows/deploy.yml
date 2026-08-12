@@ -7,6 +7,7 @@ on:
       - 'xml/master/**'
       - 'scripts/**'
       - 'docs/**'
+      - 'odd/**'
       - 'xsl/**'
       - 'data/**'
       - 'requirements.txt'
@@ -24,7 +25,12 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # 公開の門番。RELAX NG / Schematron の検証が通らなければ build に進まない。
+  validate:
+    uses: ./.github/workflows/validate.yml
+
   build:
+    needs: validate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

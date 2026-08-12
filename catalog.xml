@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  XML Catalog。
+
+  xml/master/*.xml の <?xml-model?> は、単体でダウンロードした人にも解決できるよう
+  公開 URL (https://kouigenjimonogatari.github.io/schema/...) を指している。
+  そのまま編集すると「デプロイ済みのスキーマ」で検証されてしまい、
+  手元で直した ODD の結果が反映されない（しかもエディタはリモートスキーマをキャッシュする）。
+
+  このカタログを登録しておくと、公開 URL が作業コピーの docs/schema/ に読み替えられる。
+
+  oXygen:   Preferences > XML > XML Catalog > Add でこのファイルを追加
+            （プロジェクトを開いている場合は Project Options 側に追加すると設定を共有できる）
+  コマンドライン: scripts/validate.zsh はローカルのファイルを直接指定するので設定不要
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <rewriteURI uriStartString="https://kouigenjimonogatari.github.io/schema/"
+              rewritePrefix="docs/schema/"/>
+  <rewriteSystem systemIdStartString="https://kouigenjimonogatari.github.io/schema/"
+                 rewritePrefix="docs/schema/"/>
+</catalog>

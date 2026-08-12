@@ -1,0 +1,23 @@
+{
+  "files.associations": {
+    "*.odd": "xml"
+  },
+
+  // 公開 URL を作業コピーの odd/ に読み替える。
+  // これが無いと、デプロイ済みの古いスキーマで検証されてしまう。
+  "xml.catalogs": [
+    "catalog.xml"
+  ],
+
+  // ODD 自体は TEI の ODD 用スキーマで検証する
+  "xml.fileAssociations": [
+    {
+      "pattern": "odd/*.odd",
+      "systemId": "https://www.tei-c.org/Vault/P5/4.12.0/xml/tei/custom/schema/relaxng/tei_odds.rng"
+    }
+  ],
+
+  // redhat.vscode-xml は Schematron を実行しない。
+  // Schematron の結果は「タスク: TEI: 開いているファイルを検証」で見る。
+  "xml.validation.resolveExternalEntities": false
+}

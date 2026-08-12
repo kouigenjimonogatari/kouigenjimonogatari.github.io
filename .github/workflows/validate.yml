@@ -1,0 +1,68 @@
+name: Validate TEI
+
+# xml/master/*.xml を RELAX NG と Schematron で検証する。
+# あわせて「ODD から再生成した結果がコミット済みの生成物と一致するか」も確認する
+# （ODD を直して再生成を忘れると、スキーマだけ古いまま気づかれない状態になるため）。
+#
+# push では起動しない。master への push では deploy.yml がこれを呼び出し、
+# 通らなければ公開に進まない（workflow_call）。
+
+on:
+  pull_request:
+    paths:
+      - 'xml/master/**'
+      - 'odd/**'
+      - 'docs/schema/**'
+      - 'scripts/**'
+      - '.github/workflows/validate.yml'
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up Java
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+
+      - name: Install lxml
+        run: pip install lxml
+
+      - name: Install zsh
+        run: sudo apt-get update && sudo apt-get install -y zsh
+
+      - name: Cache tools
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: tools
+          key: tei-tools-${{ hashFiles('scripts/lib/tools.zsh') }}
+
+      - name: Fetch validation tools
+        run: ./scripts/setup-tools.zsh
+
+      - name: Build schema from ODD
+        run: ./scripts/build-schema.zsh
+
+      # ODD が正本である以上、生成物がそれと食い違っていてはいけない
+      - name: Generated schema must match what is committed
+        run: |
+          if ! git diff --exit-code -- docs/schema/; then
+            echo "::error::docs/schema/ の生成物が ODD と一致しません。./scripts/build-schema.zsh を実行して結果をコミットしてください。"
+            exit 1
+          fi
+
+      - name: Validate all chapters
+        run: ./scripts/validate.zsh

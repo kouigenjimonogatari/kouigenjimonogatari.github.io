@@ -1,7 +1,12 @@
 .DS_Store
 ~$*
 .venv
-.vscode
+
+# VS Code は共有したい設定だけコミットする
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
 
 *.log
 *.aux
@@ -20,3 +25,6 @@ docs/files/rdf/
 # 一時ファイル
 build/
 tmp/
+
+# スキーマ生成・検証用の外部ツール（scripts/setup-tools.zsh が取得する）
+tools/

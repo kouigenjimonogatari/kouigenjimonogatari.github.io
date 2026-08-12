@@ -1,0 +1,57 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "TEI: 開いているファイルを検証",
+      "type": "shell",
+      "command": "./scripts/validate.zsh",
+      "args": ["${relativeFile}"],
+      "group": { "kind": "test", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "problemMatcher": {
+        "owner": "tei",
+        "fileLocation": "absolute",
+        "pattern": {
+          "regexp": "^(/.+?):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "TEI: 全54帖を検証",
+      "type": "shell",
+      "command": "./scripts/validate.zsh",
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "problemMatcher": {
+        "owner": "tei",
+        "fileLocation": "absolute",
+        "pattern": {
+          "regexp": "^(/.+?):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "TEI: ODD からスキーマを生成",
+      "type": "shell",
+      "command": "./scripts/build-schema.zsh",
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "TEI: 検証ツールを取得",
+      "type": "shell",
+      "command": "./scripts/setup-tools.zsh",
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "problemMatcher": []
+    }
+  ]
+}

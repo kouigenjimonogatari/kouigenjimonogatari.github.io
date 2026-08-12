@@ -69,8 +69,10 @@ def build_tei(ch, src_path, dst_path):
     # Add processing instructions at the beginning
     pis = (
         '<?xml version="1.0" ?>\n'
-        f'<?xml-model href="{SITE_URL}/lw/tei_genji.rng" '
+        f'<?xml-model href="{SITE_URL}/schema/tei_kouigenji.rng" '
         'type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>\n'
+        f'<?xml-model href="{SITE_URL}/schema/tei_kouigenji.sch" '
+        'type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>\n'
     )
     content = pis + content
 
