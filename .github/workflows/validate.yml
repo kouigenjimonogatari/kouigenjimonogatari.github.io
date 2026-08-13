@@ -66,3 +66,7 @@ jobs:
 
       - name: Validate all chapters
         run: ./scripts/validate.zsh
+
+      # seg/@corresp の URI が、TEI 上のページ・行と食い違っていないか
+      - name: API URIs must agree with the TEI
+        run: python3 scripts/build_api.py --check

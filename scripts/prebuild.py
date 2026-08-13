@@ -481,40 +481,20 @@ def build_epub(ch):
 
 
 def build_api():
-    """4-6: Generate docs/api/ and docs/files/rdf/ by calling existing scripts."""
-    scripts_dir = os.path.join(BASE_DIR, 'scripts')
-    api_items_dir = os.path.join(DOCS_DIR, 'api', 'items')
-    api_sets_dir = os.path.join(DOCS_DIR, 'api', 'item_sets')
-    rdf_dir = os.path.join(DOCS_DIR, 'files', 'rdf')
+    """4-6: Generate docs/api/ (JSON-LD) from xml/master/ via scripts/build_api.py.
 
-    os.makedirs(api_items_dir, exist_ok=True)
-    os.makedirs(api_sets_dir, exist_ok=True)
-    os.makedirs(rdf_dir, exist_ok=True)
-
-    # Run 001_convert_xlsx_to_rdf.py (generates api/items/ and files/rdf/items.rdf)
-    # This script uses relative paths from scripts/ dir
-    print('  Running 001_convert_xlsx_to_rdf.py...')
+    以前は data/metadata.xlsx から生成していたが、その xlsx は本文修正・異体字
+    正規化より前の状態で止まっており、現行の TEI と 25,065 行中 24,747 行で
+    本文が食い違っていた。xml/master/ がマスターなので、API もそこから作る。
+    """
     result = subprocess.run(
-        [sys.executable, '001_convert_xlsx_to_rdf.py'],
-        capture_output=True, text=True, cwd=scripts_dir
+        [sys.executable, os.path.join(BASE_DIR, 'scripts', 'build_api.py')],
+        capture_output=True, text=True, cwd=BASE_DIR
     )
+    print(result.stdout, end='')
     if result.returncode != 0:
-        print(f'    Error: {result.stderr[:500]}', file=sys.stderr)
+        print(result.stderr[:2000], file=sys.stderr)
         return False
-
-    # Run 011_create_collection.py (generates api/item_sets/ and files/rdf/item_sets.rdf)
-    print('  Running 011_create_collection.py...')
-    result = subprocess.run(
-        [sys.executable, '011_create_collection.py'],
-        capture_output=True, text=True, cwd=scripts_dir
-    )
-    if result.returncode != 0:
-        print(f'    Error: {result.stderr[:500]}', file=sys.stderr)
-        return False
-
-    items_count = len(os.listdir(api_items_dir))
-    sets_count = len(os.listdir(api_sets_dir))
-    print(f'  Generated {items_count} items, {sets_count} item_sets')
     return True
 
 

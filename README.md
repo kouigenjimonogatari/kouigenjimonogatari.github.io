@@ -90,17 +90,32 @@ Schematron なら「waka-001 は 4 句」と名指しできます。
 
 なお TEI P5 自身が持つ制約（19パターン）も ODD 経由で一緒に取り込まれます。
 
-## 既知の課題
+## item API（Linked Open Data）
 
-`seg/@corresp` が指す `https://w3id.org/kouigenjimonogatari/api/items/<ページ>-<行>.json` は、
-現在 404 です（w3id.org は `kouigenjimonogatari.github.io/api/` へリダイレクトしますが、
-その実体が公開されていません）。
+本文1行ごとに URI を与え、その実体を JSON-LD として配信しています。
 
-- 書式そのものは 25,065 件すべてが規定どおりで、4桁部分が直前の `pb/@n` と一致することも確認済みです
-- 生成するのは `scripts/prebuild.py` の `build_api()` ですが、`deploy.yml` は
-  `prebuild.py` に `tei xsl waka stats epub` しか渡しておらず、`api` が実行されていません
-- 有効化するには `requirements.txt` に `pandas` / `numpy` / `rdflib` の追加が必要です
-  （`scripts/001_convert_xlsx_to_rdf.py` と `011_create_collection.py` が使用）
+```
+https://w3id.org/kouigenjimonogatari/api/items/<ページ番号4桁>-<行番号2桁>.json
+https://w3id.org/kouigenjimonogatari/api/item_sets/<帖2桁>.json
+https://w3id.org/kouigenjimonogatari/api/context.json
+```
+
+これは `xml/master/*.xml` の `seg/@corresp` が指す URI の実体です（item 25,065 件 / item_set 54 件）。
+
+```
+python3 scripts/build_api.py            docs/api/ に生成する
+python3 scripts/build_api.py --check    出力せず TEI との整合だけ検査する
+```
+
+生成元は **TEI 本文です**。以前は `scripts/001_convert_xlsx_to_rdf.py` が
+`scripts/data/metadata.xlsx` から作っていましたが、その xlsx は本文修正・異体字正規化
+より前の状態で止まっており、現行の TEI と比べて 25,065 行中 24,747 行で本文が違います
+（後凉殿/後涼殿、御覽/御覧、いと〱しく/いとゝしく など）。`xml/master/` がマスターである以上、
+API もそこから作ります。副次的に `pandas` / `numpy` / `rdflib` / `openpyxl` が不要になり、
+依存は `lxml` だけになりました。
+
+なお SPARQL エンドポイント（`docs/snorql/` から参照している Dydra）は別管理です。
+JSON-LD は RDF なので、生成物をそのまま投入できます。
 
 ## エディタ
 

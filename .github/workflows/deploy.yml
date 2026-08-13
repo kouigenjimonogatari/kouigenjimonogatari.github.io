@@ -57,10 +57,10 @@ jobs:
           curl -sL -o /tmp/xmlresolver.jar \
             https://repo1.maven.org/maven2/org/xmlresolver/xmlresolver/6.0.4/xmlresolver-6.0.4.jar
 
-      - name: Run prebuild (tei, xsl, waka, stats)
+      - name: Run prebuild (tei, xsl, waka, stats, api)
         env:
           SAXON_JAR: /tmp/saxon-he.jar:/tmp/xmlresolver.jar
-        run: python3 scripts/prebuild.py tei xsl waka stats epub
+        run: python3 scripts/prebuild.py tei xsl waka stats api epub
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
