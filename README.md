@@ -90,6 +90,18 @@ Schematron なら「waka-001 は 4 句」と名指しできます。
 
 なお TEI P5 自身が持つ制約（19パターン）も ODD 経由で一緒に取り込まれます。
 
+## 既知の課題
+
+`seg/@corresp` が指す `https://w3id.org/kouigenjimonogatari/api/items/<ページ>-<行>.json` は、
+現在 404 です（w3id.org は `kouigenjimonogatari.github.io/api/` へリダイレクトしますが、
+その実体が公開されていません）。
+
+- 書式そのものは 25,065 件すべてが規定どおりで、4桁部分が直前の `pb/@n` と一致することも確認済みです
+- 生成するのは `scripts/prebuild.py` の `build_api()` ですが、`deploy.yml` は
+  `prebuild.py` に `tei xsl waka stats epub` しか渡しておらず、`api` が実行されていません
+- 有効化するには `requirements.txt` に `pandas` / `numpy` / `rdflib` の追加が必要です
+  （`scripts/001_convert_xlsx_to_rdf.py` と `011_create_collection.py` が使用）
+
 ## エディタ
 
 `xml/master/*.xml` の `<?xml-model?>` は公開 URL を指しています。そのまま編集すると
