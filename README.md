@@ -138,6 +138,12 @@ would validate them against **the deployed schema**, so a `catalog.xml` is provi
   it inherits the **dual license of CC BY-SA 3.0 / BSD-2** (see `<availability>` in the file).
   These terms differ from the CC BY 4.0 of the repository as a whole, so please take care when reusing it.
 
+### How to cite
+
+Please cite the dataset using `CITATION.cff` (GitHub shows it as "Cite this repository").
+Each release is archived on Zenodo; the DOI will be added here after the first release (v1.0.0).
+Errors in the text can be reported with the "Report an error in the text" issue form.
+
 ---
 
 <a id="日本語"></a>
@@ -277,3 +283,10 @@ JSON-LD は RDF なので、生成物をそのまま投入できます。
 * `odd/tei_kouigenji.odd`: TEI 配布物の最小カスタマイズ（tei_minimal）を出発点としているため、
   **CC BY-SA 3.0 / BSD-2 のデュアルライセンス**を引き継ぎます（ファイル内の `<availability>` を参照）。
   リポジトリ全体の CC BY 4.0 とは条件が異なるため、再利用の際はご注意ください。
+
+
+### 引用
+
+`CITATION.cff` の情報で引用してください（GitHub の画面では「Cite this repository」として出ます）。
+各版は Zenodo に保存します。DOI は最初の版（v1.0.0）の公開後にここに記します。
+本文の誤りは、Issue の「本文の誤りの報告」からお知らせください。

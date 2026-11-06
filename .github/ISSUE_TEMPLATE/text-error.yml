@@ -1,0 +1,34 @@
+name: 本文の誤りの報告 / Report an error in the text
+description: 翻刻・校訂の誤りを知らせる / Report a transcription error
+labels: ["text"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        『校異源氏物語』の紙面と照らして、本文の誤りを見つけたときにお知らせください。
+        Please report differences between this text and the printed *Kōi Genji monogatari*.
+  - type: input
+    id: location
+    attributes:
+      label: 場所 / Location
+      description: 帖・頁・行（例: 01 桐壺 5 頁 3 行）/ Chapter, page, line
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: 開いていた URL / URL
+      description: 該当箇所を開いていた画面の URL（あれば）
+  - type: textarea
+    id: current
+    attributes:
+      label: 今の本文 / Current text
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: 正しいと思われる本文と根拠 / Suggested correction and evidence
+      description: 紙面の画像へのリンクなど
+    validations:
+      required: true
