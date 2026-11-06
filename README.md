@@ -142,12 +142,14 @@ would validate them against **the deployed schema**, so a `catalog.xml` is provi
 
 ### Preservation and publication (OAIS)
 
-Each GitHub release runs `.github/workflows/release.yml`, following the OAIS reference model:
+Each GitHub release runs `.github/workflows/release.yml`, following the information-package model of the OAIS reference model. Each stage is built from what the previous stage stored on the release, not from the working tree.
 
 1. **SIP** — the source zip of the release tag (the same file that Zenodo archives).
 2. **AIP** — built from the SIP with [a3m](https://github.com/artefactual-labs/a3m) (lightweight Archivematica): BagIt with METS/PREMIS (format identification and checksums for every file). The original zip is kept unchanged inside. The AIP is attached to the release and also deposited in the UTokyo Repository.
-3. **DIP** — the website. It is built from the AIP retrieved from the release (after BagIt validation), not from the working tree, and published to GitHub Pages.
+3. **DIP** — the built website, packaged as a zip with a checksum and attached to the release. It is generated from the AIP retrieved from the release (after BagIt validation). `build-info.json` in the site records the AIP checksum and the tool versions used.
+4. **Access** — GitHub Pages serves the DIP as is, without rebuilding it. Only the latest release is published.
 
+Once attached, an AIP or DIP is never rebuilt: a3m writes a new UUID and timestamp on every run, so a rebuild would no longer match the copies deposited elsewhere.
 Pushing to `master` only runs validation; the website changes only when a release is made.
 
 ### How to cite
@@ -299,12 +301,14 @@ JSON-LD は RDF なので、生成物をそのまま投入できます。
 
 ### 保存と公開の流れ（OAIS）
 
-GitHub でリリースを出すと、`.github/workflows/release.yml` が OAIS 参照モデルの流れで動きます。
+GitHub でリリースを出すと、`.github/workflows/release.yml` が OAIS 参照モデルの情報パッケージの考え方で動きます。各段は、作業中のファイルからではなく、前の段がリリースに置いたものから作ります。
 
 1. **SIP** … リリースのタグのソース zip（Zenodo が保存するものと同じファイル）
 2. **AIP** … SIP から [a3m](https://github.com/artefactual-labs/a3m)（軽量版 Archivematica）で作る。BagIt の中に METS/PREMIS（全ファイルの形式の判定とチェックサム）を入れ、元の zip もそのまま残す。リリースに添付し、東京大学のリポジトリにも登録する
-3. **DIP** … 公開サイト。作業中のファイルからではなく、リリースに置いた AIP を取り直し、BagIt で検証してから、その中のソースで組み立てて GitHub Pages に出す
+3. **DIP** … 組み立てたサイト一式。リリースに置いた AIP を取り直し、BagIt で検証してから、その中のソースで組み立てる。zip にしてチェックサムを付け、リリースに添付する。サイトの `build-info.json` に、元の AIP のチェックサムと使った道具の版を記録する
+4. **公開** … GitHub Pages は DIP を組み立て直さず、そのまま置く。公開するのは最新のリリースだけ
 
+一度添付した AIP と DIP は作り直しません。a3m は実行のたびに UUID と日時を書き込むので、作り直すと、ほかの場所に置いた写しと一致しなくなるためです。
 `master` への push では検証だけが走ります。サイトが変わるのはリリースのときだけです。
 
 ### 引用
