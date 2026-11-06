@@ -1,5 +1,7 @@
 # Koui Genji Monogatari Text Data Repository / 校異源氏物語・本文テキストデータリポジトリ
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24015761.svg)](https://doi.org/10.5281/zenodo.24015761)
+
 [English](#english) | [日本語](#日本語)
 
 <a id="english"></a>
@@ -141,7 +143,7 @@ would validate them against **the deployed schema**, so a `catalog.xml` is provi
 ### How to cite
 
 Please cite the dataset using `CITATION.cff` (GitHub shows it as "Cite this repository").
-Each release is archived on Zenodo; the DOI will be added here after the first release (v1.0.0).
+Each release is archived on Zenodo. DOI for all versions: https://doi.org/10.5281/zenodo.24015761 (v1.0.0: https://doi.org/10.5281/zenodo.24015762).
 Errors in the text can be reported with the "Report an error in the text" issue form.
 
 ---
@@ -288,5 +290,5 @@ JSON-LD は RDF なので、生成物をそのまま投入できます。
 ### 引用
 
 `CITATION.cff` の情報で引用してください（GitHub の画面では「Cite this repository」として出ます）。
-各版は Zenodo に保存します。DOI は最初の版（v1.0.0）の公開後にここに記します。
+各版は Zenodo に保存しています。全版共通の DOI: https://doi.org/10.5281/zenodo.24015761（v1.0.0: https://doi.org/10.5281/zenodo.24015762）。
 本文の誤りは、Issue の「本文の誤りの報告」からお知らせください。
