@@ -84,3 +84,16 @@
 - a3m の終了時に gRPC の GOAWAY の記録が 1 行出るが、処理は「completed successfully」で終わっており無害
 - AIP・DIP の大きさは、試験では記録し損ねた（step summary を API から読めなかった）。v1.0.0 の本番の実行で測る
 - 試験用ワークフローは、確認後に削除した
+
+### 追記（同日）: v1.0.0 の本番の実行
+
+- release.yml を tag=v1.0.0 で手動実行（run 42270635512）。4 段とも成功、全体 4 分 43 秒
+  （validate 1 分 36 秒、aip 1 分 21 秒、dip 1 分 17 秒、deploy 17 秒）。画面: img/run-42270635512-v1.0.0.jpg
+  （Actions の実行記録は既定で 90 日で消えるので、画面と値をここに残す）
+- SIP: MD5 97f1c7670bb9bf9d97d1049a0efb9b11（Zenodo の zip と一致）、SHA-256 ccdd7831364be1ffee327dc133555d9f8e8b4c0e62718921184c2bcf615ce939
+- AIP: 57,039,803 バイト、UUID 97968d8b-0572-4baf-9161-319e875163d9、
+  SHA-256 182149432e381fd5a4cdf3ec0b67d536349776fa3406c835f78b0685e046bdec、MD5 8fc551a9955e2bb7b52686ea7aee7e83
+- DIP: 35,547,043 バイト、28,065 ファイル、SHA-256 576162abd0e6700a4ff3863dabcaeaedf0fd5c73f0737113fda38c63c6b239cf
+- v1.0.0 のタグのコミットは 864328b9ec8eaf05f93b6ed01a2e52905fdeb76d（DIP の build-info.json にも記録）
+- AIP→DIP の変換は scripts/prebuild.py（Python 3.12・Saxon-HE 12.5・lxml）。AIP の中の元の zip だけを使い、
+  METS/PREMIS は DIP に引き継いでいない。PDF は Actions では作らず、コミット済みの 54 件をそのまま写す
