@@ -140,6 +140,16 @@ would validate them against **the deployed schema**, so a `catalog.xml` is provi
   it inherits the **dual license of CC BY-SA 3.0 / BSD-2** (see `<availability>` in the file).
   These terms differ from the CC BY 4.0 of the repository as a whole, so please take care when reusing it.
 
+### Preservation and publication (OAIS)
+
+Each GitHub release runs `.github/workflows/release.yml`, following the OAIS reference model:
+
+1. **SIP** — the source zip of the release tag (the same file that Zenodo archives).
+2. **AIP** — built from the SIP with [a3m](https://github.com/artefactual-labs/a3m) (lightweight Archivematica): BagIt with METS/PREMIS (format identification and checksums for every file). The original zip is kept unchanged inside. The AIP is attached to the release and also deposited in the UTokyo Repository.
+3. **DIP** — the website. It is built from the AIP retrieved from the release (after BagIt validation), not from the working tree, and published to GitHub Pages.
+
+Pushing to `master` only runs validation; the website changes only when a release is made.
+
 ### How to cite
 
 Please cite the dataset using `CITATION.cff` (GitHub shows it as "Cite this repository").
@@ -286,6 +296,16 @@ JSON-LD は RDF なので、生成物をそのまま投入できます。
   **CC BY-SA 3.0 / BSD-2 のデュアルライセンス**を引き継ぎます（ファイル内の `<availability>` を参照）。
   リポジトリ全体の CC BY 4.0 とは条件が異なるため、再利用の際はご注意ください。
 
+
+### 保存と公開の流れ（OAIS）
+
+GitHub でリリースを出すと、`.github/workflows/release.yml` が OAIS 参照モデルの流れで動きます。
+
+1. **SIP** … リリースのタグのソース zip（Zenodo が保存するものと同じファイル）
+2. **AIP** … SIP から [a3m](https://github.com/artefactual-labs/a3m)（軽量版 Archivematica）で作る。BagIt の中に METS/PREMIS（全ファイルの形式の判定とチェックサム）を入れ、元の zip もそのまま残す。リリースに添付し、東京大学のリポジトリにも登録する
+3. **DIP** … 公開サイト。作業中のファイルからではなく、リリースに置いた AIP を取り直し、BagIt で検証してから、その中のソースで組み立てて GitHub Pages に出す
+
+`master` への push では検証だけが走ります。サイトが変わるのはリリースのときだけです。
 
 ### 引用
 

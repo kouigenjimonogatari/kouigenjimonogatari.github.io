@@ -1,0 +1,156 @@
+name: Release (SIP → AIP → DIP)
+
+# リリースのたびに、OAIS 参照モデルの流れで保存と公開を行う。
+#
+#   1. validate  タグの版を RELAX NG / Schematron で検証する（通らなければ止まる）
+#   2. aip       SIP = GitHub のソース zip（Zenodo が保存するものと同じファイル）。
+#                a3m（軽量版 Archivematica）で AIP（BagIt + METS/PREMIS）を作り、リリースに添付する
+#   3. dip       リリースに添付した AIP を取り直し、BagIt で検証し、
+#                その中のソースからサイトを組み立てる（DIP は AIP から作る）
+#   4. deploy    組み立てたサイトを GitHub Pages に公開する
+#
+# master への push では公開しない（版を区切って出す）。
+# 既存のタグで作り直すときは Actions の画面から tag を指定して手で流す。
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'AIP と DIP を作るタグ（例: v1.0.0）'
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  TAG: ${{ github.event.release.tag_name || inputs.tag }}
+  # a3m は版の付いたリリースが無いので、イメージをダイジェストで固定する
+  A3M_IMAGE: ghcr.io/artefactual-labs/a3m@sha256:daafc45963f622c51c671f367562be73a1fa54c1ee473859cc0d941d687d2db0
+
+jobs:
+  validate:
+    uses: ./.github/workflows/validate.yml
+    with:
+      ref: ${{ github.event.release.tag_name || inputs.tag }}
+
+  aip:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # リリースに AIP を添付する
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Assemble SIP (source zip of the tag)
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          NAME="${REPO_NAME}-${TAG}"
+          echo "NAME=$NAME" >> "$GITHUB_ENV"
+          mkdir -p "sip/$NAME" aip
+          gh api "repos/${GITHUB_REPOSITORY}/zipball/${TAG}" > "sip/$NAME/${NAME}.zip"
+          {
+            echo "### SIP"
+            echo "- file: \`${NAME}.zip\`"
+            echo "- MD5: \`$(md5sum "sip/$NAME/${NAME}.zip" | cut -d' ' -f1)\`"
+            echo "- SHA-256: \`$(sha256sum "sip/$NAME/${NAME}.zip" | cut -d' ' -f1)\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+          # a3m はコンテナ内の別ユーザーで動くので、書き込めるようにしておく
+          chmod -R a+rwX sip aip
+
+      - name: Build AIP with a3m
+        run: |
+          docker run --rm \
+            --volume "$PWD/sip:/sip" \
+            --volume "$PWD/aip:/home/a3m/.local/share/a3m/share/completed" \
+            --entrypoint python "$A3M_IMAGE" \
+            -m a3m.cli.client --name="$NAME" \
+            --processing-config=extract_packages=yes \
+            --processing-config=delete_packages_after_extraction=no \
+            --processing-config=normalize=no \
+            "file:///sip/$NAME" 2>&1 | tee a3m.log
+          grep -q 'Processing completed successfully' a3m.log
+          f=$(ls aip/*.7z)
+          mv "$f" "aip/${NAME}-aip.7z"
+          (cd aip && sha256sum "${NAME}-aip.7z" > "${NAME}-aip.7z.sha256")
+          {
+            echo "### AIP"
+            echo "- a3m: \`$A3M_IMAGE\`"
+            echo "- AIP UUID: \`$(basename "$f" .7z | grep -oE '[0-9a-f-]{36}$')\`"
+            echo "- SHA-256: \`$(cut -d' ' -f1 "aip/${NAME}-aip.7z.sha256")\`"
+            echo "- size: $(du -h "aip/${NAME}-aip.7z" | cut -f1)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Attach AIP to the release
+        run: gh release upload "$TAG" aip/*-aip.7z aip/*-aip.7z.sha256 --clobber -R "$GITHUB_REPOSITORY"
+
+  dip:
+    needs: aip
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      # ジョブ間の受け渡しではなく、保存先（リリース）に置いた AIP そのものから作る
+      - name: Retrieve AIP from the release
+        run: |
+          gh release download "$TAG" -p '*-aip.7z' -p '*-aip.7z.sha256' -R "$GITHUB_REPOSITORY"
+          sha256sum -c ./*-aip.7z.sha256
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+
+      - name: Unpack and validate the bag
+        run: |
+          7z x -y ./*-aip.7z -oaip > /dev/null
+          BAG=$(ls -d aip/*/)
+          pip install bagit
+          python -m bagit --validate "$BAG"
+          # AIP に入っている元の zip（SIP）を取り出し、そこから組み立てる
+          SRC_ZIP=$(ls "$BAG"data/objects/*.zip)
+          mkdir src && unzip -q "$SRC_ZIP" -d src
+          echo "SRC=$(ls -d "$PWD"/src/*/)" >> "$GITHUB_ENV"
+
+      - name: Install Python dependencies
+        run: pip install -r "$SRC/requirements.txt"
+
+      - name: Set up Java
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Download Saxon-HE and xmlresolver
+        run: |
+          curl -sL -o /tmp/saxon-he.jar https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/12.5/Saxon-HE-12.5.jar
+          curl -sL -o /tmp/xmlresolver.jar https://repo1.maven.org/maven2/org/xmlresolver/xmlresolver/6.0.4/xmlresolver-6.0.4.jar
+
+      - name: Build the site from the AIP (tei, xsl, waka, stats, api, epub)
+        env:
+          SAXON_JAR: /tmp/saxon-he.jar:/tmp/xmlresolver.jar
+        run: python3 "$SRC/scripts/prebuild.py" tei xsl waka stats api epub
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+        with:
+          path: ${{ env.SRC }}docs
+
+  deploy:
+    needs: dip
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
