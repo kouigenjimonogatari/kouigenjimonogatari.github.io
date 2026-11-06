@@ -112,7 +112,7 @@ python3 scripts/build_api.py --check    check consistency with the TEI only, wit
 ```
 
 The API is generated **from the TEI text**. It used to be built by `scripts/001_convert_xlsx_to_rdf.py`
-from `scripts/data/metadata.xlsx`, but that spreadsheet was frozen before text corrections and variant-character normalization,
+from `scripts/data/metadata.xlsx` (both removed before v1.0.0; see the git history), but that spreadsheet was frozen before text corrections and variant-character normalization,
 and its text differs from the current TEI in 24,747 of 25,065 lines
 (e.g. 後凉殿/後涼殿, 御覽/御覧, いと〱しく/いとゝしく). Since `xml/master/` is the master,
 the API is built from it as well. As a side effect, `pandas` / `numpy` / `rdflib` / `openpyxl` are no longer needed,
@@ -251,7 +251,7 @@ python3 scripts/build_api.py --check    出力せず TEI との整合だけ検�
 ```
 
 生成元は **TEI 本文です**。以前は `scripts/001_convert_xlsx_to_rdf.py` が
-`scripts/data/metadata.xlsx` から作っていましたが、その xlsx は本文修正・異体字正規化
+`scripts/data/metadata.xlsx` から作っていましたが（どちらも v1.0.0 の前に削除。git の履歴に残っています）、その xlsx は本文修正・異体字正規化
 より前の状態で止まっており、現行の TEI と比べて 25,065 行中 24,747 行で本文が違います
 （後凉殿/後涼殿、御覽/御覧、いと〱しく/いとゝしく など）。`xml/master/` がマスターである以上、
 API もそこから作ります。副次的に `pandas` / `numpy` / `rdflib` / `openpyxl` が不要になり、
