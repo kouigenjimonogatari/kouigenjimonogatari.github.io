@@ -75,6 +75,57 @@
 - Archivematica（AIP・DIP と AtoM への受け渡し）: https://www.archivematica.org/
 - Endings Project, Endings Principles for Digital Longevity v2.2: https://endings.uvic.ca/principles.html
 
+先行研究（agy で探し、書誌は Crossref・J-STAGE・各誌のページで確かめた。括弧内はこの取り組みとの違い）:
+
+OAIS を個別のプロジェクト・研究データに当てはめたもの
+- Oltmanns, E., Hasler, T., Peters-Kottig, W., Kuper, H.-G. Different Preservation Levels: The Case of Scholarly Digital Editions. Data Science Journal, 18, 2019. https://doi.org/10.5334/dsj-2019-051 （保存機関が移管時にパッケージを作る前提。リリースごとの自動生成ではない）
+- Roberts, J. Archival Information Packages: A Data-Centric Approach to Preservation. International Journal of Digital Curation, 20(1), 2026. https://doi.org/10.2218/ijdc.v20i1.1154 （AIP を自己完結した正本とする設計原則。原則の提示で、AIP から DIP を作り直して確かめる実装はない）
+- Bouras, A., Naseem, H., Belhi, A. Preserving Research Grant Data: Building an OAIS-Compliant Open Archive. EPiC Series in Computing, 107, pp. 272–281（EUNIS 2025）. https://doi.org/10.29007/q3wz （受け入れ側の基盤の設計）
+- Lavoie, B. The Open Archival Information System (OAIS) Reference Model: Introductory Guide (2nd Edition). DPC Technology Watch Report 14-02, 2014. https://doi.org/10.7207/twr14-02
+- Archaeology Data Service / Digital Antiquity. Guides to Good Practice: Digital Archiving and the Project Lifecycle. https://doi.org/10.5284/h0p2-5584 （OAIS の節の著者名は確かめていない）
+
+Git・GitHub・CI と保存
+- Di Cosmo, R., Zacchiroli, S. Software Heritage: Why and How to Preserve Software Source Code. iPRES 2017, pp. 1–10. https://hal.science/hal-01590958 （ソースの収集・保存。DIP は扱わない）
+- Escamilla, E., Klein, M., Cooper, T., Rampin, V., Weigle, M. C., Nelson, M. L. The Rise of GitHub in Scholarly Publications. TPDL 2022, LNCS 13541, pp. 187–200. https://doi.org/10.1007/978-3-031-16802-4_15
+- Almas, B., Clérice, T. Continuous Integration and Unit Testing of Digital Editions. Digital Humanities Quarterly, 11(4), 2017. http://www.digitalhumanities.org/dhq/vol/11/4/000350/000350.html （TEI 版に CI を当てた例。目的は品質の検査で、保存パッケージは作らない）
+- Houillon, M., Klar, J., Boutanios, Z., Stary, T., Cojean, T., Anzt, H., Loewe, A. FACILE-RS: archiving and long-term preservation of research software repositories made easy. Journal of Open Source Software, 10(114), 7330, 2025. https://doi.org/10.21105/joss.07330 （Git のリリースから CI でアーカイブ用の包みを作る。いちばん近い。DIP の作り直しによる確認はない）
+- GitHub Archive Program: https://archiveprogram.github.com/
+
+静的サイトによる長期の公開
+- Holmes, M., Takeda, J. From Tamagotchis to Pet Rocks: On Learning to Love Simplicity through the Endings Principles. Digital Humanities Quarterly, 17(1), 2023. https://doi.org/10.63744/dr2uaqdau4tz
+- Carlin, C. Endings: Concluding, Archiving, and Preserving Digital Projects for Long-Term Usability. KULA, 2(1), 19, 2018. https://doi.org/10.5334/kula.35
+- Risam, R., Gil, A. Introduction: The Questions of Minimal Computing. Digital Humanities Quarterly, 16(2), 2022. https://doi.org/10.63744/b49fzhuz9hhz
+- Becker, D., Williamson, E., Wikle, O. CollectionBuilder-CONTENTdm: Developing a Static Web 'Skin' for CONTENTdm-based Digital Collections. Code4Lib Journal, 49, 2020. https://journal.code4lib.org/articles/15326
+- Wikle, O. M., Williamson, E. P. Static Web Methodology as a Sustainable Approach to Digital Humanities Projects. Code4Lib Journal, 60, 2025. https://journal.code4lib.org/articles/18372
+
+Archivematica・BagIt をワークフローに組み込んだもの
+- Eckard, M., Pillen, D., Shallcross, M. Bridging Technologies to Efficiently Arrange and Describe Digital Archives: the Bentley Historical Library's ArchivesSpace-Archivematica-DSpace Workflow Integration Project. Code4Lib Journal, 35, 2017. https://journal.code4lib.org/articles/12105
+- Hutchinson, T. Archidora: Integrating Archivematica and Islandora. Code4Lib Journal, 39, 2018. https://journal.code4lib.org/articles/13150
+- Kunze, J., Littman, J., Madden, E., Scancella, J., Adams, C. The BagIt File Packaging Format (V1.0). RFC 8493, 2018. https://doi.org/10.17487/RFC8493
+
+TEI 版の持続性
+- Creamer, A., Lembi, G., Mylonas, E., Satlow, M. Archiving a TEI Project FAIRly. Journal of the Text Encoding Initiative, 14, 2021. https://doi.org/10.4000/jtei.4324
+- Stadler, P., Ferger, A., Röwenstrunk, D. From OxGarage to TEIGarage and MEIGarage: Toward a More Sustainable Software Solution in the Digital Humanities. Journal of the Text Encoding Initiative, 17, 2024. https://doi.org/10.4000/15bou
+- Turska, M., Cummings, J., Rahtz, S. Challenging the Myth of Presentation in Digital Editions. Journal of the Text Encoding Initiative, 9, 2016. https://doi.org/10.4000/jtei.1453
+- Holmes, M. Whatever happened to interchange? Digital Scholarship in the Humanities, 32(suppl_1), 2017（オンライン 2016）. https://doi.org/10.1093/llc/fqw048
+- Drucker, J. Sustainability and complexity: Knowledge and authority in the digital humanities. Digital Scholarship in the Humanities, 36(suppl_2), pp. ii86–ii94, 2021. https://doi.org/10.1093/llc/fqab025
+- Cayless, H., Viglianti, R. CETEIcean: TEI in the Browser. Balisage Series on Markup Technologies, 21, 2018. https://doi.org/10.4242/BalisageVol21.Cayless01
+
+日本
+- 金 甫榮, 中村 覚, 山田 太造, 渡邉 英徳. デジタル資料の長期保存のためのOAIS参照モデルによる情報パッケージの作成：東京大学史料編纂所を事例に. デジタルアーカイブ学会誌, 9(3), pp. e15–e24, 2025. https://doi.org/10.24506/jsda.9.3_e15
+- 川嶌 健一, 高久 雅生. OAIS参照モデルに関するこれまでの議論と第3版改訂における現在地. デジタルアーカイブ学会誌, 10(s2), pp. s87–s90, 2026. https://doi.org/10.24506/jsda.10.s2_s87
+- 中村 覚, 金 甫榮, 南山 泰之. Archivematicaを活用したデジタルデータの長期保存を支援する簡易操作アプリケーションの開発. デジタルアーカイブ学会誌, 7(s2), pp. s107–s110, 2023. https://doi.org/10.24506/jsda.7.s2_s107
+- 金 甫榮, 中村 覚, 渡邉 英徳. 真正なデジタル化資料の長期保存と公開：ArchivematicaとOmeka Sを用いた事例. デジタルアーカイブ学会誌, 6(s3), pp. s147–s150, 2022. https://doi.org/10.24506/jsda.6.s3_s147
+- 金 甫榮, 渡邉 英徳. 組織アーカイブズにおける真正なデジタル記録の長期保存の要件：Archivematicaを用いた検討. アーカイブズ学研究, 38, pp. 4–35, 2023. https://doi.org/10.32239/archivalscience.38.0_4
+- 五島 敏芳, 戸田 健太郎. 教育研究のアーカイブ資料の情報への永続識別子の付与：京都大学デジタルアーカイブシステムPeekにおけるARKの利用. 情報知識学会誌, 31(4), pp. 478–481, 2021. https://doi.org/10.2964/jsik_2021_063
+- 永崎 研宣. 国際的な情報技術標準化における日本文化資料. 情報知識学会誌, 33(3), 2023. https://doi.org/10.2964/jsik_2023_026
+
+確かめられなかったもの:
+- 金 甫榮ほか「デジタル資料の保存用メタデータの検討：Archivematicaが出力するAIPの内容分析」じんもんこん2024（http://id.nii.ac.jp/1001/00241398/）。情報学広場が 503 で開けなかった
+- 見つからなかったこと（agy の検索の範囲で）: a3m を CI の上で動かした査読論文。AIP を取り直して DIP を作り直し、AIP の十分性を確かめる手法の報告
+
+agy の書誌の誤りで直したもの: Bouras ほかの頁（agy は 122–131、正しくは 272–281）。Bentley の記事の URL（agy は 12115 で、開くと Not Found。正しくは 12105）。
+
 ### 追記（同日）: Actions の上での試験
 
 - 試験用ワークフロー（PR #18 の test-release.yml、run 42268730245）で、Actions の ubuntu-latest の上で通しで成功した
