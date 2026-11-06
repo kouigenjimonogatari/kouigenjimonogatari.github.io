@@ -97,3 +97,14 @@
 - v1.0.0 のタグのコミットは 864328b9ec8eaf05f93b6ed01a2e52905fdeb76d（DIP の build-info.json にも記録）
 - AIP→DIP の変換は scripts/prebuild.py（Python 3.12・Saxon-HE 12.5・lxml）。AIP の中の元の zip だけを使い、
   METS/PREMIS は DIP に引き継いでいない。PDF は Actions では作らず、コミット済みの 54 件をそのまま写す
+
+### 追記（同日）: 東京大学のリポジトリへの登録
+
+- UTokyo Repository Self Archive（Esploro）に v1.0.0 の AIP を登録し、送信した。状態は「送信済み」（担当者の確認後に公開）
+- 資料タイプはデータセット。AIP 自身の DOI は付けない（引用に使う DOI は Zenodo の 1 本にする）。
+  Zenodo の v1.0.0（10.5281/zenodo.24015762）を関連アセット「派生元」（DataCite の IsDerivedFrom）として付けた
+- ライセンス欄は CC BY 4.0。著作権表示の欄にライセンスの内訳（TEI データは CC0 1.0、ODD は CC BY-SA 3.0 / BSD-2）を書いた
+- 抄録に AIP の SHA-256・MD5・UUID、元のコミット、作成したワークフローの実行の URL を書いた
+- 自明でなかったこと: Chrome の拡張から上げられるファイルは 10MB までで、57MB の AIP は手でドロップした。
+  フォームの「DOI から補完」は Zenodo の DOI を見つけられず、しかも入力した DOI がこの資料自身の DOI 欄に入ってしまった（消した）
+- 自動化について: 登録の API（Esploro の Research Assets API）は機関が管理する鍵が要るので、当面は手作業
