@@ -74,3 +74,13 @@
 - a3m: https://github.com/artefactual-labs/a3m
 - Archivematica（AIP・DIP と AtoM への受け渡し）: https://www.archivematica.org/
 - Endings Project, Endings Principles for Digital Longevity v2.2: https://endings.uvic.ca/principles.html
+
+### 追記（同日）: Actions の上での試験
+
+- 試験用ワークフロー（PR #18 の test-release.yml、run 42268730245）で、Actions の ubuntu-latest の上で通しで成功した
+  （SIP → a3m で AIP → BagIt 検証 → AIP の中のソースから DIP の組み立て）
+- 所要時間: ジョブ全体 2 分 10 秒。うち a3m 64 秒（イメージの取得込み）、DIP の組み立て 51 秒
+- a3m はコンテナ内の別ユーザーで動くが、作業フォルダの書き込み権限を広げておけば問題なかった
+- a3m の終了時に gRPC の GOAWAY の記録が 1 行出るが、処理は「completed successfully」で終わっており無害
+- AIP・DIP の大きさは、試験では記録し損ねた（step summary を API から読めなかった）。v1.0.0 の本番の実行で測る
+- 試験用ワークフローは、確認後に削除した
