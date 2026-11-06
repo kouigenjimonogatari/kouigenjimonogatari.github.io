@@ -1,0 +1,19 @@
+{
+  "upload_type": "dataset",
+  "title": "校異源氏物語テキストDB / Koui Genji Monogatari Text Database",
+  "description": "<p>池田亀鑑『校異源氏物語』（中央公論社、1942）の本文 54 帖を TEI で記述したデータと、その検証用のスキーマ（ODD・RELAX NG・Schematron）。デジタル源氏物語の一部。</p><p>TEI text of all 54 chapters of the <i>Kōi Genji monogatari</i> (Ikeda Kikan, 1942), with the TEI customization (ODD) and the schemas generated from it. Part of the Digital Genji project.</p><p>Website: https://kouigenjimonogatari.github.io/</p>",
+  "creators": [
+    {
+      "name": "Nakamura, Satoru",
+      "affiliation": "The University of Tokyo",
+      "orcid": "0000-0001-8245-7925"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "language": "jpn",
+  "keywords": ["Genji monogatari", "源氏物語", "校異源氏物語", "TEI", "IIIF", "Linked Open Data"],
+  "related_identifiers": [
+    {"identifier": "https://kouigenjimonogatari.github.io/", "relation": "isDocumentedBy", "resource_type": "other"},
+    {"identifier": "https://genji.lib.u-tokyo.ac.jp/", "relation": "isPartOf", "resource_type": "other"}
+  ]
+}
