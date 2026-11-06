@@ -4,10 +4,18 @@ name: Validate TEI
 # あわせて「ODD から再生成した結果がコミット済みの生成物と一致するか」も確認する
 # （ODD を直して再生成を忘れると、スキーマだけ古いまま気づかれない状態になるため）。
 #
-# push では起動しない。master への push では deploy.yml がこれを呼び出し、
-# 通らなければ公開に進まない（workflow_call）。
+# master への push と PR で検証する（公開はしない）。
+# リリースでは release.yml がこれを呼び出し、通らなければ AIP・公開に進まない（workflow_call）。
 
 on:
+  push:
+    branches: [master]
+    paths:
+      - 'xml/master/**'
+      - 'odd/**'
+      - 'docs/schema/**'
+      - 'scripts/**'
+      - '.github/workflows/validate.yml'
   pull_request:
     paths:
       - 'xml/master/**'
@@ -16,6 +24,12 @@ on:
       - 'scripts/**'
       - '.github/workflows/validate.yml'
   workflow_call:
+    inputs:
+      ref:
+        description: '検証するタグかコミット（空なら呼び出し元の版）'
+        type: string
+        required: false
+        default: ''
   workflow_dispatch:
 
 permissions:
@@ -26,6 +40,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - name: Set up Java
         uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
