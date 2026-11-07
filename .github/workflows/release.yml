@@ -1,19 +1,36 @@
-name: Release (SIP → AIP → DIP → Pages)
+name: Release (SIP → AIP → Zenodo → DIP → Pages)
 
 # リリースのたびに、OAIS 参照モデルの情報パッケージの考え方で保存と公開を行う。
 #
 #   1. validate  タグの版を RELAX NG / Schematron で検証する（通らなければ止まる）
-#   2. aip       SIP = GitHub のソース zip（Zenodo が保存するものと同じファイル）。
-#                a3m（軽量版 Archivematica）で AIP（BagIt + METS/PREMIS）を作り、リリースに添付する
-#   3. dip       リリースに添付した AIP を取り直し、検証し、その中のソースからサイトを組み立てる。
-#                組み立てたサイト一式を DIP として zip にし、リリースに添付する
+#   2. aip       SIP = GitHub のソース zip。a3m（軽量版 Archivematica）で AIP（BagIt + METS/PREMIS）を作り、
+#                同じジョブの中で Zenodo の API に上げて公開する（DOI が付く）。そのあとリリースにも添付する
+#   3. dip       リリースに添付した AIP を取り直し、その MD5 を Zenodo の記録の AIP と突き合わせる。
+#                合えば、その中のソースからサイトを組み立て、DIP として zip にしてリリースに添付する
 #   4. deploy    リリースに添付した DIP を取り直し、そのまま GitHub Pages（アクセスシステム）に置く
 #
-# 各段は、前の段の「保存先（リリース）に置いた成果物」から作る。ジョブ間で直接受け渡さない。
+# なぜ Zenodo と突き合わせるか: GitHub に書き込める者は、添付の AIP と SHA-256 を一緒に差し替えられる。
+# 公開済みの Zenodo の記録は GitHub の外にあり、ファイルを差し替えられない（所有者による公開後 30 日以内の
+# 修正は除く）。AIP を作った直後の値を Zenodo に置いて正とする。
+# 同じ版名（version == タグ）の記録が複数あれば、created の最も古いものだけを正とする（.github/scripts/zenodo.py）。
+#
+# Zenodo の GitHub 連携（リリースのたびにソース zip を自動で取り込む）は止めておくこと。止めないと、
+# 同じ版名の記録が 2 つでき、連携の記録（AIP を含まない）が先に作られると、dip の段が止まる。
+#
+# 設定（secrets は Settings → Environments → zenodo、vars は Settings → Secrets and variables → Actions）。
+# 入れ方は scripts/setup/zenodo-token.zsh:
+#   secrets.ZENODO_TOKEN / ZENODO_SANDBOX_TOKEN   本番 / sandbox の個人用トークン（deposit:write・deposit:actions）
+#   vars.ZENODO_API                               API の基点（既定 https://zenodo.org/api）
+#   vars.ZENODO_DEPOSITION_ID                     新しい版を足す元の記録（概念のどの版の ID でもよい）。空なら新規の記録
+#   vars.ZENODO_SANDBOX_DEPOSITION_ID             sandbox での同じもの（試験は空のまま＝毎回新規、が扱いやすい）
+#
+# 試験: Actions の画面から workflow_dispatch で mode を sandbox-test にして流す。既存のタグで AIP を作り、
+# sandbox.zenodo.org に公開し、Actions の成果物（artifact）経由で dip の段の照合と組み立てまで行う。
+# リリースへの添付・GitHub Pages への公開はしない。
 #
 # AIP と DIP は一度添付したら作り直さない。a3m は実行のたびに UUID と日時を書き込むので、
-# 作り直すと同じ版でもチェックサムが変わり、東大のリポジトリなどに置いた写しと食い違うため。
-# 作り直したいときは、リリースから該当の添付ファイルを手で消してから流す。
+# 作り直すと同じ版でもチェックサムが変わり、Zenodo の記録や東大のリポジトリに置いた写しと食い違うため。
+# 途中で失敗して流し直したとき、Zenodo に公開済みならその AIP を取り出してリリースに添付する（作り直さない）。
 #
 # master への push では公開しない（版を区切って出す）。
 # 公開するのは最新のリリースだけ。古いタグで手で流しても、AIP・DIP は作るがサイトは戻さない。
@@ -26,6 +43,11 @@ on:
       tag:
         description: 'AIP と DIP を作るタグ（例: v1.0.0）'
         required: true
+      mode:
+        description: 'sandbox-test = sandbox.zenodo.org に公開して照合まで（リリースと Pages は触らない） / release = 本番'
+        type: choice
+        options: [sandbox-test, release]
+        default: sandbox-test
 
 permissions:
   contents: read
@@ -36,9 +58,16 @@ concurrency:
 
 env:
   TAG: ${{ github.event.release.tag_name || inputs.tag }}
+  TEST: ${{ inputs.mode == 'sandbox-test' }}
+  # 試験では、変数の値にかかわらず sandbox を使う
+  ZENODO_API: ${{ inputs.mode == 'sandbox-test' && 'https://sandbox.zenodo.org/api' || vars.ZENODO_API || 'https://zenodo.org/api' }}
+  # どちらを使うかは zenodo.py が API の基点で選ぶ（本番の ID・トークンを sandbox に渡さない）
+  ZENODO_DEPOSITION_ID: ${{ vars.ZENODO_DEPOSITION_ID }}
+  ZENODO_SANDBOX_DEPOSITION_ID: ${{ vars.ZENODO_SANDBOX_DEPOSITION_ID }}
   # a3m は版の付いたリリースが無いので、イメージをダイジェストで固定する
   A3M_IMAGE: ghcr.io/artefactual-labs/a3m@sha256:daafc45963f622c51c671f367562be73a1fa54c1ee473859cc0d941d687d2db0
   GH_TOKEN: ${{ github.token }}
+  ZENODO_PY: wf/.github/scripts/zenodo.py
 
 jobs:
   validate:
@@ -51,19 +80,62 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write   # リリースに AIP を添付する
+    # Zenodo のトークンは、この environment の secret に置く。environment に「承認者」と「タグだけ」の
+    # 制限を付けると、書き込める者が別のワークフローからトークンを使うことを防げる（付けないと防げない）
+    environment: zenodo
+    outputs:
+      record_id: ${{ steps.publish.outputs.record_id || steps.state.outputs.record_id }}
+      aip_md5: ${{ steps.publish.outputs.aip_md5 || steps.state.outputs.aip_md5 }}
     steps:
-      - name: Skip if the AIP is already attached
-        id: check
+      # zenodo.py は、このワークフローと同じ版のものを使う（タグの版には無いことがあるため）
+      - name: Check out the workflow scripts
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          path: wf
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
+      # 何が既にあるかで、作る・取り直す・止めるを決める
+      #   Zenodo に正の記録がある   → 作り直さない（リリースに無ければ Zenodo から取り出して添付する）
+      #   リリースにだけ AIP がある → 止める（Zenodo に守られていない AIP なので、手で消してから流し直す）
+      #   どちらにも無い            → 作る
+      - name: Check what already exists
+        id: state
         run: |
+          set -o pipefail
           NAME="${GITHUB_REPOSITORY#*/}-${TAG}"
           echo "NAME=$NAME" >> "$GITHUB_ENV"
-          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json assets -q '.assets[].name' | grep -qx "${NAME}-aip.7z"; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-            echo "### AIP: 既に添付済みのため作り直さない (\`${NAME}-aip.7z\`)" >> "$GITHUB_STEP_SUMMARY"
+          has=false
+          if [ "$TEST" != true ] && gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json assets -q '.assets[].name' | grep -qx "${NAME}-aip.7z"; then
+            has=true
+          fi
+          echo "release_has_aip=$has" >> "$GITHUB_OUTPUT"
+          found=$(python3 "$ZENODO_PY" lookup --tag "$TAG" | sed -n 's/^found=//p')
+          if [ "$found" = true ]; then
+            echo "build=false" >> "$GITHUB_OUTPUT"
+            echo "### AIP: Zenodo に公開済みのため作り直さない" >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$has" = true ]; then
+            echo "::error::リリースに ${NAME}-aip.7z があるが、Zenodo に版 ${TAG} の AIP の記録が無い。添付を手で消してから流し直す"
+            exit 1
+          else
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Restore AIP from Zenodo
+        if: steps.state.outputs.build == 'false' && (env.TEST == 'true' || steps.state.outputs.release_has_aip != 'true')
+        env:
+          RECORD_ID: ${{ steps.state.outputs.record_id }}
+        run: |
+          mkdir -p aip
+          python3 "$ZENODO_PY" download --record-id "$RECORD_ID" --out-dir aip
+          (cd aip && sha256sum "${NAME}-aip.7z" > "${NAME}-aip.7z.sha256")
+          if [ "$TEST" != true ]; then
+            gh release upload "$TAG" "aip/${NAME}-aip.7z" "aip/${NAME}-aip.7z.sha256" -R "$GITHUB_REPOSITORY"
           fi
 
       - name: Assemble SIP (source zip of the tag)
-        if: steps.check.outputs.exists != 'true'
+        if: steps.state.outputs.build == 'true'
         run: |
           mkdir -p "sip/$NAME" aip
           gh api "repos/${GITHUB_REPOSITORY}/zipball/${TAG}" > "sip/$NAME/${NAME}.zip"
@@ -73,11 +145,13 @@ jobs:
             echo "- MD5: \`$(md5sum "sip/$NAME/${NAME}.zip" | cut -d' ' -f1)\`"
             echo "- SHA-256: \`$(sha256sum "sip/$NAME/${NAME}.zip" | cut -d' ' -f1)\`"
           } >> "$GITHUB_STEP_SUMMARY"
+          # Zenodo のメタデータは、タグの版の .zenodo.json と CITATION.cff から作る
+          mkdir meta && unzip -q -j "sip/$NAME/${NAME}.zip" '*/.zenodo.json' '*/CITATION.cff' -d meta
           # a3m はコンテナ内の別ユーザーで動くので、書き込めるようにしておく
           chmod -R a+rwX sip aip
 
       - name: Build AIP with a3m
-        if: steps.check.outputs.exists != 'true'
+        if: steps.state.outputs.build == 'true'
         run: |
           set -o pipefail
           docker run --rm \
@@ -97,37 +171,82 @@ jobs:
             echo "### AIP"
             echo "- a3m: \`$A3M_IMAGE\`"
             echo "- AIP UUID: \`$(basename "$f" .7z | grep -oE '[0-9a-f-]{36}$')\`"
+            echo "- MD5: \`$(md5sum "aip/${NAME}-aip.7z" | cut -d' ' -f1)\`"
             echo "- SHA-256: \`$(cut -d' ' -f1 "aip/${NAME}-aip.7z.sha256")\`"
             echo "- size: $(du -h "aip/${NAME}-aip.7z" | cut -f1)"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # AIP を作った直後に、GitHub の外（Zenodo）へ置いて公開する。リリースへの添付はその後
+      - name: Publish AIP to Zenodo
+        if: steps.state.outputs.build == 'true'
+        id: publish
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+          ZENODO_SANDBOX_TOKEN: ${{ secrets.ZENODO_SANDBOX_TOKEN }}
+        run: python3 "$ZENODO_PY" publish --tag "$TAG" --aip "aip/${NAME}-aip.7z" --meta-dir meta
+
       # --clobber は付けない。同名があれば失敗させ、黙って上書きしない
       - name: Attach AIP to the release
-        if: steps.check.outputs.exists != 'true'
+        if: steps.state.outputs.build == 'true' && env.TEST != 'true'
         run: gh release upload "$TAG" "aip/${NAME}-aip.7z" "aip/${NAME}-aip.7z.sha256" -R "$GITHUB_REPOSITORY"
+
+      # 試験ではリリースを触らないので、成果物（artifact）として dip の段に渡す
+      - name: Hand the AIP to the dip job (sandbox-test only)
+        if: env.TEST == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: aip
+          path: aip/${{ env.NAME }}-aip.7z*
+          retention-days: 1
+          if-no-files-found: error
 
   dip:
     needs: aip
     runs-on: ubuntu-latest
     permissions:
       contents: write   # リリースに DIP を添付する
+    env:
+      # aip の段で公開した（または既にあった）記録。この記録の AIP と突き合わせる
+      RECORD_ID: ${{ needs.aip.outputs.record_id }}
     steps:
       - name: Skip if the DIP is already attached
         id: check
         run: |
           NAME="${GITHUB_REPOSITORY#*/}-${TAG}"
           echo "NAME=$NAME" >> "$GITHUB_ENV"
-          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json assets -q '.assets[].name' | grep -qx "${NAME}-dip.zip"; then
+          if [ "$TEST" != true ] && gh release view "$TAG" -R "$GITHUB_REPOSITORY" --json assets -q '.assets[].name' | grep -qx "${NAME}-dip.zip"; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
             echo "### DIP: 既に添付済みのため作り直さない (\`${NAME}-dip.zip\`)" >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Check out the workflow scripts
+        if: steps.check.outputs.exists != 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          path: wf
+          sparse-checkout: .github/scripts
+          persist-credentials: false
+
       # ジョブ間の受け渡しではなく、保存先（リリース）に置いた AIP そのものから作る
       - name: Retrieve AIP from the release
+        if: steps.check.outputs.exists != 'true' && env.TEST != 'true'
+        run: gh release download "$TAG" -p "${NAME}-aip.7z" -p "${NAME}-aip.7z.sha256" -R "$GITHUB_REPOSITORY"
+
+      - name: Retrieve AIP from the aip job (sandbox-test only)
+        if: steps.check.outputs.exists != 'true' && env.TEST == 'true'
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: aip
+
+      # SHA-256 の添付は AIP と一緒に差し替えられるので、守りにはならない（壊れた転送の検出だけ）。
+      # 守りは Zenodo の記録との突き合わせ。合わなければここで止め、展開も組み立てもしない
+      - name: Check the AIP against the Zenodo record
         if: steps.check.outputs.exists != 'true'
+        id: verify
         run: |
-          gh release download "$TAG" -p "${NAME}-aip.7z" -p "${NAME}-aip.7z.sha256" -R "$GITHUB_REPOSITORY"
           sha256sum -c "${NAME}-aip.7z.sha256"
+          python3 "$ZENODO_PY" verify --tag "$TAG" --record-id "$RECORD_ID" --aip "${NAME}-aip.7z"
 
       - name: Set up Python
         if: steps.check.outputs.exists != 'true'
@@ -168,11 +287,41 @@ jobs:
         if: steps.check.outputs.exists != 'true'
         env:
           SAXON_JAR: /tmp/saxon-he.jar:/tmp/xmlresolver.jar
-        run: python3 "$SRC/scripts/prebuild.py" tei xsl waka stats api epub
+        run: |
+          set -o pipefail
+          python3 "$SRC/scripts/prebuild.py" tei xsl waka stats api epub 2>&1 | tee build.log
+          # prebuild.py は、一部の帖で失敗しても最後まで進み、成功で終わる
+          if grep -n 'FAILED' build.log; then exit 1; fi
+
+      # 組み立ては、元の TEI や XSLT が欠けていても成功で終わる（欠けた分を黙って飛ばす）。
+      # 54 帖それぞれについて、元の TEI と、DIP の TEI・HTML（日本語・英語）・EPUB がそろっているかを確かめる
+      - name: Check that the DIP covers all 54 chapters
+        if: steps.check.outputs.exists != 'true'
+        run: |
+          python3 - "$SRC" <<'PY'
+          import json, os, sys
+          src = sys.argv[1]
+          need = ["xml/master/{}.xml", "docs/tei/{}.xml", "docs/html/{}.html", "docs/en/html/{}.html", "docs/epub/{}.epub"]
+          paths = [p.format(f"{i:02d}") for i in range(1, 55) for p in need]
+          missing = [p for p in paths if not os.path.isfile(os.path.join(src, p)) or os.path.getsize(os.path.join(src, p)) == 0]
+          chapters = json.load(open(os.path.join(src, "docs/data/chapters.json"), encoding="utf-8"))
+          got = sorted(c["chapter"] for c in chapters)
+          if got != [f"{i:02d}" for i in range(1, 55)]:
+              missing.append(f"docs/data/chapters.json（{len(got)} 帖）")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as out:
+              print(f"### DIP のそろい: {'54 帖そろっている' if not missing else f'**{len(missing)} 件が欠けている**'}", file=out)
+              for m in missing[:20]:
+                  print(f"- 欠け: `{m}`", file=out)
+          for m in missing:
+              print("missing:", m)
+          sys.exit(1 if missing else 0)
+          PY
 
       # DIP が、どの AIP から、どの道具で作られたかを、サイトの中に残す
       - name: Record provenance in the DIP
         if: steps.check.outputs.exists != 'true'
+        env:
+          ZENODO_DOI: ${{ steps.verify.outputs.doi }}
         run: |
           python3 - "$SRC/docs/build-info.json" <<'PY'
           import json, subprocess, sys, datetime, os
@@ -185,6 +334,7 @@ jobs:
               "tag": os.environ["TAG"],
               "commit": commit,
               "aip": {"file": f"{name}-aip.7z", "sha256": aip_sha},
+              "zenodo": {"api": os.environ["ZENODO_API"], "record": os.environ["RECORD_ID"], "doi": os.environ.get("ZENODO_DOI", "")},
               "built_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
               "workflow_run": f"{os.environ['GITHUB_SERVER_URL']}/{os.environ['GITHUB_REPOSITORY']}/actions/runs/{os.environ['GITHUB_RUN_ID']}",
               "tools": {"python": sys.version.split()[0], "java": java, "saxon": "Saxon-HE 12.5", "xmlresolver": "6.0.4", "pip": freeze},
@@ -202,10 +352,15 @@ jobs:
             echo "- SHA-256: \`$(cut -d' ' -f1 "${NAME}-dip.zip.sha256")\`"
             echo "- size: $(du -h "${NAME}-dip.zip" | cut -f1) / files: $(find "$SRC/docs" -type f | wc -l)"
           } >> "$GITHUB_STEP_SUMMARY"
-          gh release upload "$TAG" "${NAME}-dip.zip" "${NAME}-dip.zip.sha256" -R "$GITHUB_REPOSITORY"
+          if [ "$TEST" = true ]; then
+            echo "- sandbox-test のため、リリースには添付しない" >> "$GITHUB_STEP_SUMMARY"
+          else
+            gh release upload "$TAG" "${NAME}-dip.zip" "${NAME}-dip.zip.sha256" -R "$GITHUB_REPOSITORY"
+          fi
 
   deploy:
     needs: dip
+    if: inputs.mode != 'sandbox-test'
     runs-on: ubuntu-latest
     permissions:
       pages: write
