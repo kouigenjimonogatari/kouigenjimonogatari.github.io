@@ -25,6 +25,23 @@ SITE_URL = os.environ.get('SITE_URL', DEFAULT_SITE_URL).rstrip('/')
 
 CHAPTERS = [f'{i:02d}' for i in range(1, 55)]
 
+# 巻名の表記（トップページの一覧用）。
+# 以前はトップページが genji.lib.u-tokyo.ac.jp/data/info.json を読み込んで巻名を出していた。
+# 外部への依存をやめるため、2026-11-06 に同じ値を写してここに置いた。
+VOLUME_LABELS = {
+    '01': '桐壺', '02': '帚木', '03': '空蝉', '04': '夕顔', '05': '若紫',
+    '06': '末摘花', '07': '紅葉賀', '08': '花宴', '09': '葵', '10': '賢木',
+    '11': '花散里', '12': '須磨', '13': '明石', '14': '澪標', '15': '蓬生',
+    '16': '関屋', '17': '絵合', '18': '松風', '19': '薄雲', '20': '朝顔（槿）',
+    '21': '少女', '22': '玉鬘', '23': '初音', '24': '胡蝶', '25': '蛍',
+    '26': '常夏', '27': '篝火', '28': '野分', '29': '行幸', '30': '藤袴',
+    '31': '真木柱', '32': '梅枝', '33': '藤裏葉', '34': '若菜 上', '35': '若菜 下',
+    '36': '柏木', '37': '横笛', '38': '鈴虫', '39': '夕霧', '40': '御法',
+    '41': '幻', '42': '匂宮', '43': '紅梅', '44': '竹河', '45': '橋姫',
+    '46': '椎本', '47': '総角', '48': '早蕨', '49': '宿木', '50': '東屋',
+    '51': '浮舟', '52': '蜻蛉', '53': '手習', '54': '夢浮橋',
+}
+
 
 def xslt_cmd(xsl, src, dst):
     """Return command list for XSLT transformation, preferring Saxon-HE over npx xslt3."""
@@ -480,6 +497,62 @@ def build_epub(ch):
     return True
 
 
+def build_index():
+    """Write the volume list into docs/index.html and docs/index-en.html as static HTML.
+
+    The list sits between <!-- volumes:start --> and <!-- volumes:end -->.
+    It used to be built in the browser with jQuery from an external JSON file.
+    """
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from site_icons import sprite, use
+
+    icons = ['file-alt', 'code', 'link', 'book-open', 'file-pdf', 'book', 'download']
+    for name, lang in (('index.html', 'ja'), ('index-en.html', 'en')):
+        cards = []
+        for ch in CHAPTERS:
+            n = int(ch)
+            html_href = f'html/{ch}.html' + ('?lang=en' if lang == 'en' else '')
+            musubi = ('https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari'
+                      f'%2Fapi%2Fitem_sets%2F{ch}.json')
+            dts = (f'https://awase.ldas.jp/{lang}/dts/?base=https://genji.ldas.jp/api/v2/dts'
+                   f'&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.{n}')
+            buttons = [
+                ('btn-primary-custom', html_href, '', 'file-alt', 'HTML'),
+                ('btn-primary-custom', f'tei/{ch}.xml', ' target="_blank"', 'code', 'TEI/XML'),
+                ('btn-accent-custom', musubi, ' target="_blank"', 'link', 'LOD'),
+                ('btn-secondary-custom', dts, ' target="_blank"', 'book-open', 'DTS'),
+                ('btn-secondary-custom', f'pdf/{ch}.pdf', ' target="_blank"', 'file-pdf', 'PDF'),
+                ('btn-secondary-custom', f'bibi/index.html?book={ch}', ' target="_blank"', 'book', 'EPUB'),
+                ('btn-secondary-custom', f'epub/{ch}.epub', ' download', 'download', 'EPUB DL'),
+            ]
+            btns = '\n'.join(
+                f'                                    <a class="action-btn {cls}" href="{href}"{attr}>{use(ic)} {text}</a>'
+                for cls, href, attr, ic, text in buttons)
+            cards.append(
+                f'                    <div class="col-lg-6 col-xl-4 mb-4">\n'
+                f'                        <div class="content-card" id="{n}">\n'
+                f'                            <div class="content-card-body">\n'
+                f'                                <h5 class="volume-title">{n}: {VOLUME_LABELS[ch]}</h5>\n'
+                f'                                <div class="action-buttons">\n{btns}\n'
+                f'                                </div>\n'
+                f'                            </div>\n'
+                f'                        </div>\n'
+                f'                    </div>')
+        path = os.path.join(DOCS_DIR, name)
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
+        new, count = re.subn(
+            r'(<!-- volumes:start -->\n).*?( *<!-- volumes:end -->)',
+            lambda m: m.group(1) + '                    ' + sprite(icons) + '\n' + '\n'.join(cards) + '\n' + m.group(2),
+            content, flags=re.S)
+        if count != 1:
+            raise SystemExit(f'{name}: volumes:start / volumes:end markers not found')
+        if new != content:
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(new)
+    return len(CHAPTERS)
+
+
 def build_api():
     """4-6: Generate docs/api/ (JSON-LD) from xml/master/ via scripts/build_api.py.
 
@@ -526,13 +599,17 @@ def replace_site_url():
 
 
 def main():
-    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['tei', 'xsl', 'waka', 'stats', 'api', 'pdf', 'epub']
+    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['index', 'tei', 'xsl', 'waka', 'stats', 'api', 'pdf', 'epub']
 
     print(f'=== SITE_URL: {SITE_URL} ===')
 
     if SITE_URL != DEFAULT_SITE_URL:
         print('=== Replacing site URL in static files ===')
         replace_site_url()
+
+    if 'index' in tasks:
+        print('=== Writing the volume list into docs/index*.html ===')
+        print(f'  {build_index()} volumes')
 
     if 'tei' in tasks:
         print('=== Building docs/tei/ ===')

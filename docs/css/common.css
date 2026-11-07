@@ -11,8 +11,8 @@
     --color-border: #e0d8cf;
     --color-persName: #1565c0;
     --color-placeName: #e65100;
-    --font-body: "Noto Serif JP", "Yu Mincho", "YuMincho", serif;
-    --font-ui: "Noto Sans JP", "Yu Gothic", "YuGothic", sans-serif;
+    --font-body: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+    --font-ui: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", sans-serif;
     --shadow-soft: 0 4px 16px rgba(0,0,0,0.08);
     --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
 }

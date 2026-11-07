@@ -10,10 +10,7 @@
                 <title>
                     <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
                 </title>
-                <link rel="preconnect" href="https://fonts.googleapis.com"/>
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-                <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-                <script type="text/javascript" src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+                <script type="text/javascript" src="../lib/mirador-4.3.0/mirador.min.js"></script>
                 <style>
                     :root {
                         --color-primary: #2c3e50;
@@ -23,8 +20,8 @@
                         --color-border: #e0d8cf;
                         --color-persName: #1565c0;
                         --color-placeName: #e65100;
-                        --font-body: "Noto Serif JP", "Yu Mincho", "YuMincho", serif;
-                        --font-ui: "Noto Sans JP", "Yu Gothic", "YuGothic", sans-serif;
+                        --font-body: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+                        --font-ui: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", sans-serif;
                     }
 
                     *, *::before, *::after {
