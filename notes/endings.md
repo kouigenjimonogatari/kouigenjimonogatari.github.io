@@ -72,3 +72,19 @@
 - 確かめたこと（Chrome、手元）: `index-en.html#12` → `en/index.html#12`、`waka-en.html` → `en/waka.html`（795 首、
   リンクは `en/html/01.html#waka-001`）、`stats-en.html` → `en/stats.html`（図 4 つ）、`html/03.html?lang=en` → `en/html/03.html`
 - 残る `?`: EPUB の読み手 `bibi/index.html?book=NN` は同梱の外部の道具の作り。Musubi への `?u=` は相手のサイトの URL
+
+## 2026-11-06（続き）JSON-LD で帖から行へたどれるように
+
+- 本人の指摘: Musubi で帖（`api/item_sets/NN.json`）を開いても情報が少なく、行の RDF にたどれない。
+  行には `isPartOf`（帖へ）があったが、帖から行への向きが無かった
+- 帖に足したもの: `dcterms:hasPart`（その帖の行の URI、全 25,065 件を帖ごとに）、`dcterms:alternative`（漢字の巻名。
+  `label` と同じなら付けない）、`relation` に本文の頁（`/html/NN.html`）。帖の JSON は 54 件で 216KB → 1.9MB
+- 行の `relation` を、外部の IIIF Curation Viewer から、このサイトの本文の頁のその位置（`/html/NN.html#p5`）に替えた。
+  Curation Viewer は `seeAlso` に移した（消してはいない）
+- 巻名の表は `scripts/volumes.py` に移し、トップページの一覧と JSON-LD で共用する
+- 確かめたこと: 手元の別のサーバ（別サイトからの読み込みを許す設定）で帖 02 を Musubi に開かせ、`hasPart` 617 件・
+  漢字の「帚木」・本文の頁へのリンクが出ることを見た。`hasPart` を順序付きの列（`@list`）にするのはやめた。
+  行ごとに `page`・`row` を持っているので順序は復元でき、LOD の閲覧の道具では単純な集合のほうが読みやすいため
+- 公開中の `context.json` は v1.0.1 で配るまで古いまま。それまでは公開版の Musubi では `hasPart` は出ない
+- 別件で分かったこと: NDL の IIIF マニフェストが Musubi で開けない。マニフェストの `@context` が
+  `http://iiif.io/...`（https でない）で、https の頁からはブラウザが取りに行かないため。Musubi の側で直す話

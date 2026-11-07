@@ -60,6 +60,10 @@ TYPE_LINE = 'https://jpsearch.go.jp/term/type/文章要素'
 TYPE_WORK = 'https://jpsearch.go.jp/term/type/作品'
 CC0 = 'http://creativecommons.org/publicdomain/zero/1.0/'
 CURATION = 'http://codh.rois.ac.jp/software/iiif-curation-viewer/demo/'
+SITE_HTML = BASE + '/html/'  # 本文の頁（w3id から kouigenjimonogatari.github.io へ転送される）
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from volumes import VOLUME_LABELS  # noqa: E402
 
 CONTEXT_URI = BASE + '/api/context.json'
 
@@ -74,6 +78,8 @@ CONTEXT = {
     'rights': {'@id': 'dcterms:rights', '@type': '@id'},
     'relation': {'@id': 'dcterms:relation', '@type': '@id'},
     'isPartOf': {'@id': 'dcterms:isPartOf', '@type': '@id'},
+    'hasPart': {'@id': 'dcterms:hasPart', '@type': '@id'},
+    'alternative': 'dcterms:alternative',
     'page': 'kg:page',
     'row': 'kg:row',
     'vol': 'kg:vol',
@@ -157,24 +163,32 @@ def item_doc(it, ch, manifest):
         doc['manifest'] = manifest
     if it['canvas']:
         doc['canvas'] = it['canvas']
+    # relation: このサイトの本文の頁のその位置。seeAlso: 外部の IIIF Curation Viewer（以前は relation だった）
+    if it['page']:
+        doc['relation'] = '%s%s.html#p%s' % (SITE_HTML, ch, it['page'])
     if manifest and it['canvas']:
-        doc['relation'] = '%s?manifest=%s&canvas=%s' % (CURATION, manifest, it['canvas'])
+        doc['seeAlso'] = '%s?manifest=%s&canvas=%s' % (CURATION, manifest, it['canvas'])
     return doc
 
 
-def item_set_doc(ch, volume_name, manifest, vol):
+def item_set_doc(ch, volume_name, manifest, vol, item_ids):
     doc = {
         '@context': CONTEXT_URI,
         '@id': ITEM_SETS + ch + '.json',
         '@type': TYPE_WORK,
         'label': volume_name,
         'rights': CC0,
-        'relation': TEI_URI + ch + '.xml',
+        'relation': [TEI_URI + ch + '.xml', SITE_HTML + ch + '.html'],
     }
+    kanji = VOLUME_LABELS.get(ch)
+    if kanji and kanji != volume_name:
+        doc['alternative'] = kanji
     if vol is not None:
         doc['vol'] = str(vol)
     if manifest:
         doc['seeAlso'] = manifest
+    # その帖の行（item）の一覧。以前は行から帖への isPartOf だけで、帖から行へたどれなかった
+    doc['hasPart'] = item_ids
     return doc
 
 
@@ -240,7 +254,8 @@ def main(argv=None):
 
         if not args.check:
             with open(os.path.join(sets_dir, ch + '.json'), 'w', encoding='utf-8') as f:
-                json.dump(item_set_doc(ch, c['volume_name'], c['manifest'], vol),
+                json.dump(item_set_doc(ch, c['volume_name'], c['manifest'], vol,
+                                       [it['id'] for it in c['items']]),
                           f, ensure_ascii=False, indent=2)
 
     if problems:
