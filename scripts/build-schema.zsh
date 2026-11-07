@@ -62,6 +62,10 @@ saxon -s:$BUILD_DIR/tei_kouigenji.compiled.odd -xsl:$ODDS_XSL_DIR/odd2html.xsl -
 print "    生成時刻を正規化 (ビルドを決定的にする)"
 python3 $REPO_ROOT/scripts/normalize_generated.py $RNG $SCH $DOC
 
+# 解説は 1 頁なので、TEI Stylesheets が前提にする ref-*.html は無い。切れるリンクを TEI P5 の公式の解説へ向ける
+print "    解説の頁のリンクを直す"
+python3 $REPO_ROOT/scripts/fix_schema_links.py $DOC
+
 print
 print "生成しました:"
 print "  docs/schema/tei_kouigenji.rng    $(grep -c '<element name=' $RNG) 要素"

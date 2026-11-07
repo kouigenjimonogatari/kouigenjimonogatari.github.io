@@ -11,8 +11,8 @@
     --color-border: #e0d8cf;
     --color-persName: #1565c0;
     --color-placeName: #e65100;
-    --font-body: "Noto Serif JP", "Yu Mincho", "YuMincho", serif;
-    --font-ui: "Noto Sans JP", "Yu Gothic", "YuGothic", sans-serif;
+    --font-body: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+    --font-ui: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", sans-serif;
     --shadow-soft: 0 4px 16px rgba(0,0,0,0.08);
     --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
 }
@@ -332,3 +332,15 @@ a:hover {
 .bg-section {
     background: #f5f3f0;
 }
+
+/* 版・引用（scripts/prebuild.py の version が書き込む） */
+.site-version { font-size: 0.85rem; }
+.cite-ref {
+    padding: 0.75rem 1rem;
+    border-left: 3px solid var(--color-primary);
+    background: rgba(0, 0, 0, 0.03);
+    overflow-wrap: anywhere;
+}
+.endings-badge { display: block; width: max-content; margin-top: 0.75rem; }
+.endings-badge img { display: block; }
+.site-footer .text-center .endings-badge { margin-left: auto; margin-right: auto; }

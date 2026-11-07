@@ -43,6 +43,13 @@ JING_VERSION=20241231
 JING_URL=https://github.com/relaxng/jing-trang/releases/download/V${JING_VERSION}/jing-${JING_VERSION}.zip
 JING_SHA256=d11a765f9106e398e01d66aaffb629beb1da21f8a716299e2930a751130bfad2
 
+# W3C の Nu HTML Checker（vnu.jar）。GitHub の配布は版の付かない "latest" だけなので、
+# 版の付いた npm の vnu-jar から取る（中身は同じ vnu.jar。W3C の担当者が公開している）。
+# 公開直後の版は避ける（2026-11-06 時点で最新は 26.11.4。約 4 週間前の版を選んだ）
+VNU_VERSION=26.10.12
+VNU_URL=https://registry.npmjs.org/vnu-jar/-/vnu-jar-${VNU_VERSION}.tgz
+VNU_SHA256=3925f07364f5e5a111cef54a7baefa575b22d05c70f8ced048f0616d4579b7ab
+
 # --- 配置 ---
 TEI_XSL_DIR=$TOOLS_DIR/tei-xsl
 ODDS_XSL_DIR=$TEI_XSL_DIR/xml/tei/stylesheet/odds
@@ -53,6 +60,7 @@ SAXON_JAR=$TOOLS_DIR/saxon/Saxon-HE.jar
 XMLRESOLVER_JAR=$TOOLS_DIR/saxon/xmlresolver.jar
 XMLRESOLVER_DATA_JAR=$TOOLS_DIR/saxon/xmlresolver-data.jar
 JING_JAR=$TOOLS_DIR/jing/jing.jar
+VNU_JAR=$TOOLS_DIR/vnu/vnu.jar
 
 die() { print -u2 "エラー: $*"; exit 1 }
 
@@ -89,6 +97,7 @@ JAVA=$(find_java) || die "Java が見つかりません（brew install openjdk�
 
 saxon() { $JAVA -cp $SAXON_JAR:$XMLRESOLVER_JAR:$XMLRESOLVER_DATA_JAR net.sf.saxon.Transform "$@" }
 jing()  { $JAVA -jar $JING_JAR "$@" }
+vnu()   { $JAVA -jar $VNU_JAR "$@" }
 
 require_tools() {
   [[ -d $ODDS_XSL_DIR ]]            || die "tools/ が未整備です。./scripts/setup-tools.zsh を実行してください"

@@ -1,0 +1,1216 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A database publishing text data from the 'Kōi Genji Monogatari' (Collated Genji Monogatari). Provides TEI/XML files and IIIF images in LOD (Linked Open Data) format.">
+    <meta name="keywords" content="Genji Monogatari,Tale of Genji,classical literature,text database,LOD,TEI,XML,IIIF,digital humanities,Japanese literature">
+    <meta name="author" content="東京大学">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kōi Genji Monogatari Text Database">
+    <meta property="og:description" content="A database publishing text data from the 'Kōi Genji Monogatari' (Collated Genji Monogatari). Provides TEI/XML files and IIIF images in LOD (Linked Open Data) format.">
+    <meta property="og:url" content="https://kouigenjimonogatari.github.io/en/">
+    <meta property="og:site_name" content="Kōi Genji Monogatari Text Database">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://kouigenjimonogatari.github.io/ogp-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kōi Genji Monogatari Text Database">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@digital_genji">
+    <meta name="twitter:creator" content="@digital_genji">
+    <meta name="twitter:title" content="Kōi Genji Monogatari Text Database">
+    <meta name="twitter:description" content="A database publishing text data from the 'Kōi Genji Monogatari' (Collated Genji Monogatari). Provides TEI/XML files and IIIF images in LOD (Linked Open Data) format.">
+    <meta name="twitter:image" content="https://kouigenjimonogatari.github.io/ogp-image.png">
+    <meta name="twitter:image:alt" content="Kōi Genji Monogatari Text Database">
+
+    <link rel="canonical" href="https://kouigenjimonogatari.github.io/en/">
+
+    <!-- Hreflang tags for multilingual SEO -->
+    <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/">
+    <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/">
+    <link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/">
+
+
+
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <title>Kōi Genji Monogatari Text Database</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg site-navbar fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Kōi Genji Monogatari Text DB</a>
+
+                <div class="navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="viz.html">
+                                <svg class="icon me-1" viewBox="0 0 576 512" aria-hidden="true"><path d="M304 240V16.6c0-9 7-16.6 16-16.6C443.7 0 544 100.3 544 224c0 9-7.6 16-16.6 16H304zM32 272C32 150.7 122.1 50.3 239 34.3c9.2-1.3 17 6.1 17 15.4V288L412.5 444.5c6.7 6.7 6.2 17.7-1.5 23.1C371.8 495.6 323.8 512 272 512C139.5 512 32 404.6 32 272zm526.4 16c9.3 0 16.6 7.8 15.4 17c-7.7 55.9-34.6 105.6-73.9 142.3c-6 5.6-15.4 5.2-21.2-.7L320 288H558.4z"/></svg>Visualizations
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://genji.lib.u-tokyo.ac.jp/">
+                                <svg class="icon me-1" viewBox="0 0 512 512" aria-hidden="true"><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg>Digital Genji
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html" hreflang="ja" lang="ja">
+                                <svg class="icon me-1" viewBox="0 0 512 512" aria-hidden="true"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg>日本語
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content text-center">
+                    <h1 class="hero-title">Kōi Genji Monogatari Text Database</h1>
+                    <p class="hero-subtitle mx-auto">
+                        A database publishing text data from the 'Kōi Genji Monogatari' (Collated Genji Monogatari)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon mx-auto">
+                                <svg class="icon text-white fa-2x" viewBox="0 0 640 512" aria-hidden="true"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+                            </div>
+                            <h2 class="jp-text mb-3" style="font-size:1.2rem">TEI/XML</h2>
+                            <p class="text-muted" style="font-size:0.9rem">View TEI/XML files alongside high-resolution manuscript images from the National Diet Library Digital Collection via IIIF. Supports conversion to HTML, PDF, and EPUB via XSLT.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon mx-auto">
+                                <svg class="icon text-white fa-2x" viewBox="0 0 640 512" aria-hidden="true"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></svg>
+                            </div>
+                            <h2 class="jp-text mb-3" style="font-size:1.2rem">Linked Open Data</h2>
+                            <p class="text-muted" style="font-size:0.9rem">Browse text data as Linked Open Data with persistent URIs. Formatted to interoperate with other linked datasets using Semantic Web standards.</p>
+                            <div class="mt-3">
+                                <a href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F01.json" class="action-btn btn-accent-custom" style="display:inline-flex">
+                                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg> Open in Musubi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card text-center">
+                            <div class="feature-icon mx-auto">
+                                <svg class="icon text-white fa-2x" viewBox="0 0 576 512" aria-hidden="true"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></svg>
+                            </div>
+                            <h2 class="jp-text mb-3" style="font-size:1.2rem">DTS Viewer</h2>
+                            <p class="text-muted" style="font-size:0.9rem">Explore texts via the DTS (Distributed Text Services) API, enabling structured navigation through standardized interfaces.</p>
+                            <div class="mt-3">
+                                <a href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&url=https://genji.ldas.jp/api/v2/dts/collection"
+                                   target="_blank" class="action-btn btn-primary-custom" style="display:inline-flex">
+                                    <svg class="icon" viewBox="0 0 576 512" aria-hidden="true"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></svg> DTS Viewer
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="py-5 bg-section">
+            <div class="container">
+                <h2 class="section-title jp-text">Text Collection</h2>
+                <div id="main" class="row">
+                    <!-- volumes:start -->
+                    <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="i-file-alt" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></symbol><symbol id="i-code" viewBox="0 0 640 512"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></symbol><symbol id="i-link" viewBox="0 0 640 512"><path d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"/></symbol><symbol id="i-book-open" viewBox="0 0 576 512"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></symbol><symbol id="i-file-pdf" viewBox="0 0 512 512"><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V304H176c-35.3 0-64 28.7-64 64V512H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM176 352h32c30.9 0 56 25.1 56 56s-25.1 56-56 56H192v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V448 368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H192v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H304c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H320v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V432 368z"/></symbol><symbol id="i-book" viewBox="0 0 448 512"><path d="M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></symbol><symbol id="i-download" viewBox="0 0 512 512"><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></symbol></svg>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="1">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">1: 桐壺</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/01.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/01.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F01.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.1" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/01.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=01" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/01.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="2">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">2: 帚木</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/02.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/02.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F02.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.2" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/02.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=02" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/02.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="3">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">3: 空蝉</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/03.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/03.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F03.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.3" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/03.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=03" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/03.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="4">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">4: 夕顔</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/04.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/04.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F04.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.4" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/04.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=04" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/04.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="5">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">5: 若紫</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/05.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/05.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F05.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.5" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/05.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=05" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/05.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="6">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">6: 末摘花</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/06.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/06.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F06.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.6" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/06.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=06" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/06.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="7">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">7: 紅葉賀</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/07.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/07.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F07.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.7" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/07.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=07" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/07.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="8">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">8: 花宴</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/08.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/08.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F08.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.8" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/08.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=08" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/08.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="9">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">9: 葵</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/09.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/09.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F09.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.9" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/09.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=09" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/09.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="10">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">10: 賢木</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/10.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/10.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F10.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.10" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/10.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=10" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/10.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="11">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">11: 花散里</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/11.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/11.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F11.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.11" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/11.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=11" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/11.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="12">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">12: 須磨</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/12.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/12.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F12.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.12" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/12.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=12" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/12.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="13">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">13: 明石</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/13.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/13.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F13.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.13" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/13.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=13" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/13.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="14">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">14: 澪標</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/14.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/14.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F14.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.14" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/14.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=14" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/14.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="15">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">15: 蓬生</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/15.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/15.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F15.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.15" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/15.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=15" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/15.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="16">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">16: 関屋</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/16.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/16.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F16.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.16" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/16.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=16" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/16.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="17">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">17: 絵合</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/17.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/17.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F17.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.17" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/17.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=17" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/17.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="18">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">18: 松風</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/18.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/18.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F18.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.18" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/18.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=18" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/18.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="19">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">19: 薄雲</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/19.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/19.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F19.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.19" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/19.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=19" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/19.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="20">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">20: 朝顔（槿）</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/20.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/20.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F20.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.20" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/20.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=20" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/20.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="21">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">21: 少女</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/21.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/21.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F21.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.21" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/21.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=21" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/21.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="22">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">22: 玉鬘</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/22.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/22.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F22.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.22" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/22.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=22" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/22.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="23">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">23: 初音</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/23.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/23.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F23.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.23" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/23.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=23" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/23.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="24">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">24: 胡蝶</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/24.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/24.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F24.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.24" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/24.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=24" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/24.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="25">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">25: 蛍</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/25.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/25.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F25.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.25" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/25.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=25" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/25.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="26">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">26: 常夏</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/26.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/26.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F26.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.26" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/26.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=26" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/26.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="27">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">27: 篝火</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/27.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/27.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F27.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.27" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/27.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=27" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/27.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="28">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">28: 野分</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/28.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/28.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F28.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.28" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/28.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=28" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/28.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="29">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">29: 行幸</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/29.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/29.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F29.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.29" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/29.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=29" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/29.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="30">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">30: 藤袴</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/30.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/30.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F30.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.30" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/30.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=30" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/30.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="31">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">31: 真木柱</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/31.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/31.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F31.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.31" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/31.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=31" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/31.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="32">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">32: 梅枝</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/32.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/32.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F32.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.32" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/32.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=32" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/32.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="33">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">33: 藤裏葉</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/33.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/33.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F33.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.33" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/33.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=33" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/33.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="34">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">34: 若菜 上</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/34.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/34.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F34.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.34" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/34.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=34" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/34.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="35">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">35: 若菜 下</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/35.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/35.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F35.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.35" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/35.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=35" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/35.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="36">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">36: 柏木</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/36.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/36.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F36.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.36" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/36.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=36" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/36.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="37">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">37: 横笛</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/37.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/37.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F37.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.37" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/37.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=37" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/37.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="38">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">38: 鈴虫</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/38.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/38.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F38.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.38" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/38.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=38" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/38.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="39">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">39: 夕霧</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/39.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/39.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F39.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.39" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/39.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=39" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/39.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="40">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">40: 御法</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/40.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/40.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F40.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.40" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/40.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=40" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/40.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="41">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">41: 幻</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/41.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/41.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F41.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.41" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/41.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=41" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/41.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="42">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">42: 匂宮</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/42.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/42.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F42.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.42" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/42.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=42" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/42.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="43">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">43: 紅梅</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/43.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/43.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F43.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.43" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/43.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=43" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/43.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="44">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">44: 竹河</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/44.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/44.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F44.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.44" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/44.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=44" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/44.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="45">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">45: 橋姫</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/45.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/45.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F45.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.45" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/45.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=45" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/45.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="46">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">46: 椎本</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/46.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/46.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F46.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.46" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/46.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=46" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/46.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="47">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">47: 総角</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/47.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/47.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F47.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.47" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/47.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=47" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/47.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="48">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">48: 早蕨</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/48.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/48.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F48.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.48" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/48.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=48" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/48.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="49">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">49: 宿木</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/49.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/49.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F49.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.49" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/49.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=49" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/49.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="50">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">50: 東屋</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/50.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/50.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F50.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.50" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/50.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=50" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/50.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="51">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">51: 浮舟</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/51.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/51.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F51.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.51" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/51.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=51" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/51.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="52">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">52: 蜻蛉</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/52.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/52.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F52.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.52" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/52.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=52" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/52.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="53">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">53: 手習</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/53.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/53.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F53.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.53" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/53.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=53" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/53.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-4 mb-4">
+                        <div class="content-card" id="54">
+                            <div class="content-card-body">
+                                <h3 class="volume-title">54: 夢浮橋</h3>
+                                <div class="action-buttons">
+                                    <a class="action-btn btn-primary-custom" href="html/54.html"><svg class="icon" aria-hidden="true"><use href="#i-file-alt"/></svg> HTML</a>
+                                    <a class="action-btn btn-primary-custom" href="../tei/54.xml" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> TEI/XML</a>
+                                    <a class="action-btn btn-accent-custom" href="https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari%2Fapi%2Fitem_sets%2F54.json" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg> LOD</a>
+                                    <a class="action-btn btn-secondary-custom" href="https://awase.ldas.jp/en/dts/?base=https://genji.ldas.jp/api/v2/dts&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.54" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book-open"/></svg> DTS</a>
+                                    <a class="action-btn btn-secondary-custom" href="../pdf/54.pdf" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-file-pdf"/></svg> PDF</a>
+                                    <a class="action-btn btn-secondary-custom" href="../bibi/index.html?book=54" target="_blank"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg> EPUB</a>
+                                    <a class="action-btn btn-secondary-custom" href="../epub/54.epub" download><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> EPUB DL</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- volumes:end -->
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="py-5">
+            <div class="container">
+                <h2 class="section-title">News</h2>
+                <div class="news-section">
+                    <div class="news-item">
+                        <div class="news-date">2026-11-06</div>
+                        <p class="mb-0">The site has been rebuilt following the <a href="https://endings.uvic.ca/principles.html">Endings Principles</a> for digital longevity. Libraries that used to be loaded from external services are now bundled with the site, and pages such as the <a href="waka.html">waka list</a> can be read without JavaScript. The English pages now live under <a href="index.html">en/</a>, and links to pages and poems take the form <code>html/01.html#p13</code> and <code>#waka-001</code> (the old URLs still work). Every page shows its version and DOI, and a <a href="#cite">How to Cite</a> section has been added. The published HTML is validated with the W3C Nu HTML Checker, and all internal links are checked.</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2026-08-12</div>
+                        <p class="mb-0">The TEI schema has been thoroughly revised. The previous schema was defective: all 795 waka failed validation against it (the text data itself was never at fault). We also introduced Schematron validation, which now mechanically checks the number of lines in each waka, line numbering, the ordering of page numbers, and referential integrity. All 54 chapters are validated automatically before publication. See <a href="#tech-info">Technical Information</a> for details.</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2026-03-08</div>
+                        <p class="mb-0">Corrected typos and waka notation in the text based on user feedback. Added a <a href="waka.html">Waka Poems</a> page and a <a href="viz.html">Visualizations</a> page, along with PDF and EPUB viewing and download support for each volume.</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2025-06-23</div>
+                        <p class="mb-0">The website design has been modernized and DTS (Distributed Text Services) support has been added. Responsive design and accessibility have also been improved.</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-06-19</div>
+                        <p class="mb-0">Added volumes: "39 Yūgiri", "46 Shiigamoto", "47 Agemaki", "48 Sawarabi", "49 Yadorigi", "50 Azumaya", "51 Ukifune", "52 Kagerō", "53 Tenarai".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-05-27</div>
+                        <p class="mb-0">Added volumes: "34 Wakana I", "35 Wakana II", "36 Kashiwagi", "44 Takekawa", "45 Hashihime".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-05-07</div>
+                        <p class="mb-0">Added 19 additional volumes: "22 Tamakazura", "23 Hatsune", "24 Kochō", "25 Hotaru", "26 Tokonatsu", "27 Kagaribi", "28 Nowaki", "29 Miyuki", "30 Fujibakama", "31 Makibashira", "32 Umegae", "33 Fuji no Uraba", "37 Yokobue", "38 Suzumushi", "40 Minori", "41 Maboroshi", "42 Niō Miya", "43 Kōbai", "54 Yume no Ukihashi".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-04-18</div>
+                        <p class="mb-0">Added volumes: "12 Suma", "13 Akashi", "14 Miotsukushi", "15 Yomogiu", "16 Sekiya", "17 Eawase", "18 Matsukaze", "19 Usugumo", "20 Asagao", "21 Otome".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-01-19</div>
+                        <p class="mb-0">Added volumes: "9 Aoi", "10 Sakaki".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2020-01-06</div>
+                        <p class="mb-0">Added volumes: "3 Utsusemi", "4 Yūgao", "5 Wakamurasaki", "6 Suetsumuhana", "7 Momiji no Ga", "8 Hana no En", "11 Hanachirusato".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2019-12-25</div>
+                        <p class="mb-0">Added volume: "2 Hahakigi".</p>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-date">2019-11-29</div>
+                        <p class="mb-0">Website launched.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="section-title">About This Site</h2>
+                        <div class="content-card">
+                            <div class="content-card-body">
+                                <p class="mb-3">
+                                    Text data was created and published based on the
+                                    <a href="http://dl.ndl.go.jp/info:ndljp/pid/3437686">'Kōi Genji Monogatari' (Collated Genji Monogatari)</a>
+                                    (Internet publication, copyright expired) available in the National Diet Library Digital Collection.
+                                </p>
+                                <p class="mb-3">
+                                    Each line is assigned a URI (Uniform Resource Identifier) and published as LOD (Linked Open Data). TEI/XML files linked with IIIF images are also provided.
+                                </p>
+                                <p class="mb-0">
+                                    If you find any errors in the data, please contact The University of Tokyo Academic Asset Archiving Promotion Office at
+                                    <strong>digital-archive [at] lib.u-tokyo.ac.jp</strong>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="py-5 bg-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="section-title">Contributors</h2>
+                        <div class="content-card">
+                            <div class="content-card-body">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-3">
+                                        <strong><a href="https://researchmap.jp/tam">Takashi Tamura</a></strong><br>
+                                        <small class="text-muted">Associate Professor, Graduate School of Arts and Sciences, The University of Tokyo</small>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong><a href="https://researchmap.jp/knagasaki">Kiyonori Nagasaki</a></strong><br>
+                                        <small class="text-muted">Senior Research Fellow, International Institute for Digital Humanities</small>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong><a href="https://researchmap.jp/i2k">Ikki Omukai</a></strong><br>
+                                        <small class="text-muted">Associate Professor, Graduate School of Humanities and Sociology, The University of Tokyo</small>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong><a href="https://researchmap.jp/nakamura.satoru">Satoru Nakamura</a></strong><br>
+                                        <small class="text-muted">Associate Professor, Institute for Japanese Historical Records, University of Tokyo</small>
+                                    </li>
+                                    <li class="mb-0">
+                                        <strong>The University of Tokyo Library Staff</strong>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to cite (written by scripts/prebuild.py version from CITATION.cff) -->
+        <section class="py-5" id="cite">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="section-title">How to Cite</h2>
+                        <div class="content-card">
+                            <div class="content-card-body">
+                                <!-- cite:start -->
+                                <p class="mb-3">This is version <strong>1.1.0</strong>, released on 2026-11-06. Please cite it as follows.</p>
+                                <p class="mb-3 cite-ref"><i>校異源氏物語テキストDB / Koui Genji Monogatari Text Database</i> (2026). Version 1.1.0 [Data set]. Zenodo. <a href="https://doi.org/10.5281/zenodo.24015761">https://doi.org/10.5281/zenodo.24015761</a></p>
+                                <p class="mb-3">The DOI above always leads to the latest version on Zenodo. To cite this exact version, use the version number above, or the DOI of the version listed under "Versions" on the Zenodo record.</p>
+                                <p class="mb-3">To cite a single line, add the URI of that line, e.g. <a href="https://w3id.org/kouigenjimonogatari/api/items/0009-03.json">https://w3id.org/kouigenjimonogatari/api/items/0009-03.json</a> (volume 1, page 9, line 3).</p>
+                                <p class="mb-0"><small class="text-muted">The same information is in <a href="https://github.com/kouigenjimonogatari/kouigenjimonogatari.github.io/blob/master/CITATION.cff">CITATION.cff</a>; GitHub and Zenodo show it as "Cite this repository".</small></p>
+                                <!-- cite:end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Information -->
+        <section class="py-5 bg-section" id="tech-info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="section-title">Technical Information</h2>
+                        <div class="content-card">
+                            <div class="content-card-body">
+                                <p class="mb-3">
+                                    The TEI/XML in this database is defined by an ODD (One Document Does it All) as the single source of truth. Both the RELAX NG schema and the Schematron rules are generated from that ODD, and all 54 chapters are validated against both before publication.
+                                </p>
+                                <ul class="list-unstyled mb-3">
+                                    <li class="mb-3">
+                                        <strong><a href="https://github.com/kouigenjimonogatari/kouigenjimonogatari.github.io/blob/master/odd/tei_kouigenji.odd">tei_kouigenji.odd</a></strong><br>
+                                        <small class="text-muted">The custom ODD. Declares the TEI elements and attributes in use, together with constraints a grammar cannot express (a waka has five lines, every pointer resolves, and so on). <strong>This is the only file that is edited by hand.</strong></small>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong><a href="../schema/tei_kouigenji.rng">tei_kouigenji.rng</a></strong><br>
+                                        <small class="text-muted">RELAX NG schema for structural validation, generated from the ODD.</small>
+                                    </li>
+                                    <li class="mb-3">
+                                        <strong><a href="../schema/tei_kouigenji.sch">tei_kouigenji.sch</a></strong><br>
+                                        <small class="text-muted">ISO Schematron rules for what a grammar cannot check: line numbering against position, monotonic page numbers, and referential integrity.</small>
+                                    </li>
+                                    <li class="mb-0">
+                                        <strong><a href="../schema/tei_kouigenji.html">tei_kouigenji.html</a></strong><br>
+                                        <small class="text-muted">Browsable documentation of the customization: elements, attributes and constraints.</small>
+                                    </li>
+                                </ul>
+                                <p class="mb-0">
+                                    <small class="text-muted">Generated with the official <a href="https://github.com/TEIC/Stylesheets">TEI Stylesheets</a> (7.61.0) and <a href="https://codeberg.org/SchXslt/schxslt2">SchXslt2</a> (1.11.2), against TEI P5 4.12.0. The source is available in the <a href="https://github.com/kouigenjimonogatari/kouigenjimonogatari.github.io">GitHub repository</a>.</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p class="mb-1">
+                This database is partially funded by JSPS KAKENHI Grant Number
+                <a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-19K20626/">JP19K20626</a>.
+            </p>
+            <p class="mb-1 site-version"><!-- version:start -->Version 1.1.0 (released 2026-11-06) · DOI <a href="https://doi.org/10.5281/zenodo.24015761">10.5281/zenodo.24015761</a> · <a href="#cite">How to cite</a><a class="endings-badge" href="https://endings.uvic.ca/compliance.html"><img src="../img/endings_logo_badge_white.svg" alt="Endings-compliant" width="37" height="51"></a><!-- version:end --></p>
+            <p class="mb-0">
+                &copy; 2019-2026 Kōi Genji Monogatari Text Database
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

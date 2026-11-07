@@ -8,18 +8,18 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/"/>
   </url>
   
   <!-- English version -->
   <url>
-    <loc>https://kouigenjimonogatari.github.io/index-en.html</loc>
+    <loc>https://kouigenjimonogatari.github.io/en/</loc>
     <lastmod>2025-06-23T00:00:00+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/index-en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/"/>
   </url>
   
@@ -301,15 +301,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/viz.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/viz-en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/viz.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/viz.html"/>
   </url>
   <url>
-    <loc>https://kouigenjimonogatari.github.io/viz-en.html</loc>
+    <loc>https://kouigenjimonogatari.github.io/en/viz.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/viz.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/viz-en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/viz.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/viz.html"/>
   </url>
   <url>
@@ -317,15 +317,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/waka.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/waka-en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/waka.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/waka.html"/>
   </url>
   <url>
-    <loc>https://kouigenjimonogatari.github.io/waka-en.html</loc>
+    <loc>https://kouigenjimonogatari.github.io/en/waka.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/waka.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/waka-en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/waka.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/waka.html"/>
   </url>
   <url>
@@ -333,22 +333,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/stats.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/stats-en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/stats.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/stats.html"/>
   </url>
   <url>
-    <loc>https://kouigenjimonogatari.github.io/stats-en.html</loc>
+    <loc>https://kouigenjimonogatari.github.io/en/stats.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/stats.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/stats-en.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/stats.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/stats.html"/>
   </url>
 
-  <!-- SPARQL endpoint -->
-  <url>
-    <loc>https://kouigenjimonogatari.github.io/snorql/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>

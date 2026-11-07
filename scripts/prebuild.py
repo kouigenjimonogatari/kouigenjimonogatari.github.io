@@ -25,16 +25,18 @@ SITE_URL = os.environ.get('SITE_URL', DEFAULT_SITE_URL).rstrip('/')
 
 CHAPTERS = [f'{i:02d}' for i in range(1, 55)]
 
+from volumes import VOLUME_LABELS  # noqa: E402  巻名の表記（scripts/volumes.py）
 
-def xslt_cmd(xsl, src, dst):
+
+def xslt_cmd(xsl, src, dst, params=()):
     """Return command list for XSLT transformation, preferring Saxon-HE over npx xslt3."""
     saxon_jar = os.environ.get('SAXON_JAR')
     if saxon_jar:
         return ['java', '-cp', saxon_jar, 'net.sf.saxon.Transform',
-                f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
+                f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}', *params]
     if shutil.which('saxon'):
-        return ['saxon', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
-    return ['npx', 'xslt3', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
+        return ['saxon', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}', *params]
+    return ['npx', 'xslt3', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}', *params]
 
 # Chapter names (巻名)
 CHAPTER_NAMES = {
@@ -89,19 +91,28 @@ def build_html():
     xsl_path = os.path.join(BASE_DIR, 'xsl', 'mirador.xsl')
     html_dir = os.path.join(DOCS_DIR, 'html')
     os.makedirs(html_dir, exist_ok=True)
+    # 日本語は html/NN.html、英語は en/html/NN.html（以前は 1 つの頁を ?lang=en で切り替えていた）
+    en_dir = os.path.join(DOCS_DIR, 'en', 'html')
+    os.makedirs(en_dir, exist_ok=True)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import release_info
+    info = release_info.read()  # 版・公開日・DOI（CITATION.cff）
+    rel = [f'version={info["version"]}', f'released={info["date"]}', f'doi={info["doi"]}']
     for ch in CHAPTERS:
         src = os.path.join(DOCS_DIR, 'tei', f'{ch}.xml')
-        dst = os.path.join(html_dir, f'{ch}.html')
         if not os.path.exists(src):
             continue
-        result = subprocess.run(
-            xslt_cmd(xsl_path, src, dst),
-            capture_output=True, text=True, cwd=BASE_DIR
-        )
-        if result.returncode != 0:
-            print(f'  {ch}.html FAILED: {result.stderr}', file=sys.stderr)
-        else:
-            print(f'  {ch}.html')
+        for lang, out_dir in (('ja', html_dir), ('en', en_dir)):
+            name = os.path.relpath(os.path.join(out_dir, f'{ch}.html'), DOCS_DIR)
+            dst = os.path.join(out_dir, f'{ch}.html')
+            result = subprocess.run(
+                xslt_cmd(xsl_path, src, dst, [f'lang={lang}', *rel]),
+                capture_output=True, text=True, cwd=BASE_DIR
+            )
+            if result.returncode != 0:
+                print(f'  {name} FAILED: {result.stderr}', file=sys.stderr)
+            else:
+                print(f'  {name}')
 
 
 def build_waka_json():
@@ -480,6 +491,223 @@ def build_epub(ch):
     return True
 
 
+def build_index():
+    """Write the volume list into docs/index.html and docs/en/index.html as static HTML.
+
+    The list sits between <!-- volumes:start --> and <!-- volumes:end -->.
+    It used to be built in the browser with jQuery from an external JSON file.
+    """
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from site_icons import sprite, use
+
+    icons = ['file-alt', 'code', 'link', 'book-open', 'file-pdf', 'book', 'download']
+    for name, lang in (('index.html', 'ja'), (os.path.join('en', 'index.html'), 'en')):
+        up = '../' if lang == 'en' else ''  # en/ の頁から共通のファイルへ
+        cards = []
+        for ch in CHAPTERS:
+            n = int(ch)
+            html_href = f'html/{ch}.html'  # 英語は docs/en/html/NN.html
+            musubi = ('https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari'
+                      f'%2Fapi%2Fitem_sets%2F{ch}.json')
+            dts = (f'https://awase.ldas.jp/{lang}/dts/?base=https://genji.ldas.jp/api/v2/dts'
+                   f'&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.{n}')
+            buttons = [
+                ('btn-primary-custom', html_href, '', 'file-alt', 'HTML'),
+                ('btn-primary-custom', up + f'tei/{ch}.xml', ' target="_blank"', 'code', 'TEI/XML'),
+                ('btn-accent-custom', musubi, ' target="_blank"', 'link', 'LOD'),
+                ('btn-secondary-custom', dts, ' target="_blank"', 'book-open', 'DTS'),
+                ('btn-secondary-custom', up + f'pdf/{ch}.pdf', ' target="_blank"', 'file-pdf', 'PDF'),
+                ('btn-secondary-custom', up + f'bibi/index.html?book={ch}', ' target="_blank"', 'book', 'EPUB'),
+                ('btn-secondary-custom', up + f'epub/{ch}.epub', ' download', 'download', 'EPUB DL'),
+            ]
+            btns = '\n'.join(
+                f'                                    <a class="action-btn {cls}" href="{href}"{attr}>{use(ic)} {text}</a>'
+                for cls, href, attr, ic, text in buttons)
+            cards.append(
+                f'                    <div class="col-lg-6 col-xl-4 mb-4">\n'
+                f'                        <div class="content-card" id="{n}">\n'
+                f'                            <div class="content-card-body">\n'
+                f'                                <h3 class="volume-title">{n}: {VOLUME_LABELS[ch]}</h3>\n'
+                f'                                <div class="action-buttons">\n{btns}\n'
+                f'                                </div>\n'
+                f'                            </div>\n'
+                f'                        </div>\n'
+                f'                    </div>')
+        path = os.path.join(DOCS_DIR, name)
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
+        new, count = re.subn(
+            r'(<!-- volumes:start -->\n).*?( *<!-- volumes:end -->)',
+            lambda m: m.group(1) + '                    ' + sprite(icons) + '\n' + '\n'.join(cards) + '\n' + m.group(2),
+            content, flags=re.S)
+        if count != 1:
+            raise SystemExit(f'{name}: volumes:start / volumes:end markers not found')
+        if new != content:
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(new)
+    return len(CHAPTERS)
+
+
+def build_waka_page():
+    """Write the waka list into docs/waka.html and docs/en/waka.html as static HTML.
+
+    以前は頁を開いてから data/waka.json を読み込み、ブラウザで一覧を組み立てていた。
+    いまは組み立て時に全首を HTML に書き込み、スクリプトは絞り込みとグラフだけを受け持つ
+    （Endings Principles 4.7）。グラフの数値も頁に埋め込むので、file:// でも動く。
+    data/waka.json・data/chapters.json を先に作っておくこと（waka・stats のタスク）。
+    """
+    import html as htmlmod
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from site_icons import sprite, use
+
+    with open(os.path.join(DOCS_DIR, 'data', 'waka.json'), encoding='utf-8') as f:
+        all_waka = json.load(f)
+    with open(os.path.join(DOCS_DIR, 'data', 'chapters.json'), encoding='utf-8') as f:
+        chapters = json.load(f)
+
+    esc = htmlmod.escape
+    chapter_data = json.dumps(
+        [{k: c[k] for k in ('chapter', 'chapter_name', 'chars', 'waka')} for c in chapters],
+        ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+
+    def sub(marker, body, content, name):
+        new, count = re.subn(
+            rf'(<!-- {marker}:start -->\n).*?( *<!-- {marker}:end -->)',
+            lambda m: m.group(1) + body + '\n' + m.group(2), content, flags=re.S)
+        if count != 1:
+            raise SystemExit(f'{name}: {marker}:start / {marker}:end markers not found')
+        return new
+
+    for name, lang in (('waka.html', 'ja'), (os.path.join('en', 'waka.html'), 'en')):
+        en = lang == 'en'
+        pad = ' ' * 20
+        options = []
+        seen = set()
+        for w in all_waka:
+            if w['chapter'] not in seen:
+                seen.add(w['chapter'])
+                options.append(f'{pad}<option value="{w["chapter"]}">{w["chapter"]} {esc(w["chapter_name"])}</option>')
+        cards = [pad + sprite(['book-open'])]
+        view = 'View text' if en else '本文を表示'
+        textlang = ' lang="ja"' if en else ''
+        for w in all_waka:
+            lines = [re.sub(r'<[^>]+>', '', l) for l in w['lines']]
+            verse = '<span class="verse-sep">/</span>'.join(
+                f'<span class="verse-line">{esc(l)}</span>' for l in lines)
+            ch = w['chapter']
+            href = f'html/{ch}.html#{w["waka_id"]}' if w.get('waka_id') else f'html/{ch}.html'
+            wid = f' id="{w["waka_id"]}"' if w.get('waka_id') else ''
+            cards.append(
+                f'{pad}<div class="waka-card"{wid} data-chapter="{ch}">\n'
+                f'{pad}    <div class="waka-meta"><span class="waka-seq">{w["seq"]}</span>'
+                f'<span class="waka-chapter">{ch} {esc(w["chapter_name"])}</span></div>\n'
+                f'{pad}    <div class="waka-text"{textlang}>{verse}</div>\n'
+                f'{pad}    <div class="waka-link"><a href="{href}">{use("book-open", "me-1")}{view}</a></div>\n'
+                f'{pad}</div>')
+        count = f'{len(all_waka)} poems' if en else f'{len(all_waka)} 首'
+
+        path = os.path.join(DOCS_DIR, name)
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
+        new = sub('waka-options', '\n'.join(options), content, name)
+        new = sub('waka-list', '\n'.join(cards), new, name)
+        new = sub('waka-data', f'{" " * 4}<script type="application/json" id="chapterData">{chapter_data}</script>', new, name)
+        new, n = re.subn(r'(<span id="resultCount" class="result-count">)[^<]*(</span>)',
+                         lambda m: m.group(1) + count + m.group(2), new)
+        if n != 1:
+            raise SystemExit(f'{name}: resultCount not found')
+        if new != content:
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(new)
+    return len(all_waka)
+
+
+VERSION_PAGES = [  # (頁, 言語, 引用の仕方への相対パス)
+    ('index.html', 'ja', '#cite'), ('stats.html', 'ja', 'index.html#cite'),
+    ('viz.html', 'ja', 'index.html#cite'), ('waka.html', 'ja', 'index.html#cite'),
+    ('en/index.html', 'en', '#cite'), ('en/stats.html', 'en', 'index.html#cite'),
+    ('en/viz.html', 'en', 'index.html#cite'), ('en/waka.html', 'en', 'index.html#cite'),
+]
+
+
+def version_line(info, lang, cite_href):
+    """各頁のフッターに出す 1 行（版・公開日・DOI・引用の仕方へのリンク）。"""
+    doi = info['doi']
+    a = f'<a href="https://doi.org/{doi}">{doi}</a>'
+    up = '../' if lang == 'en' else ''
+    # Endings Project の準拠の印。条件（検証・内部リンク・相対リンク・サーバの処理なし・
+    # データベースなし・全頁に版と日付・外部への依存なし）は scripts/check-html.zsh などで確かめている
+    alt = 'Endings-compliant' if lang == 'en' else 'Endings Principles に準拠'
+    badge = (f'<a class="endings-badge" href="https://endings.uvic.ca/compliance.html">'
+             f'<img src="{up}img/endings_logo_badge_white.svg" alt="{alt}" width="37" height="51"></a>')
+    if lang == 'en':
+        return (f'Version {info["version"]} (released {info["date"]}) · DOI {a} · '
+                f'<a href="{cite_href}">How to cite</a>{badge}')
+    return f'版 {info["version"]}（{info["date"]} 公開）・DOI {a}・<a href="{cite_href}">引用の仕方</a>{badge}'
+
+
+def cite_block(info, lang):
+    """トップの「引用の仕方」の中身。"""
+    import html as htmlmod
+    esc = htmlmod.escape
+    year = info['date'][:4]
+    doi_url = f'https://doi.org/{info["doi"]}'
+    # サイトは個人の著作として名乗っていない（作成者は複数・図書館の有志を含む）ので、
+    # 著者名を立てず、題名から始める（CITATION.cff の authors は使わない）
+    ref = (f'<i>{esc(info["title"])}</i> ({year}). '
+           f'Version {esc(info["version"])} [Data set]. Zenodo. '
+           f'<a href="{doi_url}">{doi_url}</a>')
+    item = 'https://w3id.org/kouigenjimonogatari/api/items/0009-03.json'
+    cff = 'https://github.com/kouigenjimonogatari/kouigenjimonogatari.github.io/blob/master/CITATION.cff'
+    p = ' ' * 32
+    if lang == 'en':
+        body = [
+            f'<p class="mb-3">This is version <strong>{esc(info["version"])}</strong>, released on {esc(info["date"])}. Please cite it as follows.</p>',
+            f'<p class="mb-3 cite-ref">{ref}</p>',
+            f'<p class="mb-3">The DOI above always leads to the latest version on Zenodo. To cite this exact version, use the version number above, or the DOI of the version listed under "Versions" on the Zenodo record.</p>',
+            f'<p class="mb-3">To cite a single line, add the URI of that line, e.g. <a href="{item}">{item}</a> (volume 1, page 9, line 3).</p>',
+            f'<p class="mb-0"><small class="text-muted">The same information is in <a href="{cff}">CITATION.cff</a>; GitHub and Zenodo show it as "Cite this repository".</small></p>',
+        ]
+    else:
+        body = [
+            f'<p class="jp-text mb-3">このサイトは版 <strong>{esc(info["version"])}</strong>（{esc(info["date"])} 公開）です。引用するときは、次のように書いてください。</p>',
+            f'<p class="mb-3 cite-ref">{ref}</p>',
+            f'<p class="jp-text mb-3">上の DOI は、Zenodo の最新版の記録を指します。版を特定するときは、上の版の番号を書くか、Zenodo の記録の「Versions」に並ぶ版ごとの DOI を使ってください。</p>',
+            f'<p class="jp-text mb-3">特定の 1 行を引くときは、その行の URI を添えてください。例: <a href="{item}">{item}</a>（第 1 帖、9 頁 3 行目）</p>',
+            f'<p class="jp-text mb-0"><small class="text-muted">同じ内容を <a href="{cff}">CITATION.cff</a> に書いてあります。GitHub と Zenodo では「Cite this repository」として表示されます。</small></p>',
+        ]
+    return '\n'.join(p + b for b in body)
+
+
+def build_version():
+    """版・公開日・DOI を、CITATION.cff から各頁に書き込む（Endings Principles 5.3・5.4）。
+
+    フッターの <!-- version:start --> と <!-- version:end --> の間、
+    トップの <!-- cite:start --> と <!-- cite:end --> の間を書き換える。
+    本文の頁（html/NN.html）は、XSLT の引数で同じ値を渡す（build_html）。
+    """
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import release_info
+    info = release_info.read()
+    for name, lang, cite_href in VERSION_PAGES:
+        path = os.path.join(DOCS_DIR, name)
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
+        new, n = re.subn(r'(<!-- version:start -->).*?(<!-- version:end -->)',
+                         lambda m: m.group(1) + version_line(info, lang, cite_href) + m.group(2), content)
+        if n != 1:
+            raise SystemExit(f'{name}: version:start / version:end markers not found')
+        if name.endswith('index.html'):
+            new, n = re.subn(r'(<!-- cite:start -->\n).*?( *<!-- cite:end -->)',
+                             lambda m: m.group(1) + cite_block(info, lang) + '\n' + m.group(2), new, flags=re.S)
+            if n != 1:
+                raise SystemExit(f'{name}: cite:start / cite:end markers not found')
+        if new != content:
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(new)
+    return info['version']
+
+
 def build_api():
     """4-6: Generate docs/api/ (JSON-LD) from xml/master/ via scripts/build_api.py.
 
@@ -504,15 +732,14 @@ def replace_site_url():
         return
     targets = [
         os.path.join(DOCS_DIR, 'index.html'),
-        os.path.join(DOCS_DIR, 'index-en.html'),
+        os.path.join(DOCS_DIR, 'en', 'index.html'),
         os.path.join(DOCS_DIR, 'waka.html'),
-        os.path.join(DOCS_DIR, 'waka-en.html'),
+        os.path.join(DOCS_DIR, 'en', 'waka.html'),
         os.path.join(DOCS_DIR, 'viz.html'),
-        os.path.join(DOCS_DIR, 'viz-en.html'),
+        os.path.join(DOCS_DIR, 'en', 'viz.html'),
         os.path.join(DOCS_DIR, 'stats.html'),
-        os.path.join(DOCS_DIR, 'stats-en.html'),
+        os.path.join(DOCS_DIR, 'en', 'stats.html'),
         os.path.join(DOCS_DIR, 'sitemap.xml'),
-        os.path.join(DOCS_DIR, 'snorql', 'snorql_def.js'),
     ]
     for path in targets:
         if not os.path.exists(path):
@@ -527,13 +754,21 @@ def replace_site_url():
 
 
 def main():
-    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['tei', 'xsl', 'waka', 'stats', 'api', 'pdf', 'epub']
+    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['index', 'version', 'tei', 'xsl', 'waka', 'stats', 'api', 'pdf', 'epub']
 
     print(f'=== SITE_URL: {SITE_URL} ===')
 
     if SITE_URL != DEFAULT_SITE_URL:
         print('=== Replacing site URL in static files ===')
         replace_site_url()
+
+    if 'index' in tasks:
+        print('=== Writing the volume list into docs/index*.html ===')
+        print(f'  {build_index()} volumes')
+
+    if 'version' in tasks:
+        print('=== Writing the version (CITATION.cff) into the page footers ===')
+        print(f'  {build_version()}')
 
     if 'tei' in tasks:
         print('=== Building docs/tei/ ===')
@@ -559,6 +794,10 @@ def main():
         print('=== Building docs/data/chapters.json ===')
         count = build_chapters_json()
         print(f'  {count} chapters extracted')
+
+    if 'waka' in tasks or 'stats' in tasks:
+        print('=== Writing the waka list into docs/waka.html, docs/en/waka.html ===')
+        print(f'  {build_waka_page()} waka')
 
     if 'api' in tasks:
         print('=== Building docs/api/ ===')

@@ -14,6 +14,7 @@
 #   tools/schxslt2/      SchXslt2          Schematron → XSLT 3.0
 #   tools/saxon/         Saxon-HE          XSLT 実行
 #   tools/jing/          Jing              RELAX NG 検証
+#   tools/vnu/           Nu HTML Checker   公開する HTML の検証（W3C）
 #   tools/p5subset.xml   TEI P5 の仕様本体（ODD の合成に必要）
 #   tools/tei_odds.rng   ODD 自身を検証するためのスキーマ
 #
@@ -101,6 +102,19 @@ else
   print "skip: tools/jing"
 fi
 
+# --- Nu HTML Checker ---
+if [[ $FORCE == yes || ! -f $VNU_JAR ]]; then
+  rm -rf $TOOLS_DIR/vnu $TOOLS_DIR/.vnu-tmp
+  fetch $VNU_URL $TOOLS_DIR/vnu.tgz $VNU_SHA256
+  mkdir -p $TOOLS_DIR/.vnu-tmp $TOOLS_DIR/vnu
+  tar xzf $TOOLS_DIR/vnu.tgz -C $TOOLS_DIR/.vnu-tmp package/build/dist/vnu.jar
+  mv $TOOLS_DIR/.vnu-tmp/package/build/dist/vnu.jar $VNU_JAR
+  rm -rf $TOOLS_DIR/.vnu-tmp $TOOLS_DIR/vnu.tgz
+  [[ -f $VNU_JAR ]] || die "vnu.jar の展開結果が想定と違います"
+else
+  print "skip: tools/vnu"
+fi
+
 # --- TEI P5 ---
 if [[ $FORCE == yes || ! -f $P5SUBSET ]]; then
   fetch $P5_URL $P5SUBSET $P5_SHA256
@@ -122,6 +136,7 @@ print "  SchXslt2        $SCHXSLT2_VERSION"
 print "  TEI P5          $P5_VERSION"
 print "  Saxon-HE        $SAXON_VERSION"
 print "  Jing            $JING_VERSION"
+print "  Nu HTML Checker $VNU_VERSION"
 print "  Java            $JAVA"
 print
 print "次: ./scripts/build-schema.zsh でスキーマを生成します。"
