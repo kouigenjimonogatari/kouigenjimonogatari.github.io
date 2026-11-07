@@ -345,10 +345,4 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/stats.html"/>
   </url>
 
-  <!-- SPARQL endpoint -->
-  <url>
-    <loc>https://kouigenjimonogatari.github.io/snorql/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
 </urlset>

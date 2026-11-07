@@ -120,8 +120,8 @@ and its text differs from the current TEI in 24,747 of 25,065 lines
 the API is built from it as well. As a side effect, `pandas` / `numpy` / `rdflib` / `openpyxl` are no longer needed,
 and the only dependency is `lxml`.
 
-The SPARQL endpoint (Dydra, referenced from `docs/snorql/`) is managed separately.
-Because JSON-LD is RDF, the generated files can be loaded into it as they are.
+The site no longer bundles a SPARQL client (snorql). Each volume's JSON-LD (`docs/api/item_sets/*.json`)
+has a link that opens it in the external LOD browser Musubi (https://musubi.ldas.jp/); the site itself does not depend on it.
 
 ### Editors
 
@@ -277,8 +277,8 @@ python3 scripts/build_api.py --check    出力せず TEI との整合だけ検�
 API もそこから作ります。副次的に `pandas` / `numpy` / `rdflib` / `openpyxl` が不要になり、
 依存は `lxml` だけになりました。
 
-なお SPARQL エンドポイント（`docs/snorql/` から参照している Dydra）は別管理です。
-JSON-LD は RDF なので、生成物をそのまま投入できます。
+SPARQL の画面（snorql）は同梱をやめました。各巻の JSON-LD（`docs/api/item_sets/*.json`）には、
+外部の LOD ブラウザ Musubi（https://musubi.ldas.jp/）で開くリンクを付けています。サイト自体はリンク先に依存しません。
 
 ### エディタ
 

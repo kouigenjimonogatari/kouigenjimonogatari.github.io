@@ -512,7 +512,6 @@ def replace_site_url():
         os.path.join(DOCS_DIR, 'stats.html'),
         os.path.join(DOCS_DIR, 'stats-en.html'),
         os.path.join(DOCS_DIR, 'sitemap.xml'),
-        os.path.join(DOCS_DIR, 'snorql', 'snorql_def.js'),
     ]
     for path in targets:
         if not os.path.exists(path):
