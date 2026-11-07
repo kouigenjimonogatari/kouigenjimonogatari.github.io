@@ -646,8 +646,10 @@ def cite_block(info, lang):
     esc = htmlmod.escape
     year = info['date'][:4]
     doi_url = f'https://doi.org/{info["doi"]}'
-    ref = (f'{esc(" & ".join(info["authors"]))} ({year}). <i>{esc(info["title"])}</i> '
-           f'(Version {esc(info["version"])}) [Data set]. Zenodo. '
+    # サイトは個人の著作として名乗っていない（作成者は複数・図書館の有志を含む）ので、
+    # 著者名を立てず、題名から始める（CITATION.cff の authors は使わない）
+    ref = (f'<i>{esc(info["title"])}</i> ({year}). '
+           f'Version {esc(info["version"])} [Data set]. Zenodo. '
            f'<a href="{doi_url}">{doi_url}</a>')
     item = 'https://w3id.org/kouigenjimonogatari/api/items/0009-03.json'
     cff = 'https://github.com/kouigenjimonogatari/kouigenjimonogatari.github.io/blob/master/CITATION.cff'
