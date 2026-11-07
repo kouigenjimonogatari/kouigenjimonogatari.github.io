@@ -106,13 +106,16 @@ def build_html():
     xsl_path = os.path.join(BASE_DIR, 'xsl', 'mirador.xsl')
     html_dir = os.path.join(DOCS_DIR, 'html')
     os.makedirs(html_dir, exist_ok=True)
-    # 日本語は NN.html、英語は NN-en.html（以前は 1 つの頁を ?lang=en で切り替えていた）
+    # 日本語は html/NN.html、英語は en/html/NN.html（以前は 1 つの頁を ?lang=en で切り替えていた）
+    en_dir = os.path.join(DOCS_DIR, 'en', 'html')
+    os.makedirs(en_dir, exist_ok=True)
     for ch in CHAPTERS:
         src = os.path.join(DOCS_DIR, 'tei', f'{ch}.xml')
         if not os.path.exists(src):
             continue
-        for lang, name in (('ja', f'{ch}.html'), ('en', f'{ch}-en.html')):
-            dst = os.path.join(html_dir, name)
+        for lang, out_dir in (('ja', html_dir), ('en', en_dir)):
+            name = os.path.relpath(os.path.join(out_dir, f'{ch}.html'), DOCS_DIR)
+            dst = os.path.join(out_dir, f'{ch}.html')
             result = subprocess.run(
                 xslt_cmd(xsl_path, src, dst, [f'lang={lang}']),
                 capture_output=True, text=True, cwd=BASE_DIR
@@ -500,7 +503,7 @@ def build_epub(ch):
 
 
 def build_index():
-    """Write the volume list into docs/index.html and docs/index-en.html as static HTML.
+    """Write the volume list into docs/index.html and docs/en/index.html as static HTML.
 
     The list sits between <!-- volumes:start --> and <!-- volumes:end -->.
     It used to be built in the browser with jQuery from an external JSON file.
@@ -509,23 +512,24 @@ def build_index():
     from site_icons import sprite, use
 
     icons = ['file-alt', 'code', 'link', 'book-open', 'file-pdf', 'book', 'download']
-    for name, lang in (('index.html', 'ja'), ('index-en.html', 'en')):
+    for name, lang in (('index.html', 'ja'), (os.path.join('en', 'index.html'), 'en')):
+        up = '../' if lang == 'en' else ''  # en/ の頁から共通のファイルへ
         cards = []
         for ch in CHAPTERS:
             n = int(ch)
-            html_href = f'html/{ch}-en.html' if lang == 'en' else f'html/{ch}.html'
+            html_href = f'html/{ch}.html'  # 英語は docs/en/html/NN.html
             musubi = ('https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari'
                       f'%2Fapi%2Fitem_sets%2F{ch}.json')
             dts = (f'https://awase.ldas.jp/{lang}/dts/?base=https://genji.ldas.jp/api/v2/dts'
                    f'&amp;url=https%3A%2F%2Fgenji.ldas.jp%2Fapi%2Fv2%2Fdts%2Fcollection%3Fid%3Durn%3Akouigenjimonogatari.{n}')
             buttons = [
                 ('btn-primary-custom', html_href, '', 'file-alt', 'HTML'),
-                ('btn-primary-custom', f'tei/{ch}.xml', ' target="_blank"', 'code', 'TEI/XML'),
+                ('btn-primary-custom', up + f'tei/{ch}.xml', ' target="_blank"', 'code', 'TEI/XML'),
                 ('btn-accent-custom', musubi, ' target="_blank"', 'link', 'LOD'),
                 ('btn-secondary-custom', dts, ' target="_blank"', 'book-open', 'DTS'),
-                ('btn-secondary-custom', f'pdf/{ch}.pdf', ' target="_blank"', 'file-pdf', 'PDF'),
-                ('btn-secondary-custom', f'bibi/index.html?book={ch}', ' target="_blank"', 'book', 'EPUB'),
-                ('btn-secondary-custom', f'epub/{ch}.epub', ' download', 'download', 'EPUB DL'),
+                ('btn-secondary-custom', up + f'pdf/{ch}.pdf', ' target="_blank"', 'file-pdf', 'PDF'),
+                ('btn-secondary-custom', up + f'bibi/index.html?book={ch}', ' target="_blank"', 'book', 'EPUB'),
+                ('btn-secondary-custom', up + f'epub/{ch}.epub', ' download', 'download', 'EPUB DL'),
             ]
             btns = '\n'.join(
                 f'                                    <a class="action-btn {cls}" href="{href}"{attr}>{use(ic)} {text}</a>'
@@ -579,13 +583,13 @@ def replace_site_url():
         return
     targets = [
         os.path.join(DOCS_DIR, 'index.html'),
-        os.path.join(DOCS_DIR, 'index-en.html'),
+        os.path.join(DOCS_DIR, 'en', 'index.html'),
         os.path.join(DOCS_DIR, 'waka.html'),
-        os.path.join(DOCS_DIR, 'waka-en.html'),
+        os.path.join(DOCS_DIR, 'en', 'waka.html'),
         os.path.join(DOCS_DIR, 'viz.html'),
-        os.path.join(DOCS_DIR, 'viz-en.html'),
+        os.path.join(DOCS_DIR, 'en', 'viz.html'),
         os.path.join(DOCS_DIR, 'stats.html'),
-        os.path.join(DOCS_DIR, 'stats-en.html'),
+        os.path.join(DOCS_DIR, 'en', 'stats.html'),
         os.path.join(DOCS_DIR, 'sitemap.xml'),
     ]
     for path in targets:

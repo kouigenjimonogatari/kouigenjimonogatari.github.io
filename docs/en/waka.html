@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="Complete list of all 795 waka poems in the Kōi Genji Monogatari. Search by text and filter by volume.">
+    <meta name="keywords" content="Genji Monogatari,waka,Kōi Genji Monogatari,text database,classical literature">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Waka Poems - Kōi Genji Monogatari Text DB">
+    <meta property="og:description" content="Complete list of all 795 waka poems in the Kōi Genji Monogatari.">
+    <meta property="og:url" content="https://kouigenjimonogatari.github.io/en/waka.html">
+    <meta property="og:site_name" content="Kōi Genji Monogatari Text DB">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://kouigenjimonogatari.github.io/ogp-image.png">
+
+    <link rel="canonical" href="https://kouigenjimonogatari.github.io/en/waka.html">
+    <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/waka.html">
+    <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/waka.html">
+    <link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/waka.html">
+
+
+
+
+    <!-- Chart.js -->
+    <script src="../lib/chart.js-4.4.4/chart.umd.js"></script>
+
+    <!-- Common CSS -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+
+    <title>Waka Poems - Kōi Genji Monogatari Text DB</title>
+
+    <style>
+        /* Waka-specific styles */
+        .filter-bar {
+            background: #fff;
+            border-bottom: 1px solid var(--color-border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 56px;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .filter-bar .form-control,
+        .filter-bar .form-select {
+            border-color: var(--color-border);
+            font-size: 0.9rem;
+            font-family: var(--font-ui);
+        }
+
+        .filter-bar .form-control:focus,
+        .filter-bar .form-select:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 0.2rem rgba(139, 69, 19, 0.15);
+        }
+
+        .result-count {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .waka-list {
+            padding: 2rem 0;
+        }
+
+        .waka-card {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .waka-card:hover {
+            box-shadow: var(--shadow-soft);
+            border-color: var(--color-accent);
+        }
+
+        .waka-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .waka-seq {
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            min-width: 3rem;
+            text-align: center;
+            font-family: var(--font-ui);
+        }
+
+        .waka-chapter {
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        .waka-text {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--color-text);
+        }
+
+        .waka-text .verse-line {
+            display: inline;
+        }
+
+        .waka-text .verse-sep {
+            color: #ccc;
+            margin: 0 0.15em;
+        }
+
+        .waka-link {
+            margin-top: 0.5rem;
+        }
+
+        .waka-link a {
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+
+        .waka-link a:hover {
+            text-decoration: underline;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+        }
+
+        /* Chart section */
+        .chart-section {
+            background: #fff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-section h3 {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            min-height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg site-navbar fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Kōi Genji Monogatari Text DB</a>
+
+                <div class="navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="viz.html">
+                                <svg class="icon me-1" viewBox="0 0 576 512" aria-hidden="true"><path d="M304 240V16.6c0-9 7-16.6 16-16.6C443.7 0 544 100.3 544 224c0 9-7.6 16-16.6 16H304zM32 272C32 150.7 122.1 50.3 239 34.3c9.2-1.3 17 6.1 17 15.4V288L412.5 444.5c6.7 6.7 6.2 17.7-1.5 23.1C371.8 495.6 323.8 512 272 512C139.5 512 32 404.6 32 272zm526.4 16c9.3 0 16.6 7.8 15.4 17c-7.7 55.9-34.6 105.6-73.9 142.3c-6 5.6-15.4 5.2-21.2-.7L320 288H558.4z"/></svg>Visualizations
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" target="_blank" href="https://genji.lib.u-tokyo.ac.jp/">
+                                <svg class="icon me-1" viewBox="0 0 512 512" aria-hidden="true"><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg>Digital Genji
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../waka.html" hreflang="ja" lang="ja">
+                                <svg class="icon me-1" viewBox="0 0 512 512" aria-hidden="true"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z"/></svg>日本語
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero-section" style="padding: 4rem 0 3rem">
+        <div class="container">
+            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">Waka Poems</h1>
+            <p class="hero-subtitle">All waka poems in the Kōi Genji Monogatari</p>
+        </div>
+    </section>
+
+    <div class="filter-bar">
+        <div class="container">
+            <div class="row g-2 align-items-center">
+                <div class="col-md-6">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Search waka text...">
+                </div>
+                <div class="col-md-3">
+                    <select id="chapterFilter" class="form-select">
+                        <option value="">All Volumes</option>
+                    </select>
+                </div>
+                <div class="col-md-3 text-end">
+                    <span id="resultCount" class="result-count"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="waka-list">
+        <div class="container">
+            <div class="chart-section" id="chartSection" style="display:none">
+                <h3>Waka and Character Count by Volume</h3>
+                <p style="font-size:0.85rem;color:#666;margin-bottom:1rem">The bar graph (left axis) shows the number of waka poems in each volume, while the line graph (right axis) shows the character count of the main text. Click a volume to filter its waka poems.</p>
+                <div class="chart-container">
+                    <canvas id="wakaChart"></canvas>
+                </div>
+            </div>
+            <details class="chart-section" id="scatterSection" style="display:none">
+                <summary><h3 style="display:inline">Relationship between Character Count and Waka Count</h3></summary>
+                <p style="font-size:0.85rem;color:#666;margin:0.75rem 0 1rem">Each dot represents a volume, with the horizontal axis showing the character count of the main text and the vertical axis showing the number of waka poems. This reveals that longer volumes (those with more characters) do not necessarily contain more waka poems. Hover over a dot to see the volume name.</p>
+                <div class="chart-container" style="margin-top:1rem">
+                    <canvas id="scatterChart"></canvas>
+                </div>
+            </details>
+            <div id="wakaContainer">
+                <div class="loading">
+                    <svg class="icon fa-spin me-2" viewBox="0 0 512 512" aria-hidden="true"><path d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z"/></svg>Loading...
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="mb-0">Powered by TEI, Mirador, and XSLT</p>
+        </div>
+    </footer>
+
+
+    <script>
+        let allWaka = [];
+        let chapterData = [];
+
+        let wakaChart = null;
+        let scatterChart = null;
+
+        async function loadWaka() {
+            try {
+                const [wakaRes, chapRes] = await Promise.all([
+                    fetch('../data/waka.json'),
+                    fetch('../data/chapters.json')
+                ]);
+                allWaka = await wakaRes.json();
+                chapterData = await chapRes.json();
+                populateChapterFilter();
+                renderChart(allWaka);
+                initScatterSection();
+                renderWaka(allWaka);
+            } catch (error) {
+                document.getElementById('wakaContainer').innerHTML =
+                    '<p class="text-center text-danger">Failed to load data.</p>';
+            }
+        }
+
+        function renderChart(waka) {
+            // Count waka per chapter
+            const chapterCounts = new Map();
+            waka.forEach(w => {
+                const key = `${w.chapter} ${w.chapter_name}`;
+                chapterCounts.set(key, (chapterCounts.get(key) || 0) + 1);
+            });
+
+            // Build chars data aligned to chapterCounts order
+            const chapterChars = new Map();
+            chapterData.forEach(c => {
+                chapterChars.set(`${c.chapter} ${c.chapter_name}`, c.chars);
+            });
+
+            const labels = Array.from(chapterCounts.keys());
+            const wakaData = Array.from(chapterCounts.values());
+            const charsData = labels.map(l => chapterChars.get(l) || 0);
+
+            document.getElementById('chartSection').style.display = 'block';
+
+            const ctx = document.getElementById('wakaChart').getContext('2d');
+
+            if (wakaChart) {
+                wakaChart.destroy();
+            }
+
+            // Use CSS variable colors
+            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim();
+            const charsColor = '#59a14f';
+
+            wakaChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Poems',
+                            data: wakaData,
+                            backgroundColor: primaryColor + 'cc',
+                            borderColor: primaryColor,
+                            borderWidth: 1,
+                            borderRadius: 2,
+                            yAxisID: 'y',
+                            order: 2,
+                        },
+                        {
+                            label: 'Characters',
+                            data: charsData,
+                            type: 'line',
+                            borderColor: charsColor,
+                            backgroundColor: charsColor + '33',
+                            borderWidth: 2,
+                            pointRadius: 2,
+                            pointHoverRadius: 4,
+                            tension: 0.3,
+                            fill: false,
+                            yAxisID: 'y1',
+                            order: 1,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: { font: { size: 11 } }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(items) {
+                                    return items[0].label;
+                                },
+                                label: function(item) {
+                                    if (item.dataset.label === 'Poems') {
+                                        return `Poems: ${item.raw}`;
+                                    }
+                                    return `Characters: ${item.raw.toLocaleString()}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                font: { size: 9 },
+                                maxRotation: 90,
+                                minRotation: 45
+                            },
+                            grid: { display: false }
+                        },
+                        y: {
+                            position: 'left',
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 5,
+                                font: { size: 10 }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Waka Count',
+                                font: { size: 11 }
+                            }
+                        },
+                        y1: {
+                            position: 'right',
+                            beginAtZero: true,
+                            ticks: {
+                                font: { size: 10 },
+                                callback: function(value) {
+                                    return value >= 1000 ? (value / 1000) + 'k' : value;
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Characters',
+                                font: { size: 11 },
+                                color: '#59a14f'
+                            },
+                            grid: { drawOnChartArea: false }
+                        }
+                    },
+                    onClick: function(event, elements) {
+                        if (elements.length > 0) {
+                            const index = elements[0].index;
+                            const label = labels[index];
+                            const chapterNum = label.split(' ')[0];
+                            document.getElementById('chapterFilter').value = chapterNum;
+                            filterWaka();
+                        }
+                    }
+                }
+            });
+        }
+
+        function initScatterSection() {
+            if (!chapterData.length) return;
+            const section = document.getElementById('scatterSection');
+            section.style.display = 'block';
+            section.addEventListener('toggle', function() {
+                if (section.open && !scatterChart) {
+                    renderScatterChart();
+                }
+            });
+        }
+
+        function renderScatterChart() {
+            if (!chapterData.length) return;
+
+            const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--color-accent').trim();
+
+            const scatterData = chapterData.map(c => ({
+                x: c.chars,
+                y: c.waka,
+                label: `${c.chapter} ${c.chapter_name}`
+            }));
+
+            const ctx = document.getElementById('scatterChart').getContext('2d');
+
+            if (scatterChart) {
+                scatterChart.destroy();
+            }
+
+            scatterChart = new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Volume',
+                        data: scatterData,
+                        backgroundColor: accentColor + 'cc',
+                        borderColor: accentColor,
+                        borderWidth: 1,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                title: function(items) {
+                                    return items[0].raw.label;
+                                },
+                                label: function(item) {
+                                    return [
+                                        `Characters: ${item.raw.x.toLocaleString()}`,
+                                        `Waka: ${item.raw.y} poems`
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Character Count',
+                                font: { size: 11 }
+                            },
+                            ticks: {
+                                font: { size: 10 },
+                                callback: function(value) {
+                                    return value >= 1000 ? (value / 1000) + 'k' : value;
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Waka Count',
+                                font: { size: 11 }
+                            },
+                            ticks: {
+                                stepSize: 5,
+                                font: { size: 10 }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function populateChapterFilter() {
+            const select = document.getElementById('chapterFilter');
+            const chapters = new Map();
+            allWaka.forEach(w => {
+                if (!chapters.has(w.chapter)) {
+                    chapters.set(w.chapter, w.chapter_name);
+                }
+            });
+            chapters.forEach((name, ch) => {
+                const opt = document.createElement('option');
+                opt.value = ch;
+                opt.textContent = `${ch} ${name}`;
+                select.appendChild(opt);
+            });
+        }
+
+        function renderWaka(waka) {
+            const container = document.getElementById('wakaContainer');
+            document.getElementById('resultCount').textContent = `${waka.length} poems`;
+
+            if (waka.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted py-5">No matching waka poems found.</p>';
+                return;
+            }
+
+            container.innerHTML = waka.map(w => {
+                const verseHtml = w.lines.map(l =>
+                    `<span class="verse-line">${escapeHtml(l)}</span>`
+                ).join('<span class="verse-sep">/</span>');
+
+                const chNum = w.chapter;
+                const viewUrl = w.waka_id
+                    ? `html/${chNum}.html#${w.waka_id}`
+                    : `html/${chNum}.html`;
+
+                return `
+                    <div class="waka-card">
+                        <div class="waka-meta">
+                            <span class="waka-seq">${w.seq}</span>
+                            <span class="waka-chapter">${chNum} ${w.chapter_name}</span>
+                        </div>
+                        <div class="waka-text" lang="ja">${verseHtml}</div>
+                        <div class="waka-link">
+                            <a href="${viewUrl}"><svg class="icon me-1" viewBox="0 0 576 512" aria-hidden="true"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></svg>View text</a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function filterWaka() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const chapter = document.getElementById('chapterFilter').value;
+
+            const filtered = allWaka.filter(w => {
+                const textMatch = !query || w.lines.join('').toLowerCase().includes(query);
+                const chapterMatch = !chapter || w.chapter === chapter;
+                return textMatch && chapterMatch;
+            });
+
+            renderWaka(filtered);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterWaka);
+        document.getElementById('chapterFilter').addEventListener('change', filterWaka);
+
+        loadWaka();
+    </script>
+</body>
+
+</html>

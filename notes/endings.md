@@ -59,3 +59,16 @@
 - 確かめたこと（Chrome、手元）: `01.html?waka=waka-002&lang=en` → `01-en.html#waka-002` で英語の画面・和歌の強調。
   `?canvas=…/24` → `#p9`、`?n=13` → `#p13`、`[Page 16]` を押す → `#p16`、`#p20` に書き換え → その画像へ
 - 残る `?`: 外部の Musubi へのリンク（`?u=`）は相手のサイトの URL なので、このサイトの URL の安定性とは別
+
+## 2026-11-06（続き）英語の頁を en/ の下に
+
+- 本人の判断で、英語の頁を `index-en.html` などから `en/index.html`・`en/stats.html`・`en/viz.html`・`en/waka.html`・
+  `en/html/NN.html` に移した（Claude は当初、公開済みの URL を変えないため `-en` のままを勧めたが、
+  古い URL から転送する形にして移すことになった）
+- 古い 4 つの URL には転送用の小さな頁を置いた（`meta refresh` と、`#` を保つ 1 行のスクリプト、`rel="canonical"`、
+  `noindex`）。GitHub Pages ではサーバでの転送ができないため。`html/NN.html?lang=en` も `en/html/NN.html` へ移る
+- サイトの中のリンクは `en/` ではなく `en/index.html` と書いた。ディスクから開いた写し（file://）では
+  フォルダへのリンクが index.html を開かないため（EP の「どこに置いても動く」）
+- 確かめたこと（Chrome、手元）: `index-en.html#12` → `en/index.html#12`、`waka-en.html` → `en/waka.html`（795 首、
+  リンクは `en/html/01.html#waka-001`）、`stats-en.html` → `en/stats.html`（図 4 つ）、`html/03.html?lang=en` → `en/html/03.html`
+- 残る `?`: EPUB の読み手 `bibi/index.html?book=NN` は同梱の外部の道具の作り。Musubi への `?u=` は相手のサイトの URL

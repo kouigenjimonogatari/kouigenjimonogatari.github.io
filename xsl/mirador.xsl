@@ -2,11 +2,13 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0" version="2.0">
     <xsl:output method="html" encoding="UTF-8" />
 
-    <!-- 表示の言語。ja なら NN.html、en なら NN-en.html として書き出す（scripts/prebuild.py）。
+    <!-- 表示の言語。ja なら html/NN.html、en なら en/html/NN.html として書き出す（scripts/prebuild.py）。
          以前は 1 つの頁を ?lang=en で切り替えていたが、URL のクエリに頼らないよう
          （Endings Principles 4.4）、言語ごとに静的な頁にした。 -->
     <xsl:param name="lang" select="'ja'"/>
     <xsl:variable name="en" select="$lang = 'en'"/>
+    <!-- この頁からサイトの根への相対パス（英語の頁は 1 段深い） -->
+    <xsl:variable name="root" select="if ($en) then '../../' else '../'"/>
     <xsl:variable name="vol" select="replace(tokenize(base-uri(/), '/')[last()], '\.xml$', '')"/>
 
     <xsl:template match="/tei:TEI">
@@ -18,8 +20,8 @@
                     <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
                 </title>
                 <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/html/{$vol}.html"/>
-                <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/html/{$vol}-en.html"/>
-                <script type="text/javascript" src="../lib/mirador-4.3.0/mirador.min.js"></script>
+                <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/html/{$vol}.html"/>
+                <script type="text/javascript" src="{$root}lib/mirador-4.3.0/mirador.min.js"></script>
                 <style>
                     :root {
                         --color-primary: #2c3e50;
@@ -381,7 +383,7 @@
                 <!-- Header -->
                 <header class="site-header">
                     <div class="header-left">
-                        <a href="{if ($en) then '../index-en.html' else '../index.html'}" class="home-link" aria-label="{if ($en) then 'Home' else 'トップ'}">
+                        <a href="../index.html" class="home-link" aria-label="{if ($en) then 'Home' else 'トップ'}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
@@ -395,8 +397,8 @@
                         <button id="showMetadataBtn" class="btn"><xsl:value-of select="if ($en) then 'Metadata' else 'メタデータ'"/></button>
                         <button id="downloadXmlBtn" class="btn">TEI/XML</button>
                         <xsl:choose>
-                            <xsl:when test="$en"><a class="btn" href="{$vol}.html" hreflang="ja" lang="ja">日本語</a></xsl:when>
-                            <xsl:otherwise><a class="btn" href="{$vol}-en.html" hreflang="en" lang="en">English</a></xsl:otherwise>
+                            <xsl:when test="$en"><a class="btn" href="../../html/{$vol}.html" hreflang="ja" lang="ja">日本語</a></xsl:when>
+                            <xsl:otherwise><a class="btn" href="../en/html/{$vol}.html" hreflang="en" lang="en">English</a></xsl:otherwise>
                         </xsl:choose>
                     </div>
                 </header>
@@ -531,7 +533,7 @@
                             if (legacy.get('lang') === 'en' &amp;&amp; !isEn) {
                                 legacy.delete('lang');
                                 const rest = legacy.toString();
-                                window.location.replace('<xsl:value-of select="$vol"/>-en.html' + (rest ? '?' + rest : '') + window.location.hash);
+                                window.location.replace('../en/html/<xsl:value-of select="$vol"/>.html' + (rest ? '?' + rest : '') + window.location.hash);
                             }
                             let hash = decodeURIComponent(window.location.hash.slice(1));
                             if (!hash) {
@@ -776,7 +778,7 @@
                             });
 
                             document.getElementById('downloadXmlBtn').addEventListener('click', function() {
-                                const xmlUrl = '../tei/<xsl:value-of select="$vol"/>.xml';
+                                const xmlUrl = '<xsl:value-of select="$root"/>tei/<xsl:value-of select="$vol"/>.xml';
                                 fetch(xmlUrl)
                                     .then(response => response.text())
                                     .then(xmlContent => {
