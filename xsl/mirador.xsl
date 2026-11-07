@@ -21,7 +21,7 @@
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <title>
-                    <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
+                    <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)][1]"/>
                 </title>
                 <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/html/{$vol}.html"/>
                 <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/html/{$vol}.html"/>
@@ -56,7 +56,8 @@
 
                     /* Header */
                     .site-header {
-                        height: 56px;
+                        min-height: 56px;
+                        gap: 0.5rem 1rem;
                         background: var(--color-primary);
                         color: #fff;
                         display: flex;
@@ -108,6 +109,18 @@
                     }
 
                     a.btn { text-decoration: none; }
+
+                    /* 狭い画面: 題名は 1 行で省略し、ボタンは次の行に並べる（以前は題名が縦に 1 字ずつ折れ、ボタンが 107px の高さになっていた） */
+                    .header-left { min-width: 0; flex: 1 1 auto; }
+                    .site-title { margin: 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+                    .btn { white-space: nowrap; }
+                    @media (max-width: 600px) {
+                        .site-header { flex-wrap: wrap; padding: 0.5rem 0.75rem; }
+                        .header-left { flex-basis: 100%; }
+                        .site-title { font-size: 1rem; }
+                        .header-actions { flex-basis: 100%; overflow-x: auto; gap: 0.375rem; }
+                        .btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
+                    }
                     .btn {
                         font-family: var(--font-ui);
                         font-size: 0.8125rem;
@@ -403,7 +416,7 @@
                             </svg>
                         </a>
                         <h1 class="site-title">
-                            <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
+                            <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title[not(@type)][1]"/>
                         </h1>
                         <xsl:if test="$version != ''">
                             <!-- 版と公開日はどの頁にも見える形で出す（Endings Principles 5.3・5.4）。詳しくはメタデータの窓 -->
