@@ -11,9 +11,8 @@
         <respStmt xml:id="snakamura">
           <resp xml:lang="ja">TEI カスタマイズの設計と保守</resp>
           <resp xml:lang="en">Design and maintenance of this customization</resp>
-          <name xml:lang="ja">中村 覚（東京大学史料編纂所 准教授）</name>
-          <name xml:lang="en">Satoru Nakamura (Associate Professor, Historiographical Institute,
-            The University of Tokyo)</name>
+          <name xml:lang="ja">中村 覚（東京大学）</name>
+          <name xml:lang="en">Satoru Nakamura (The University of Tokyo)</name>
           <note><ref target="https://researchmap.jp/nakamura.satoru">researchmap</ref></note>
         </respStmt>
       </titleStmt>
