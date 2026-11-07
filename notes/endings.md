@@ -106,3 +106,20 @@
 - 途中で分かったこと: CITATION.cff の 10.5281/zenodo.24015761 は concept DOI（常に最新版を指す）で、v1.0.0 そのものの DOI は 24015762（Zenodo の API で確認）。版ごとの DOI は Zenodo が公開の後に振るので、その版の頁には書けない。そのため頁には concept DOI と版の番号を出し、版ごとの DOI は Zenodo の「Versions」を見るよう案内した
 - 1 行を引くときは行の URI（例 api/items/0009-03.json）を添えるよう書いた
 - release.yml（dip-checks 側）に引き継ぐこと: prebuild の引数に version を足すかどうか（静的な頁は commit 済みなので必須ではないが、CITATION.cff を上げて version を流し忘れると頁が古い版のままになる）。タグと CITATION.cff の version の一致の検査
+
+## 2026-11-06（続き）Endings の準拠の印と、HTML・内部リンクの検証
+
+- 準拠を登録する制度は無い。https://endings.uvic.ca/compliance.html に 7 つの条件があり、満たせば自己宣言してロゴを貼り、その頁にリンクする（審査なし）。projects.html は Endings のチームが関わった事業の一覧で、申し込んで載る名簿ではない
+- 7 条件のうち未確認だった「全コードの検証」「内部リンクの確認」を足した
+  - projectEndings/html_diagnostics は 2018 年で止まり、XHTML 名前空間の文書しか読めないので使わなかった。同じことを scripts/check_links.py（標準ライブラリの html.parser）で書いた。相手のファイル・#id の有無・相対かどうかを見る
+  - HTML の検証は W3C の Nu HTML Checker（vnu.jar）。GitHub の配布は版の付かない latest だけなので、npm の vnu-jar 26.10.12 を SHA-256 で固定して取る（最新 26.11.4 は公開 2 日後だったので避けた）
+  - scripts/check-html.zsh で両方を走らせ、validate.yml に組み込んだ（本文の頁は Saxon で組み立ててから検査。SAXON_JAR に xmlresolver も並べる）
+- 実測（初回）: 内部リンク 7,188 本中 241 件の問題（239 件は schema/tei_kouigenji.html、2 件は 404.html）。HTML の検証エラー 1,474 件（1,354 件が schema の解説、108 件が本文の頁の xmlns:tei、残りは見出しの階層の飛び・Google の所有確認ファイル）
+  - schema の解説: TEI Stylesheets は要素ごとの ref-*.html がある前提でリンクを作るが、ここでは 1 頁にしている。scripts/fix_schema_links.py で、頁の中に無い相手を TEI P5 4.12.0 の公式の解説（Vault）へ向け、xml:lang に lang を足し、xml:space と消し忘れの <?DEBUG?> を外した。build-schema.zsh から呼ぶので、再生成しても同じ結果になる（Docker の Java で確認）。向け先 46 件はすべて 200 を確認
+  - 404.html は GitHub Pages がどの階層の URL にも返すので、/ から書くしかない。検査から除いた
+  - 見出しは h1 → h3、h2 → h5 の飛びを直した（見た目は変えていない）
+- 修正後: 122 頁でエラー 0 件、内部リンク 7,190 本で問題 0 件
+- 「全頁に版と日付」: 本文の頁はメタデータの窓だけだったので、上部の帯にも出すようにした
+- 外部への依存で残るのは、頁の画像（NDL の IIIF）と LOD・DTS への外部リンク。本文は無くても読めるので「周辺的」と判断した
+- ロゴは endings_logo_badge_white.svg を docs/img に置き、8 頁のフッターに出した（prebuild.py version が書き込む）
+- お知らせに日英で 1 件足した（日付は公開日に直す）

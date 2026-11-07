@@ -527,7 +527,7 @@ def build_index():
                 f'                    <div class="col-lg-6 col-xl-4 mb-4">\n'
                 f'                        <div class="content-card" id="{n}">\n'
                 f'                            <div class="content-card-body">\n'
-                f'                                <h5 class="volume-title">{n}: {VOLUME_LABELS[ch]}</h5>\n'
+                f'                                <h3 class="volume-title">{n}: {VOLUME_LABELS[ch]}</h3>\n'
                 f'                                <div class="action-buttons">\n{btns}\n'
                 f'                                </div>\n'
                 f'                            </div>\n'
@@ -634,10 +634,16 @@ def version_line(info, lang, cite_href):
     """各頁のフッターに出す 1 行（版・公開日・DOI・引用の仕方へのリンク）。"""
     doi = info['doi']
     a = f'<a href="https://doi.org/{doi}">{doi}</a>'
+    up = '../' if lang == 'en' else ''
+    # Endings Project の準拠の印。条件（検証・内部リンク・相対リンク・サーバの処理なし・
+    # データベースなし・全頁に版と日付・外部への依存なし）は scripts/check-html.zsh などで確かめている
+    alt = 'Endings-compliant' if lang == 'en' else 'Endings Principles に準拠'
+    badge = (f'<a class="endings-badge" href="https://endings.uvic.ca/compliance.html">'
+             f'<img src="{up}img/endings_logo_badge_white.svg" alt="{alt}" width="37" height="51"></a>')
     if lang == 'en':
         return (f'Version {info["version"]} (released {info["date"]}) · DOI {a} · '
-                f'<a href="{cite_href}">How to cite</a>')
-    return f'版 {info["version"]}（{info["date"]} 公開）・DOI {a}・<a href="{cite_href}">引用の仕方</a>'
+                f'<a href="{cite_href}">How to cite</a>{badge}')
+    return f'版 {info["version"]}（{info["date"]} 公開）・DOI {a}・<a href="{cite_href}">引用の仕方</a>{badge}'
 
 
 def cite_block(info, lang):

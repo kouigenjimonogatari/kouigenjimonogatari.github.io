@@ -1,6 +1,6 @@
 name: Validate TEI
 
-# xml/master/*.xml を RELAX NG と Schematron で検証する。
+# xml/master/*.xml を RELAX NG と Schematron で検証する。公開する HTML と内部リンクも検証する（scripts/check-html.zsh）。
 # あわせて「ODD から再生成した結果がコミット済みの生成物と一致するか」も確認する
 # （ODD を直して再生成を忘れると、スキーマだけ古いまま気づかれない状態になるため）。
 #
@@ -13,15 +13,19 @@ on:
     paths:
       - 'xml/master/**'
       - 'odd/**'
-      - 'docs/schema/**'
+      - 'docs/**'
+      - 'xsl/**'
       - 'scripts/**'
+      - 'CITATION.cff'
       - '.github/workflows/validate.yml'
   pull_request:
     paths:
       - 'xml/master/**'
       - 'odd/**'
-      - 'docs/schema/**'
+      - 'docs/**'
+      - 'xsl/**'
       - 'scripts/**'
+      - 'CITATION.cff'
       - '.github/workflows/validate.yml'
   workflow_call:
     inputs:
@@ -86,3 +90,12 @@ jobs:
       # seg/@corresp の URI が、TEI 上のページ・行と食い違っていないか
       - name: API URIs must agree with the TEI
         run: python3 scripts/build_api.py --check
+
+      # 公開する HTML（W3C の Nu HTML Checker）と内部リンク（Endings Principles の準拠の条件）
+      - name: Build the text pages (docs/html, docs/en/html)
+        env:
+          SAXON_JAR: tools/saxon/Saxon-HE.jar:tools/saxon/xmlresolver.jar:tools/saxon/xmlresolver-data.jar
+        run: python3 scripts/prebuild.py tei xsl
+
+      - name: Validate HTML and internal links
+        run: ./scripts/check-html.zsh

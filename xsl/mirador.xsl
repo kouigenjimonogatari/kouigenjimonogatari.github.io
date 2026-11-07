@@ -1,5 +1,5 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:tei="http://www.tei-c.org/ns/1.0" version="2.0">
+    xmlns:tei="http://www.tei-c.org/ns/1.0" exclude-result-prefixes="tei" version="2.0">
     <xsl:output method="html" encoding="UTF-8" />
 
     <!-- 表示の言語。ja なら html/NN.html、en なら en/html/NN.html として書き出す（scripts/prebuild.py）。
@@ -91,6 +91,16 @@
                         font-weight: 600;
                         letter-spacing: 0.05em;
                     }
+
+                    .header-version {
+                        font-size: 0.75rem;
+                        color: rgba(255,255,255,0.7);
+                        white-space: nowrap;
+                    }
+
+                    .header-version a { color: inherit; }
+
+                    @media (max-width: 768px) { .header-version { display: none; } }
 
                     .header-actions {
                         display: flex;
@@ -395,6 +405,12 @@
                         <h1 class="site-title">
                             <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
                         </h1>
+                        <xsl:if test="$version != ''">
+                            <!-- 版と公開日はどの頁にも見える形で出す（Endings Principles 5.3・5.4）。詳しくはメタデータの窓 -->
+                            <a class="header-version" href="../index.html#cite">
+                                <xsl:value-of select="if ($en) then concat('Version ', $version, ' (', $released, ')') else concat('版 ', $version, '（', $released, '）')"/>
+                            </a>
+                        </xsl:if>
                     </div>
                     <div class="header-actions">
                         <button id="showSettingsBtn" class="btn"><xsl:value-of select="if ($en) then 'Settings' else '表示設定'"/></button>

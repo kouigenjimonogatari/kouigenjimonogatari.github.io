@@ -150,7 +150,7 @@
             margin-bottom: 2rem;
         }
 
-        .chart-section h3 {
+        .chart-section h2 {
             font-family: var(--font-body);
             font-size: 1.1rem;
             font-weight: 600;
@@ -280,14 +280,14 @@
     <main class="waka-list">
         <div class="container">
             <div class="chart-section" id="chartSection" style="display:none">
-                <h3>巻別和歌数・文字数</h3>
+                <h2>巻別和歌数・文字数</h2>
                 <p style="font-size:0.85rem;color:#666;margin-bottom:1rem">各巻に含まれる和歌の数（棒グラフ・左軸）と、本文の文字数（折れ線・右軸）を示しています。巻をクリックすると、その巻の和歌を絞り込めます。</p>
                 <div class="chart-container">
                     <canvas id="wakaChart"></canvas>
                 </div>
             </div>
             <details class="chart-section" id="scatterSection" style="display:none">
-                <summary><h3 style="display:inline">文字数と和歌数の関係</h3></summary>
+                <summary><h2 style="display:inline">文字数と和歌数の関係</h2></summary>
                 <p style="font-size:0.85rem;color:#666;margin:0.75rem 0 1rem">各巻を1つのドットで表し、横軸に本文の文字数、縦軸に和歌の数を配置した散布図です。長い巻（文字数が多い巻）に必ずしも多くの和歌が含まれるわけではないことがわかります。ドットにカーソルを合わせると巻名が表示されます。</p>
                 <div class="chart-container" style="margin-top:1rem">
                     <canvas id="scatterChart"></canvas>
@@ -4279,7 +4279,7 @@
 
     <footer class="site-footer">
         <div class="container text-center">
-            <p class="mb-1 site-version"><!-- version:start -->版 1.0.0（2026-11-06 公開）・DOI <a href="https://doi.org/10.5281/zenodo.24015761">10.5281/zenodo.24015761</a>・<a href="index.html#cite">引用の仕方</a><!-- version:end --></p>
+            <p class="mb-1 site-version"><!-- version:start -->版 1.0.0（2026-11-06 公開）・DOI <a href="https://doi.org/10.5281/zenodo.24015761">10.5281/zenodo.24015761</a>・<a href="index.html#cite">引用の仕方</a><a class="endings-badge" href="https://endings.uvic.ca/compliance.html"><img src="img/endings_logo_badge_white.svg" alt="Endings Principles に準拠" width="37" height="51"></a><!-- version:end --></p>
             <p class="mb-0">Powered by TEI, Mirador, and XSLT</p>
         </div>
     </footer>

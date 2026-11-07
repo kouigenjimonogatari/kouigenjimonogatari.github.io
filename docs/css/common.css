@@ -341,3 +341,6 @@ a:hover {
     background: rgba(0, 0, 0, 0.03);
     overflow-wrap: anywhere;
 }
+.endings-badge { display: block; width: max-content; margin-top: 0.75rem; }
+.endings-badge img { display: block; }
+.site-footer .text-center .endings-badge { margin-left: auto; margin-right: auto; }
