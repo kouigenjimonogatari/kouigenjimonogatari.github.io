@@ -104,10 +104,10 @@ jobs:
           grep -q "^## \[$v\]" CHANGELOG.md || { echo "::error::CHANGELOG.md に [$v] の節がありません。"; exit 1; }
 
       # 公開する HTML（W3C の Nu HTML Checker）と内部リンク（Endings Principles の準拠の条件）
-      - name: Build the text pages (docs/html, docs/en/html)
+      - name: Build the text pages and EPUBs (docs/html, docs/en/html, docs/epub)
         env:
           SAXON_JAR: tools/saxon/Saxon-HE.jar:tools/saxon/xmlresolver.jar:tools/saxon/xmlresolver-data.jar
-        run: python3 scripts/prebuild.py tei xsl
+        run: python3 scripts/prebuild.py tei xsl epub  # EPUB も組み立て時に作るもので、トップからリンクしている
 
       - name: Validate HTML and internal links
         run: ./scripts/check-html.zsh

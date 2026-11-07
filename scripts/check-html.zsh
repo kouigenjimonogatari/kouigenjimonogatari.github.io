@@ -4,8 +4,8 @@
 #   1. すべてのコードを検証してある → W3C の Nu HTML Checker（vnu.jar）でエラーが 0 件
 #   2. 内部リンクはすべて確かめてある → scripts/check_links.py で問題が 0 件（相対リンクかどうかも見る）
 #
-# 前提: ./scripts/setup-tools.zsh を実行済みで、docs/html・docs/en/html を組み立て済みであること
-#       （python3 scripts/prebuild.py tei xsl）。
+# 前提: ./scripts/setup-tools.zsh を実行済みで、docs/html・docs/en/html・docs/epub を組み立て済みであること
+#       （python3 scripts/prebuild.py tei xsl epub）。
 #
 # 使い方: ./scripts/check-html.zsh     終了コード: 問題が 1 件でもあれば 1
 #
