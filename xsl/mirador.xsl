@@ -6,6 +6,10 @@
          以前は 1 つの頁を ?lang=en で切り替えていたが、URL のクエリに頼らないよう
          （Endings Principles 4.4）、言語ごとに静的な頁にした。 -->
     <xsl:param name="lang" select="'ja'"/>
+    <!-- 版・公開日・DOI。scripts/prebuild.py が CITATION.cff から渡す -->
+    <xsl:param name="version" select="''"/>
+    <xsl:param name="released" select="''"/>
+    <xsl:param name="doi" select="''"/>
     <xsl:variable name="en" select="$lang = 'en'"/>
     <!-- この頁からサイトの根への相対パス（英語の頁は 1 段深い） -->
     <xsl:variable name="root" select="if ($en) then '../../' else '../'"/>
@@ -411,6 +415,15 @@
                             <button id="closeModalBtn" class="modal-close" aria-label="Close">&#xd7;</button>
                         </div>
                         <div class="modal-body">
+                            <xsl:if test="$version != ''">
+                                <div class="modal-section">
+                                    <p><strong><xsl:value-of select="if ($en) then 'Version:' else '版:'"/></strong>
+                                        <xsl:text> </xsl:text><xsl:value-of select="$version"/>
+                                        <xsl:value-of select="if ($en) then concat(' (released ', $released, ')') else concat('（', $released, ' 公開）')"/></p>
+                                    <p><strong>DOI:</strong><xsl:text> </xsl:text><a href="https://doi.org/{$doi}" target="_blank"><xsl:value-of select="$doi"/></a></p>
+                                    <p><a href="../index.html#cite"><xsl:value-of select="if ($en) then 'How to cite' else '引用の仕方'"/></a></p>
+                                </div>
+                            </xsl:if>
                             <div class="modal-section">
                                 <p><strong><xsl:value-of select="if ($en) then 'Author:' else '著者:'"/></strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author"/></p>
                                 <p><strong><xsl:value-of select="if ($en) then 'Publisher:' else '出版社:'"/></strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/></p>

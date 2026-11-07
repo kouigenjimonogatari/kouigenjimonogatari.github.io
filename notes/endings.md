@@ -97,3 +97,12 @@
 - 各カードに id="waka-001" を付けたので、一覧の中の 1 首にも直接リンクできる
 - 実測: waka.html は約 30KB → 698KB（gzip で 55KB）。2 回組み立てて同じ内容になることを確かめた（release.yml の再ビルド一致の検査に響かない）
 - 確認: 795 首・巻の選択肢 54・検索「いのち」で 6 首・空蝉で 2 首・該当なしの表示・グラフ 2 つ、日英とも
+
+## 2026-11-06（続き）5.3・5.4 各頁に版・公開日・引用の仕方
+
+- 値の元は CITATION.cff だけにした（scripts/release_info.py が version・date-released・doi・title・authors を読む。PyYAML は使わない）
+- prebuild.py に version のタスクを足した。日英 8 頁のフッターに「版 1.0.0（2026-11-06 公開）・DOI・引用の仕方」を印の間に書き込み、トップ（日英）に「引用の仕方」（#cite）を書き込む。本文の頁（html/NN.html）は XSLT の引数で渡し、メタデータの窓の先頭に出す
+- 組み立てた時刻は使わない。同じ版を組み立て直しても中身が変わらないことを確かめた（index・version・waka・stats を 2 回）
+- 途中で分かったこと: CITATION.cff の 10.5281/zenodo.24015761 は concept DOI（常に最新版を指す）で、v1.0.0 そのものの DOI は 24015762（Zenodo の API で確認）。版ごとの DOI は Zenodo が公開の後に振るので、その版の頁には書けない。そのため頁には concept DOI と版の番号を出し、版ごとの DOI は Zenodo の「Versions」を見るよう案内した
+- 1 行を引くときは行の URI（例 api/items/0009-03.json）を添えるよう書いた
+- release.yml（dip-checks 側）に引き継ぐこと: prebuild の引数に version を足すかどうか（静的な頁は commit 済みなので必須ではないが、CITATION.cff を上げて version を流し忘れると頁が古い版のままになる）。タグと CITATION.cff の version の一致の検査

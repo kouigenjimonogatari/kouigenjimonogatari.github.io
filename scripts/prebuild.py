@@ -94,6 +94,10 @@ def build_html():
     # 日本語は html/NN.html、英語は en/html/NN.html（以前は 1 つの頁を ?lang=en で切り替えていた）
     en_dir = os.path.join(DOCS_DIR, 'en', 'html')
     os.makedirs(en_dir, exist_ok=True)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import release_info
+    info = release_info.read()  # 版・公開日・DOI（CITATION.cff）
+    rel = [f'version={info["version"]}', f'released={info["date"]}', f'doi={info["doi"]}']
     for ch in CHAPTERS:
         src = os.path.join(DOCS_DIR, 'tei', f'{ch}.xml')
         if not os.path.exists(src):
@@ -102,7 +106,7 @@ def build_html():
             name = os.path.relpath(os.path.join(out_dir, f'{ch}.html'), DOCS_DIR)
             dst = os.path.join(out_dir, f'{ch}.html')
             result = subprocess.run(
-                xslt_cmd(xsl_path, src, dst, [f'lang={lang}']),
+                xslt_cmd(xsl_path, src, dst, [f'lang={lang}', *rel]),
                 capture_output=True, text=True, cwd=BASE_DIR
             )
             if result.returncode != 0:
@@ -618,6 +622,84 @@ def build_waka_page():
     return len(all_waka)
 
 
+VERSION_PAGES = [  # (頁, 言語, 引用の仕方への相対パス)
+    ('index.html', 'ja', '#cite'), ('stats.html', 'ja', 'index.html#cite'),
+    ('viz.html', 'ja', 'index.html#cite'), ('waka.html', 'ja', 'index.html#cite'),
+    ('en/index.html', 'en', '#cite'), ('en/stats.html', 'en', 'index.html#cite'),
+    ('en/viz.html', 'en', 'index.html#cite'), ('en/waka.html', 'en', 'index.html#cite'),
+]
+
+
+def version_line(info, lang, cite_href):
+    """各頁のフッターに出す 1 行（版・公開日・DOI・引用の仕方へのリンク）。"""
+    doi = info['doi']
+    a = f'<a href="https://doi.org/{doi}">{doi}</a>'
+    if lang == 'en':
+        return (f'Version {info["version"]} (released {info["date"]}) · DOI {a} · '
+                f'<a href="{cite_href}">How to cite</a>')
+    return f'版 {info["version"]}（{info["date"]} 公開）・DOI {a}・<a href="{cite_href}">引用の仕方</a>'
+
+
+def cite_block(info, lang):
+    """トップの「引用の仕方」の中身。"""
+    import html as htmlmod
+    esc = htmlmod.escape
+    year = info['date'][:4]
+    doi_url = f'https://doi.org/{info["doi"]}'
+    ref = (f'{esc(" & ".join(info["authors"]))} ({year}). <i>{esc(info["title"])}</i> '
+           f'(Version {esc(info["version"])}) [Data set]. Zenodo. '
+           f'<a href="{doi_url}">{doi_url}</a>')
+    item = 'https://w3id.org/kouigenjimonogatari/api/items/0009-03.json'
+    cff = 'https://github.com/kouigenjimonogatari/kouigenjimonogatari.github.io/blob/master/CITATION.cff'
+    p = ' ' * 32
+    if lang == 'en':
+        body = [
+            f'<p class="mb-3">This is version <strong>{esc(info["version"])}</strong>, released on {esc(info["date"])}. Please cite it as follows.</p>',
+            f'<p class="mb-3 cite-ref">{ref}</p>',
+            f'<p class="mb-3">The DOI above always leads to the latest version on Zenodo. To cite this exact version, use the version number above, or the DOI of the version listed under "Versions" on the Zenodo record.</p>',
+            f'<p class="mb-3">To cite a single line, add the URI of that line, e.g. <a href="{item}">{item}</a> (volume 1, page 9, line 3).</p>',
+            f'<p class="mb-0"><small class="text-muted">The same information is in <a href="{cff}">CITATION.cff</a>; GitHub and Zenodo show it as "Cite this repository".</small></p>',
+        ]
+    else:
+        body = [
+            f'<p class="jp-text mb-3">このサイトは版 <strong>{esc(info["version"])}</strong>（{esc(info["date"])} 公開）です。引用するときは、次のように書いてください。</p>',
+            f'<p class="mb-3 cite-ref">{ref}</p>',
+            f'<p class="jp-text mb-3">上の DOI は、Zenodo の最新版の記録を指します。版を特定するときは、上の版の番号を書くか、Zenodo の記録の「Versions」に並ぶ版ごとの DOI を使ってください。</p>',
+            f'<p class="jp-text mb-3">特定の 1 行を引くときは、その行の URI を添えてください。例: <a href="{item}">{item}</a>（第 1 帖、9 頁 3 行目）</p>',
+            f'<p class="jp-text mb-0"><small class="text-muted">同じ内容を <a href="{cff}">CITATION.cff</a> に書いてあります。GitHub と Zenodo では「Cite this repository」として表示されます。</small></p>',
+        ]
+    return '\n'.join(p + b for b in body)
+
+
+def build_version():
+    """版・公開日・DOI を、CITATION.cff から各頁に書き込む（Endings Principles 5.3・5.4）。
+
+    フッターの <!-- version:start --> と <!-- version:end --> の間、
+    トップの <!-- cite:start --> と <!-- cite:end --> の間を書き換える。
+    本文の頁（html/NN.html）は、XSLT の引数で同じ値を渡す（build_html）。
+    """
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import release_info
+    info = release_info.read()
+    for name, lang, cite_href in VERSION_PAGES:
+        path = os.path.join(DOCS_DIR, name)
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
+        new, n = re.subn(r'(<!-- version:start -->).*?(<!-- version:end -->)',
+                         lambda m: m.group(1) + version_line(info, lang, cite_href) + m.group(2), content)
+        if n != 1:
+            raise SystemExit(f'{name}: version:start / version:end markers not found')
+        if name.endswith('index.html'):
+            new, n = re.subn(r'(<!-- cite:start -->\n).*?( *<!-- cite:end -->)',
+                             lambda m: m.group(1) + cite_block(info, lang) + '\n' + m.group(2), new, flags=re.S)
+            if n != 1:
+                raise SystemExit(f'{name}: cite:start / cite:end markers not found')
+        if new != content:
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(new)
+    return info['version']
+
+
 def build_api():
     """4-6: Generate docs/api/ (JSON-LD) from xml/master/ via scripts/build_api.py.
 
@@ -664,7 +746,7 @@ def replace_site_url():
 
 
 def main():
-    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['index', 'tei', 'xsl', 'waka', 'stats', 'api', 'pdf', 'epub']
+    tasks = sys.argv[1:] if len(sys.argv) > 1 else ['index', 'version', 'tei', 'xsl', 'waka', 'stats', 'api', 'pdf', 'epub']
 
     print(f'=== SITE_URL: {SITE_URL} ===')
 
@@ -675,6 +757,10 @@ def main():
     if 'index' in tasks:
         print('=== Writing the volume list into docs/index*.html ===')
         print(f'  {build_index()} volumes')
+
+    if 'version' in tasks:
+        print('=== Writing the version (CITATION.cff) into the page footers ===')
+        print(f'  {build_version()}')
 
     if 'tei' in tasks:
         print('=== Building docs/tei/ ===')
