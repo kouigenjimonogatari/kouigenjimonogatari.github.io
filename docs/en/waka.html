@@ -45,6 +45,11 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
+        /* 狭い画面では上の帯を固定しない（common.css）ので、絞り込みの帯は画面の上端に付ける */
+        @media (max-width: 768px) {
+            .filter-bar { top: 0; }
+        }
+
         .filter-bar .form-control,
         .filter-bar .form-select {
             border-color: var(--color-border);
@@ -164,6 +169,13 @@
             width: 100%;
             min-height: 250px;
         }
+
+        /* 狭い画面: 54 巻の棒が 5px ほどになり、巻を押して絞り込めないので、横に送れるようにする */
+        @media (max-width: 768px) {
+            .chart-section { padding: 1rem; }
+            .chart-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .chart-wide { min-width: 720px; }
+        }
     </style>
 </head>
 
@@ -197,9 +209,9 @@
         </nav>
     </header>
 
-    <section class="hero-section" style="padding: 4rem 0 3rem">
+    <section class="hero-section hero-sub">
         <div class="container">
-            <h1 class="hero-title" style="font-size:2rem;margin-bottom:0.5rem">Waka Poems</h1>
+            <h1 class="hero-title">Waka Poems</h1>
             <p class="hero-subtitle">All waka poems in the Kōi Genji Monogatari</p>
         </div>
     </section>
@@ -283,8 +295,10 @@
             <div class="chart-section" id="chartSection" style="display:none">
                 <h2>Waka and Character Count by Volume</h2>
                 <p style="font-size:0.85rem;color:#666;margin-bottom:1rem">The bar graph (left axis) shows the number of waka poems in each volume, while the line graph (right axis) shows the character count of the main text. Click a volume to filter its waka poems.</p>
-                <div class="chart-container">
-                    <canvas id="wakaChart"></canvas>
+                <div class="chart-scroll">
+                    <div class="chart-container chart-wide">
+                        <canvas id="wakaChart"></canvas>
+                    </div>
                 </div>
             </div>
             <details class="chart-section" id="scatterSection" style="display:none">

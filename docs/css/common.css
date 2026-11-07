@@ -96,7 +96,7 @@ a:hover {
 .hero-section {
     background: linear-gradient(135deg, var(--color-primary) 0%, #3d566e 100%);
     color: #fff;
-    padding: 5rem 0 4rem;
+    padding: 2.5rem 0 2rem;
     margin-top: 56px;
 }
 
@@ -104,7 +104,7 @@ a:hover {
     font-family: var(--font-body);
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .hero-subtitle {
@@ -114,12 +114,21 @@ a:hover {
     max-width: 600px;
 }
 
+.hero-sub .hero-title {
+    font-size: 2rem;
+}
+
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 1.75rem;
+    .hero-section {
+        padding: 1.25rem 0 1rem;
+    }
+    .hero-title,
+    .hero-sub .hero-title {
+        font-size: 1.5rem;
     }
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 0;
     }
 }
 
@@ -270,9 +279,22 @@ a:hover {
     border-color: var(--color-accent);
 }
 
+/* 巻の一覧: 列の mb-4 があるので、カード自身の下の余白は付けない */
+#main .content-card {
+    margin-bottom: 0;
+}
+
+/* 狭い画面: ボタンを 1 列に並べると 1 巻で 7 段になり、54 巻の一覧が長くなりすぎる。3 列にする */
 @media (max-width: 768px) {
     .action-buttons {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+    }
+    .action-btn {
+        padding: 0.45rem 0.25rem;
+    }
+    #main > [class*="col-"] {
+        margin-bottom: 0.75rem;
     }
 }
 
@@ -341,6 +363,29 @@ a:hover {
     background: rgba(0, 0, 0, 0.03);
     overflow-wrap: anywhere;
 }
+#cite a { overflow-wrap: anywhere; }  /* 長い URI が狭い画面ではみ出さないように */
 .endings-badge { display: block; width: max-content; margin-top: 0.75rem; }
 .endings-badge img { display: block; }
 .site-footer .text-center .endings-badge { margin-left: auto; margin-right: auto; }
+
+/* 狭い画面: 節の上下の余白と、枠の内側の余白を詰める */
+@media (max-width: 768px) {
+    /* 上の帯は 2 段に折れて 104px ほどになり、56px ずらしただけの hero の題名に重なる。
+       画面の 15% ほどを占め続けるので、狭い画面では固定せず、頁と一緒に流す */
+    .site-navbar.fixed-top {
+        position: static;
+    }
+    .hero-section {
+        margin-top: 0;
+    }
+    main > section.py-5 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .news-section {
+        padding: 0.5rem 1rem;
+    }
+    .content-card-body {
+        padding: 1rem;
+    }
+}

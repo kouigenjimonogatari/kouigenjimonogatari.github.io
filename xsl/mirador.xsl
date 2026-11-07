@@ -114,13 +114,6 @@
                     .header-left { min-width: 0; flex: 1 1 auto; }
                     .site-title { margin: 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
                     .btn { white-space: nowrap; }
-                    @media (max-width: 600px) {
-                        .site-header { flex-wrap: wrap; padding: 0.5rem 0.75rem; }
-                        .header-left { flex-basis: 100%; }
-                        .site-title { font-size: 1rem; }
-                        .header-actions { flex-basis: 100%; overflow-x: auto; gap: 0.375rem; }
-                        .btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
-                    }
                     .btn {
                         font-family: var(--font-ui);
                         font-size: 0.8125rem;
@@ -173,6 +166,20 @@
                     #viewer {
                         width: 100%;
                         position: relative;
+                    }
+
+                    /* 狭い画面（600px 以下）。.btn と .text-pane の後に置く（前に置くと通常の指定に負ける） */
+                    @media (max-width: 600px) {
+                        .site-header { flex-wrap: wrap; padding: 0.5rem 0.75rem; }
+                        .header-left { flex-basis: 100%; }
+                        .site-title { font-size: 1rem; }
+                        .header-actions { flex-basis: 100%; overflow-x: auto; gap: 0.375rem; }
+                        .btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
+                        /* 本文と画像を左右に並べると 1 つが 130px ほどになるので、上下に積む */
+                        .main-content { flex-direction: column; }
+                        .text-pane { width: 100%; height: 45%; border-right: none; border-bottom: 1px solid var(--color-border); }
+                        .viewer-pane { width: 100%; flex: 1; min-height: 0; }
+                        .text-scroll { padding: 1rem; }
                     }
 
                     /* Page links */
