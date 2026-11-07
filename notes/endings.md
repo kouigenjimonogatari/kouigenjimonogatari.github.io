@@ -88,3 +88,12 @@
 - 公開中の `context.json` は v1.0.1 で配るまで古いまま。それまでは公開版の Musubi では `hasPart` は出ない
 - 別件で分かったこと: NDL の IIIF マニフェストが Musubi で開けない。マニフェストの `@context` が
   `http://iiif.io/...`（https でない）で、https の頁からはブラウザが取りに行かないため。Musubi の側で直す話
+
+## 2026-11-06（続き）4.7 和歌の一覧を組み立て時に HTML に
+
+- 以前は waka.html を開いてから data/waka.json と data/chapters.json を fetch し、ブラウザで 795 首を組み立てていた。スクリプトが動かない環境や file:// では「読み込み中」のまま何も出なかった
+- prebuild.py に build_waka_page を足した。waka・stats のタスクの後に、全首のカード・巻の選択肢・件数・グラフの数値（chapters.json の 4 項目を `<script type="application/json">` で）を、印（`<!-- waka-list:start -->` など）の間に書き込む。日英の 2 頁
+- スクリプトは絞り込み（カードの hidden を切り替える）とグラフだけにした。fetch は無くなった
+- 各カードに id="waka-001" を付けたので、一覧の中の 1 首にも直接リンクできる
+- 実測: waka.html は約 30KB → 698KB（gzip で 55KB）。2 回組み立てて同じ内容になることを確かめた（release.yml の再ビルド一致の検査に響かない）
+- 確認: 795 首・巻の選択肢 54・検索「いのち」で 6 首・空蝉で 2 首・該当なしの表示・グラフ 2 つ、日英とも

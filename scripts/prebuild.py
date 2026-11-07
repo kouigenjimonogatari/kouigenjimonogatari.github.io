@@ -544,6 +544,80 @@ def build_index():
     return len(CHAPTERS)
 
 
+def build_waka_page():
+    """Write the waka list into docs/waka.html and docs/en/waka.html as static HTML.
+
+    以前は頁を開いてから data/waka.json を読み込み、ブラウザで一覧を組み立てていた。
+    いまは組み立て時に全首を HTML に書き込み、スクリプトは絞り込みとグラフだけを受け持つ
+    （Endings Principles 4.7）。グラフの数値も頁に埋め込むので、file:// でも動く。
+    data/waka.json・data/chapters.json を先に作っておくこと（waka・stats のタスク）。
+    """
+    import html as htmlmod
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from site_icons import sprite, use
+
+    with open(os.path.join(DOCS_DIR, 'data', 'waka.json'), encoding='utf-8') as f:
+        all_waka = json.load(f)
+    with open(os.path.join(DOCS_DIR, 'data', 'chapters.json'), encoding='utf-8') as f:
+        chapters = json.load(f)
+
+    esc = htmlmod.escape
+    chapter_data = json.dumps(
+        [{k: c[k] for k in ('chapter', 'chapter_name', 'chars', 'waka')} for c in chapters],
+        ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+
+    def sub(marker, body, content, name):
+        new, count = re.subn(
+            rf'(<!-- {marker}:start -->\n).*?( *<!-- {marker}:end -->)',
+            lambda m: m.group(1) + body + '\n' + m.group(2), content, flags=re.S)
+        if count != 1:
+            raise SystemExit(f'{name}: {marker}:start / {marker}:end markers not found')
+        return new
+
+    for name, lang in (('waka.html', 'ja'), (os.path.join('en', 'waka.html'), 'en')):
+        en = lang == 'en'
+        pad = ' ' * 20
+        options = []
+        seen = set()
+        for w in all_waka:
+            if w['chapter'] not in seen:
+                seen.add(w['chapter'])
+                options.append(f'{pad}<option value="{w["chapter"]}">{w["chapter"]} {esc(w["chapter_name"])}</option>')
+        cards = [pad + sprite(['book-open'])]
+        view = 'View text' if en else '本文を表示'
+        textlang = ' lang="ja"' if en else ''
+        for w in all_waka:
+            lines = [re.sub(r'<[^>]+>', '', l) for l in w['lines']]
+            verse = '<span class="verse-sep">/</span>'.join(
+                f'<span class="verse-line">{esc(l)}</span>' for l in lines)
+            ch = w['chapter']
+            href = f'html/{ch}.html#{w["waka_id"]}' if w.get('waka_id') else f'html/{ch}.html'
+            wid = f' id="{w["waka_id"]}"' if w.get('waka_id') else ''
+            cards.append(
+                f'{pad}<div class="waka-card"{wid} data-chapter="{ch}">\n'
+                f'{pad}    <div class="waka-meta"><span class="waka-seq">{w["seq"]}</span>'
+                f'<span class="waka-chapter">{ch} {esc(w["chapter_name"])}</span></div>\n'
+                f'{pad}    <div class="waka-text"{textlang}>{verse}</div>\n'
+                f'{pad}    <div class="waka-link"><a href="{href}">{use("book-open", "me-1")}{view}</a></div>\n'
+                f'{pad}</div>')
+        count = f'{len(all_waka)} poems' if en else f'{len(all_waka)} 首'
+
+        path = os.path.join(DOCS_DIR, name)
+        with open(path, encoding='utf-8') as f:
+            content = f.read()
+        new = sub('waka-options', '\n'.join(options), content, name)
+        new = sub('waka-list', '\n'.join(cards), new, name)
+        new = sub('waka-data', f'{" " * 4}<script type="application/json" id="chapterData">{chapter_data}</script>', new, name)
+        new, n = re.subn(r'(<span id="resultCount" class="result-count">)[^<]*(</span>)',
+                         lambda m: m.group(1) + count + m.group(2), new)
+        if n != 1:
+            raise SystemExit(f'{name}: resultCount not found')
+        if new != content:
+            with open(path, 'w', encoding='utf-8') as f:
+                f.write(new)
+    return len(all_waka)
+
+
 def build_api():
     """4-6: Generate docs/api/ (JSON-LD) from xml/master/ via scripts/build_api.py.
 
@@ -626,6 +700,10 @@ def main():
         print('=== Building docs/data/chapters.json ===')
         count = build_chapters_json()
         print(f'  {count} chapters extracted')
+
+    if 'waka' in tasks or 'stats' in tasks:
+        print('=== Writing the waka list into docs/waka.html, docs/en/waka.html ===')
+        print(f'  {build_waka_page()} waka')
 
     if 'api' in tasks:
         print('=== Building docs/api/ ===')
