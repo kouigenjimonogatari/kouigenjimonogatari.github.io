@@ -155,7 +155,7 @@ Pushing to `master` only runs validation; the website changes only when a releas
 ### How to cite
 
 Please cite the dataset using `CITATION.cff` (GitHub shows it as "Cite this repository").
-Each release is archived on Zenodo. DOI for all versions: https://doi.org/10.5281/zenodo.24015761 (v1.0.0: https://doi.org/10.5281/zenodo.24015762).
+Each release is archived on Zenodo. DOI for all versions: https://doi.org/10.5281/zenodo.24015761 (v1.1.0: https://doi.org/10.5281/zenodo.24027333; v1.0.0: https://doi.org/10.5281/zenodo.24015762).
 Errors in the text can be reported with the "Report an error in the text" issue form.
 
 ---
@@ -314,5 +314,5 @@ GitHub でリリースを出すと、`.github/workflows/release.yml` が OAIS �
 ### 引用
 
 `CITATION.cff` の情報で引用してください（GitHub の画面では「Cite this repository」として出ます）。
-各版は Zenodo に保存しています。全版共通の DOI: https://doi.org/10.5281/zenodo.24015761（v1.0.0: https://doi.org/10.5281/zenodo.24015762）。
+各版は Zenodo に保存しています。全版共通の DOI: https://doi.org/10.5281/zenodo.24015761（v1.1.0: https://doi.org/10.5281/zenodo.24027333、v1.0.0: https://doi.org/10.5281/zenodo.24015762）。
 本文の誤りは、Issue の「本文の誤りの報告」からお知らせください。
