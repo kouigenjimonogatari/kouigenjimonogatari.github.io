@@ -537,8 +537,8 @@
 
                 const chNum = w.chapter;
                 const viewUrl = w.waka_id
-                    ? `html/${chNum}.html?waka=${w.waka_id}`
-                    : `html/${chNum}.html?corresp=${encodeURIComponent(w.corresp)}`;
+                    ? `html/${chNum}.html#${w.waka_id}`
+                    : `html/${chNum}.html`;
 
                 return `
                     <div class="waka-card">

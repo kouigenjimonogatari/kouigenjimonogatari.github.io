@@ -43,15 +43,15 @@ VOLUME_LABELS = {
 }
 
 
-def xslt_cmd(xsl, src, dst):
+def xslt_cmd(xsl, src, dst, params=()):
     """Return command list for XSLT transformation, preferring Saxon-HE over npx xslt3."""
     saxon_jar = os.environ.get('SAXON_JAR')
     if saxon_jar:
         return ['java', '-cp', saxon_jar, 'net.sf.saxon.Transform',
-                f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
+                f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}', *params]
     if shutil.which('saxon'):
-        return ['saxon', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
-    return ['npx', 'xslt3', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}']
+        return ['saxon', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}', *params]
+    return ['npx', 'xslt3', f'-xsl:{xsl}', f'-s:{src}', f'-o:{dst}', *params]
 
 # Chapter names (巻名)
 CHAPTER_NAMES = {
@@ -106,19 +106,21 @@ def build_html():
     xsl_path = os.path.join(BASE_DIR, 'xsl', 'mirador.xsl')
     html_dir = os.path.join(DOCS_DIR, 'html')
     os.makedirs(html_dir, exist_ok=True)
+    # 日本語は NN.html、英語は NN-en.html（以前は 1 つの頁を ?lang=en で切り替えていた）
     for ch in CHAPTERS:
         src = os.path.join(DOCS_DIR, 'tei', f'{ch}.xml')
-        dst = os.path.join(html_dir, f'{ch}.html')
         if not os.path.exists(src):
             continue
-        result = subprocess.run(
-            xslt_cmd(xsl_path, src, dst),
-            capture_output=True, text=True, cwd=BASE_DIR
-        )
-        if result.returncode != 0:
-            print(f'  {ch}.html FAILED: {result.stderr}', file=sys.stderr)
-        else:
-            print(f'  {ch}.html')
+        for lang, name in (('ja', f'{ch}.html'), ('en', f'{ch}-en.html')):
+            dst = os.path.join(html_dir, name)
+            result = subprocess.run(
+                xslt_cmd(xsl_path, src, dst, [f'lang={lang}']),
+                capture_output=True, text=True, cwd=BASE_DIR
+            )
+            if result.returncode != 0:
+                print(f'  {name} FAILED: {result.stderr}', file=sys.stderr)
+            else:
+                print(f'  {name}')
 
 
 def build_waka_json():
@@ -511,7 +513,7 @@ def build_index():
         cards = []
         for ch in CHAPTERS:
             n = int(ch)
-            html_href = f'html/{ch}.html' + ('?lang=en' if lang == 'en' else '')
+            html_href = f'html/{ch}-en.html' if lang == 'en' else f'html/{ch}.html'
             musubi = ('https://musubi.ldas.jp/?u=https%3A%2F%2Fw3id.org%2Fkouigenjimonogatari'
                       f'%2Fapi%2Fitem_sets%2F{ch}.json')
             dts = (f'https://awase.ldas.jp/{lang}/dts/?base=https://genji.ldas.jp/api/v2/dts'

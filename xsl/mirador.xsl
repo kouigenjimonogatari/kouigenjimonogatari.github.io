@@ -2,14 +2,23 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0" version="2.0">
     <xsl:output method="html" encoding="UTF-8" />
 
+    <!-- 表示の言語。ja なら NN.html、en なら NN-en.html として書き出す（scripts/prebuild.py）。
+         以前は 1 つの頁を ?lang=en で切り替えていたが、URL のクエリに頼らないよう
+         （Endings Principles 4.4）、言語ごとに静的な頁にした。 -->
+    <xsl:param name="lang" select="'ja'"/>
+    <xsl:variable name="en" select="$lang = 'en'"/>
+    <xsl:variable name="vol" select="replace(tokenize(base-uri(/), '/')[last()], '\.xml$', '')"/>
+
     <xsl:template match="/tei:TEI">
-        <html lang="ja">
+        <html lang="{$lang}">
             <head>
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <title>
                     <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/>
                 </title>
+                <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/html/{$vol}.html"/>
+                <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/html/{$vol}-en.html"/>
                 <script type="text/javascript" src="../lib/mirador-4.3.0/mirador.min.js"></script>
                 <style>
                     :root {
@@ -82,6 +91,7 @@
                         gap: 0.5rem;
                     }
 
+                    a.btn { text-decoration: none; }
                     .btn {
                         font-family: var(--font-ui);
                         font-size: 0.8125rem;
@@ -371,7 +381,7 @@
                 <!-- Header -->
                 <header class="site-header">
                     <div class="header-left">
-                        <a href="../../" class="home-link">
+                        <a href="{if ($en) then '../index-en.html' else '../index.html'}" class="home-link" aria-label="{if ($en) then 'Home' else 'トップ'}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                             </svg>
@@ -381,9 +391,13 @@
                         </h1>
                     </div>
                     <div class="header-actions">
-                        <button id="showSettingsBtn" class="btn">表示設定</button>
-                        <button id="showMetadataBtn" class="btn">メタデータ</button>
+                        <button id="showSettingsBtn" class="btn"><xsl:value-of select="if ($en) then 'Settings' else '表示設定'"/></button>
+                        <button id="showMetadataBtn" class="btn"><xsl:value-of select="if ($en) then 'Metadata' else 'メタデータ'"/></button>
                         <button id="downloadXmlBtn" class="btn">TEI/XML</button>
+                        <xsl:choose>
+                            <xsl:when test="$en"><a class="btn" href="{$vol}.html" hreflang="ja" lang="ja">日本語</a></xsl:when>
+                            <xsl:otherwise><a class="btn" href="{$vol}-en.html" hreflang="en" lang="en">English</a></xsl:otherwise>
+                        </xsl:choose>
                     </div>
                 </header>
 
@@ -391,20 +405,20 @@
                 <div id="metadataModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="metadataModalTitle">
                     <div class="modal-box">
                         <div class="modal-header">
-                            <h2 id="metadataModalTitle">メタデータ</h2>
+                            <h2 id="metadataModalTitle"><xsl:value-of select="if ($en) then 'Metadata' else 'メタデータ'"/></h2>
                             <button id="closeModalBtn" class="modal-close" aria-label="Close">&#xd7;</button>
                         </div>
                         <div class="modal-body">
                             <div class="modal-section">
-                                <p><strong>著者:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author"/></p>
-                                <p><strong>出版社:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/></p>
+                                <p><strong><xsl:value-of select="if ($en) then 'Author:' else '著者:'"/></strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:author"/></p>
+                                <p><strong><xsl:value-of select="if ($en) then 'Publisher:' else '出版社:'"/></strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:bibl/tei:publisher"/></p>
                             </div>
                             <div class="modal-section">
-                                <p><strong>配布:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:distributor"/></p>
-                                <p><strong>公開日:</strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:date"/></p>
+                                <p><strong><xsl:value-of select="if ($en) then 'Distributor:' else '配布:'"/></strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:distributor"/></p>
+                                <p><strong><xsl:value-of select="if ($en) then 'Publication Date:' else '公開日:'"/></strong> <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:date"/></p>
                             </div>
                             <div class="modal-section">
-                                <p><strong>責任者:</strong></p>
+                                <p><strong><xsl:value-of select="if ($en) then 'Contributors:' else '責任者:'"/></strong></p>
                                 <ul>
                                     <xsl:for-each select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:respStmt">
                                         <li><xsl:value-of select="tei:resp"/> - <xsl:value-of select="tei:name"/></li>
@@ -412,7 +426,7 @@
                                 </ul>
                             </div>
                             <div class="modal-section">
-                                <p><strong>ライセンス:</strong>
+                                <p><strong><xsl:value-of select="if ($en) then 'License:' else 'ライセンス:'"/></strong>
                                     <a href="{tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p/tei:ref/@target}" target="_blank">
                                         <xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:availability/tei:p/tei:ref"/>
                                     </a>
@@ -420,13 +434,13 @@
                             </div>
                             <xsl:if test="tei:teiHeader/tei:encodingDesc/tei:p">
                                 <div class="modal-section">
-                                    <p><strong>エンコーディング:</strong></p>
+                                    <p><strong><xsl:value-of select="if ($en) then 'Encoding:' else 'エンコーディング:'"/></strong></p>
                                     <p><xsl:value-of select="tei:teiHeader/tei:encodingDesc/tei:p"/></p>
                                 </div>
                             </xsl:if>
                             <xsl:if test="tei:teiHeader/tei:revisionDesc">
                                 <div class="modal-section">
-                                    <p><strong>改訂履歴:</strong></p>
+                                    <p><strong><xsl:value-of select="if ($en) then 'Revision History:' else '改訂履歴:'"/></strong></p>
                                     <ul>
                                         <xsl:for-each select="tei:teiHeader/tei:revisionDesc/tei:change">
                                             <li><xsl:value-of select="@when"/> - <xsl:value-of select="."/></li>
@@ -442,14 +456,14 @@
                 <div id="settingsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
                     <div class="modal-box" style="max-width:420px">
                         <div class="modal-header">
-                            <h2 id="settingsModalTitle">表示設定</h2>
+                            <h2 id="settingsModalTitle"><xsl:value-of select="if ($en) then 'Display Settings' else '表示設定'"/></h2>
                             <button id="closeSettingsBtn" class="modal-close" aria-label="Close">&#xd7;</button>
                         </div>
                         <div class="modal-body">
                             <div class="setting-item">
                                 <div>
-                                    <div class="setting-label">和歌ハイライト</div>
-                                    <div class="setting-desc">和歌（短歌）を背景色で強調表示します</div>
+                                    <div class="setting-label"><xsl:value-of select="if ($en) then 'Waka Highlight' else '和歌ハイライト'"/></div>
+                                    <div class="setting-desc"><xsl:value-of select="if ($en) then 'Highlight waka (tanka) poems with a background color' else '和歌（短歌）を背景色で強調表示します'"/></div>
                                 </div>
                                 <label class="toggle-switch">
                                     <input type="checkbox" id="toggleWaka" />
@@ -458,8 +472,8 @@
                             </div>
                             <div class="setting-item">
                                 <div>
-                                    <div class="setting-label">ページ区切り</div>
-                                    <div class="setting-desc">原本のページ番号リンクを表示します</div>
+                                    <div class="setting-label"><xsl:value-of select="if ($en) then 'Page Breaks' else 'ページ区切り'"/></div>
+                                    <div class="setting-desc"><xsl:value-of select="if ($en) then 'Show page number links from the original text' else '原本のページ番号リンクを表示します'"/></div>
                                 </div>
                                 <label class="toggle-switch">
                                     <input type="checkbox" id="togglePagebreak" checked="checked" />
@@ -468,8 +482,8 @@
                             </div>
                             <div class="setting-item">
                                 <div>
-                                    <div class="setting-label">RDFリンク</div>
-                                    <div class="setting-desc">各行のLinked Data URIへのリンクを表示します</div>
+                                    <div class="setting-label"><xsl:value-of select="if ($en) then 'RDF Links' else 'RDFリンク'"/></div>
+                                    <div class="setting-desc"><xsl:value-of select="if ($en) then 'Show Linked Data URI links for each line' else '各行のLinked Data URIへのリンクを表示します'"/></div>
                                 </div>
                                 <label class="toggle-switch">
                                     <input type="checkbox" id="toggleRdf" />
@@ -505,26 +519,48 @@
                             };
 
                             const canvasToPageMap = {};
+                            // 1 枚の画像に見開きの 2 頁が入っているので、画像からは前の頁を引く
                             for (const [page, canvas] of Object.entries(pageToCanvasMap)) {
-                                canvasToPageMap[canvas] = page;
+                                if (!(canvas in canvasToPageMap)) canvasToPageMap[canvas] = page;
                             }
 
-                            const urlParams = new URLSearchParams(window.location.search);
-                            let initialCanvasId = urlParams.get('canvas');
-                            const pageNumber = urlParams.get('n');
-
-                            if (pageNumber &amp;&amp; pageToCanvasMap[pageNumber]) {
-                                initialCanvasId = pageToCanvasMap[pageNumber];
+                            // 頁の位置は URL の # で表す（#p5 = 原本の 5 頁、#waka-001 = その和歌）。
+                            // 以前の ?canvas= ?n= ?waka= ?corresp= ?lang=en の URL も、開いたときに # の形へ読み替える。
+                            const isEn = <xsl:value-of select="if ($en) then 'true' else 'false'"/>;
+                            const legacy = new URLSearchParams(window.location.search);
+                            if (legacy.get('lang') === 'en' &amp;&amp; !isEn) {
+                                legacy.delete('lang');
+                                const rest = legacy.toString();
+                                window.location.replace('<xsl:value-of select="$vol"/>-en.html' + (rest ? '?' + rest : '') + window.location.hash);
                             }
-
-                            if (!initialCanvasId) {
-                                const firstPageNumber = Object.keys(pageToCanvasMap)[0];
-                                if (firstPageNumber) {
-                                    initialCanvasId = pageToCanvasMap[firstPageNumber];
+                            let hash = decodeURIComponent(window.location.hash.slice(1));
+                            if (!hash) {
+                                if (legacy.get('n')) {
+                                    hash = 'p' + legacy.get('n');
+                                } else if (legacy.get('canvas') &amp;&amp; canvasToPageMap[legacy.get('canvas')]) {
+                                    hash = 'p' + canvasToPageMap[legacy.get('canvas')];
+                                } else if (legacy.get('waka')) {
+                                    hash = legacy.get('waka');
+                                } else if (legacy.get('corresp')) {
+                                    const seg = document.querySelector(`span[data-corresp="${legacy.get('corresp')}"]`);
+                                    const lg = seg &amp;&amp; seg.closest('.tei-lg[id]');
+                                    if (lg) hash = lg.id;
                                 }
                             }
+                            if (window.location.search) {
+                                window.history.replaceState({}, '', window.location.pathname + (hash ? '#' + hash : ''));
+                            }
 
-                            const viewingDirection = urlParams.get('viewingDirection') || 'right-to-left';
+                            function canvasForHash(h) {
+                                const m = /^p(.+)$/.exec(h);
+                                if (m &amp;&amp; pageToCanvasMap[m[1]]) return pageToCanvasMap[m[1]];
+                                const el = h &amp;&amp; document.getElementById(h);
+                                const seg = el &amp;&amp; el.querySelector('span[data-canvas]');
+                                return seg ? seg.getAttribute('data-canvas') : null;
+                            }
+
+                            let initialCanvasId = canvasForHash(hash) || pageToCanvasMap[Object.keys(pageToCanvasMap)[0]];
+                            const viewingDirection = 'right-to-left';
 
                             const miradorConfig = {
                                 id: "viewer",
@@ -552,7 +588,9 @@
 
                             const miradorInstance = Mirador.viewer(miradorConfig);
 
-                            let previousCanvasId = null;
+                            let previousCanvasId = initialCanvasId;
+                            // 和歌への # で開いたときは、頁をめくるまで # を和歌のままにしておく
+                            let keepHash = !/^p/.test(hash) &amp;&amp; !!hash;
 
                             function scrollToPbTag(canvasId) {
                                 const pbTag = document.querySelector(`span[data-canvas-id='${canvasId}']`);
@@ -565,20 +603,30 @@
                                 const state = miradorInstance.store.getState();
                                 const currentWindow = state.windows['known-window-id'];
                                 if (currentWindow.canvasId !== previousCanvasId) {
-                                    scrollToPbTag(currentWindow.canvasId);
-                                    updateURLParameter('canvas', currentWindow.canvasId);
                                     previousCanvasId = currentWindow.canvasId;
+                                    if (keepHash) { keepHash = false; return; }
+                                    scrollToPbTag(currentWindow.canvasId);
+                                    const cur = /^#p(.+)$/.exec(window.location.hash);
+                                    if (cur &amp;&amp; pageToCanvasMap[cur[1]] === currentWindow.canvasId) return;
+                                    const page = canvasToPageMap[currentWindow.canvasId];
+                                    if (page) window.history.replaceState({}, '', '#p' + page);
                                 }
                             });
 
-                            function updateURLParameter(key, value) {
-                                const url = new URL(window.location);
-                                url.searchParams.delete('n');
-                                url.searchParams.set(key, value);
-                                window.history.replaceState({}, '', url);
-                            }
+                            window.addEventListener('hashchange', function() {
+                                const h = decodeURIComponent(window.location.hash.slice(1));
+                                const el = h &amp;&amp; document.getElementById(h);
+                                if (el &amp;&amp; el.classList.contains('tei-lg')) {
+                                    keepHash = true;
+                                    scrollToAndHighlight(el);
+                                } else {
+                                    const c = canvasForHash(h);
+                                    if (c) goToPage(c, /^p/.test(h) ? h.slice(1) : null);
+                                }
+                            });
 
-                            function goToPage(canvasId) {
+                            function goToPage(canvasId, page) {
+                                if (page) window.history.replaceState({}, '', '#p' + page);
                                 try {
                                     const action = {
                                         type: 'mirador/SET_CANVAS',
@@ -628,9 +676,8 @@
                                 }
                             }
 
-                            const wakaParam = urlParams.get('waka');
-                            const correspParam = urlParams.get('corresp');
-                            const highlightTarget = wakaParam ? `#${wakaParam}` : correspParam ? `span[data-corresp="${correspParam}"]` : null;
+                            const hashEl = hash &amp;&amp; document.getElementById(hash);
+                            const highlightTarget = hashEl &amp;&amp; hashEl.classList.contains('tei-lg') ? '#' + CSS.escape(hash) : null;
 
                             if (highlightTarget) {
                                 let attempts = 0;
@@ -690,7 +737,7 @@
                                 tocPanel.id = 'wakaToc';
                                 tocPanel.style.cssText = 'display:none; position:fixed; top:50px; right:16px; z-index:500; background:#fff; border:1px solid #ccc; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.15); max-height:70vh; overflow-y:auto; width:260px; font-size:0.85rem;';
                                 let tocHtml = '<div style="padding:0.75rem 1rem; border-bottom:1px solid #eee; font-weight:600; display:flex; justify-content:space-between; align-items:center;">'
-                                    + '<span>和歌一覧（' + wakaList.length + '首）</span>'
+                                    + '<span>' + (isEn ? 'Waka List (' + wakaList.length + ' poems)' : '和歌一覧（' + wakaList.length + '首）') + '</span>'
                                     + '<button id="closeWakaToc" style="border:none; background:none; cursor:pointer; font-size:1.2rem; color:#999;">\u00d7</button>'
                                     + '</div><div style="padding:0.5rem 0;">';
                                 wakaList.forEach(lg => {
@@ -729,8 +776,7 @@
                             });
 
                             document.getElementById('downloadXmlBtn').addEventListener('click', function() {
-                                const htmlUrl = window.location.href.split('?')[0];
-                                const xmlUrl = htmlUrl.replace(/\/html\/(\d+)\.html$/, '/tei/$1.xml');
+                                const xmlUrl = '../tei/<xsl:value-of select="$vol"/>.xml';
                                 fetch(xmlUrl)
                                     .then(response => response.text())
                                     .then(xmlContent => {
@@ -739,62 +785,11 @@
                                         window.location.href = URL.createObjectURL(blob);
                                     })
                                     .catch(error => {
-                                        var isEn = (new URLSearchParams(window.location.search)).get('lang') === 'en' || localStorage.getItem('language') === 'en';
                                         console.error(isEn ? 'XML file fetch error:' : 'XMLファイル取得エラー:', error);
                                         alert(isEn ? 'Failed to fetch the XML file.' : 'XMLファイルの取得に失敗しました。');
                                     });
                             });
 
-                            // --- i18n: English UI support ---
-                            (function() {
-                                const params = new URLSearchParams(window.location.search);
-                                const lang = params.get('lang') || localStorage.getItem('language') || '';
-                                if (lang !== 'en') return;
-
-                                document.documentElement.lang = 'en';
-
-                                // Header buttons
-                                document.getElementById('showSettingsBtn').textContent = 'Settings';
-                                document.getElementById('showMetadataBtn').textContent = 'Metadata';
-
-                                // Settings modal
-                                const settingsHeader = document.querySelector('#settingsModal .modal-header h2');
-                                if (settingsHeader) settingsHeader.textContent = 'Display Settings';
-
-                                const settingLabels = document.querySelectorAll('#settingsModal .setting-label');
-                                const settingDescs = document.querySelectorAll('#settingsModal .setting-desc');
-                                const i18nSettings = [
-                                    { label: 'Waka Highlight', desc: 'Highlight waka (tanka) poems with a background color' },
-                                    { label: 'Page Breaks', desc: 'Show page number links from the original text' },
-                                    { label: 'RDF Links', desc: 'Show Linked Data URI links for each line' }
-                                ];
-                                settingLabels.forEach(function(el, i) {
-                                    if (i18nSettings[i]) {
-                                        el.textContent = i18nSettings[i].label;
-                                        if (settingDescs[i]) settingDescs[i].textContent = i18nSettings[i].desc;
-                                    }
-                                });
-
-                                // Metadata modal
-                                const metaHeader = document.querySelector('#metadataModal .modal-header h2');
-                                if (metaHeader) metaHeader.textContent = 'Metadata';
-
-                                const metaLabels = { '著者:': 'Author:', '出版社:': 'Publisher:', '配布:': 'Distributor:', '公開日:': 'Publication Date:', '責任者:': 'Contributors:', 'ライセンス:': 'License:', 'エンコーディング:': 'Encoding:', '改訂履歴:': 'Revision History:' };
-                                document.querySelectorAll('#metadataModal strong').forEach(function(el) {
-                                    var t = el.textContent.trim();
-                                    if (metaLabels[t]) el.textContent = metaLabels[t];
-                                });
-
-                                // Waka TOC panel
-                                var tocTitle = document.querySelector('#wakaToc span');
-                                if (tocTitle &amp;&amp; tocTitle.textContent.includes('和歌一覧')) {
-                                    tocTitle.textContent = tocTitle.textContent.replace('和歌一覧', 'Waka List').replace('首', 'poems');
-                                }
-
-                                // Home link
-                                var homeLink = document.querySelector('.home-link');
-                                if (homeLink) homeLink.href = '../../index-en.html';
-                            })();
                         </script>
                     </div>
                 </main>
@@ -823,10 +818,12 @@
     <xsl:template match="tei:pb">
         <xsl:variable name="zoneId" select="substring-after(@corresp, '#')" />
         <xsl:variable name="canvasUrl" select="//tei:zone[@xml:id=$zoneId]/ancestor::tei:surface/@sameAs" />
-        <span class="page-link" data-canvas-id="{ $canvasUrl }">
+        <span class="page-link" id="p{@n}" data-canvas-id="{ $canvasUrl }">
             <xsl:attribute name="onclick">
                 <xsl:text>goToPage('</xsl:text>
                 <xsl:value-of select="$canvasUrl"/>
+                <xsl:text>', '</xsl:text>
+                <xsl:value-of select="@n"/>
                 <xsl:text>')</xsl:text>
             </xsl:attribute>
             [Page <xsl:value-of select="@n" />]
