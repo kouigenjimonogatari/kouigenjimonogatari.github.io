@@ -3,6 +3,15 @@
 版ごとの主な変更を記します。新しい版を上に書きます。
 Notable changes for each version, newest first.
 
+## [1.2.0] - 2026-11-07
+
+保存の流れを変えた版です。TEI 本文（`xml/master/`）とサイトの中身は変えていません。
+The preservation workflow was changed. The TEI text (`xml/master/`) and the website content are unchanged.
+
+- リリースのたびに、a3m で作った AIP（BagIt・METS・PREMIS、7z）を GitHub Actions が Zenodo の API で公開する。Zenodo の GitHub 連携（ソースの zip の自動登録）はやめた / On each release, GitHub Actions publishes the AIP built with a3m (BagIt, METS, PREMIS; 7z) to Zenodo through its API; the Zenodo GitHub integration is no longer used
+- サイト（DIP）を組み立てる前に、リリースに添付した AIP 全体の MD5 を、Zenodo のその版の記録と突き合わせる。サイトは AIP の中のソースから組み立てる / Before building the site (DIP), the MD5 of the whole attached AIP is checked against the Zenodo record of that version; the site is built from the source inside the AIP
+- 組み立ての失敗と、54 帖の日英の頁が揃っていることを確かめる / The build fails on errors, and all 54 volumes are checked in Japanese and English
+
 ## [1.1.0] - 2026-11-06
 
 サイトを Endings Principles（長く使い続けられるデジタル資料のための指針）に沿って作り直した版です。TEI 本文（`xml/master/`）は変えていません。
