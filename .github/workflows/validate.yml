@@ -91,6 +91,18 @@ jobs:
       - name: API URIs must agree with the TEI
         run: python3 scripts/build_api.py --check
 
+      # 版の情報の元は CITATION.cff だけ。それを上げたのに頁に流し忘れると、古い版のまま公開される。
+      # 組み立て直して差が出たら落とす（docs/schema と同じ考え方）。CHANGELOG にその版の節があるかも見る
+      - name: Version on the pages must match CITATION.cff
+        run: |
+          python3 scripts/prebuild.py version
+          if ! git diff --exit-code -- docs/; then
+            echo "::error::頁の版の表示が CITATION.cff と一致しません。python3 scripts/prebuild.py version を実行して結果をコミットしてください。"
+            exit 1
+          fi
+          v=$(sed -n 's/^version: *//p' CITATION.cff)
+          grep -q "^## \[$v\]" CHANGELOG.md || { echo "::error::CHANGELOG.md に [$v] の節がありません。"; exit 1; }
+
       # 公開する HTML（W3C の Nu HTML Checker）と内部リンク（Endings Principles の準拠の条件）
       - name: Build the text pages (docs/html, docs/en/html)
         env:
