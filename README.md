@@ -152,10 +152,12 @@ Each GitHub release runs `.github/workflows/release.yml`, following the informat
 Once attached, an AIP or DIP is never rebuilt: a3m writes a new UUID and timestamp on every run, so a rebuild would no longer match the copies deposited elsewhere.
 Pushing to `master` only runs validation; the website changes only when a release is made.
 
+To prepare a release, change `version` and `date-released` in `CITATION.cff`, add a section for the version to `CHANGELOG.md`, and run `python3 scripts/prebuild.py version` to write the version into the pages. CI fails if the pages or the changelog do not match `CITATION.cff`, and the release stops if the tag does not match it. README needs no change.
+
 ### How to cite
 
 Please cite the dataset using `CITATION.cff` (GitHub shows it as "Cite this repository").
-Each release is archived on Zenodo. DOI for all versions: https://doi.org/10.5281/zenodo.24015761 (v1.1.0: https://doi.org/10.5281/zenodo.24027333; v1.0.0: https://doi.org/10.5281/zenodo.24015762).
+Each release is archived on Zenodo. DOI for all versions: https://doi.org/10.5281/zenodo.24015761 (it resolves to the latest version). The DOI of each version is listed under "Versions" on the Zenodo record.
 Errors in the text can be reported with the "Report an error in the text" issue form.
 
 ---
@@ -311,8 +313,10 @@ GitHub でリリースを出すと、`.github/workflows/release.yml` が OAIS �
 一度添付した AIP と DIP は作り直しません。a3m は実行のたびに UUID と日時を書き込むので、作り直すと、ほかの場所に置いた写しと一致しなくなるためです。
 `master` への push では検証だけが走ります。サイトが変わるのはリリースのときだけです。
 
+リリースの準備では、`CITATION.cff` の `version` と `date-released` を直し、`CHANGELOG.md` にその版の節を足し、`python3 scripts/prebuild.py version` で頁に版を書き込みます。頁や変更履歴が `CITATION.cff` と合わなければ CI が落ち、タグと合わなければリリースが止まります。README は直す必要がありません。
+
 ### 引用
 
 `CITATION.cff` の情報で引用してください（GitHub の画面では「Cite this repository」として出ます）。
-各版は Zenodo に保存しています。全版共通の DOI: https://doi.org/10.5281/zenodo.24015761（v1.1.0: https://doi.org/10.5281/zenodo.24027333、v1.0.0: https://doi.org/10.5281/zenodo.24015762）。
+各版は Zenodo に保存しています。全版共通の DOI: https://doi.org/10.5281/zenodo.24015761（開くと最新版の記録に移ります）。版ごとの DOI は、Zenodo の記録の「Versions」に並んでいます。
 本文の誤りは、Issue の「本文の誤りの報告」からお知らせください。
