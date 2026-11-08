@@ -87,8 +87,8 @@ def build_tei(ch, src_path, dst_path):
 
 
 def build_html():
-    """4-1b: Transform TEI XML to HTML using mirador.xsl via xslt3 (Saxon-JS)."""
-    xsl_path = os.path.join(BASE_DIR, 'xsl', 'mirador.xsl')
+    """4-1b: Transform TEI XML to HTML using page.xsl (Saxon)."""
+    xsl_path = os.path.join(BASE_DIR, 'xsl', 'page.xsl')
     html_dir = os.path.join(DOCS_DIR, 'html')
     os.makedirs(html_dir, exist_ok=True)
     # 日本語は html/NN.html、英語は en/html/NN.html（以前は 1 つの頁を ?lang=en で切り替えていた）

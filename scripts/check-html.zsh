@@ -9,7 +9,7 @@
 #
 # 使い方: ./scripts/check-html.zsh     終了コード: 問題が 1 件でもあれば 1
 #
-# 対象外: docs/lib（同梱した Mirador・Chart.js）・docs/bibi（同梱した EPUB の閲覧ソフト）・
+# 対象外: docs/lib（同梱した OpenSeadragon・Chart.js）・docs/bibi（同梱した EPUB の閲覧ソフト）・
 #         docs/api（JSON-LD）・Google の所有確認用のファイル。
 
 set -euo pipefail

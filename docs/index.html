@@ -974,6 +974,10 @@
                 <h2 class="section-title jp-text">お知らせ</h2>
                 <div class="news-section">
                     <div class="news-item">
+                        <div class="news-date">2026-11-07</div>
+                        <p class="jp-text mb-0">本文の全25,065行に、画像の上での位置を付けました（文字認識の結果と本文の行を対応づけたもので、本文の文字は変えていません）。これにあわせて本文の頁の画像の表示を新しくし、本文の行を押すと、画像の上でその行に色が付き、行が収まるように拡大されるようにしました。もう一度押すか Esc キーで色は消えます。各行の位置はTEI/XMLの <code>&lt;zone type="line"&gt;</code> として、ダウンロードしてお使いいただけます。</p>
+                    </div>
+                    <div class="news-item">
                         <div class="news-date">2026-11-06</div>
                         <p class="jp-text mb-0">長く使い続けられるデジタル資料のための指針 <a href="https://endings.uvic.ca/principles.html">Endings Principles</a> に沿って、サイトを作り直しました。外部のサービスから読み込んでいたライブラリはサイトの中に同梱し、<a href="waka.html">和歌一覧</a>などはスクリプトが動かなくても読めるようにしました。英語版は <a href="en/index.html">en/</a> の下に移し、頁や和歌へのリンクは <code>html/01.html#p13</code>・<code>#waka-001</code> の形にしました（これまでのURLも引き続き使えます）。各頁に版とDOIを表示し、<a href="#cite">引用の仕方</a>を設けました。公開するHTMLはW3CのNu HTML Checkerで検証し、内部リンクもすべて確かめています。</p>
                     </div>
@@ -1096,8 +1100,8 @@
                         <div class="content-card">
                             <div class="content-card-body">
                                 <!-- cite:start -->
-                                <p class="jp-text mb-3">このサイトは版 <strong>1.3.0</strong>（2026-11-07 公開）です。引用するときは、次のように書いてください。</p>
-                                <p class="mb-3 cite-ref"><i>校異源氏物語テキストDB / Koui Genji Monogatari Text Database</i> (2026). Version 1.3.0 [Data set]. Zenodo. <a href="https://doi.org/10.5281/zenodo.24015761">https://doi.org/10.5281/zenodo.24015761</a></p>
+                                <p class="jp-text mb-3">このサイトは版 <strong>1.4.0</strong>（2026-11-07 公開）です。引用するときは、次のように書いてください。</p>
+                                <p class="mb-3 cite-ref"><i>校異源氏物語テキストDB / Koui Genji Monogatari Text Database</i> (2026). Version 1.4.0 [Data set]. Zenodo. <a href="https://doi.org/10.5281/zenodo.24015761">https://doi.org/10.5281/zenodo.24015761</a></p>
                                 <p class="jp-text mb-3">上の DOI は、Zenodo の最新版の記録を指します。版を特定するときは、上の版の番号を書くか、Zenodo の記録の「Versions」に並ぶ版ごとの DOI を使ってください。</p>
                                 <p class="jp-text mb-3">特定の 1 行を引くときは、その行の URI を添えてください。例: <a href="https://w3id.org/kouigenjimonogatari/api/items/0009-03.json">https://w3id.org/kouigenjimonogatari/api/items/0009-03.json</a>（第 1 帖、9 頁 3 行目）</p>
                                 <p class="jp-text mb-0"><small class="text-muted">同じ内容を <a href="https://github.com/kouigenjimonogatari/kouigenjimonogatari.github.io/blob/master/CITATION.cff">CITATION.cff</a> に書いてあります。GitHub と Zenodo では「Cite this repository」として表示されます。</small></p>
@@ -1155,7 +1159,7 @@
             <p class="mb-1">
                 <span>本データベースはJSPS科研費</span><a href="https://kaken.nii.ac.jp/grant/KAKENHI-PROJECT-19K20626/">19K20626</a><span>の助成による成果の一部です。</span>
             </p>
-            <p class="mb-1 site-version"><!-- version:start -->版 1.3.0（2026-11-07 公開）・DOI <a href="https://doi.org/10.5281/zenodo.24015761">10.5281/zenodo.24015761</a>・<a href="#cite">引用の仕方</a><a class="endings-badge" href="https://endings.uvic.ca/compliance.html"><img src="img/endings_logo_badge_white.svg" alt="Endings Principles に準拠" width="37" height="51"></a><!-- version:end --></p>
+            <p class="mb-1 site-version"><!-- version:start -->版 1.4.0（2026-11-07 公開）・DOI <a href="https://doi.org/10.5281/zenodo.24015761">10.5281/zenodo.24015761</a>・<a href="#cite">引用の仕方</a><a class="endings-badge" href="https://endings.uvic.ca/compliance.html"><img src="img/endings_logo_badge_white.svg" alt="Endings Principles に準拠" width="37" height="51"></a><!-- version:end --></p>
             <p class="mb-0">
                 &copy; 2019-2026 校異源氏物語テキストDB
             </p>

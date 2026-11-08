@@ -13,6 +13,7 @@
     <xsl:variable name="en" select="$lang = 'en'"/>
     <!-- この頁からサイトの根への相対パス（英語の頁は 1 段深い） -->
     <xsl:variable name="root" select="if ($en) then '../../' else '../'"/>
+    <xsl:key name="zone" match="tei:zone" use="@xml:id"/>
     <xsl:variable name="vol" select="replace(tokenize(base-uri(/), '/')[last()], '\.xml$', '')"/>
 
     <xsl:template match="/tei:TEI">
@@ -25,7 +26,7 @@
                 </title>
                 <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/html/{$vol}.html"/>
                 <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/html/{$vol}.html"/>
-                <script type="text/javascript" src="{$root}lib/mirador-4.3.0/mirador.min.js"></script>
+                <script type="text/javascript" src="{$root}lib/openseadragon-6.1.1/openseadragon.min.js"></script>
                 <style>
                     :root {
                         --color-primary: #2c3e50;
@@ -161,11 +162,56 @@
                     .viewer-pane {
                         width: 50%;
                         display: flex;
+                        position: relative;
                     }
 
                     #viewer {
                         width: 100%;
+                        height: 100%;
                         position: relative;
+                        background: #2b2b2b;
+                    }
+
+                    /* 画像の上のボタン（前後の画像・拡大・縮小・全体） */
+                    .viewer-nav {
+                        position: absolute;
+                        top: 0.5rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        z-index: 10;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.25rem;
+                        background: rgba(255,255,255,0.92);
+                        border-radius: 6px;
+                        padding: 0.2rem 0.35rem;
+                        box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+                        font-size: 0.8125rem;
+                    }
+                    .viewer-nav button {
+                        font: inherit;
+                        border: 1px solid var(--color-border);
+                        background: #fff;
+                        color: var(--color-primary);
+                        border-radius: 4px;
+                        min-width: 2rem;
+                        padding: 0.15rem 0.45rem;
+                        cursor: pointer;
+                    }
+                    .viewer-nav button:hover:not(:disabled) { background: #f3ede6; }
+                    .viewer-nav button:disabled { opacity: 0.4; cursor: default; }
+                    .viewer-nav .viewer-count { padding: 0 0.35rem; white-space: nowrap; color: var(--color-text); }
+
+                    /* 本文の行。押すと画像の上にその行の枠を描く */
+                    span[data-line] { cursor: pointer; border-radius: 2px; }
+                    span[data-line]:hover { background-color: rgba(229,57,53,0.07); }
+                    span.line-active { background-color: rgba(229,57,53,0.14); }
+                    /* 線で囲むと行の端の字が読みにくいので、薄い塗りにする（multiply で字の黒は残る） */
+                    .line-box {
+                        background-color: rgba(229,57,53,0.22);
+                        mix-blend-mode: multiply;
+                        border-radius: 3px;
+                        pointer-events: none;
                     }
 
                     /* 狭い画面（600px 以下）。.btn と .text-pane の後に置く（前に置くと通常の指定に負ける） */
@@ -554,12 +600,30 @@
                         </div>
                     </div>
 
-                    <!-- Right: Mirador Viewer -->
+                    <!-- Right: 画像（OpenSeadragon） -->
                     <div class="viewer-pane">
+                        <div class="viewer-nav">
+                            <!-- 右から左へめくる本なので、「次」を左に置く -->
+                            <button type="button" id="nextImage" title="{if ($en) then 'Next image' else '次の画像'}" aria-label="{if ($en) then 'Next image' else '次の画像'}">&#x2039;</button>
+                            <span class="viewer-count" id="imageCount"></span>
+                            <button type="button" id="prevImage" title="{if ($en) then 'Previous image' else '前の画像'}" aria-label="{if ($en) then 'Previous image' else '前の画像'}">&#x203a;</button>
+                            <button type="button" id="zoomIn" title="{if ($en) then 'Zoom in' else '拡大'}" aria-label="{if ($en) then 'Zoom in' else '拡大'}">+</button>
+                            <button type="button" id="zoomOut" title="{if ($en) then 'Zoom out' else '縮小'}" aria-label="{if ($en) then 'Zoom out' else '縮小'}">&#x2212;</button>
+                            <button type="button" id="zoomHome" title="{if ($en) then 'Whole image' else '全体'}" aria-label="{if ($en) then 'Whole image' else '全体'}">&#x25a1;</button>
+                        </div>
                         <div id="viewer"></div>
 
                         <script>
-                            const manifestUrl = "<xsl:value-of select="//tei:facsimile/@sameAs"></xsl:value-of>";
+                            // この巻の画像。canvas は IIIF の Canvas、service は画像の配信（IIIF Image API）。
+                            // 頁の facs の URL から配信の URL を取り出すので、マニフェストは読みに行かない。
+                            const surfaces = [
+                                <xsl:for-each select="//tei:surface">
+                                    <xsl:variable name="ids" select="tei:zone/@xml:id"/>
+                                    <xsl:variable name="pb" select="(//tei:pb[substring-after(@corresp, '#') = $ids])[1]"/>
+                                    <xsl:if test="$pb">{ canvas: "<xsl:value-of select="@sameAs"/>", service: "<xsl:value-of select="replace($pb/@facs, '(/[^/]+){4}$', '')"/>" },
+                                    </xsl:if>
+                                </xsl:for-each>
+                            ];
 
                             const pageToCanvasMap = {
                                 <xsl:for-each select="//tei:pb">
@@ -610,38 +674,43 @@
                                 return seg ? seg.getAttribute('data-canvas') : null;
                             }
 
-                            let initialCanvasId = canvasForHash(hash) || pageToCanvasMap[Object.keys(pageToCanvasMap)[0]];
-                            const viewingDirection = 'right-to-left';
+                            const canvasIndex = {};
+                            surfaces.forEach((sf, i) => { canvasIndex[sf.canvas] = i; });
+                            const initialCanvasId = canvasForHash(hash) || (surfaces[0] &amp;&amp; surfaces[0].canvas);
 
-                            const miradorConfig = {
-                                id: "viewer",
-                                windows: [{
-                                    id: 'known-window-id',
-                                    loadedManifest: manifestUrl,
-                                    viewingDirection: viewingDirection,
-                                }],
-                                window: {
-                                    allowClose: false,
-                                    allowMaximize: false,
-                                    allowFullscreen: false,
-                                    hideWindowTitle: true,
-                                },
-                                workspaceControlPanel: {
-                                    enabled: false,
-                                },
-                            };
+                            const viewer = OpenSeadragon({
+                                id: 'viewer',
+                                tileSources: surfaces.map(sf => sf.service + '/info.json'),
+                                sequenceMode: true,
+                                initialPage: canvasIndex[initialCanvasId] || 0,
+                                showNavigationControl: false,
+                                showSequenceControl: false,
+                                visibilityRatio: 0.5,
+                                gestureSettingsMouse: { clickToZoom: false },
+                            });
 
-                            if (initialCanvasId) {
-                                miradorConfig.windows[0].canvasId = initialCanvasId;
-                            } else {
-                                miradorConfig.windows[0].canvasIndex = 0;
+                            let imageOpen = false;   // 今の画像が読み込まれたか（枠を描くには座標の換算が要る）
+                            let pendingLine = null;  // 画像の読み込みを待っている行
+                            let quietPageChange = false; // 行や和歌から画像を替えたときは、本文を頁の頭へ送らない
+                            let lineOverlay = null;
+                            let activeLine = null;
+
+                            function updateNav() {
+                                const i = viewer.currentPage();
+                                document.getElementById('imageCount').textContent = (i + 1) + ' / ' + surfaces.length;
+                                document.getElementById('prevImage').disabled = i &lt;= 0;
+                                document.getElementById('nextImage').disabled = i &gt;= surfaces.length - 1;
                             }
+                            updateNav();
 
-                            const miradorInstance = Mirador.viewer(miradorConfig);
-
-                            let previousCanvasId = initialCanvasId;
-                            // 和歌への # で開いたときは、頁をめくるまで # を和歌のままにしておく
-                            let keepHash = !/^p/.test(hash) &amp;&amp; !!hash;
+                            // 指定の画像へ替える。替えたら true
+                            function showCanvas(canvasId, quiet) {
+                                const i = canvasIndex[canvasId];
+                                if (i === undefined || i === viewer.currentPage()) return false;
+                                quietPageChange = !!quiet;
+                                viewer.goToPage(i);
+                                return true;
+                            }
 
                             function scrollToPbTag(canvasId) {
                                 const pbTag = document.querySelector(`span[data-canvas-id='${canvasId}']`);
@@ -650,25 +719,71 @@
                                 }
                             }
 
-                            miradorInstance.store.subscribe(() => {
-                                const state = miradorInstance.store.getState();
-                                const currentWindow = state.windows['known-window-id'];
-                                if (currentWindow.canvasId !== previousCanvasId) {
-                                    previousCanvasId = currentWindow.canvasId;
-                                    if (keepHash) { keepHash = false; return; }
-                                    scrollToPbTag(currentWindow.canvasId);
-                                    const cur = /^#p(.+)$/.exec(window.location.hash);
-                                    if (cur &amp;&amp; pageToCanvasMap[cur[1]] === currentWindow.canvasId) return;
-                                    const page = canvasToPageMap[currentWindow.canvasId];
-                                    if (page) window.history.replaceState({}, '', '#p' + page);
-                                }
+                            viewer.addHandler('page', function(e) {
+                                imageOpen = false;
+                                lineOverlay = null; // 画像を開き直すと重ねた枠は消える
+                                updateNav();
+                                const sf = surfaces[e.page];
+                                if (!sf) return;
+                                if (quietPageChange) { quietPageChange = false; return; }
+                                pendingLine = null;
+                                if (activeLine) { activeLine.classList.remove('line-active'); activeLine = null; }
+                                scrollToPbTag(sf.canvas);
+                                const cur = /^#p(.+)$/.exec(window.location.hash);
+                                if (cur &amp;&amp; pageToCanvasMap[cur[1]] === sf.canvas) return;
+                                const page = canvasToPageMap[sf.canvas];
+                                if (page) window.history.replaceState({}, '', '#p' + page);
                             });
+
+                            viewer.addHandler('open', function() {
+                                imageOpen = true;
+                                if (pendingLine) { const l = pendingLine; pendingLine = null; drawLine(l); }
+                            });
+
+                            // 行の枠（TEI の zone type="line"）を赤で描き、その行が収まるように拡大する
+                            function drawLine(span) {
+                                const c = span.getAttribute('data-line').split(',').map(Number);
+                                const vp = viewer.viewport;
+                                const r = vp.imageToViewportRectangle(c[0], c[1], c[2] - c[0], c[3] - c[1]);
+                                if (lineOverlay) viewer.removeOverlay(lineOverlay);
+                                lineOverlay = document.createElement('div');
+                                lineOverlay.className = 'line-box';
+                                viewer.addOverlay({ element: lineOverlay, location: r });
+                                // 行は縦に細長いので、左右に前後の数行が見える余白を取る
+                                const padX = Math.max(r.width * 4, r.height * 0.15);
+                                const padY = r.height * 0.06;
+                                vp.fitBounds(new OpenSeadragon.Rect(r.x - padX, r.y - padY, r.width + 2 * padX, r.height + 2 * padY));
+                            }
+
+                            // 行の色付けを消す（拡大の位置はそのまま）
+                            function clearLine() {
+                                pendingLine = null;
+                                if (lineOverlay) { viewer.removeOverlay(lineOverlay); lineOverlay = null; }
+                                if (activeLine) { activeLine.classList.remove('line-active'); activeLine = null; }
+                            }
+                            document.addEventListener('keydown', function(e) {
+                                if (e.key === 'Escape' &amp;&amp; !document.querySelector('.modal-overlay.active')) clearLine();
+                            });
+
+                            function selectLine(span) {
+                                if (activeLine) activeLine.classList.remove('line-active');
+                                activeLine = span;
+                                span.classList.add('line-active');
+                                const changed = showCanvas(span.getAttribute('data-canvas'), true);
+                                if (changed || !imageOpen) pendingLine = span;
+                                else drawLine(span);
+                            }
+
+                            document.getElementById('nextImage').addEventListener('click', () => viewer.goToPage(viewer.currentPage() + 1));
+                            document.getElementById('prevImage').addEventListener('click', () => viewer.goToPage(viewer.currentPage() - 1));
+                            document.getElementById('zoomIn').addEventListener('click', () => viewer.viewport.zoomBy(1.5));
+                            document.getElementById('zoomOut').addEventListener('click', () => viewer.viewport.zoomBy(1 / 1.5));
+                            document.getElementById('zoomHome').addEventListener('click', () => viewer.viewport.goHome());
 
                             window.addEventListener('hashchange', function() {
                                 const h = decodeURIComponent(window.location.hash.slice(1));
                                 const el = h &amp;&amp; document.getElementById(h);
                                 if (el &amp;&amp; el.classList.contains('tei-lg')) {
-                                    keepHash = true;
                                     scrollToAndHighlight(el);
                                 } else {
                                     const c = canvasForHash(h);
@@ -676,19 +791,10 @@
                                 }
                             });
 
+                            // 本文の [Page n] を押したとき
                             function goToPage(canvasId, page) {
                                 if (page) window.history.replaceState({}, '', '#p' + page);
-                                try {
-                                    const action = {
-                                        type: 'mirador/SET_CANVAS',
-                                        windowId: 'known-window-id',
-                                        canvasId: canvasId,
-                                        visibleCanvases: [canvasId]
-                                    };
-                                    miradorInstance.store.dispatch(action);
-                                } catch (error) {
-                                    console.error('Error navigating to canvas:', error);
-                                }
+                                showCanvas(canvasId, false);
                             }
 
                             const scrollArea = document.querySelector('.horizontal-scroll');
@@ -712,18 +818,12 @@
                                         scrollContainer.scrollTo({ left: scrollPosition, behavior: 'smooth' });
                                     }, 300);
                                 }
-                                // Navigate Mirador to the matching canvas
-                                const seg = targetElement.closest('span[data-canvas]');
-                                if (seg) {
-                                    const canvas = seg.getAttribute('data-canvas');
-                                    if (canvas) {
-                                        miradorInstance.store.dispatch({
-                                            type: 'mirador/SET_CANVAS',
-                                            windowId: 'known-window-id',
-                                            canvasId: canvas,
-                                            visibleCanvases: [canvas]
-                                        });
-                                    }
+                                // 和歌の行の枠を画像に描く
+                                const seg = targetElement.closest('span[data-line]');
+                                if (seg) selectLine(seg);
+                                else {
+                                    const cs = targetElement.closest('span[data-canvas]');
+                                    if (cs) showCanvas(cs.getAttribute('data-canvas'), true);
                                 }
                             }
 
@@ -762,6 +862,18 @@
                             });
                             document.getElementById('settingsModal').addEventListener('click', function(e) {
                                 if (e.target === this) this.classList.remove('active');
+                            });
+
+                            // 本文の行を押すと、画像の上にその行の枠を描く（文字を選んでいるときは何もしない）
+                            textScroll.addEventListener('click', function(e) {
+                                if (e.target.closest('a, .page-link')) return;
+                                const sel = window.getSelection();
+                                if (sel &amp;&amp; !sel.isCollapsed) return;
+                                const span = e.target.closest('span[data-line]');
+                                if (!span) return;
+                                // 色の付いた行をもう一度押すと消す
+                                if (span === activeLine) clearLine();
+                                else selectLine(span);
                             });
 
                             // Toggle: waka highlight
@@ -847,7 +959,7 @@
 
                 <!-- Footer -->
                 <footer class="site-footer">
-                    <p>Powered by TEI, Mirador, and XSLT</p>
+                    <p>Powered by TEI, OpenSeadragon, and XSLT</p>
                 </footer>
             </body>
         </html>
@@ -903,6 +1015,16 @@
                             <xsl:value-of select="concat($zone/@ulx, ',', $zone/@uly, ',', $zone/@lrx, ',', $zone/@lry)"/>
                         </xsl:attribute>
                     </xsl:if>
+                </xsl:if>
+                <!-- この行の枠（直前の lb の facs が指す zone type="line"）。画像は行の zone の surface を優先する -->
+                <xsl:variable name="lineZone" select="key('zone', substring-after(preceding-sibling::*[1][self::tei:lb]/@facs, '#'))[@type = 'line']"/>
+                <xsl:if test="$lineZone">
+                    <xsl:attribute name="data-canvas">
+                        <xsl:value-of select="$lineZone/ancestor::tei:surface/@sameAs"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="data-line">
+                        <xsl:value-of select="concat($lineZone/@ulx, ',', $lineZone/@uly, ',', $lineZone/@lrx, ',', $lineZone/@lry)"/>
+                    </xsl:attribute>
                 </xsl:if>
             </xsl:if>
             <xsl:apply-templates select="node()" />
