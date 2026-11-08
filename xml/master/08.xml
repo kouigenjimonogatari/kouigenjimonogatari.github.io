@@ -61,30 +61,169 @@
 		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/canvas/154" ulx="0" uly="0" xml:id="f001">
 			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/R0000154" url="https://dl.ndl.go.jp/api/iiif/3437686/R0000154/full/full/0/default.jpg" width="6890px"/>
 			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0269"/>
+			<zone type="line" lrx="3248" lry="2850" ulx="3165" uly="749" xml:id="line_0269-01"/>
+			<zone type="line" lrx="3148" lry="2851" ulx="3061" uly="758" xml:id="line_0269-02"/>
+			<zone type="line" lrx="3046" lry="2852" ulx="2959" uly="755" xml:id="line_0269-03"/>
+			<zone type="line" lrx="2945" lry="2854" ulx="2856" uly="755" xml:id="line_0269-04"/>
+			<zone type="line" lrx="2845" lry="2861" ulx="2756" uly="765" xml:id="line_0269-05"/>
+			<zone type="line" lrx="2745" lry="2865" ulx="2655" uly="774" xml:id="line_0269-06"/>
+			<zone type="line" lrx="2644" lry="2865" ulx="2559" uly="768" xml:id="line_0269-07"/>
+			<zone type="line" lrx="2545" lry="2868" ulx="2458" uly="765" xml:id="line_0269-08"/>
+			<zone type="line" lrx="2443" lry="2870" ulx="2354" uly="769" xml:id="line_0269-09"/>
+			<zone type="line" lrx="2343" lry="2871" ulx="2253" uly="771" xml:id="line_0269-10"/>
+			<zone type="line" lrx="2244" lry="2873" ulx="2156" uly="780" xml:id="line_0269-11"/>
+			<zone type="line" lrx="2138" lry="2874" ulx="2053" uly="784" xml:id="line_0269-12"/>
+			<zone type="line" lrx="2040" lry="2873" ulx="1957" uly="786" xml:id="line_0269-13"/>
+			<zone type="line" lrx="1939" lry="2882" ulx="1851" uly="798" xml:id="line_0269-14"/>
 		</surface>
 		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/canvas/155" ulx="0" uly="0" xml:id="f002">
 			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/R0000155" url="https://dl.ndl.go.jp/api/iiif/3437686/R0000155/full/full/0/default.jpg" width="6890px"/>
 			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0270"/>
+			<zone type="line" lrx="4969" lry="2868" ulx="4898" uly="776" xml:id="line_0270-01"/>
+			<zone type="line" lrx="4867" lry="2865" ulx="4797" uly="775" xml:id="line_0270-02"/>
+			<zone type="line" lrx="4765" lry="2865" ulx="4697" uly="770" xml:id="line_0270-03"/>
+			<zone type="line" lrx="4668" lry="2864" ulx="4592" uly="768" xml:id="line_0270-04"/>
+			<zone type="line" lrx="4567" lry="2864" ulx="4491" uly="767" xml:id="line_0270-05"/>
+			<zone type="line" lrx="4466" lry="2862" ulx="4392" uly="766" xml:id="line_0270-06"/>
+			<zone type="line" lrx="4365" lry="2860" ulx="4292" uly="763" xml:id="line_0270-07"/>
+			<zone type="line" lrx="4264" lry="2860" ulx="4194" uly="766" xml:id="line_0270-08"/>
+			<zone type="line" lrx="4165" lry="2858" ulx="4090" uly="764" xml:id="line_0270-09"/>
+			<zone type="line" lrx="4064" lry="2860" ulx="3990" uly="758" xml:id="line_0270-10"/>
+			<zone type="line" lrx="3962" lry="1428" ulx="3905" uly="763" xml:id="line_0270-11"/>
+			<zone type="line" lrx="3858" lry="2857" ulx="3788" uly="874" xml:id="line_0270-12"/>
+			<zone type="line" lrx="3756" lry="2857" ulx="3685" uly="758" xml:id="line_0270-13"/>
+			<zone type="line" lrx="3656" lry="2856" ulx="3589" uly="757" xml:id="line_0270-14"/>
 			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0271"/>
+			<zone type="line" lrx="3214" lry="2814" ulx="3131" uly="751" xml:id="line_0271-01"/>
+			<zone type="line" lrx="3109" lry="2817" ulx="3033" uly="739" xml:id="line_0271-02"/>
+			<zone type="line" lrx="3008" lry="2831" ulx="2929" uly="745" xml:id="line_0271-03"/>
+			<zone type="line" lrx="2914" lry="2839" ulx="2829" uly="746" xml:id="line_0271-04"/>
+			<zone type="line" lrx="2811" lry="2840" ulx="2728" uly="749" xml:id="line_0271-05"/>
+			<zone type="line" lrx="2710" lry="2843" ulx="2630" uly="760" xml:id="line_0271-06"/>
+			<zone type="line" lrx="2611" lry="2848" ulx="2528" uly="752" xml:id="line_0271-07"/>
+			<zone type="line" lrx="2506" lry="2848" ulx="2431" uly="757" xml:id="line_0271-08"/>
+			<zone type="line" lrx="2410" lry="2850" ulx="2332" uly="758" xml:id="line_0271-09"/>
+			<zone type="line" lrx="2307" lry="2855" ulx="2229" uly="764" xml:id="line_0271-10"/>
+			<zone type="line" lrx="2172" lry="918" ulx="2132" uly="763" xml:id="line_0271-11"/>
+			<zone type="line" lrx="2104" lry="2855" ulx="2025" uly="877" xml:id="line_0271-12"/>
+			<zone type="line" lrx="2004" lry="2855" ulx="1925" uly="773" xml:id="line_0271-13"/>
+			<zone type="line" lrx="1903" lry="2855" ulx="1825" uly="773" xml:id="line_0271-14"/>
 		</surface>
 		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/canvas/156" ulx="0" uly="0" xml:id="f003">
 			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/R0000156" url="https://dl.ndl.go.jp/api/iiif/3437686/R0000156/full/full/0/default.jpg" width="6890px"/>
 			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0272"/>
+			<zone type="line" lrx="4992" lry="2752" ulx="4925" uly="762" xml:id="line_0272-01"/>
+			<zone type="line" lrx="4887" lry="2848" ulx="4823" uly="757" xml:id="line_0272-02"/>
+			<zone type="line" lrx="4785" lry="2850" ulx="4723" uly="757" xml:id="line_0272-03"/>
+			<zone type="line" lrx="4689" lry="2848" ulx="4624" uly="754" xml:id="line_0272-04"/>
+			<zone type="line" lrx="4588" lry="2851" ulx="4521" uly="755" xml:id="line_0272-05"/>
+			<zone type="line" lrx="4488" lry="2847" ulx="4423" uly="757" xml:id="line_0272-06"/>
+			<zone type="line" lrx="4386" lry="1427" ulx="4331" uly="750" xml:id="line_0272-07"/>
+			<zone type="line" lrx="4285" lry="2850" ulx="4220" uly="865" xml:id="line_0272-08"/>
+			<zone type="line" lrx="4182" lry="2506" ulx="4122" uly="753" xml:id="line_0272-09"/>
+			<zone type="line" lrx="4083" lry="2847" ulx="4017" uly="870" xml:id="line_0272-10"/>
+			<zone type="line" lrx="3982" lry="2845" ulx="3913" uly="748" xml:id="line_0272-11"/>
+			<zone type="line" lrx="3880" lry="2844" ulx="3816" uly="742" xml:id="line_0272-12"/>
+			<zone type="line" lrx="3779" lry="2843" ulx="3716" uly="745" xml:id="line_0272-13"/>
+			<zone type="line" lrx="3680" lry="2844" ulx="3616" uly="746" xml:id="line_0272-14"/>
 			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0273"/>
+			<zone type="line" lrx="3237" lry="2736" ulx="3163" uly="747" xml:id="line_0273-01"/>
+			<zone type="line" lrx="3135" lry="2738" ulx="3059" uly="745" xml:id="line_0273-02"/>
+			<zone type="line" lrx="3032" lry="2739" ulx="2958" uly="750" xml:id="line_0273-03"/>
+			<zone type="line" lrx="2934" lry="2743" ulx="2859" uly="749" xml:id="line_0273-04"/>
+			<zone type="line" lrx="2832" lry="2743" ulx="2755" uly="747" xml:id="line_0273-05"/>
+			<zone type="line" lrx="2729" lry="2746" ulx="2654" uly="758" xml:id="line_0273-06"/>
+			<zone type="line" lrx="2627" lry="2815" ulx="2555" uly="762" xml:id="line_0273-07"/>
+			<zone type="line" lrx="2526" lry="2791" ulx="2456" uly="761" xml:id="line_0273-08"/>
+			<zone type="line" lrx="2428" lry="2853" ulx="2356" uly="761" xml:id="line_0273-09"/>
+			<zone type="line" lrx="2327" lry="2857" ulx="2255" uly="763" xml:id="line_0273-10"/>
+			<zone type="line" lrx="2227" lry="2858" ulx="2155" uly="764" xml:id="line_0273-11"/>
+			<zone type="line" lrx="2128" lry="2866" ulx="2051" uly="767" xml:id="line_0273-12"/>
+			<zone type="line" lrx="2026" lry="2868" ulx="1951" uly="765" xml:id="line_0273-13"/>
+			<zone type="line" lrx="1928" lry="2866" ulx="1847" uly="773" xml:id="line_0273-14"/>
 		</surface>
 		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/canvas/157" ulx="0" uly="0" xml:id="f004">
 			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/R0000157" url="https://dl.ndl.go.jp/api/iiif/3437686/R0000157/full/full/0/default.jpg" width="6890px"/>
 			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0274"/>
+			<zone type="line" lrx="4983" lry="2877" ulx="4909" uly="780" xml:id="line_0274-01"/>
+			<zone type="line" lrx="4876" lry="2874" ulx="4808" uly="780" xml:id="line_0274-02"/>
+			<zone type="line" lrx="4779" lry="2877" ulx="4712" uly="779" xml:id="line_0274-03"/>
+			<zone type="line" lrx="4676" lry="2874" ulx="4607" uly="777" xml:id="line_0274-04"/>
+			<zone type="line" lrx="4577" lry="2874" ulx="4508" uly="778" xml:id="line_0274-05"/>
+			<zone type="line" lrx="4476" lry="2874" ulx="4406" uly="779" xml:id="line_0274-06"/>
+			<zone type="line" lrx="4373" lry="2874" ulx="4307" uly="779" xml:id="line_0274-07"/>
+			<zone type="line" lrx="4272" lry="2873" ulx="4202" uly="775" xml:id="line_0274-08"/>
+			<zone type="line" lrx="4174" lry="2874" ulx="4100" uly="771" xml:id="line_0274-09"/>
+			<zone type="line" lrx="4072" lry="1107" ulx="4017" uly="779" xml:id="line_0274-10"/>
+			<zone type="line" lrx="3972" lry="2873" ulx="3900" uly="888" xml:id="line_0274-11"/>
+			<zone type="line" lrx="3869" lry="2872" ulx="3799" uly="774" xml:id="line_0274-12"/>
+			<zone type="line" lrx="3768" lry="2872" ulx="3698" uly="774" xml:id="line_0274-13"/>
+			<zone type="line" lrx="3666" lry="2874" ulx="3597" uly="774" xml:id="line_0274-14"/>
 			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0275"/>
+			<zone type="line" lrx="3238" lry="2859" ulx="3144" uly="760" xml:id="line_0275-01"/>
+			<zone type="line" lrx="3138" lry="2861" ulx="3048" uly="770" xml:id="line_0275-02"/>
+			<zone type="line" lrx="3035" lry="2859" ulx="2943" uly="768" xml:id="line_0275-03"/>
+			<zone type="line" lrx="2932" lry="2866" ulx="2845" uly="773" xml:id="line_0275-04"/>
+			<zone type="line" lrx="2829" lry="2867" ulx="2742" uly="777" xml:id="line_0275-05"/>
+			<zone type="line" lrx="2734" lry="2869" ulx="2645" uly="776" xml:id="line_0275-06"/>
+			<zone type="line" lrx="2633" lry="2869" ulx="2542" uly="781" xml:id="line_0275-07"/>
+			<zone type="line" lrx="2532" lry="2872" ulx="2441" uly="785" xml:id="line_0275-08"/>
+			<zone type="line" lrx="2432" lry="2875" ulx="2341" uly="787" xml:id="line_0275-09"/>
+			<zone type="line" lrx="2333" lry="2879" ulx="2244" uly="789" xml:id="line_0275-10"/>
+			<zone type="line" lrx="2231" lry="2883" ulx="2141" uly="789" xml:id="line_0275-11"/>
+			<zone type="line" lrx="2132" lry="2887" ulx="2043" uly="791" xml:id="line_0275-12"/>
+			<zone type="line" lrx="2028" lry="2887" ulx="1936" uly="788" xml:id="line_0275-13"/>
+			<zone type="line" lrx="1929" lry="2894" ulx="1839" uly="800" xml:id="line_0275-14"/>
 		</surface>
 		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/canvas/158" ulx="0" uly="0" xml:id="f005">
 			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/R0000158" url="https://dl.ndl.go.jp/api/iiif/3437686/R0000158/full/full/0/default.jpg" width="6890px"/>
 			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0276"/>
+			<zone type="line" lrx="4986" lry="2881" ulx="4910" uly="788" xml:id="line_0276-01"/>
+			<zone type="line" lrx="4887" lry="2877" ulx="4808" uly="784" xml:id="line_0276-02"/>
+			<zone type="line" lrx="4784" lry="2878" ulx="4704" uly="786" xml:id="line_0276-03"/>
+			<zone type="line" lrx="4686" lry="2875" ulx="4606" uly="784" xml:id="line_0276-04"/>
+			<zone type="line" lrx="4588" lry="2874" ulx="4506" uly="777" xml:id="line_0276-05"/>
+			<zone type="line" lrx="4487" lry="2875" ulx="4407" uly="776" xml:id="line_0276-06"/>
+			<zone type="line" lrx="4388" lry="2872" ulx="4305" uly="775" xml:id="line_0276-07"/>
+			<zone type="line" lrx="4287" lry="2871" ulx="4208" uly="772" xml:id="line_0276-08"/>
+			<zone type="line" lrx="4187" lry="2871" ulx="4109" uly="770" xml:id="line_0276-09"/>
+			<zone type="line" lrx="4088" lry="2869" ulx="4004" uly="771" xml:id="line_0276-10"/>
+			<zone type="line" lrx="3984" lry="2868" ulx="3904" uly="764" xml:id="line_0276-11"/>
+			<zone type="line" lrx="3883" lry="2138" ulx="3813" uly="768" xml:id="line_0276-12"/>
+			<zone type="line" lrx="3780" lry="2865" ulx="3701" uly="876" xml:id="line_0276-13"/>
+			<zone type="line" lrx="3679" lry="2861" ulx="3603" uly="765" xml:id="line_0276-14"/>
 			<zone lrx="3445" lry="4706" ulx="0" uly="0" xml:id="zone_0277"/>
+			<zone type="line" lrx="3252" lry="2801" ulx="3180" uly="707" xml:id="line_0277-01"/>
+			<zone type="line" lrx="3148" lry="2804" ulx="3081" uly="709" xml:id="line_0277-02"/>
+			<zone type="line" lrx="3047" lry="2808" ulx="2977" uly="715" xml:id="line_0277-03"/>
+			<zone type="line" lrx="2945" lry="2809" ulx="2877" uly="716" xml:id="line_0277-04"/>
+			<zone type="line" lrx="2845" lry="2811" ulx="2777" uly="717" xml:id="line_0277-05"/>
+			<zone type="line" lrx="2745" lry="2813" ulx="2675" uly="717" xml:id="line_0277-06"/>
+			<zone type="line" lrx="2645" lry="2811" ulx="2571" uly="717" xml:id="line_0277-07"/>
+			<zone type="line" lrx="2545" lry="2814" ulx="2472" uly="715" xml:id="line_0277-08"/>
+			<zone type="line" lrx="2446" lry="2815" ulx="2375" uly="719" xml:id="line_0277-09"/>
+			<zone type="line" lrx="2346" lry="2817" ulx="2275" uly="715" xml:id="line_0277-10"/>
+			<zone type="line" lrx="2245" lry="2815" ulx="2176" uly="713" xml:id="line_0277-11"/>
+			<zone type="line" lrx="2147" lry="2817" ulx="2073" uly="726" xml:id="line_0277-12"/>
+			<zone type="line" lrx="2049" lry="2817" ulx="1973" uly="725" xml:id="line_0277-13"/>
+			<zone type="line" lrx="1948" lry="2819" ulx="1871" uly="724" xml:id="line_0277-14"/>
 		</surface>
 		<surface lrx="6890" lry="4706" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/canvas/159" ulx="0" uly="0" xml:id="f006">
 			<graphic height="4706px" sameAs="https://dl.ndl.go.jp/api/iiif/3437686/R0000159" url="https://dl.ndl.go.jp/api/iiif/3437686/R0000159/full/full/0/default.jpg" width="6890px"/>
 			<zone lrx="6890" lry="4706" ulx="3445" uly="0" xml:id="zone_0278"/>
+			<zone type="line" lrx="4949" lry="2807" ulx="4889" uly="711" xml:id="line_0278-01"/>
+			<zone type="line" lrx="4850" lry="2805" ulx="4789" uly="708" xml:id="line_0278-02"/>
+			<zone type="line" lrx="4748" lry="2804" ulx="4689" uly="707" xml:id="line_0278-03"/>
+			<zone type="line" lrx="4652" lry="2805" ulx="4589" uly="701" xml:id="line_0278-04"/>
+			<zone type="line" lrx="4551" lry="2804" ulx="4489" uly="703" xml:id="line_0278-05"/>
+			<zone type="line" lrx="4449" lry="2804" ulx="4389" uly="704" xml:id="line_0278-06"/>
+			<zone type="line" lrx="4347" lry="2804" ulx="4289" uly="701" xml:id="line_0278-07"/>
+			<zone type="line" lrx="4245" lry="2803" ulx="4186" uly="717" xml:id="line_0278-08"/>
+			<zone type="line" lrx="4143" lry="978" ulx="4096" uly="702" xml:id="line_0278-09"/>
+			<zone type="line" lrx="4044" lry="2801" ulx="3986" uly="815" xml:id="line_0278-10"/>
+			<zone type="line" lrx="3946" lry="1892" ulx="3890" uly="708" xml:id="line_0278-11"/>
+			<zone type="line" lrx="3843" lry="2802" ulx="3784" uly="813" xml:id="line_0278-12"/>
+			<zone type="line" lrx="3742" lry="1544" ulx="3689" uly="708" xml:id="line_0278-13"/>
 		</surface>
 	</facsimile>
 	<text>
@@ -92,301 +231,301 @@
 			<p>
 				<lb/>
 				<pb corresp="#zone_0269" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000154/0,0,3445,4706/full/0/default.jpg" n="269"/>
-				<lb/>
+				<lb facs="#line_0269-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-01.json">きさらきのはつかあまり南殿のさくらの宴せさせ給后春宮の御つほね左右にし</seg>
-				<lb/>
+				<lb facs="#line_0269-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-02.json">てまうのほりたまふ弘徽殿の女御中宮のかくておはするを折ふしことにやすか</seg>
-				<lb/>
+				<lb facs="#line_0269-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-03.json">らすおほせとものみにはえすくし給はてまいり給日いとよくはれて空のけしき</seg>
-				<lb/>
+				<lb facs="#line_0269-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-04.json">鳥のこゑも心ちよけなるにみこたちかむたちめよりはしめてその道のはみなた</seg>
-				<lb/>
+				<lb facs="#line_0269-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-05.json">むゐむ給はりてふみつくり給ふ宰相中将春といふもし給はれりとの給ふこゑさ</seg>
-				<lb/>
+				<lb facs="#line_0269-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-06.json">へれいの人にことなりつきに頭中将人のめうつしもたゝならすおほゆへかめれ</seg>
-				<lb/>
+				<lb facs="#line_0269-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-07.json">といとめやすくもてしつめてこはつかひなともの〱しくすくれたりさての人</seg>
-				<lb/>
+				<lb facs="#line_0269-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-08.json">〱はみなをくしかちにはなしろめるおほかり地下の人はましてみかと春宮の</seg>
-				<lb/>
+				<lb facs="#line_0269-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-09.json">御さえかしこくすくれておはしますかゝるかたにやむことなき人おほくものし</seg>
-				<lb/>
+				<lb facs="#line_0269-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-10.json">給ふころなるにはつかしくはる〱とくもりなきにはにたちいつるほとはした</seg>
-				<lb/>
+				<lb facs="#line_0269-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-11.json">なくてやすき事なれとくるしけなりとしおいたるはかせとものなりあやしくや</seg>
-				<lb/>
+				<lb facs="#line_0269-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-12.json">つれてれいなれたるもあはれにさま〱御らんするなむおかしかりけるかくと</seg>
-				<lb/>
+				<lb facs="#line_0269-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-13.json">もなとはさらにもいはすととのへさせ給へりやう〱入日になるほと春の鴬さ</seg>
-				<lb/>
+				<lb facs="#line_0269-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0269-14.json">へつるといふまひいとおもしろくみゆるに源氏の御もみちの賀のおりおほしい</seg>
 				<lb/>
 				<pb corresp="#zone_0270" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000155/3445,0,3445,4706/full/0/default.jpg" n="270"/>
-				<lb/>
+				<lb facs="#line_0270-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-01.json">てられて春宮かさしたまはせてせちにせめのたまはするにのかれかたくてたち</seg>
-				<lb/>
+				<lb facs="#line_0270-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-02.json">てのとかにそてかへすところをひとをれけしきはかりまひ給へるににるへきも</seg>
-				<lb/>
+				<lb facs="#line_0270-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-03.json">のなくみゆ左のおとゝうらめしさもわすれて涙をとし給ふ頭中将いつらおそし</seg>
-				<lb/>
+				<lb facs="#line_0270-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-04.json">とあれは柳花園といふまひをこれはいますこしすくしてかゝる事もやと心つか</seg>
-				<lb/>
+				<lb facs="#line_0270-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-05.json">ひやしけむいとおもしろけれは御そ給はりていとめつらしき事に人をもへりか</seg>
-				<lb/>
+				<lb facs="#line_0270-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-06.json">むたちめみなみたれてまひ給へと夜に入てはことにけちめもみえすふみなとか</seg>
-				<lb/>
+				<lb facs="#line_0270-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-07.json">うするにも源氏の君の御をはかうしもえよみやらすくことにすしのゝしるはか</seg>
-				<lb/>
+				<lb facs="#line_0270-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-08.json">せともの心にもいみしうおもへりかうやうのおりにもまつこの君をひかりにし</seg>
-				<lb/>
+				<lb facs="#line_0270-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-09.json">たまへれはみかともいかてかをろかにおほされん中宮御めのとまるにつけて春</seg>
-				<lb/>
+				<lb facs="#line_0270-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-10.json">宮の女御のあなかちににくみ給らむもあやしうわかかうおもふも心うしとそみ</seg>
-				<lb/>
+				<lb facs="#line_0270-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-11.json">つからおほしかへされける</seg>
-				<lb/>
+				<lb facs="#line_0270-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-12.json">　　<lg xml:id="waka-101" type="waka" rhyme="tanka"><l n="1">おほかたに</l><l n="2">花のすかたを</l><l n="3">みましかは</l><l n="4">露も心の</l><l n="5">おかれましやは</l></lg>御心のうちな</seg>
-				<lb/>
+				<lb facs="#line_0270-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-13.json">りけんこといかてもりにけむ夜いたうふけてなむことはてける上達部をのをの</seg>
-				<lb/>
+				<lb facs="#line_0270-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0270-14.json">あかれ后春宮かへらせ給ひぬれはのとやかになりぬるに月いとあかうさしいて</seg>
 				<lb/>
 				<pb corresp="#zone_0271" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000155/0,0,3445,4706/full/0/default.jpg" n="271"/>
-				<lb/>
+				<lb facs="#line_0271-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-01.json">ゝおかしきを源氏の君ゑい心ちにみすくしかたくおほえ給ひけれはうへの人</seg>
-				<lb/>
+				<lb facs="#line_0271-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-02.json">〱もうちやすみてかやうに思ひかけぬほとにもしさりぬへきひまもやあると</seg>
-				<lb/>
+				<lb facs="#line_0271-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-03.json">ふちつほわたりをわりなふしのひてうかゝひありけとかたらふへきとくちもさ</seg>
-				<lb/>
+				<lb facs="#line_0271-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-04.json">してけれはうちなけきてなをあらしに弘徽殿のほそとのにたちより給へれは三</seg>
-				<lb/>
+				<lb facs="#line_0271-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-05.json">のくちあきたり女御はうへの御つほねにやかてまうのほり給にけれは人すくな</seg>
-				<lb/>
+				<lb facs="#line_0271-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-06.json">ゝるけはひなりおくのくるゝともあきて人をともせすかやうにて世中のあやま</seg>
-				<lb/>
+				<lb facs="#line_0271-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-07.json">ちはするそかしと思ひてやをらのほりてのそき給人はみなねたるへしいとわか</seg>
-				<lb/>
+				<lb facs="#line_0271-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-08.json">うおかしけなるこゑのなへての人とはきこえぬおほろ月夜ににるものそなきと</seg>
-				<lb/>
+				<lb facs="#line_0271-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-09.json">うちすしてこなたさまにはくるものかいとうれしくてふと袖をとらへたまふ女</seg>
-				<lb/>
+				<lb facs="#line_0271-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-10.json">おそろしと思へるけしきにてあなむくつけこはたそとの給へとなにかうとまし</seg>
-				<lb/>
+				<lb facs="#line_0271-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-11.json">きとて</seg>
-				<lb/>
+				<lb facs="#line_0271-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-12.json">　　<lg xml:id="waka-102" type="waka" rhyme="tanka"><l n="1">ふかき夜の</l><l n="2">あはれをしるも</l><l n="3">入月の</l><l n="4">おほろけならぬ</l><l n="5">契とそおもふ</l></lg>とてやをら</seg>
-				<lb/>
+				<lb facs="#line_0271-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-13.json">いたきおろしてとはをしたてつあさましきにあきれたるさまいとなつかしうお</seg>
-				<lb/>
+				<lb facs="#line_0271-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0271-14.json">かしけなりわなゝく〱こゝに人とのたまへとまろはみな人にゆるされたれは</seg>
 				<lb/>
 				<pb corresp="#zone_0272" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000156/3445,0,3445,4706/full/0/default.jpg" n="272"/>
-				<lb/>
+				<lb facs="#line_0272-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-01.json">めしよせたりともなむてう事かあらんたゝしのひてこそとの給ふこゑにこのき</seg>
-				<lb/>
+				<lb facs="#line_0272-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-02.json">みなりけりときゝさためていささかなくさめけりわひしとおもへるものからな</seg>
-				<lb/>
+				<lb facs="#line_0272-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-03.json">さけなくこわ〱しうはみえしとおもへりゑい心ちやれいならさりけむゆるさ</seg>
-				<lb/>
+				<lb facs="#line_0272-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-04.json">ん事はくちおしきに女もわかうたをやきてつよき心もしらぬなるへしらうたし</seg>
-				<lb/>
+				<lb facs="#line_0272-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-05.json">とみ給ふにほとなくあけゆけは心あはたゝし女はましてさま〱におもひみた</seg>
-				<lb/>
+				<lb facs="#line_0272-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-06.json">れたるけしきなり猶なのりしたまへいかてきこゆへきかうてやみなむとはさり</seg>
-				<lb/>
+				<lb facs="#line_0272-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-07.json">ともおほされしとの給へは</seg>
-				<lb/>
+				<lb facs="#line_0272-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-08.json">　　<lg xml:id="waka-103" type="waka" rhyme="tanka"><l n="1">うき身世に</l><l n="2">やかてきえなは</l><l n="3">たつねても</l><l n="4">草のはらをは</l><l n="5">とはしとやおもふ</l></lg>とい</seg>
-				<lb/>
+				<lb facs="#line_0272-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-09.json">ふさまえむになまめきたりことはりやきこえたかへたるもしかなとて</seg>
-				<lb/>
+				<lb facs="#line_0272-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-10.json">　　<lg xml:id="waka-104" type="waka" rhyme="tanka"><l n="1">いつれそと</l><l n="2">露のやとりを</l><l n="3">わかむまに</l><l n="4">こさゝかはらに</l><l n="5">かせもこそふけ</l></lg>わつら</seg>
-				<lb/>
+				<lb facs="#line_0272-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-11.json">はしくおほす事ならすはなにかつゝまむもしすかい給ふかともいひあへす人</seg>
-				<lb/>
+				<lb facs="#line_0272-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-12.json">〱おきさはきうへの御つほねにまひりちかふけしきともしけくまよへはいと</seg>
-				<lb/>
+				<lb facs="#line_0272-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-13.json">はりなくてあふきはかりをしるしにとりかへていて給ひぬきりつほには人〱</seg>
-				<lb/>
+				<lb facs="#line_0272-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0272-14.json">おほくさふらひておとろきたるもあれはかゝるをさもたゆみなき御しのひあり</seg>
 				<lb/>
 				<pb corresp="#zone_0273" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000156/0,0,3445,4706/full/0/default.jpg" n="273"/>
-				<lb/>
+				<lb facs="#line_0273-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-01.json">きかなとつきしろひつゝそらねをそしあへるいり給ひてふし給へれとねいられ</seg>
-				<lb/>
+				<lb facs="#line_0273-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-02.json">すおかしかりつる人のさまかな女御の御おとうとたちにこそはあらめまた世に</seg>
-				<lb/>
+				<lb facs="#line_0273-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-03.json">なれぬは五六の君ならんかしそちの宮の北の方頭中将のすさめぬ四の君なとこ</seg>
-				<lb/>
+				<lb facs="#line_0273-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-04.json">そよしときゝしかなか〱それならましかはいますこしおかしからまし六は春</seg>
-				<lb/>
+				<lb facs="#line_0273-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-05.json">宮にたてまつらんと心さし給へるをいとおしうもあるへいかなわつらはしうた</seg>
-				<lb/>
+				<lb facs="#line_0273-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-06.json">つねむ程もまきらはしさてたえなむとはおもはぬけしきなりつるをいかなれは</seg>
-				<lb/>
+				<lb facs="#line_0273-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-07.json">ことかよはすへきさまをゝしへすなりぬらんなとよろつにおもふも心のとまる</seg>
-				<lb/>
+				<lb facs="#line_0273-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-08.json">なるへしかうやうなるにつけてもまつかのわたりのありさまのこよなうおくま</seg>
-				<lb/>
+				<lb facs="#line_0273-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-09.json">りたるはやとありかたふおもひくらへられ給ふその日は後宴の事ありてまきれ</seg>
-				<lb/>
+				<lb facs="#line_0273-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-10.json">くらしたまひつさうのことつかうまつり給きのふの事よりもなまめかしうおも</seg>
-				<lb/>
+				<lb facs="#line_0273-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-11.json">しろしふちつほはあかつきにまうのほり給にけりかのありあけいてやしぬらん</seg>
-				<lb/>
+				<lb facs="#line_0273-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-12.json">と心も空にておもひいたらぬくまなきよしきよこれみつをつけてうかゝはせ給</seg>
-				<lb/>
+				<lb facs="#line_0273-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-13.json">けれはおまへよりまかて給ひけるほとにたゝいま北のちんよりかねてよりかく</seg>
-				<lb/>
+				<lb facs="#line_0273-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0273-14.json">れたちて侍つる車ともまかりいつる御かた〱のさと人侍へる中に四位の少将</seg>
 				<lb/>
 				<pb corresp="#zone_0274" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000157/3445,0,3445,4706/full/0/default.jpg" n="274"/>
-				<lb/>
+				<lb facs="#line_0274-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-01.json">右中弁なといそきいててをくりし侍へるや弘徽殿の御あかれならんとみ給へつ</seg>
-				<lb/>
+				<lb facs="#line_0274-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-02.json">るけしうはあらぬけはひともしるくてくるまみつはかり侍つときこゆるにもむ</seg>
-				<lb/>
+				<lb facs="#line_0274-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-03.json">ねうちつふれ給ふいかにしていつれとしらむちゝおとゝなときゝてこと〱し</seg>
-				<lb/>
+				<lb facs="#line_0274-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-04.json">うもてなさんもいかにそやまた人のありさまよくみさためぬほとはわつらはし</seg>
-				<lb/>
+				<lb facs="#line_0274-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-05.json">かるへしさりとてしらてあらんはたいとくちおしかるへけれはいかにせましと</seg>
-				<lb/>
+				<lb facs="#line_0274-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-06.json">おほしわつらひてつく〱となかめふし給へりひめ君いかにつれ〱ならんひ</seg>
-				<lb/>
+				<lb facs="#line_0274-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-07.json">ころになれはくしてやあらむとらうたくおほしやるかのしるしのあふきはさく</seg>
-				<lb/>
+				<lb facs="#line_0274-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-08.json">らかさねにてこきかたにかすめる月をかきて水にうつしたる心はへめなれたる</seg>
-				<lb/>
+				<lb facs="#line_0274-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-09.json">事なれとゆへなつかしうもてならしたりくさのはらをはといひしさまのみ心に</seg>
-				<lb/>
+				<lb facs="#line_0274-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-10.json">かゝり給へは</seg>
-				<lb/>
+				<lb facs="#line_0274-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-11.json">　　<lg xml:id="waka-105" type="waka" rhyme="tanka"><l n="1">世にしらぬ</l><l n="2">心ちこそすれ</l><l n="3">有明の</l><l n="4">月のゆくゑを</l><l n="5">そらにまかへて</l></lg>とかきつけ給</seg>
-				<lb/>
+				<lb facs="#line_0274-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-12.json">ひてをき給へりおほいとのにもひさしうなりにけるとおほせとわか君も心くる</seg>
-				<lb/>
+				<lb facs="#line_0274-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-13.json">しけれはこしらへむとおほして二条院へおはしぬみるまゝにいとうつくしけに</seg>
-				<lb/>
+				<lb facs="#line_0274-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0274-14.json">おひなりてあいきやうつきらう〱しき心はえいとことなりあかぬ所なうわか</seg>
 				<lb/>
 				<pb corresp="#zone_0275" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000157/0,0,3445,4706/full/0/default.jpg" n="275"/>
-				<lb/>
+				<lb facs="#line_0275-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-01.json">御心のまゝにをしへなさんとおほすにかなひぬへしおとこの御をしへなれはす</seg>
-				<lb/>
+				<lb facs="#line_0275-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-02.json">こし人なれたる事やましらむとおもふこそうしろめたけれ日ころの御ものかた</seg>
-				<lb/>
+				<lb facs="#line_0275-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-03.json">り御ことなとをしへくらしていて給ふをれいのとくちおしうおほせといまはい</seg>
-				<lb/>
+				<lb facs="#line_0275-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-04.json">とようならはされてわりなくはしたひまつはさすおほいとのにはれいのふとも</seg>
-				<lb/>
+				<lb facs="#line_0275-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-05.json">たいめんしたまはすつれ〱とよろつおほしめくらされてさうの御ことまさく</seg>
-				<lb/>
+				<lb facs="#line_0275-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-06.json">りてやはらかにぬる夜はなくてとうたひ給おとゝわたり給ひて一日のけふあり</seg>
-				<lb/>
+				<lb facs="#line_0275-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-07.json">し事きこえ給ふこゝらのよはひにてめいわうの御代四代をなんみ侍ぬれとこの</seg>
-				<lb/>
+				<lb facs="#line_0275-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-08.json">たひのやうにふみともきやうさくにまひかくものゝねともととのほりてよはひ</seg>
-				<lb/>
+				<lb facs="#line_0275-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-09.json">のふる事なむ侍らさりつる道〱のものの上手ともおほかるころをひくはしう</seg>
-				<lb/>
+				<lb facs="#line_0275-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-10.json">しろしめしとゝのへさせ給へるけなりおきなもほとほとまひいてぬへき心ちな</seg>
-				<lb/>
+				<lb facs="#line_0275-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-11.json">んし侍しときこえ給へはことにとゝのへおこなふ事も侍らすたゝおほやけ事に</seg>
-				<lb/>
+				<lb facs="#line_0275-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-12.json">そしうなるものゝしともをこゝかしこにたつね侍しなりよろつのことよりは柳</seg>
-				<lb/>
+				<lb facs="#line_0275-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-13.json">花園まことにこうたいのれいともなりぬへくみたまへしにましてさかゆくはる</seg>
-				<lb/>
+				<lb facs="#line_0275-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0275-14.json">にたちいてさせ給へましかは世のめんほくにや侍らましときこえ給ふ弁中将な</seg>
 				<lb/>
 				<pb corresp="#zone_0276" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000158/3445,0,3445,4706/full/0/default.jpg" n="276"/>
-				<lb/>
+				<lb facs="#line_0276-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-01.json">とまいりあひてかうらむにせなかをしつゝとり〱にもののねともしらへあは</seg>
-				<lb/>
+				<lb facs="#line_0276-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-02.json">せてあそひ給ふいとおもしろしかのありあけの君ははかなかりし夢をおほしい</seg>
-				<lb/>
+				<lb facs="#line_0276-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-03.json">てゝいとものなけかしうなかめ給ふ春宮には卯月はかりとおほしさためたれは</seg>
-				<lb/>
+				<lb facs="#line_0276-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-04.json">いとわりなうおほしみたれたるをおとこもたつね給はむにあとはかなくはあら</seg>
-				<lb/>
+				<lb facs="#line_0276-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-05.json">ねといつれともしらてことにゆるし給はぬあたりにかかつらはむも人わるくお</seg>
-				<lb/>
+				<lb facs="#line_0276-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-06.json">もひわつらひ給ふにやよひの廿余日右大殿のゆみのけちにかむたちめみこたち</seg>
-				<lb/>
+				<lb facs="#line_0276-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-07.json">おほくつとへ給てやかてふちの宴し給ふ花さかりはすきにたるをほかのちりな</seg>
-				<lb/>
+				<lb facs="#line_0276-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-08.json">むとやをしへられたりけむをくれてさくさくらふた木そいとおもしろきあたら</seg>
-				<lb/>
+				<lb facs="#line_0276-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-09.json">しうつくり給へる殿を宮たちの御もきの日みかきしつらはれたりはなはなとも</seg>
-				<lb/>
+				<lb facs="#line_0276-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-10.json">のし給殿のやうにてなに事もいまめかしうもてなし給へり源氏の君にも一日う</seg>
-				<lb/>
+				<lb facs="#line_0276-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-11.json">ちにて御たいめんのついてにきこえ給しかとおはせねはくちおしうものゝはえ</seg>
-				<lb/>
+				<lb facs="#line_0276-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-12.json">なしとおほして御この四位の少将をたてまつりたまふ</seg>
-				<lb/>
+				<lb facs="#line_0276-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-13.json">　　<lg xml:id="waka-106" type="waka" rhyme="tanka"><l n="1">わかやとの</l><l n="2">花しなへての</l><l n="3">色ならは</l><l n="4">なにかはさらに</l><l n="5">君をまたまし</l></lg>内におはす</seg>
-				<lb/>
+				<lb facs="#line_0276-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0276-14.json">るほとにてうへにそうし給ふしたりかほなりやとわらはせ給てわさとあめるを</seg>
 				<lb/>
 				<pb corresp="#zone_0277" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000158/0,0,3445,4706/full/0/default.jpg" n="277"/>
-				<lb/>
+				<lb facs="#line_0277-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-01.json">はやうものせよかし女みこたちなともおいいつる所なれはなへてのさまには思</seg>
-				<lb/>
+				<lb facs="#line_0277-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-02.json">ましきをなとの給はす御よそひなとひきつくろひ給ていたうくるゝほとにまた</seg>
-				<lb/>
+				<lb facs="#line_0277-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-03.json">れてそわたり給さくらのからのきの御なをしえひそめのしたかさねしりいとな</seg>
-				<lb/>
+				<lb facs="#line_0277-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-04.json">かくひきてみな人はうへのきぬなるにあされたるおほきみすかたのなまめきた</seg>
-				<lb/>
+				<lb facs="#line_0277-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-05.json">るにていつかれいりたまへる御さまけにいとことなり花のにほひもけおされて</seg>
-				<lb/>
+				<lb facs="#line_0277-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-06.json">なか〱ことさましになむあそひなといとおもしろうし給て夜すこしふけゆく</seg>
-				<lb/>
+				<lb facs="#line_0277-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-07.json">程に源氏のきみいたくゑいなやめるさまにもてなし給てまきれたち給ひぬしむ</seg>
-				<lb/>
+				<lb facs="#line_0277-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-08.json">殿に女一宮女三宮のおはしますひむかしのとくちにおはしてよりゐたまへりふ</seg>
-				<lb/>
+				<lb facs="#line_0277-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-09.json">ちはこなたのつまにあたりてあれはみかうしともあけわたして人〱いてゐた</seg>
-				<lb/>
+				<lb facs="#line_0277-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-10.json">りそてくちなとたうかのおりおほえてことさらめきもていてたるをふさはしか</seg>
-				<lb/>
+				<lb facs="#line_0277-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-11.json">らすとまつふちつほわたりおほしいてらるなやましきにいといたうしひられて</seg>
-				<lb/>
+				<lb facs="#line_0277-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-12.json">わひにて侍りかしこけれとこのおまへにこそはかけにもかくさせ給はめとてつ</seg>
-				<lb/>
+				<lb facs="#line_0277-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-13.json">まとのみすをひきゝたまへはあなわつらはしよからぬ人こそやむことなきゆか</seg>
-				<lb/>
+				<lb facs="#line_0277-14"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0277-14.json">りはかこち侍なれといふけしきをみ給ふにおも〱しうはあらねとをしなへて</seg>
 				<lb/>
 				<pb corresp="#zone_0278" facs="https://dl.ndl.go.jp/api/iiif/3437686/R0000159/3445,0,3445,4706/full/0/default.jpg" n="278"/>
-				<lb/>
+				<lb facs="#line_0278-01"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-01.json">のわかうとともにはあらすあてにおかしきけはひしるしそらたきものいとけふ</seg>
-				<lb/>
+				<lb facs="#line_0278-02"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-02.json">たうくゆりてきぬのをとなひいとはなやかにふるまひなして心にくゝをくまり</seg>
-				<lb/>
+				<lb facs="#line_0278-03"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-03.json">たるけはひはたちをくれいまめかしき事をこのみたるわたりにてやむことなき</seg>
-				<lb/>
+				<lb facs="#line_0278-04"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-04.json">御方〱ものみ給とてこのとくちはしめたまへるなるへしさしもあるましき事</seg>
-				<lb/>
+				<lb facs="#line_0278-05"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-05.json">なれとさすかにおかしうおもほされていつれならむとむねうちつふれてあふき</seg>
-				<lb/>
+				<lb facs="#line_0278-06"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-06.json">をとられてからきめをみるとうちおほとけたるこゑにいひなしてよりゐたまへ</seg>
-				<lb/>
+				<lb facs="#line_0278-07"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-07.json">りあやしくもさまかへけるこまうとかなといらふるは心しらぬにやあらんいら</seg>
-				<lb/>
+				<lb facs="#line_0278-08"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-08.json">へはせてたゝとき〱うちなけくけはひするかたによりかゝりてき丁こしに手</seg>
-				<lb/>
+				<lb facs="#line_0278-09"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-09.json">をとらへて</seg>
-				<lb/>
+				<lb facs="#line_0278-10"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-10.json">　　<lg xml:id="waka-107" type="waka" rhyme="tanka"><l n="1">あつさゆみ</l><l n="2">いるさのやまに</l><l n="3">まとふ哉</l><l n="4">ほのみし月の</l><l n="5">かけやみゆると</l></lg>なにゆへ</seg>
-				<lb/>
+				<lb facs="#line_0278-11"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-11.json">かとをしあてにのたまふをえしのはぬなるへし</seg>
-				<lb/>
+				<lb facs="#line_0278-12"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-12.json">　　<lg xml:id="waka-108" type="waka" rhyme="tanka"><l n="1">心いる</l><l n="2">かたならませは</l><l n="3">ゆみはりの</l><l n="4">月なき空に</l><l n="5">まよはましやは</l></lg>といふこゑた</seg>
-				<lb/>
+				<lb facs="#line_0278-13"/>
 				<seg corresp="https://w3id.org/kouigenjimonogatari/api/items/0278-13.json">ゝそれなりいとうれしきものから</seg>
 			</p>
 		</body>

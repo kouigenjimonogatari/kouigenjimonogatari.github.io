@@ -3,6 +3,17 @@
 版ごとの主な変更を記します。新しい版を上に書きます。
 Notable changes for each version, newest first.
 
+## [1.3.0] - 2026-11-07
+
+TEI 本文の各行に、画像上の位置（行の枠）を付けた版です。本文の文字は変えていません。
+Each line of the TEI text now has its position on the page image. The characters of the text are unchanged.
+
+- 全 25,065 行に `<zone type="line" xml:id="line_<頁>-<行>" ulx uly lrx lry/>` を足し（その頁の `<surface>` の中）、行頭の `<lb/>` を `<lb facs="#line_<頁>-<行>"/>` にした / Added a line zone for each of the 25,065 lines inside the page's `<surface>`, and pointed each line's `<lb/>` to it with `@facs`
+- 座標は NDLOCR-Lite の行と本文の行を対応づけ（行の順を崩さない動的計画法）、行の横の位置で確かめて付けた。OCR が行を検出し落とした 7 行は、前後の行から推定した枠を付けた。道具は `scripts/line_zones/`、経過と実測は `notes/line-zones.md` / The coordinates come from aligning NDLOCR-Lite lines with the text lines (order-preserving dynamic programming) and checking the horizontal position; 7 lines missed by the OCR were given boxes estimated from their neighbours. Tools in `scripts/line_zones/`, notes in `notes/line-zones.md`
+- 画像での判定: 抽出した 109 行で行の取り違えは 0 行 / Image check: no wrong line among 109 sampled lines
+- 狭い画面（375px 前後）での表示を直した。トップの 3 枚のカードを外し、本文の頁の上部の帯を低くし、和歌のグラフは横に送れるようにした（#28） / Layout fixes for narrow screens: the three cards on the top page removed, a lower header on text pages, the waka chart scrolls sideways (#28)
+- README は全版共通の DOI だけを載せる（#29） / README cites the concept DOI only (#29)
+
 ## [1.2.0] - 2026-11-07
 
 保存の流れを変えた版です。TEI 本文（`xml/master/`）とサイトの中身は変えていません。
