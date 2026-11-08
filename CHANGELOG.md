@@ -3,6 +3,16 @@
 版ごとの主な変更を記します。新しい版を上に書きます。
 Notable changes for each version, newest first.
 
+## [1.4.0] - 2026-11-07
+
+本文の頁の画像の表示を替えた版です。TEI 本文（`xml/master/`）は変えていません。
+The image viewer on text pages was replaced. The TEI text (`xml/master/`) is unchanged.
+
+- 本文の頁の画像を Mirador から OpenSeadragon 6.1.1 に替えた。本文の行を押すと、その行の範囲（`<zone type="line">`）を画像の上で薄い赤に塗り、行が収まるように拡大する。もう一度押すか Esc で消える。和歌への `#waka-NNN` で開いたときも、その行に色を付ける / The image viewer on text pages is now OpenSeadragon 6.1.1 instead of Mirador. Clicking a line of the text highlights its line zone on the image and zooms to it (click again or press Esc to clear); links to a waka (`#waka-NNN`) do the same
+- 画像はその巻の画像だけをめくる（以前は Mirador がマニフェスト全体を読んでいた）。マニフェストは読まず、頁の `@facs` から IIIF Image API の URL を取る / Only the images of the volume are shown; the manifest is no longer fetched, and the IIIF Image API URL is taken from each page's `@facs`
+- トップのお知らせに 1 件（日英）。1.3.0 で付けた行の位置と、この版の表示をあわせて知らせる / Added a news item (ja/en) on the line positions (1.3.0) and the new viewer
+- `xsl/mirador.xsl` を `xsl/page.xsl` に改名。`docs/lib/mirador-4.3.0` を外した / Renamed `xsl/mirador.xsl` to `xsl/page.xsl`; removed `docs/lib/mirador-4.3.0`
+
 ## [1.3.0] - 2026-11-07
 
 TEI 本文の各行に、画像上の位置（行の枠）を付けた版です。本文の文字は変えていません。
