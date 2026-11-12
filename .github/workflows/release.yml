@@ -48,6 +48,11 @@ on:
         type: choice
         options: [sandbox-test, release]
         default: sandbox-test
+      fault:
+        description: '試験用の故障の注入（mode=sandbox-test のときだけ効く）。flip-bit = Zenodo に公開した後、dip の段が受け取る AIP の 1 バイトを反転し、SHA-256 の添付も計算し直す'
+        type: choice
+        options: [none, flip-bit]
+        default: none
 
 permissions:
   contents: read
@@ -238,6 +243,25 @@ jobs:
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: aip
+
+      # 試験用の故障の注入（test/checkc-fault ブランチだけ。mode=release・release イベントでは動かない）。
+      # 公開後に AIP が書き換えられた場合を作る: 1 バイトを反転し、SHA-256 の添付も計算し直す
+      # （SHA-256 の確かめは通り、Zenodo との MD5 の照合だけが止める、ことを確かめるため）
+      - name: Inject fault into the AIP (sandbox-test only)
+        if: steps.check.outputs.exists != 'true' && inputs.mode == 'sandbox-test' && env.TEST == 'true' && inputs.fault == 'flip-bit'
+        run: |
+          f="${NAME}-aip.7z"
+          echo "before: md5=$(md5sum "$f" | cut -d' ' -f1) size=$(stat -c %s "$f")"
+          python3 -I - "$f" <<'PY2'
+          import os, sys
+          p = sys.argv[1]; off = os.path.getsize(p) // 2
+          with open(p, 'r+b') as fh:
+              fh.seek(off); b = fh.read(1)[0]; fh.seek(off); fh.write(bytes([b ^ 1]))
+          print(f"flipped bit 0 of byte at offset {off} ({b} -> {b ^ 1})")
+          PY2
+          sha256sum "$f" > "$f.sha256"
+          echo "after:  md5=$(md5sum "$f" | cut -d' ' -f1) size=$(stat -c %s "$f")"
+          echo "### 故障の注入: \`$f\` の中央の 1 バイトを反転し、SHA-256 を計算し直した" >> "$GITHUB_STEP_SUMMARY"
 
       # SHA-256 の添付は AIP と一緒に差し替えられるので、守りにはならない（壊れた転送の検出だけ）。
       # 守りは Zenodo の記録との突き合わせ。合わなければここで止め、展開も組み立てもしない
