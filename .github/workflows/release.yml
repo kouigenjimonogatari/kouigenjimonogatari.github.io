@@ -317,6 +317,26 @@ jobs:
           sys.exit(1 if missing else 0)
           PY
 
+      # Endings の原則（すべてのコードを検証し、内部リンクを確かめてある）を、公開の前に機械で確かめる。
+      # vnu は npm の版付きの包み（vnu-jar 26.10.12）から取り、SHA-256 を突き合わせる
+      # （GitHub のリリースの「latest」は中身が差し替わるので使わない）
+      - name: Download Nu Html Checker (vnu)
+        if: steps.check.outputs.exists != 'true'
+        run: |
+          curl -sfL -o /tmp/vnu-jar.tgz https://registry.npmjs.org/vnu-jar/-/vnu-jar-26.10.12.tgz
+          echo "3925f07364f5e5a111cef54a7baefa575b22d05c70f8ced048f0616d4579b7ab  /tmp/vnu-jar.tgz" | sha256sum -c
+          tar -xzf /tmp/vnu-jar.tgz -C /tmp package/build/dist/vnu.jar
+
+      # 誤りがあれば止める。警告は要約に書くだけ（第三者の同梱物 bibi/・lib/・展開した epub/ は除く。理由は check_html.py）
+      - name: Validate the DIP HTML and CSS (vnu)
+        if: steps.check.outputs.exists != 'true'
+        run: python3 wf/.github/scripts/check_html.py "$SRC/docs" --vnu /tmp/package/build/dist/vnu.jar
+
+      # 相対リンクの切れ・頁内の位置の欠け・絶対の形で書いた内部リンクがあれば止める
+      - name: Check links in the DIP
+        if: steps.check.outputs.exists != 'true'
+        run: python3 wf/.github/scripts/check_links.py "$SRC/docs"
+
       # DIP が、どの AIP から、どの道具で作られたかを、サイトの中に残す
       - name: Record provenance in the DIP
         if: steps.check.outputs.exists != 'true'
