@@ -26,7 +26,7 @@
                 </title>
                 <link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/html/{$vol}.html"/>
                 <link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/html/{$vol}.html"/>
-                <script type="text/javascript" src="{$root}lib/openseadragon-6.1.1/openseadragon.min.js"></script>
+                <script src="{$root}lib/openseadragon-6.1.1/openseadragon.min.js"></script>
                 <style>
                     :root {
                         --color-primary: #2c3e50;
