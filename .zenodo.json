@@ -7,7 +7,11 @@
       "name": "Nakamura, Satoru",
       "affiliation": "The University of Tokyo",
       "orcid": "0000-0001-8245-7925"
-    }
+    },
+    {"name": "Nakamura, Misa"},
+    {"name": "Kigoshi, Michi"},
+    {"name": "Tamura, Takashi"},
+    {"name": "Nagasaki, Kiyonori", "orcid": "0000-0002-5485-0567"}
   ],
   "license": "cc-by-4.0",
   "language": "jpn",

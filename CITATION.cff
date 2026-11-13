@@ -8,6 +8,15 @@ authors:
     given-names: Satoru
     orcid: https://orcid.org/0000-0001-8245-7925
     affiliation: "The University of Tokyo"
+  - family-names: Nakamura
+    given-names: Misa
+  - family-names: Kigoshi
+    given-names: Michi
+  - family-names: Tamura
+    given-names: Takashi
+  - family-names: Nagasaki
+    given-names: Kiyonori
+    orcid: https://orcid.org/0000-0002-5485-0567
 version: 1.4.0
 date-released: 2026-11-07
 license: CC-BY-4.0
