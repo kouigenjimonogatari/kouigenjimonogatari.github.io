@@ -3,6 +3,17 @@
 版ごとの主な変更を記します。新しい版を上に書きます。
 Notable changes for each version, newest first.
 
+## [1.5.0] - 2026-11-13
+
+保存の流れと作成者の記載を変えた版です。TEI 本文（`xml/master/`）とサイトの中身は変えていません。
+The preservation workflow and the list of creators were changed. The TEI text (`xml/master/`) and the website content are unchanged.
+
+- 作成者を Zenodo の記録と同じ 5 名にした（`.zenodo.json`・`CITATION.cff`） / Listed the same five creators as the Zenodo records (`.zenodo.json`, `CITATION.cff`)
+- AIP には、展開したソースだけを入れる（以前は zip と展開した写しの両方が入っていた）。AIP は約 49MB から約 33MB になる / The AIP now holds only the extracted source, not both the zip and its extracted copy; it shrinks from about 49 MB to about 33 MB
+- タグとコミットの URL を SIP の `metadata/metadata.csv` に書き、a3m が METS の dmdSec（Dublin Core）に入れる / The tag and commit URLs are written to the SIP's `metadata/metadata.csv`, which a3m records in the METS dmdSec (Dublin Core)
+- DIP を作る前に、AIP の中のソースを、記録したコミットと 1 ファイルずつ比べる（git の blob ハッシュ） / Before building the DIP, every source file in the AIP is compared with the recorded commit by git blob hash
+- a3m の「元のファイルのポリシー検査」を止めた。zip を消した後に止まっていたため。この検査は音声・動画のファイルだけが対象で、このリポジトリには当たらない / Turned off a3m's policy checks on originals, which stalled after the zip was deleted; they apply only to audio and video files, which this repository does not have
+
 ## [1.4.0] - 2026-11-07
 
 本文の頁の画像の表示を替えた版です。TEI 本文（`xml/master/`）は変えていません。
