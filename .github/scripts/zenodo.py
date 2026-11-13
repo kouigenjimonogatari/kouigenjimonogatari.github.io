@@ -207,9 +207,10 @@ def build_metadata(src_dir, tag, repo):
     meta['related_identifiers'] = rel
     meta.setdefault('notes', (
         f'File: *-aip.7z is the Archival Information Package (BagIt with METS/PREMIS, made by a3m) '
-        f'of the source zip of {tag}. The source zip is in data/objects/ of the package. '
-        f'ファイル: *-aip.7z は {tag} のソース zip を a3m で包んだ AIP（BagIt・METS/PREMIS）。'
-        f'ソースの zip は AIP の data/objects/ にあります。'))
+        f'of the source of {tag}. The source files are in data/objects/ of the package; '
+        f'the commit they come from is recorded in the METS file (Dublin Core). '
+        f'ファイル: *-aip.7z は {tag} のソースを a3m で包んだ AIP（BagIt・METS/PREMIS）。'
+        f'ソースのファイルは AIP の data/objects/ に、元の commit は METS（Dublin Core）にあります。'))
     return meta
 
 
