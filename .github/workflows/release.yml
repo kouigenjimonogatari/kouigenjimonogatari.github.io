@@ -169,6 +169,9 @@ jobs:
           # a3m はコンテナ内の別ユーザーで動くので、書き込めるようにしておく
           chmod -R a+rwX sip aip
 
+      # Policy checks on originals are skipped: they only apply MediaConch
+      # policies to audio/video, and with the zip deleted after extraction
+      # a3m stalled at this job (2026-11-13, both locally and on Actions).
       - name: Build AIP with a3m
         if: steps.state.outputs.build == 'true'
         run: |
@@ -180,6 +183,7 @@ jobs:
             -m a3m.cli.client --name="$NAME" \
             --processing-config=extract_packages=yes \
             --processing-config=delete_packages_after_extraction=yes \
+            --processing-config=perform_policy_checks_on_originals=no \
             --processing-config=normalize=no \
             "file:///sip/$NAME" 2>&1 | tee a3m.log
           grep -q 'Processing completed successfully' a3m.log
