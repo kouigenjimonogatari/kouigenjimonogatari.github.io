@@ -3,10 +3,12 @@ name: Release (SIP → AIP → Zenodo → DIP → Pages)
 # リリースのたびに、OAIS 参照モデルの情報パッケージの考え方で保存と公開を行う。
 #
 #   1. validate  タグの版を RELAX NG / Schematron で検証する（通らなければ止まる）
-#   2. aip       SIP = GitHub のソース zip。a3m（軽量版 Archivematica）で AIP（BagIt + METS/PREMIS）を作り、
+#   2. aip       SIP = GitHub のソース zip と、その commit を書いた metadata.csv。a3m（軽量版 Archivematica）が
+#                zip を展開して元の zip は残さず、AIP（BagIt + METS/PREMIS）を作り、
 #                同じジョブの中で Zenodo の API に上げて公開する（DOI が付く）。そのあとリリースにも添付する
 #   3. dip       リリースに添付した AIP を取り直し、その MD5 を Zenodo の記録の AIP と突き合わせる。
-#                合えば、その中のソースからサイトを組み立て、DIP として zip にしてリリースに添付する
+#                合えば、中のソースを記録された commit と 1 ファイルずつ照らし（git で取り直す）、
+#                そこからサイトを組み立て、DIP として zip にしてリリースに添付する
 #   4. deploy    リリースに添付した DIP を取り直し、そのまま GitHub Pages（アクセスシステム）に置く
 #
 # なぜ Zenodo と突き合わせるか: GitHub に書き込める者は、添付の AIP と SHA-256 を一緒に差し替えられる。
@@ -147,6 +149,23 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
           # Zenodo のメタデータは、タグの版の .zenodo.json と CITATION.cff から作る
           mkdir meta && unzip -q -j "sip/$NAME/${NAME}.zip" '*/.zenodo.json' '*/CITATION.cff' -d meta
+          # Record which commit the zip was made from, in the AIP itself (METS dmdSec, Dublin Core).
+          # The zip is not byte-stable over time, so provenance rests on the commit, not on the zip's hash.
+          mkdir -p "sip/$NAME/metadata"
+          COMMIT=$(gh api "repos/${GITHUB_REPOSITORY}/commits/${TAG}" -q .sha)
+          COMMIT_DATE=$(gh api "repos/${GITHUB_REPOSITORY}/commits/${TAG}" -q .commit.committer.date | cut -c1-10)
+          python3 - "sip/$NAME/metadata/metadata.csv" "$COMMIT" "$COMMIT_DATE" <<'PY'
+          import csv, json, os, sys
+          out, commit, date = sys.argv[1:4]
+          repo, tag = os.environ["GITHUB_REPOSITORY"], os.environ["TAG"]
+          title = json.load(open("meta/.zenodo.json", encoding="utf-8"))["title"]
+          with open(out, "w", newline="", encoding="utf-8") as f:
+              w = csv.writer(f)
+              w.writerow(["filename", "dc.title", "dc.identifier", "dc.source", "dc.date"])
+              w.writerow(["objects", f"{title} {tag}", f"https://github.com/{repo}/commit/{commit}",
+                          f"https://github.com/{repo}/releases/tag/{tag}", date])
+          PY
+          echo "- commit: \`$COMMIT\`" >> "$GITHUB_STEP_SUMMARY"
           # a3m はコンテナ内の別ユーザーで動くので、書き込めるようにしておく
           chmod -R a+rwX sip aip
 
@@ -160,7 +179,7 @@ jobs:
             --entrypoint python "$A3M_IMAGE" \
             -m a3m.cli.client --name="$NAME" \
             --processing-config=extract_packages=yes \
-            --processing-config=delete_packages_after_extraction=no \
+            --processing-config=delete_packages_after_extraction=yes \
             --processing-config=normalize=no \
             "file:///sip/$NAME" 2>&1 | tee a3m.log
           grep -q 'Processing completed successfully' a3m.log
@@ -261,10 +280,35 @@ jobs:
           BAG=$(ls -d aip/*/)
           pip install bagit==1.9.0
           python -m bagit --validate "$BAG"
-          # AIP に入っている元の zip（SIP）を取り出し、そこから組み立てる
-          SRC_ZIP=$(ls "$BAG"data/objects/*.zip)
-          mkdir src && unzip -q "$SRC_ZIP" -d src
-          echo "SRC=$(ls -d "$PWD"/src/*/)" >> "$GITHUB_ENV"
+          # Build from the source tree that a3m extracted into the AIP (the zip itself is not kept).
+          # a3m names the folder <zip name>-<timestamp>; inside it is GitHub's <owner>-<repo>-<sha> folder
+          set -- "$BAG"data/objects/"${NAME}".zip-*/*/
+          if [ "$#" -ne 1 ] || [ ! -d "$1" ]; then echo "expected one source folder in the AIP, got: $*"; exit 1; fi
+          SRC=$(cd "$1" && pwd)/
+          echo "SRC=$SRC" >> "$GITHUB_ENV"
+          # The commit recorded in the AIP (metadata.csv, also in the METS dmdSec)
+          CSV=$(find "$BAG"data/objects/metadata -name metadata.csv | head -1)
+          COMMIT=$(python3 -c 'import csv,sys; r=next(csv.DictReader(open(sys.argv[1],encoding="utf-8"))); print(r["dc.identifier"].rsplit("/",1)[1])' "$CSV")
+          echo "COMMIT=$COMMIT" >> "$GITHUB_ENV"
+          grep -q "commit/$COMMIT" "$BAG"data/METS.*.xml
+
+      # The AIP only records the commit. Check that its content really is that commit:
+      # fetch the commit from GitHub with git and compare every file by git's blob hash.
+      # Any file missing, added, or changed (including hidden files a3m might drop) stops the run here
+      - name: Compare the AIP's source with the recorded commit
+        if: steps.check.outputs.exists != 'true'
+        run: |
+          git init -q cmp
+          git -C cmp fetch -q --depth 1 "https://github.com/${GITHUB_REPOSITORY}.git" "$COMMIT"
+          git -C cmp -c core.quotePath=false ls-tree -r --format='%(objectname) %(path)' FETCH_HEAD | sort -k2 > want.txt
+          (cd "$SRC" && find . -type f | sed 's|^\./||' | LC_ALL=C sort > "$GITHUB_WORKSPACE/files.txt" && git hash-object --no-filters --stdin-paths < "$GITHUB_WORKSPACE/files.txt" > "$GITHUB_WORKSPACE/hashes.txt")
+          paste -d' ' hashes.txt files.txt | sort -k2 > got.txt
+          if diff want.txt got.txt > cmp.diff; then
+            echo "### Source = commit \`$COMMIT\`: $(wc -l < want.txt) files match" >> "$GITHUB_STEP_SUMMARY"
+          else
+            { echo "### Source ≠ commit \`$COMMIT\`"; echo '```'; head -40 cmp.diff; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+            cat cmp.diff; exit 1
+          fi
 
       - name: Install Python dependencies
         if: steps.check.outputs.exists != 'true'
@@ -327,7 +371,8 @@ jobs:
           import json, subprocess, sys, datetime, os
           name = os.environ["NAME"]
           aip_sha = open(f"{name}-aip.7z.sha256").read().split()[0]
-          commit = subprocess.run(["gh", "api", f"repos/{os.environ['GITHUB_REPOSITORY']}/commits/{os.environ['TAG']}", "-q", ".sha"], capture_output=True, text=True, check=True).stdout.strip()
+          # The commit recorded in the AIP, checked against the AIP's content in the step above
+          commit = os.environ["COMMIT"]
           java = subprocess.run(["java", "-version"], capture_output=True, text=True).stderr.splitlines()[0]
           freeze = subprocess.run([sys.executable, "-m", "pip", "freeze"], capture_output=True, text=True, check=True).stdout.split()
           info = {
