@@ -20,6 +20,7 @@ It publishes the full text of the *Koui Genji Monogatari*, encoded in TEI.
 | `xml/master/*.xml` | TEI text of all 54 chapters. **This is the only place to edit by hand** |
 | `odd/tei_kouigenji.odd` | The **source of truth** for the TEI customization. All schema rules and constraints are written here |
 | `docs/schema/` | Schemas generated from the ODD (published) |
+| `news/news.json` | News items in Japanese and English, newest first. `python3 scripts/prebuild.py news` writes one page per item (`docs/news/<date>-<slug>/`, `docs/en/news/<date>-<slug>/`) and the list on the top pages. Links in `body` are relative to the top page of that language |
 | `docs/` | Root of GitHub Pages. Includes the output of `prebuild.py` |
 | `xsl/` | XSLT used only at build time (not published) |
 | `scripts/` | Build and validation scripts |
@@ -178,6 +179,7 @@ Errors in the text can be reported with the "Report an error in the text" issue 
 | `xml/master/*.xml` | TEI 本文。全54帖。**手で編集するのはここ** |
 | `odd/tei_kouigenji.odd` | TEI カスタマイズの**正本**。スキーマと制約はすべてここに書く |
 | `docs/schema/` | ODD から生成したスキーマ（公開される） |
+| `news/news.json` | お知らせ（日英、新しいものが先）。`python3 scripts/prebuild.py news` が 1 件ずつの頁（`docs/news/<日付>-<短い名前>/`・`docs/en/news/<日付>-<短い名前>/`）とトップの一覧を書き出す。`body` の中のリンクは、その言語のトップから見た相対パスで書く |
 | `docs/` | GitHub Pages のルート。`prebuild.py` の生成物を含む |
 | `xsl/` | ビルド専用の XSLT（公開しない） |
 | `scripts/` | ビルド・検証スクリプト |

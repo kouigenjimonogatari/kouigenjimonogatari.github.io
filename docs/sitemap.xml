@@ -345,4 +345,189 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/stats.html"/>
   </url>
 
+  <!-- News items (written by scripts/prebuild.py news) -->
+  <!-- news:start -->
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2026-11-07-line-zones/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2026-11-07-line-zones/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2026-11-07-line-zones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2026-11-07-line-zones/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2026-11-07-line-zones/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2026-11-07-line-zones/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2026-11-07-line-zones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2026-11-07-line-zones/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2026-11-06-endings/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2026-11-06-endings/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2026-11-06-endings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2026-11-06-endings/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2026-11-06-endings/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2026-11-06-endings/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2026-11-06-endings/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2026-11-06-endings/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2026-08-12-tei-schema/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2026-08-12-tei-schema/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2026-08-12-tei-schema/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2026-08-12-tei-schema/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2026-08-12-tei-schema/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2026-08-12-tei-schema/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2026-08-12-tei-schema/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2026-08-12-tei-schema/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2026-03-08-corrections/</loc>
+    <lastmod>2026-03-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2026-03-08-corrections/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2026-03-08-corrections/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2026-03-08-corrections/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2026-03-08-corrections/</loc>
+    <lastmod>2026-03-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2026-03-08-corrections/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2026-03-08-corrections/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2026-03-08-corrections/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2025-06-23-redesign/</loc>
+    <lastmod>2025-06-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2025-06-23-redesign/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2025-06-23-redesign/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2025-06-23-redesign/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2025-06-23-redesign/</loc>
+    <lastmod>2025-06-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2025-06-23-redesign/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2025-06-23-redesign/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2025-06-23-redesign/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2020-06-19-volumes/</loc>
+    <lastmod>2020-06-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-06-19-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-06-19-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-06-19-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2020-06-19-volumes/</loc>
+    <lastmod>2020-06-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-06-19-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-06-19-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-06-19-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2020-05-27-volumes/</loc>
+    <lastmod>2020-05-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-05-27-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-05-27-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-05-27-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2020-05-27-volumes/</loc>
+    <lastmod>2020-05-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-05-27-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-05-27-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-05-27-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2020-05-07-volumes/</loc>
+    <lastmod>2020-05-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-05-07-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-05-07-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-05-07-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2020-05-07-volumes/</loc>
+    <lastmod>2020-05-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-05-07-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-05-07-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-05-07-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2020-04-18-volumes/</loc>
+    <lastmod>2020-04-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-04-18-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-04-18-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-04-18-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2020-04-18-volumes/</loc>
+    <lastmod>2020-04-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-04-18-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-04-18-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-04-18-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2020-01-19-volumes/</loc>
+    <lastmod>2020-01-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-01-19-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-01-19-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-01-19-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2020-01-19-volumes/</loc>
+    <lastmod>2020-01-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-01-19-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-01-19-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-01-19-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2020-01-06-volumes/</loc>
+    <lastmod>2020-01-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-01-06-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-01-06-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-01-06-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2020-01-06-volumes/</loc>
+    <lastmod>2020-01-06</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2020-01-06-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2020-01-06-volumes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2020-01-06-volumes/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2019-12-25-hahakigi/</loc>
+    <lastmod>2019-12-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2019-12-25-hahakigi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2019-12-25-hahakigi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2019-12-25-hahakigi/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2019-12-25-hahakigi/</loc>
+    <lastmod>2019-12-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2019-12-25-hahakigi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2019-12-25-hahakigi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2019-12-25-hahakigi/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/news/2019-11-29-launch/</loc>
+    <lastmod>2019-11-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2019-11-29-launch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2019-11-29-launch/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2019-11-29-launch/"/>
+  </url>
+  <url>
+    <loc>https://kouigenjimonogatari.github.io/en/news/2019-11-29-launch/</loc>
+    <lastmod>2019-11-29</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://kouigenjimonogatari.github.io/news/2019-11-29-launch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kouigenjimonogatari.github.io/en/news/2019-11-29-launch/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kouigenjimonogatari.github.io/news/2019-11-29-launch/"/>
+  </url>
+  <!-- news:end -->
 </urlset>

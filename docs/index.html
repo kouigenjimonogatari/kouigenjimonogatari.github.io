@@ -969,62 +969,77 @@
         </section>
 
         <!-- News Section -->
-        <section class="py-5">
+        <section class="py-5" id="news">
             <div class="container">
                 <h2 class="section-title jp-text">お知らせ</h2>
                 <div class="news-section">
+                    <!-- news:start -->
                     <div class="news-item">
                         <div class="news-date">2026-11-07</div>
+                        <h3 class="news-title"><a href="news/2026-11-07-line-zones/index.html">本文の行に、画像の上での位置を付けました</a></h3>
                         <p class="jp-text mb-0">本文の全25,065行に、画像の上での位置を付けました（文字認識の結果と本文の行を対応づけたもので、本文の文字は変えていません）。これにあわせて本文の頁の画像の表示を新しくし、本文の行を押すと、画像の上でその行に色が付き、行が収まるように拡大されるようにしました。もう一度押すか Esc キーで色は消えます。各行の位置はTEI/XMLの <code>&lt;zone type="line"&gt;</code> として、ダウンロードしてお使いいただけます。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2026-11-06</div>
-                        <p class="jp-text mb-0">長く使い続けられるデジタル資料のための指針 <a href="https://endings.uvic.ca/principles.html">Endings Principles</a> に沿って、サイトを作り直しました。外部のサービスから読み込んでいたライブラリはサイトの中に同梱し、<a href="waka.html">和歌一覧</a>などはスクリプトが動かなくても読めるようにしました。英語版は <a href="en/index.html">en/</a> の下に移し、頁や和歌へのリンクは <code>html/01.html#p13</code>・<code>#waka-001</code> の形にしました（これまでのURLも引き続き使えます）。各頁に版とDOIを表示し、<a href="#cite">引用の仕方</a>を設けました。公開するHTMLはW3CのNu HTML Checkerで検証し、内部リンクもすべて確かめています。</p>
+                        <h3 class="news-title"><a href="news/2026-11-06-endings/index.html">Endings Principles に沿ってサイトを作り直しました</a></h3>
+                        <p class="jp-text mb-0">長く使い続けられるデジタル資料のための指針 <a href="https://endings.uvic.ca/principles.html">Endings Principles</a> に沿って、サイトを作り直しました。外部のサービスから読み込んでいたライブラリはサイトの中に同梱し、<a href="waka.html">和歌一覧</a>などはスクリプトが動かなくても読めるようにしました。英語版は <a href="en/index.html">en/</a> の下に移し、頁や和歌へのリンクは <code>html/01.html#p13</code>・<code>#waka-001</code> の形にしました（これまでのURLも引き続き使えます）。各頁に版とDOIを表示し、<a href="index.html#cite">引用の仕方</a>を設けました。公開するHTMLはW3CのNu HTML Checkerで検証し、内部リンクもすべて確かめています。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2026-08-12</div>
-                        <p class="jp-text mb-0">TEIスキーマを全面的に見直しました。従来のスキーマには不備があり、和歌795首すべてが検証を通らない状態になっていましたので、これを修正しました（テキストデータ自体に誤りはありません）。あわせてSchematronによる検証を導入し、和歌の句数・句番号・ページ番号の順序・参照の整合性などを機械的に検査するようにしました。全54帖は公開前に自動検証されます。詳しくは<a href="#tech-info">技術情報</a>をご覧ください。</p>
+                        <h3 class="news-title"><a href="news/2026-08-12-tei-schema/index.html">TEI スキーマを見直しました</a></h3>
+                        <p class="jp-text mb-0">TEIスキーマを全面的に見直しました。従来のスキーマには不備があり、和歌795首すべてが検証を通らない状態になっていましたので、これを修正しました（テキストデータ自体に誤りはありません）。あわせてSchematronによる検証を導入し、和歌の句数・句番号・ページ番号の順序・参照の整合性などを機械的に検査するようにしました。全54帖は公開前に自動検証されます。詳しくは<a href="index.html#tech-info">技術情報</a>をご覧ください。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2026-03-08</div>
+                        <h3 class="news-title"><a href="news/2026-03-08-corrections/index.html">本文の修正と、和歌一覧・可視化のページの追加</a></h3>
                         <p class="jp-text mb-0">利用者の方からのご指摘に基づき、本文テキストの誤字・誤記および和歌の表記を修正しました。<a href="waka.html">和歌一覧</a>ページ・<a href="viz.html">可視化</a>ページを新設し、各巻のPDF・EPUBでの閲覧・ダウンロードにも対応しました。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2025-06-23</div>
+                        <h3 class="news-title"><a href="news/2025-06-23-redesign/index.html">サイトのデザインの刷新と DTS 対応</a></h3>
                         <p class="jp-text mb-0">ウェブサイトのデザインをモダンに刷新し、DTS（Distributed Text Services）対応を追加しました。レスポンシブデザインとアクセシビリティも向上しています。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2020-06-19</div>
+                        <h3 class="news-title"><a href="news/2020-06-19-volumes/index.html">9 帖を追加しました</a></h3>
                         <p class="jp-text mb-0">「39 夕霧」「46 椎本」「47 総角」「48 早蕨」「49 宿木」「50 東屋」「51 浮舟」「52 蜻蛉」「53 手習」を追加しました。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2020-05-27</div>
+                        <h3 class="news-title"><a href="news/2020-05-27-volumes/index.html">5 帖を追加しました</a></h3>
                         <p class="jp-text mb-0">「34 若菜 上」「35 若菜 下」「36 柏木」「44 竹河」「45 橋姫」を追加しました。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2020-05-07</div>
+                        <h3 class="news-title"><a href="news/2020-05-07-volumes/index.html">19 帖を追加しました</a></h3>
                         <p class="jp-text mb-0">「22 玉鬘」「23 初音」「24 胡蝶」「25 蛍」「26 常夏」「27 篝火」「28 野分」「29 行幸」「30 藤袴」「31 真木柱」「32 梅枝」「33 藤裏葉」「37 横笛」「38 鈴虫」「40 御法」「41 幻」「42 匂宮」「43 紅梅」「54 夢浮橋」を追加しました。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2020-04-18</div>
+                        <h3 class="news-title"><a href="news/2020-04-18-volumes/index.html">10 帖を追加しました</a></h3>
                         <p class="jp-text mb-0">「12 須磨」「13 明石」「14 澪標」「15 蓬生」「16 関屋」「17 絵合」「18 松風」「19 薄雲」「20 朝顔（槿）」「21 少女」を追加しました。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2020-01-19</div>
+                        <h3 class="news-title"><a href="news/2020-01-19-volumes/index.html">2 帖を追加しました</a></h3>
                         <p class="jp-text mb-0">「9 葵」「10 賢木」を追加しました。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2020-01-06</div>
+                        <h3 class="news-title"><a href="news/2020-01-06-volumes/index.html">7 帖を追加しました</a></h3>
                         <p class="jp-text mb-0">「3 空蝉」「4 夕顔」「5 若紫」「6 末摘花」「7 紅葉賀」「8 花宴」「11 花散里」を追加しました。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2019-12-25</div>
+                        <h3 class="news-title"><a href="news/2019-12-25-hahakigi/index.html">「帚木」を追加しました</a></h3>
                         <p class="jp-text mb-0">「2 帚木」を追加しました。</p>
                     </div>
                     <div class="news-item">
                         <div class="news-date">2019-11-29</div>
+                        <h3 class="news-title"><a href="news/2019-11-29-launch/index.html">サイトを公開しました</a></h3>
                         <p class="jp-text mb-0">サイトを公開しました。</p>
                     </div>
+                    <!-- news:end -->
                 </div>
             </div>
         </section>
