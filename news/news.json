@@ -1,0 +1,158 @@
+[
+  {
+    "date": "2026-11-07",
+    "slug": "line-zones",
+    "ja": {
+      "title": "本文の行に、画像の上での位置を付けました",
+      "body": "本文の全25,065行に、画像の上での位置を付けました（文字認識の結果と本文の行を対応づけたもので、本文の文字は変えていません）。これにあわせて本文の頁の画像の表示を新しくし、本文の行を押すと、画像の上でその行に色が付き、行が収まるように拡大されるようにしました。もう一度押すか Esc キーで色は消えます。各行の位置はTEI/XMLの <code>&lt;zone type=\"line\"&gt;</code> として、ダウンロードしてお使いいただけます。"
+    },
+    "en": {
+      "title": "Line positions on the page images",
+      "body": "All 25,065 lines of the text now have their position on the page image (obtained by aligning OCR output with the text lines; the characters of the text are unchanged). The image viewer on the text pages has been renewed: clicking a line of the text highlights that line on the image and zooms to it. Click it again or press Esc to clear the highlight. The line positions are included in the TEI/XML as <code>&lt;zone type=\"line\"&gt;</code>."
+    }
+  },
+  {
+    "date": "2026-11-06",
+    "slug": "endings",
+    "ja": {
+      "title": "Endings Principles に沿ってサイトを作り直しました",
+      "body": "長く使い続けられるデジタル資料のための指針 <a href=\"https://endings.uvic.ca/principles.html\">Endings Principles</a> に沿って、サイトを作り直しました。外部のサービスから読み込んでいたライブラリはサイトの中に同梱し、<a href=\"waka.html\">和歌一覧</a>などはスクリプトが動かなくても読めるようにしました。英語版は <a href=\"en/index.html\">en/</a> の下に移し、頁や和歌へのリンクは <code>html/01.html#p13</code>・<code>#waka-001</code> の形にしました（これまでのURLも引き続き使えます）。各頁に版とDOIを表示し、<a href=\"index.html#cite\">引用の仕方</a>を設けました。公開するHTMLはW3CのNu HTML Checkerで検証し、内部リンクもすべて確かめています。"
+    },
+    "en": {
+      "title": "Site rebuilt following the Endings Principles",
+      "body": "The site has been rebuilt following the <a href=\"https://endings.uvic.ca/principles.html\">Endings Principles</a> for digital longevity. Libraries that used to be loaded from external services are now bundled with the site, and pages such as the <a href=\"waka.html\">waka list</a> can be read without JavaScript. The English pages now live under <a href=\"index.html\">en/</a>, and links to pages and poems take the form <code>html/01.html#p13</code> and <code>#waka-001</code> (the old URLs still work). Every page shows its version and DOI, and a <a href=\"index.html#cite\">How to Cite</a> section has been added. The published HTML is validated with the W3C Nu HTML Checker, and all internal links are checked."
+    }
+  },
+  {
+    "date": "2026-08-12",
+    "slug": "tei-schema",
+    "ja": {
+      "title": "TEI スキーマを見直しました",
+      "body": "TEIスキーマを全面的に見直しました。従来のスキーマには不備があり、和歌795首すべてが検証を通らない状態になっていましたので、これを修正しました（テキストデータ自体に誤りはありません）。あわせてSchematronによる検証を導入し、和歌の句数・句番号・ページ番号の順序・参照の整合性などを機械的に検査するようにしました。全54帖は公開前に自動検証されます。詳しくは<a href=\"index.html#tech-info\">技術情報</a>をご覧ください。"
+    },
+    "en": {
+      "title": "TEI schema revised",
+      "body": "The TEI schema has been thoroughly revised. The previous schema was defective: all 795 waka failed validation against it (the text data itself was never at fault). We also introduced Schematron validation, which now mechanically checks the number of lines in each waka, line numbering, the ordering of page numbers, and referential integrity. All 54 chapters are validated automatically before publication. See <a href=\"index.html#tech-info\">Technical Information</a> for details."
+    }
+  },
+  {
+    "date": "2026-03-08",
+    "slug": "corrections",
+    "ja": {
+      "title": "本文の修正と、和歌一覧・可視化のページの追加",
+      "body": "利用者の方からのご指摘に基づき、本文テキストの誤字・誤記および和歌の表記を修正しました。<a href=\"waka.html\">和歌一覧</a>ページ・<a href=\"viz.html\">可視化</a>ページを新設し、各巻のPDF・EPUBでの閲覧・ダウンロードにも対応しました。"
+    },
+    "en": {
+      "title": "Text corrections, and new waka and visualization pages",
+      "body": "Corrected typos and waka notation in the text based on user feedback. Added a <a href=\"waka.html\">Waka Poems</a> page and a <a href=\"viz.html\">Visualizations</a> page, along with PDF and EPUB viewing and download support for each volume."
+    }
+  },
+  {
+    "date": "2025-06-23",
+    "slug": "redesign",
+    "ja": {
+      "title": "サイトのデザインの刷新と DTS 対応",
+      "body": "ウェブサイトのデザインをモダンに刷新し、DTS（Distributed Text Services）対応を追加しました。レスポンシブデザインとアクセシビリティも向上しています。"
+    },
+    "en": {
+      "title": "Site redesign and DTS support",
+      "body": "The website design has been modernized and DTS (Distributed Text Services) support has been added. Responsive design and accessibility have also been improved."
+    }
+  },
+  {
+    "date": "2020-06-19",
+    "slug": "volumes",
+    "ja": {
+      "title": "9 帖を追加しました",
+      "body": "「39 夕霧」「46 椎本」「47 総角」「48 早蕨」「49 宿木」「50 東屋」「51 浮舟」「52 蜻蛉」「53 手習」を追加しました。"
+    },
+    "en": {
+      "title": "Nine volumes added",
+      "body": "Added volumes: \"39 Yūgiri\", \"46 Shiigamoto\", \"47 Agemaki\", \"48 Sawarabi\", \"49 Yadorigi\", \"50 Azumaya\", \"51 Ukifune\", \"52 Kagerō\", \"53 Tenarai\"."
+    }
+  },
+  {
+    "date": "2020-05-27",
+    "slug": "volumes",
+    "ja": {
+      "title": "5 帖を追加しました",
+      "body": "「34 若菜 上」「35 若菜 下」「36 柏木」「44 竹河」「45 橋姫」を追加しました。"
+    },
+    "en": {
+      "title": "Five volumes added",
+      "body": "Added volumes: \"34 Wakana I\", \"35 Wakana II\", \"36 Kashiwagi\", \"44 Takekawa\", \"45 Hashihime\"."
+    }
+  },
+  {
+    "date": "2020-05-07",
+    "slug": "volumes",
+    "ja": {
+      "title": "19 帖を追加しました",
+      "body": "「22 玉鬘」「23 初音」「24 胡蝶」「25 蛍」「26 常夏」「27 篝火」「28 野分」「29 行幸」「30 藤袴」「31 真木柱」「32 梅枝」「33 藤裏葉」「37 横笛」「38 鈴虫」「40 御法」「41 幻」「42 匂宮」「43 紅梅」「54 夢浮橋」を追加しました。"
+    },
+    "en": {
+      "title": "Nineteen volumes added",
+      "body": "Added 19 additional volumes: \"22 Tamakazura\", \"23 Hatsune\", \"24 Kochō\", \"25 Hotaru\", \"26 Tokonatsu\", \"27 Kagaribi\", \"28 Nowaki\", \"29 Miyuki\", \"30 Fujibakama\", \"31 Makibashira\", \"32 Umegae\", \"33 Fuji no Uraba\", \"37 Yokobue\", \"38 Suzumushi\", \"40 Minori\", \"41 Maboroshi\", \"42 Niō Miya\", \"43 Kōbai\", \"54 Yume no Ukihashi\"."
+    }
+  },
+  {
+    "date": "2020-04-18",
+    "slug": "volumes",
+    "ja": {
+      "title": "10 帖を追加しました",
+      "body": "「12 須磨」「13 明石」「14 澪標」「15 蓬生」「16 関屋」「17 絵合」「18 松風」「19 薄雲」「20 朝顔（槿）」「21 少女」を追加しました。"
+    },
+    "en": {
+      "title": "Ten volumes added",
+      "body": "Added volumes: \"12 Suma\", \"13 Akashi\", \"14 Miotsukushi\", \"15 Yomogiu\", \"16 Sekiya\", \"17 Eawase\", \"18 Matsukaze\", \"19 Usugumo\", \"20 Asagao\", \"21 Otome\"."
+    }
+  },
+  {
+    "date": "2020-01-19",
+    "slug": "volumes",
+    "ja": {
+      "title": "2 帖を追加しました",
+      "body": "「9 葵」「10 賢木」を追加しました。"
+    },
+    "en": {
+      "title": "Two volumes added",
+      "body": "Added volumes: \"9 Aoi\", \"10 Sakaki\"."
+    }
+  },
+  {
+    "date": "2020-01-06",
+    "slug": "volumes",
+    "ja": {
+      "title": "7 帖を追加しました",
+      "body": "「3 空蝉」「4 夕顔」「5 若紫」「6 末摘花」「7 紅葉賀」「8 花宴」「11 花散里」を追加しました。"
+    },
+    "en": {
+      "title": "Seven volumes added",
+      "body": "Added volumes: \"3 Utsusemi\", \"4 Yūgao\", \"5 Wakamurasaki\", \"6 Suetsumuhana\", \"7 Momiji no Ga\", \"8 Hana no En\", \"11 Hanachirusato\"."
+    }
+  },
+  {
+    "date": "2019-12-25",
+    "slug": "hahakigi",
+    "ja": {
+      "title": "「帚木」を追加しました",
+      "body": "「2 帚木」を追加しました。"
+    },
+    "en": {
+      "title": "\"Hahakigi\" added",
+      "body": "Added volume: \"2 Hahakigi\"."
+    }
+  },
+  {
+    "date": "2019-11-29",
+    "slug": "launch",
+    "ja": {
+      "title": "サイトを公開しました",
+      "body": "サイトを公開しました。"
+    },
+    "en": {
+      "title": "Website launched",
+      "body": "Website launched."
+    }
+  }
+]

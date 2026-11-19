@@ -93,11 +93,12 @@ jobs:
 
       # 版の情報の元は CITATION.cff だけ。それを上げたのに頁に流し忘れると、古い版のまま公開される。
       # 組み立て直して差が出たら落とす（docs/schema と同じ考え方）。CHANGELOG にその版の節があるかも見る
-      - name: Version on the pages must match CITATION.cff
+      # お知らせの頁とトップの一覧も、news/news.json から組み立て直して差が出ないかを見る
+      - name: Version and news on the pages must match CITATION.cff and news/news.json
         run: |
-          python3 scripts/prebuild.py version
-          if ! git diff --exit-code -- docs/; then
-            echo "::error::頁の版の表示が CITATION.cff と一致しません。python3 scripts/prebuild.py version を実行して結果をコミットしてください。"
+          python3 scripts/prebuild.py news version
+          if ! git diff --exit-code -- docs/ || [ -n "$(git status --porcelain -- docs/)" ]; then
+            echo "::error::頁が CITATION.cff または news/news.json と一致しません。python3 scripts/prebuild.py news version を実行して結果をコミットしてください。"
             exit 1
           fi
           v=$(sed -n 's/^version: *//p' CITATION.cff)
